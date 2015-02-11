@@ -1,0 +1,19 @@
+{
+  "name": "skeleton-navigation",
+  "version": "0.9.5",
+  "homepage": "https://github.com/joelcoxokc/ui-aurelia",
+  "authors": [
+    "joelcoxokc <joelcox@hisimagination.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "materialize": "~0.95.2"
+  }
+}

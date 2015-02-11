@@ -1,0 +1,14 @@
+template
+    import(from='./ui-aurelia')
+
+    ui-aurelia.is-row(router.bind="router",
+                      nav.bind="{right:true, bar:true}",
+                      bar.bind="{fixed:true, size:'sm', mobile:true}")
+        //- main.ui-main.is-column
+        //-     ui-nav-bar.ui-nav.ui-nav-bar(aside.bind="nav.right")
+        //-     div.ui-main
+        //-         router-view
+        //-     footer.ui-footer
+
+        //- ui-nav-aside(open.bind="right.open" fixed.bind="right.fixed" side.bind="right.side")
+
