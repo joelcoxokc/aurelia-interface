@@ -1,10 +1,34 @@
-# ui-Aurelia
+![enter image description here](https://github.com/joelcoxokc/aurelia-interface/blob/master/aurelia-interface.png)
+
+# aurelia-interface
+
+UI Library for [Aurelia](http://www.aurelia.io/) platform.
+
 
 [![Join the chat at https://gitter.im/joelcoxokc/ui-aurelia](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/joelcoxokc/ui-aurelia?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-UI Library for [Aurelia](http://www.aurelia.io/) platform. It sets up a standard navigation-style app using gulp to build your ES6 code with the 6to5 compiler. Karma/Jasmine testing is also configured.
 
 > To keep up to date on [Aurelia](http://www.aurelia.io/), please visit and subscribe to [the official blog](http://blog.durandal.io/). If you have questions, we invite you to join us on [our Gitter Channel](https://gitter.im/aurelia/discuss).
+
+
+##CONTRIBUTERS
+
+**Plugins** are found in the `./plugins` directory.
+
+**Demo Application** found in the `./src` directory
+
+**Stylus && CSS** found in the `./styles` directory
+
+
+**HTML** We are using HTML for our views, However, You are able to use jade
+**NOTE** We Recommend the usage of HTML over Jade.
+
+**Flex-Box**We are using Flex-Box to build this Library.
+
+**Components**We are implementing any possible component from a multitude of other Frameworks & Libraries.
+
+Please Contact me via Email before beginning work on a plugin, as many are already building some plugins.
+
 
 
 ### TODO
@@ -56,19 +80,6 @@ Create a curated list of plugins we can begin developing on.
  - uiText
  - uiBg
 
-
-##CONTRIBUTERS
-
-**Plugins** are found in the ./plugins directory.
-
-**Demo Application** found in the ./src directory
-
-**Stylus && CSS** found in the ./styles directory
-
-**HTML** We are using HTML for our views, However, You are able to use jade
-**NOTE** We Recommend the usage of HTML over Jade.
-
-Please Contact me via Email before beginning work on a plugin, as many are already building some plugins.
 
 ###Currently Developing
 
