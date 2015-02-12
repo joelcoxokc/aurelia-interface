@@ -4,6 +4,7 @@ import {MsgPublisher}     from './message'
 import {MsgSubscriber}    from './message'
 import {UiElement}        from './ui-element';
 
+
 export class UiNavBarTemplateController extends UiElement {
 
 
@@ -22,13 +23,14 @@ export class UiNavBarTemplateController extends UiElement {
 
 
     static inject() {
-
+      // console.log(Container)
       return [BoundViewFactory, ViewSlot]
 
     }
 
 
     constructor(viewFactory, viewSlot){
+      console.log()
       this.viewFactory = viewFactory
       this.viewSlot = viewSlot
       this.showing = true

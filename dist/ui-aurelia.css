@@ -4071,7 +4071,7 @@ a {
   color: #2196f3;
   text-decoration: none;
 }
-.ui-aurelia {
+.a-interface {
   position: relative;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -4090,6 +4090,20 @@ a {
   width: 100%;
   min-width: 100%;
   max-width: 100%;
+}
+.a-interface.is-row {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.a-interface.is-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .ui-body {
   -webkit-box-ordinal-group: 2;

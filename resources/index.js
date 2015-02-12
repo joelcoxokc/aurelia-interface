@@ -1,0 +1,2 @@
+export {AiGlobalBehavior} from './ai'
+

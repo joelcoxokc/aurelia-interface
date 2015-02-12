@@ -1,14 +1,16 @@
 <template>
+  <import from="./ai-card"></import>
+
   <section>
     <h2>${heading}</h2>
     <div class="row">
-      <div class="col s8 offset-s2">
+      <div class="col s8 offset-s2" ai-toggle.bind="showing">
 
-        <div class="card">
-          <div class="card-content">
+        <ai-card heading.bind=heading>
+          <section class="card-content"></section>
+          <footer class="card-footer"></footer>
+        </ai-card>
 
-          </div>
-        </div>
       </div>
     </div>
   </section>

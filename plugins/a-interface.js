@@ -5,7 +5,6 @@ import {Bar}              from './bar'
 import {MsgPublisher}     from './message'
 import {MsgSubscriber}    from './message'
 
-
 var defaults = {
   asideId : 'aside1',
   size    : 'md'    ,
@@ -14,7 +13,7 @@ var defaults = {
   fixed   : true
 }
 
-export class UiAureliaCustomElement {
+export class AInterfaceCustomElement {
 
     static metadata(){
 
@@ -24,44 +23,42 @@ export class UiAureliaCustomElement {
             .withProperty('aside')
             .withProperty('nav')
             .withProperty('footer')
+            .withProperty('direction')
             ;
 
     }
 
     static inject() {
 
-        return [Element,Bar, MsgPublisher, MsgSubscriber];
+        return [Element,Bar];
 
     }
 
-    constructor(element, bar, pub, sub) {
+    constructor(element, bar) {
 
+        console.log(this.toggler)
         this.element = element
-        this.pub     = pub
-        this.sub     = sub
         this.aside   = {};
         this.bar     = {};
         this.aside   = new Aside(defaults)
+
+        this.showing = true
 
 
     }
 
     attached(){
-        this.element.classList.add('ui-aurelia')
-        // console.log('Aurelia UI, attahced', this)
+        this.element.classList.add(`is-${this.direction}`)
+        this.element.classList.add('a-interface')
     }
 
-    activate(){
 
+    activate(){
         this.header = 'Joel'
         console.log('Nav Activated', this)
 
     }
-
-
-    // valueChanged(newValue){
-    //     Object.keys(newValue).forEach(className => {
-    //         this.element.classList[newValue[className] ? 'add' : 'remove'](className);
-    //     });
-    // }
 }
+
+
+
