@@ -30,29 +30,3 @@ export class App {
 
 
 }
-
-// class TempAside {
-
-//     static metadata(){
-
-//         return Behaviore
-//             .withProperty('open')
-
-//     }
-
-
-//     constructor(options){
-
-//         this.open  = options.open  || false;
-//         this.side  = options.side  || 'right';
-//         this.fixed = options.fixed || true;
-
-//     }
-
-
-//     toggle(){
-
-//         this.open = !this.open;
-
-//     }
-// }

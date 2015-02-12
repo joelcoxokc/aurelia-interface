@@ -1,9 +1,6 @@
-import {All}              from 'aurelia-framework';
 import {Behavior}         from 'aurelia-templating';
 import {Aside}            from './aside'
 import {Bar}              from './bar'
-import {MsgPublisher}     from './message'
-import {MsgSubscriber}    from './message'
 
 var defaults = {
   asideId : 'aside1',

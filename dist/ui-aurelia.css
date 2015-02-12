@@ -4622,6 +4622,9 @@ a {
       -ms-flex-order: -1;
           order: -1;
   width: 0px;
+  -webkit-transition: all 30ms, cubic-bezier(0, 0.74, 0, 0.99);
+          transition: all 30ms, cubic-bezier(0, 0.74, 0, 0.99);
+  z-index: 1000;
 }
 .ui-aside.ui-aside-nav .aside-container {
   width: 100%;
@@ -4652,9 +4655,17 @@ a {
       -ms-flex-order: -1;
           order: -1;
   box-shadow: 2px 0 4px rgba(0,0,0,0.3);
+  border-bottom-right-radius: 300%;
+  border-top-right-radius: 300%;
 }
 .ui-aside.ui-aside-nav.aside-open {
   width: 250px;
+}
+.ui-aside.ui-aside-nav.aside-open.aside-left {
+  -webkit-transition: all 200ms, cubic-bezier(0, 0.74, 0, 0.99);
+          transition: all 200ms, cubic-bezier(0, 0.74, 0, 0.99);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
 }
 .ui-main {
   -webkit-box-ordinal-group: 2;
