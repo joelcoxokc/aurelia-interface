@@ -33,7 +33,9 @@ export class AiNavBar extends UiElement {
       this.fixed   = true
       this.size    = 'sm'
       this.ripple  = true
+
     }
+
 
     open(){
 
