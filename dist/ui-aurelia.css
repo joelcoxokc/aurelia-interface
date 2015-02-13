@@ -4316,9 +4316,9 @@ a {
       -ms-flex-order: 0;
           order: 0;
   -webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
+  -webkit-flex: 1 3 auto;
+      -ms-flex: 1 3 auto;
+          flex: 1 3 auto;
   position: relative;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
@@ -4350,7 +4350,6 @@ a {
   display: flex;
 }
 .ui-nav.ui-nav-bar .nav-bar-content .nav-actions > * > * {
-  padding: 0 12px;
   -webkit-box-flex: 1;
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
@@ -4358,19 +4357,20 @@ a {
   dislpay: block;
   position: relative;
   font-size: 1.3rem;
-  cursor: pointe;
+  cursor: point;
   -webkit-transition: background-color 200ms, cubic-bezier(0, 0.74, 0, 0.99), color 200ms, cubic-bezier(0, 0.74, 0, 0.99);
           transition: background-color 200ms, cubic-bezier(0, 0.74, 0, 0.99), color 200ms, cubic-bezier(0, 0.74, 0, 0.99);
 }
 .ui-nav.ui-nav-bar .nav-bar-content .nav-actions > * > *:hover {
-  background-color: #2196f3;
-  color: #fff;
+  background-color: #9c27b0;
+  color: #fff !important;
 }
 .ui-nav.ui-nav-bar .nav-bar-content .nav-actions.nav-actions-right {
   -webkit-box-ordinal-group: 3;
   -webkit-order: 2;
       -ms-flex-order: 2;
           order: 2;
+  width: 0;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
@@ -4524,6 +4524,9 @@ a {
     display: -webkit-flex;
     display: flex;
   }
+  .ui-nav.ui-nav-bar .nav-bar-container .nav-bar-content .nav-actions > * {
+    text-align: center;
+  }
   .ui-nav.ui-nav-bar .nav-bar-container .nav-bar-content .nav-bar-collapse {
     top: 0;
     position: relative;
@@ -4551,6 +4554,10 @@ a {
         -ms-flex-pack: center;
             justify-content: center;
   }
+}
+template {
+  max-width: 0;
+  max-hegiht: 0;
 }
 @-webkit-keyframes nav-bar-drop {
   0% {

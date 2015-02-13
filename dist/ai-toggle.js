@@ -1,7 +1,7 @@
 System.register(["aurelia-templating", "./ui-element"], function (_export) {
   "use strict";
 
-  var Behavior, UiElement, _prototypeProperties, _inherits, _classCallCheck, UiToggleCustomElement;
+  var Behavior, UiElement, _prototypeProperties, _inherits, _classCallCheck, AiToggle;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
@@ -15,19 +15,19 @@ System.register(["aurelia-templating", "./ui-element"], function (_export) {
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
-      UiToggleCustomElement = _export("UiToggleCustomElement", (function (UiElement) {
-        function UiToggleCustomElement(element) {
-          _classCallCheck(this, UiToggleCustomElement);
+      AiToggle = _export("AiToggle", (function (UiElement) {
+        function AiToggle(element) {
+          _classCallCheck(this, AiToggle);
 
           this.element = element;
         }
 
-        _inherits(UiToggleCustomElement, UiElement);
+        _inherits(AiToggle, UiElement);
 
-        _prototypeProperties(UiToggleCustomElement, {
+        _prototypeProperties(AiToggle, {
           metadata: {
             value: function metadata() {
-              return Behavior.withProperty("toggle").withProperty("icon");
+              return Behavior.customElement("ai-toggle").withProperty("toggle").withProperty("icon");
             },
             writable: true,
             configurable: true
@@ -42,6 +42,9 @@ System.register(["aurelia-templating", "./ui-element"], function (_export) {
         }, {
           bind: {
             value: function bind() {
+              this.element.addEventListener("click", function (event) {
+                $("ai-nav-aside").toggleClass("open");
+              });
               this.element.classList.add("aside-toggle", "waves-effect", "waves-light", "no-select");
             },
             writable: true,
@@ -49,9 +52,9 @@ System.register(["aurelia-templating", "./ui-element"], function (_export) {
           }
         });
 
-        return UiToggleCustomElement;
+        return AiToggle;
       })(UiElement));
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInVpLXRvZ2dsZS5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7TUFBUSxRQUFRLEVBQ1IsU0FBUyxvREFFSixxQkFBcUI7OztBQUgxQixjQUFRLHNCQUFSLFFBQVE7O0FBQ1IsZUFBUyxjQUFULFNBQVM7Ozs7Ozs7OztBQUVKLDJCQUFxQiwrQ0FBUyxTQUFTO0FBZXJDLGlCQWZGLHFCQUFxQixDQWVsQixPQUFPO2dDQWZWLHFCQUFxQjs7QUFpQjFCLGNBQUksQ0FBQyxPQUFPLEdBQUcsT0FBTyxDQUFBO1NBRXpCOztrQkFuQlEscUJBQXFCLEVBQVMsU0FBUzs7NkJBQXZDLHFCQUFxQjtBQUN2QixrQkFBUTttQkFBQSxvQkFBRTtBQUNiLHFCQUFPLFFBQVEsQ0FDVixZQUFZLENBQUMsUUFBUSxDQUFDLENBQ3RCLFlBQVksQ0FBQyxNQUFNLENBQUMsQ0FBQTthQUU1Qjs7OztBQUVNLGdCQUFNO21CQUFBLGtCQUFFO0FBRVgscUJBQU8sQ0FBQyxPQUFPLENBQUMsQ0FBQTthQUVuQjs7Ozs7QUFVRCxjQUFJO21CQUFBLGdCQUFFO0FBRUYsa0JBQUksQ0FBQyxPQUFPLENBQUMsU0FBUyxDQUFDLEdBQUcsQ0FBQyxjQUFjLEVBQUUsY0FBYyxFQUFFLGFBQWEsRUFBRSxXQUFXLENBQUMsQ0FBQzthQUUxRjs7Ozs7O2VBMUJRLHFCQUFxQjtTQUFTLFNBQVMiLCJmaWxlIjoidWktdG9nZ2xlLmpzIiwic291cmNlUm9vdCI6Ii9kaXN0LyJ9
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFpLXRvZ2dsZS5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7TUFBUSxRQUFRLEVBQ1IsU0FBUyxvREFFSixRQUFROzs7QUFIYixjQUFRLHNCQUFSLFFBQVE7O0FBQ1IsZUFBUyxjQUFULFNBQVM7Ozs7Ozs7OztBQUVKLGNBQVEsa0NBQVMsU0FBUztBQWdCeEIsaUJBaEJGLFFBQVEsQ0FnQkwsT0FBTztnQ0FoQlYsUUFBUTs7QUFrQmIsY0FBSSxDQUFDLE9BQU8sR0FBRyxPQUFPLENBQUE7U0FFekI7O2tCQXBCUSxRQUFRLEVBQVMsU0FBUzs7NkJBQTFCLFFBQVE7QUFDVixrQkFBUTttQkFBQSxvQkFBRTtBQUNiLHFCQUFPLFFBQVEsQ0FDVixhQUFhLENBQUMsV0FBVyxDQUFDLENBQzFCLFlBQVksQ0FBQyxRQUFRLENBQUMsQ0FDdEIsWUFBWSxDQUFDLE1BQU0sQ0FBQyxDQUFBO2FBRTVCOzs7O0FBRU0sZ0JBQU07bUJBQUEsa0JBQUU7QUFFWCxxQkFBTyxDQUFDLE9BQU8sQ0FBQyxDQUFBO2FBRW5COzs7OztBQVVELGNBQUk7bUJBQUEsZ0JBQUU7QUFDRixrQkFBSSxDQUFDLE9BQU8sQ0FBQyxnQkFBZ0IsQ0FBQyxPQUFPLEVBQUUsVUFBUyxLQUFLLEVBQUM7QUFDbEQsaUJBQUMsQ0FBQyxjQUFjLENBQUMsQ0FBQyxXQUFXLENBQUMsTUFBTSxDQUFDLENBQUE7ZUFDeEMsQ0FBQyxDQUFBO0FBQ0Ysa0JBQUksQ0FBQyxPQUFPLENBQUMsU0FBUyxDQUFDLEdBQUcsQ0FBQyxjQUFjLEVBQUUsY0FBYyxFQUFFLGFBQWEsRUFBRSxXQUFXLENBQUMsQ0FBQzthQUUxRjs7Ozs7O2VBN0JRLFFBQVE7U0FBUyxTQUFTIiwiZmlsZSI6ImFpLXRvZ2dsZS5qcyIsInNvdXJjZVJvb3QiOiIvZGlzdC8ifQ==

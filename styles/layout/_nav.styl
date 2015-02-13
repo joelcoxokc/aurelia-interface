@@ -82,7 +82,7 @@
 
       .nav-actions
         order         : 0
-        flex          : 1 0 auto
+        flex          : 1 3 auto
         position      : relative
         flex-direction: row
         flex-container()
@@ -99,20 +99,21 @@
           flex-container()
 
           & > *
-            padding  : 0 12px
             flex     : 1 0 auto
             dislpay  : block
             position : relative
             font-size: 1.3rem
-            cursor   : pointe
+            cursor   : point
             transition background-color 200ms, cubic-bezier(0,.74,0,.99), color 200ms, cubic-bezier(0,.74,0,.99)
 
             &:hover
-              background-color: $blue.base
-              color           : white
+              background-color: $purple.base
+              color           : white !important
 
         &.nav-actions-right
           order         : 2
+          // flex 0 3 auto
+          width 0
           justify(flex-end)
           align(flex-end)
           // align-content: flex-end
@@ -128,10 +129,6 @@
       box-shadow 0px 2px 4px rgba(0,0,0,0.3)
       // transition max-height 1s cubic-bezier(0,.74,0,.99)
       &.open
-        // animation: nav-bar-drop
-        // animation-duration: 1s
-        // animation-direction: both
-        // animation-fill-mode: both
 
         height:  auto
 
@@ -212,7 +209,8 @@
             flex-container()
             &.hide-mobile
               flex-container()
-            & > li
+            & > *
+              text-align center
               width 0
                 // align-self flex-end
 
@@ -231,3 +229,7 @@
 
 
 
+
+template
+    max-width 0
+    max-hegiht 0

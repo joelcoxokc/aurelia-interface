@@ -1,5 +1,5 @@
 <template>
-  <import from="./ui-toggle"></import>
+  <import from="./ai-toggle"></import>
 
   <nav class="nav-bar-container" role="navigation">
     <div class="nav-bar-header header-right">
@@ -19,7 +19,7 @@
           <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
             <a class="waves-effect waves-light text-purple" href.bind="row.href">${row.title}</a>
           </li>
-          <ui-toggle toggle.call="aside.toggle()" icon="mdi-navigation-menu" class=""></ui-toggle>
+          <ai-toggle icon="mdi-navigation-menu" class=""></ai-toggle>
         </ul>
 
         <ul class="nav-actions hide-mobile">
