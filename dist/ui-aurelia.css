@@ -4105,7 +4105,7 @@ a {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.ui-body {
+.ai-body {
   -webkit-box-ordinal-group: 2;
   -webkit-order: 1;
       -ms-flex-order: 1;

@@ -1,7 +1,7 @@
 System.register(["aurelia-templating"], function (_export) {
   "use strict";
 
-  var Behavior, _prototypeProperties, _classCallCheck, UiMain;
+  var Behavior, _prototypeProperties, _classCallCheck, AiMain;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
@@ -11,17 +11,17 @@ System.register(["aurelia-templating"], function (_export) {
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
-      UiMain = _export("UiMain", (function () {
-        function UiMain(element) {
-          _classCallCheck(this, UiMain);
+      AiMain = _export("AiMain", (function () {
+        function AiMain(element) {
+          _classCallCheck(this, AiMain);
 
           this.element = element;
         }
 
-        _prototypeProperties(UiMain, {
+        _prototypeProperties(AiMain, {
           metadata: {
             value: function metadata() {
-              return Behavior.customElement("nav-bar").withProperty("router");
+              return Behavior.customElement("ai-main").withProperty("router");
             },
             writable: true,
             configurable: true
@@ -36,14 +36,14 @@ System.register(["aurelia-templating"], function (_export) {
         }, {
           attahced: {
             value: function attahced() {
-              this.element.classList.add("ai-body");
+              this.element.classList.add("ai-main");
             },
             writable: true,
             configurable: true
           }
         });
 
-        return UiMain;
+        return AiMain;
       })());
     }
   };

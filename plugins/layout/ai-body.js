@@ -1,13 +1,14 @@
 import {Behavior} from 'aurelia-templating'
 
 
-export class AiMain{
+export class AiBody{
 
     static metadata(){
 
         return Behavior
-            .customElement('ai-main')
+            .customElement('ai-body')
             .withProperty('router')
+            .withProperty('direction')
 
     }
 
@@ -27,7 +28,14 @@ export class AiMain{
 
     attahced(){
 
-        this.element.classList.add('ai-main')
+      this.element.classList.add('ai-body');
+
+    }
+
+
+    directionChanged(value){
+
+        this.element.classList.add('is-'+value)
 
     }
 }

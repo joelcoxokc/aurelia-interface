@@ -6,7 +6,7 @@ export class NavBar{
     static metadata(){
 
         return Behavior
-            .customElement('nav-bar')
+            // .customElement('nav-bar')
             .withProperty('router')
 
     }
@@ -25,4 +25,5 @@ export class NavBar{
         this.isColumn = true
 
     }
+
 }
