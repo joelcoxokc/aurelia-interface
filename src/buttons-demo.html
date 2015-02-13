@@ -1,0 +1,19 @@
+<template>
+<import from="./ai-btn-toggle"></import>
+<import from="./ai-class"></import>
+  <h2>${heading}</h2>
+  <section>
+    <h3>Button Toggle/Checkbox</h3>
+      <a
+        class="waves-effect waves-light btn"
+        ai-class.bind="{disabled: !checkboxIsChecked}"
+        ai-btn-toggle.bind="checkboxIsChecked"
+      >
+        Toggle Property - ${checkboxIsChecked ? 'Checked' : 'Unchecked'}
+      </a>
+      <a
+        class="waves-effect waves-light btn"
+        ai-btn-toggle.call="checkboxChanged(newVal)"
+      >Toggle Callback</a>
+  </section>
+</template>
