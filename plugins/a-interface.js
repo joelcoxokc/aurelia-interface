@@ -1,6 +1,9 @@
-import {Behavior}         from 'aurelia-templating';
-import {Aside}            from './aside'
-import {Bar}              from './bar'
+
+
+import {Behavior} from 'aurelia-templating';
+import {Aside}             from './aside'
+import {Bar}               from './bar'
+
 
 var defaults = {
   asideId : 'aside1',
@@ -12,15 +15,17 @@ var defaults = {
 
 export class AInterfaceCustomElement {
 
-    static metadata(){
 
+    static metadata(){
         return Behavior
             // .noView()
+
             .withProperty('router')
             .withProperty('aside')
             .withProperty('nav')
             .withProperty('footer')
             .withProperty('direction')
+            // .noView()
             ;
 
     }

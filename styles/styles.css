@@ -28,9 +28,6 @@
     overflow-y: auto;
 }
 
-section {
-    margin: 0 20px;
-}
 
 .navbar-nav li.loader {
     margin: 12px 24px 0 6px;
@@ -38,4 +35,10 @@ section {
 
 .pictureDetail {
     max-width: 425px;
+}
+
+.page-heading {
+    font-size: 100px;
+    margin: 100px;
+    font-weight: 100;
 }

@@ -2,16 +2,25 @@
   <import from="./ai-card"></import>
 
   <section>
-    <h2>${heading}</h2>
-    <div class="row">
-      <div class="col s8 offset-s2" ai-toggle.bind="showing">
 
-        <ai-card heading.bind=heading>
-          <section class="card-content"></section>
-          <footer class="card-footer"></footer>
-        </ai-card>
+    <header class="bg-blue ai-header">
+      <h1 class="text-white page-heading">${heading}</h1>
+    </header>
 
+    <div class="ai-content">
+      <div class="row">
+        <div class="col s8 offset-s2" ai-toggle.bind="showing">
+
+          <ai-card heading.bind=heading class="ai-card card">
+            <div class="card-content">
+              <h1 class="card-content">${heading}</h1>
+              <footer class="card-footer"></footer>
+            </div>
+          </ai-card>
+
+        </div>
       </div>
+
     </div>
   </section>
 </template>

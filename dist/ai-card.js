@@ -1,7 +1,7 @@
 System.register(["aurelia-templating"], function (_export) {
   "use strict";
 
-  var Behavior, BoundViewFactory, ViewSlot, _prototypeProperties, _classCallCheck, AiCard;
+  var Behavior, BoundViewFactory, ViewSlot, _prototypeProperties, _classCallCheck, AiCardCustomeElement;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
@@ -13,20 +13,20 @@ System.register(["aurelia-templating"], function (_export) {
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
-      AiCard = _export("AiCard", (function () {
-        function AiCard(element, viewFactory, viewSlot) {
-          _classCallCheck(this, AiCard);
+      AiCardCustomeElement = _export("AiCardCustomeElement", (function () {
+        function AiCardCustomeElement(element, viewFactory, viewSlot) {
+          _classCallCheck(this, AiCardCustomeElement);
 
           this.element = element;
           this.viewFactory = viewFactory;
           this.viewSlot = viewSlot;
         }
 
-        _prototypeProperties(AiCard, {
+        _prototypeProperties(AiCardCustomeElement, {
           metadata: {
             value: function metadata() {
-              return Behavior.withProperty("router").withProperty("value");
-
+              return Behavior.withProperty("router").withProperty("value").noView();
+              skipProcessingContent();
             },
             writable: true,
             configurable: true
@@ -41,8 +41,8 @@ System.register(["aurelia-templating"], function (_export) {
         }, {
           bind: {
             value: function bind() {
+              console.log("attached");
               this.element.classList.add("ai-card");
-              console.log(this.contentView);
             },
             writable: true,
             configurable: true
@@ -56,9 +56,9 @@ System.register(["aurelia-templating"], function (_export) {
           }
         });
 
-        return AiCard;
+        return AiCardCustomeElement;
       })());
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFpLWNhcmQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O01BQVEsUUFBUSxFQUFFLGdCQUFnQixFQUFFLFFBQVEseUNBRS9CLE1BQU07OztBQUZYLGNBQVEsc0JBQVIsUUFBUTtBQUFFLHNCQUFnQixzQkFBaEIsZ0JBQWdCO0FBQUUsY0FBUSxzQkFBUixRQUFROzs7Ozs7O0FBRS9CLFlBQU07QUFpQkosaUJBakJGLE1BQU0sQ0FpQkgsT0FBTyxFQUFFLFdBQVcsRUFBRSxRQUFRO2dDQWpCakMsTUFBTTs7QUFtQlgsY0FBSSxDQUFDLE9BQU8sR0FBTyxPQUFPLENBQUM7QUFDM0IsY0FBSSxDQUFDLFdBQVcsR0FBRyxXQUFXLENBQUM7QUFDL0IsY0FBSSxDQUFDLFFBQVEsR0FBTSxRQUFRLENBQUM7U0FFL0I7OzZCQXZCUSxNQUFNO0FBRVIsa0JBQVE7bUJBQUEsb0JBQUU7QUFFYixxQkFBTyxRQUFRLENBQ1YsWUFBWSxDQUFDLFFBQVEsQ0FBQyxDQUN0QixZQUFZLENBQUMsT0FBTyxDQUFDLENBQUE7O2FBRzdCOzs7O0FBR00sZ0JBQU07bUJBQUEsa0JBQUU7QUFDWCxxQkFBTyxDQUFDLE9BQU8sRUFBRSxnQkFBZ0IsRUFBRSxRQUFRLENBQUMsQ0FBQTthQUMvQzs7Ozs7QUFZRCxjQUFJO21CQUFBLGdCQUFFO0FBQ0Ysa0JBQUksQ0FBQyxPQUFPLENBQUMsU0FBUyxDQUFDLEdBQUcsQ0FBQyxTQUFTLENBQUMsQ0FBQTtBQUNyQyxxQkFBTyxDQUFDLEdBQUcsQ0FBQyxJQUFJLENBQUMsV0FBVyxDQUFDLENBQUE7YUFDaEM7Ozs7QUFFRCxrQkFBUTttQkFBQSxvQkFBRTtBQUVOLHFCQUFPLENBQUMsR0FBRyxDQUFDLElBQUksQ0FBQyxDQUFBO2FBQ3BCOzs7Ozs7ZUFsQ1EsTUFBTSIsImZpbGUiOiJhaS1jYXJkLmpzIiwic291cmNlUm9vdCI6Ii9kaXN0LyJ9
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFpLWNhcmQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O01BQVEsUUFBUSxFQUFFLGdCQUFnQixFQUFFLFFBQVEseUNBSS9CLG9CQUFvQjs7O0FBSnpCLGNBQVEsc0JBQVIsUUFBUTtBQUFFLHNCQUFnQixzQkFBaEIsZ0JBQWdCO0FBQUUsY0FBUSxzQkFBUixRQUFROzs7Ozs7O0FBSS9CLDBCQUFvQjtBQW1CbEIsaUJBbkJGLG9CQUFvQixDQW1CakIsT0FBTyxFQUFFLFdBQVcsRUFBRSxRQUFRO2dDQW5CakMsb0JBQW9COztBQXFCekIsY0FBSSxDQUFDLE9BQU8sR0FBTyxPQUFPLENBQUM7QUFDM0IsY0FBSSxDQUFDLFdBQVcsR0FBRyxXQUFXLENBQUM7QUFDL0IsY0FBSSxDQUFDLFFBQVEsR0FBTSxRQUFRLENBQUM7U0FFL0I7OzZCQXpCUSxvQkFBb0I7QUFFdEIsa0JBQVE7bUJBQUEsb0JBQUU7QUFFYixxQkFBTyxRQUFRLENBQ1YsWUFBWSxDQUFDLFFBQVEsQ0FBQyxDQUN0QixZQUFZLENBQUMsT0FBTyxDQUFDLENBRXJCLE1BQU0sRUFBRSxDQUFBO0FBQ1QsbUNBQXFCLEVBQUUsQ0FBQTthQUU5Qjs7OztBQUdNLGdCQUFNO21CQUFBLGtCQUFFO0FBQ1gscUJBQU8sQ0FBQyxPQUFPLEVBQUUsZ0JBQWdCLEVBQUUsUUFBUSxDQUFDLENBQUE7YUFDL0M7Ozs7O0FBV0QsY0FBSTttQkFBQSxnQkFBRTtBQUNGLHFCQUFPLENBQUMsR0FBRyxDQUFDLFVBQVUsQ0FBQyxDQUFBO0FBQ3ZCLGtCQUFJLENBQUMsT0FBTyxDQUFDLFNBQVMsQ0FBQyxHQUFHLENBQUMsU0FBUyxDQUFDLENBQUM7YUFDekM7Ozs7QUFFRCxrQkFBUTttQkFBQSxvQkFBRTtBQUVOLHFCQUFPLENBQUMsR0FBRyxDQUFDLElBQUksQ0FBQyxDQUFBO2FBQ3BCOzs7Ozs7ZUFuQ1Esb0JBQW9CIiwiZmlsZSI6ImFpLWNhcmQuanMiLCJzb3VyY2VSb290IjoiL2Rpc3QvIn0=

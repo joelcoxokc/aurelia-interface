@@ -1,13 +1,17 @@
 import {Behavior, BoundViewFactory, ViewSlot} from 'aurelia-templating'
 
-export class AiCard{
+
+
+export class AiCardCustomeElement{
 
     static metadata(){
 
         return Behavior
             .withProperty('router')
             .withProperty('value')
-
+            // .usesShadowDOM()
+            .noView()
+            skipProcessingContent()
 
     }
 
@@ -25,10 +29,9 @@ export class AiCard{
 
     }
 
-
     bind(){
-        this.element.classList.add('ai-card')
-        console.log(this.contentView)
+        console.log('attached')
+        this.element.classList.add('ai-card');
     }
 
     toggleMe(){

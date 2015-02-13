@@ -4667,6 +4667,22 @@ a {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
+.ai-header {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  min-height: 400px;
+  max-height: 400px;
+}
+.ai-content {
+  margin-top: -100px;
+}
 .ui-main {
   -webkit-box-ordinal-group: 2;
   -webkit-order: 1;
@@ -4693,4 +4709,16 @@ a {
 }
 .btn-large {
   background-color: #2196f3;
+}
+.ai-card {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  position: relateive;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
 }
