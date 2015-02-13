@@ -1,24 +1,3 @@
 <template>
-    <import from="./ai-nav-bar"></import>
-    <import from="./ai-nav-aside"></import>
-
-    <main class="ui-body is-column">
-
-        <ai-nav-bar
-                    class="ui-nav ui-nav-bar"
-                    router.bind="router"
-                    aside.bind="aside"></ai-nav-bar>
-
-        <div class="ui-main">
-            <router-view></router-view>
-        </div>
-
-        <footer class="ai-card-footer"></footer>
-    </main>
-
-    <ai-nav-aside
-                size.bind="aside.size"
-                side.bind="aside.side"
-                fixed.bind="aside.fixed"
-                open.bind="aside.open"></ai-nav-aside>
+    <content></content>
 </template>

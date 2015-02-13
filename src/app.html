@@ -1,10 +1,13 @@
 <template>
     <import from="./a-interface"></import>
+    <import from="./nav-aside"></import>
 
     <a-interface
                 direction="is-row"
-                router.bind="router"
                 nav.bind="{right:true, bar:true}"
                 bar.bind="{fixed:true, size:'sm', mobile:true}">
+
+                <nav-aside router.bind="router"></nav-aside>
+
     </a-interface>
 </template>
