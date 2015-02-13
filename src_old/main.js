@@ -19,7 +19,7 @@ export function configure(aurelia) {
     .plugin('./ai-action')
     .plugin('./ui-class-list')
     .plugin('./ui-element')
-    .plugin('./ui-toggle')
+    .plugin('./ai-toggle')
     .plugin('./ai-nav-bar')
     .plugin('./ai-nav-aside')
     // .plugin('../plugins/toggle/ui-toggle')
