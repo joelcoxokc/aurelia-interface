@@ -1,13 +1,13 @@
 <template>
     <import from="./a-interface"></import>
-    <import from="./nav-aside"></import>
+    <import from="./layout-primary"></import>
 
     <a-interface
                 direction="is-row"
                 nav.bind="{right:true, bar:true}"
                 bar.bind="{fixed:true, size:'sm', mobile:true}">
 
-                <nav-aside router.bind="router"></nav-aside>
+                <layout-primary router.bind="router"></layout-primary>
 
     </a-interface>
 </template>

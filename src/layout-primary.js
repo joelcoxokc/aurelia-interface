@@ -8,6 +8,8 @@ export class LayoutPrimary{
         return Behavior
             .customElement('layout-primary')
             .withProperty('router')
+            .withProperty('direction')
+
 
     }
 
