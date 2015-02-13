@@ -1,14 +1,12 @@
 import {Behavior, BoundViewFactory, ViewSlot} from 'aurelia-templating'
 
-
-
-export class AiCardCustomeElement{
+export class AiCard{
 
     static metadata(){
 
         return Behavior
-            .withProperty('router')
-            .withProperty('value')
+            .customElement('ai-card')
+            .withProperty('heading')
 
     }
 

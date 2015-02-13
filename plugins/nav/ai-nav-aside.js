@@ -9,12 +9,13 @@ var defaults = {
   fixed   : true
 }
 
-export class UiNavAsideCustomElement extends UiElement{
+export class AiNavAside extends UiElement{
 
 
     static metadata(){
 
         return Behavior
+              .customElement('ai-nav-aside')
               .withProperty('open')
               .withProperty('fixed')
               .withProperty('side')
@@ -22,6 +23,17 @@ export class UiNavAsideCustomElement extends UiElement{
 
     }
 
+    static inject(){
+
+        return [Element]
+
+    }
+
+    constructor(element){
+
+        this.element = element
+
+    }
 
     bind(){
 

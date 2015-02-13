@@ -20,8 +20,8 @@ export function configure(aurelia) {
     .plugin('./ui-class-list')
     .plugin('./ui-element')
     .plugin('./ui-toggle')
-    .plugin('./ui-nav-bar')
-    .plugin('./ui-nav-aside')
+    .plugin('./ai-nav-bar')
+    .plugin('./ai-nav-aside')
     // .plugin('../plugins/toggle/ui-toggle')
 
   aurelia.start()
