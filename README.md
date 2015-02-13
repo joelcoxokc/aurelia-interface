@@ -52,6 +52,8 @@ Create a curated list of plugins we can begin developing on.
  - Progress
  - Card
  - DataGrid
+   - grouping
+   - dragging
  - Table
  - Shadows
  - Grid
