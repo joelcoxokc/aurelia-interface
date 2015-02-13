@@ -9,9 +9,6 @@ export class AiCardCustomeElement{
         return Behavior
             .withProperty('router')
             .withProperty('value')
-            // .usesShadowDOM()
-            .noView()
-            skipProcessingContent()
 
     }
 
