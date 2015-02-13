@@ -13,7 +13,7 @@ export class AiClass {
       Element
     ];
   }
-  
+
   constructor (element) {
     this.element = element
   }
@@ -37,9 +37,9 @@ export class AiClass {
   }
 
   setupObserver () {
-    var self = this
+    var _this = this
     Object.observe(this.value, () => {
-      self.updateClasses()
+      _this.updateClasses()
     })
   }
 }

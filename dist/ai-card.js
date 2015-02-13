@@ -1,7 +1,7 @@
 System.register(["aurelia-templating"], function (_export) {
   "use strict";
 
-  var Behavior, BoundViewFactory, ViewSlot, _prototypeProperties, _classCallCheck, AiCardCustomeElement;
+  var Behavior, BoundViewFactory, ViewSlot, _prototypeProperties, _classCallCheck, AiCard;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
@@ -13,19 +13,19 @@ System.register(["aurelia-templating"], function (_export) {
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
-      AiCardCustomeElement = _export("AiCardCustomeElement", (function () {
-        function AiCardCustomeElement(element, viewFactory, viewSlot) {
-          _classCallCheck(this, AiCardCustomeElement);
+      AiCard = _export("AiCard", (function () {
+        function AiCard(element, viewFactory, viewSlot) {
+          _classCallCheck(this, AiCard);
 
           this.element = element;
           this.viewFactory = viewFactory;
           this.viewSlot = viewSlot;
         }
 
-        _prototypeProperties(AiCardCustomeElement, {
+        _prototypeProperties(AiCard, {
           metadata: {
             value: function metadata() {
-              return Behavior.withProperty("router").withProperty("value");
+              return Behavior.customElement("ai-card").withProperty("heading");
             },
             writable: true,
             configurable: true
@@ -55,9 +55,9 @@ System.register(["aurelia-templating"], function (_export) {
           }
         });
 
-        return AiCardCustomeElement;
+        return AiCard;
       })());
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFpLWNhcmQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O01BQVEsUUFBUSxFQUFFLGdCQUFnQixFQUFFLFFBQVEseUNBSS9CLG9CQUFvQjs7O0FBSnpCLGNBQVEsc0JBQVIsUUFBUTtBQUFFLHNCQUFnQixzQkFBaEIsZ0JBQWdCO0FBQUUsY0FBUSxzQkFBUixRQUFROzs7Ozs7O0FBSS9CLDBCQUFvQjtBQWdCbEIsaUJBaEJGLG9CQUFvQixDQWdCakIsT0FBTyxFQUFFLFdBQVcsRUFBRSxRQUFRO2dDQWhCakMsb0JBQW9COztBQWtCekIsY0FBSSxDQUFDLE9BQU8sR0FBTyxPQUFPLENBQUM7QUFDM0IsY0FBSSxDQUFDLFdBQVcsR0FBRyxXQUFXLENBQUM7QUFDL0IsY0FBSSxDQUFDLFFBQVEsR0FBTSxRQUFRLENBQUM7U0FFL0I7OzZCQXRCUSxvQkFBb0I7QUFFdEIsa0JBQVE7bUJBQUEsb0JBQUU7QUFFYixxQkFBTyxRQUFRLENBQ1YsWUFBWSxDQUFDLFFBQVEsQ0FBQyxDQUN0QixZQUFZLENBQUMsT0FBTyxDQUFDLENBQUE7YUFFN0I7Ozs7QUFHTSxnQkFBTTttQkFBQSxrQkFBRTtBQUNYLHFCQUFPLENBQUMsT0FBTyxFQUFFLGdCQUFnQixFQUFFLFFBQVEsQ0FBQyxDQUFBO2FBQy9DOzs7OztBQVdELGNBQUk7bUJBQUEsZ0JBQUU7QUFDRixxQkFBTyxDQUFDLEdBQUcsQ0FBQyxVQUFVLENBQUMsQ0FBQTtBQUN2QixrQkFBSSxDQUFDLE9BQU8sQ0FBQyxTQUFTLENBQUMsR0FBRyxDQUFDLFNBQVMsQ0FBQyxDQUFDO2FBQ3pDOzs7O0FBRUQsa0JBQVE7bUJBQUEsb0JBQUU7QUFFTixxQkFBTyxDQUFDLEdBQUcsQ0FBQyxJQUFJLENBQUMsQ0FBQTthQUNwQjs7Ozs7O2VBaENRLG9CQUFvQiIsImZpbGUiOiJhaS1jYXJkLmpzIiwic291cmNlUm9vdCI6Ii9kaXN0LyJ9
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFpLWNhcmQuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O01BQVEsUUFBUSxFQUFFLGdCQUFnQixFQUFFLFFBQVEseUNBRS9CLE1BQU07OztBQUZYLGNBQVEsc0JBQVIsUUFBUTtBQUFFLHNCQUFnQixzQkFBaEIsZ0JBQWdCO0FBQUUsY0FBUSxzQkFBUixRQUFROzs7Ozs7O0FBRS9CLFlBQU07QUFnQkosaUJBaEJGLE1BQU0sQ0FnQkgsT0FBTyxFQUFFLFdBQVcsRUFBRSxRQUFRO2dDQWhCakMsTUFBTTs7QUFrQlgsY0FBSSxDQUFDLE9BQU8sR0FBTyxPQUFPLENBQUM7QUFDM0IsY0FBSSxDQUFDLFdBQVcsR0FBRyxXQUFXLENBQUM7QUFDL0IsY0FBSSxDQUFDLFFBQVEsR0FBTSxRQUFRLENBQUM7U0FFL0I7OzZCQXRCUSxNQUFNO0FBRVIsa0JBQVE7bUJBQUEsb0JBQUU7QUFFYixxQkFBTyxRQUFRLENBQ1YsYUFBYSxDQUFDLFNBQVMsQ0FBQyxDQUN4QixZQUFZLENBQUMsU0FBUyxDQUFDLENBQUE7YUFFL0I7Ozs7QUFHTSxnQkFBTTttQkFBQSxrQkFBRTtBQUNYLHFCQUFPLENBQUMsT0FBTyxFQUFFLGdCQUFnQixFQUFFLFFBQVEsQ0FBQyxDQUFBO2FBQy9DOzs7OztBQVdELGNBQUk7bUJBQUEsZ0JBQUU7QUFDRixxQkFBTyxDQUFDLEdBQUcsQ0FBQyxVQUFVLENBQUMsQ0FBQTtBQUN2QixrQkFBSSxDQUFDLE9BQU8sQ0FBQyxTQUFTLENBQUMsR0FBRyxDQUFDLFNBQVMsQ0FBQyxDQUFDO2FBQ3pDOzs7O0FBRUQsa0JBQVE7bUJBQUEsb0JBQUU7QUFFTixxQkFBTyxDQUFDLEdBQUcsQ0FBQyxJQUFJLENBQUMsQ0FBQTthQUNwQjs7Ozs7O2VBaENRLE1BQU0iLCJmaWxlIjoiYWktY2FyZC5qcyIsInNvdXJjZVJvb3QiOiIvZGlzdC8ifQ==

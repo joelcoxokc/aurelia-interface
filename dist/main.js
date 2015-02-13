@@ -7,7 +7,7 @@ System.register(["aurelia-framework", "aurelia-logging-console", "../resources/i
   function configure(aurelia) {
 
 
-    aurelia.use.defaultBindingLanguage().defaultResources().router().eventAggregator().plugin("./a-interface").plugin("./ai-card").plugin("./ai-action").plugin("./ui-class-list").plugin("./ui-element").plugin("./ui-toggle").plugin("./ui-nav-bar").plugin("./ui-nav-aside");
+    aurelia.use.defaultBindingLanguage().defaultResources().router().eventAggregator().plugin("./a-interface").plugin("./ai-card").plugin("./ai-action").plugin("./ui-class-list").plugin("./ui-element").plugin("./ui-toggle").plugin("./ai-nav-bar").plugin("./ai-nav-aside");
 
 
     aurelia.start().then(function (framework) {

@@ -13,19 +13,17 @@ var defaults = {
   fixed   : true
 }
 
-export class AInterfaceCustomElement {
+export class AInterface {
 
 
     static metadata(){
         return Behavior
-            // .noView()
-
+            .customElement('a-interface')
             .withProperty('router')
             .withProperty('aside')
             .withProperty('nav')
             .withProperty('footer')
             .withProperty('direction')
-            // .noView()
             ;
 
     }
@@ -43,9 +41,7 @@ export class AInterfaceCustomElement {
         this.aside   = {};
         this.bar     = {};
         this.aside   = new Aside(defaults)
-
         this.showing = true
-
 
     }
 
