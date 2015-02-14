@@ -19,12 +19,12 @@
             style: buildCss(paths.source.style)
         },
 
-      plugins:{
-            js    : buildSystem(paths.plugins.js, paths.output)    ,
-            html  : buildHTML([paths.plugins.html, paths.plugins.jade], paths.output)    ,
-            fonts : buildFonts(paths.plugins.fonts)  ,
-            styles: buildStylus(paths.plugins.styl.index)
-        }
+      // plugins:{
+      //       js    : buildSystem(paths.plugins.js, paths.output)    ,
+      //       html  : buildHTML([paths.plugins.html, paths.plugins.jade], paths.output)    ,
+      //       fonts : buildFonts(paths.plugins.fonts)  ,
+      //       styles: buildStylus(paths.plugins.styl.index)
+      //   }
     }
 
 
@@ -32,7 +32,7 @@
         .task('build',
               $.sequence( 'clean'
                          , 'build:source'
-                         , 'build:plugins'
+                         // , 'build:plugins'
                          ))
 
     gulp
@@ -44,17 +44,17 @@
                         , 'source:html'
                         , 'source:style'
                         ))
-    gulp
-        .task('plugins:styles', build.plugins.styles )
-        .task('plugins:fonts' , build.plugins.fonts  )
-        .task('plugins:html'  , build.plugins.html   )
-        .task('plugins:js'    , build.plugins.js     )
-        .task('build:plugins' ,
-              $.sequence( 'plugins:styles'
-                        , 'plugins:html'
-                        , 'plugins:js'
-                        , 'plugins:fonts'
-                        ))
+    // gulp
+    //     .task('plugins:styles', build.plugins.styles )
+    //     .task('plugins:fonts' , build.plugins.fonts  )
+    //     .task('plugins:html'  , build.plugins.html   )
+    //     .task('plugins:js'    , build.plugins.js     )
+    //     .task('build:plugins' ,
+    //           $.sequence( 'plugins:styles'
+    //                     , 'plugins:html'
+    //                     , 'plugins:js'
+    //                     , 'plugins:fonts'
+    //                     ))
 
     //////////////////////////
 

@@ -1,17 +1,14 @@
 import {Behavior} from 'aurelia-templating';
 
-export class AiClass {
+export class AiClassAttachedBehavior {
   static metadata () {
     return Behavior
-      .attachedBehavior('ai-class')
       .withProperty('value', 'valueChanged', 'ai-class')
     ;
   }
 
   static inject() {
-    return [
-      Element
-    ];
+    return [Element];
   }
   
   constructor (element) {
