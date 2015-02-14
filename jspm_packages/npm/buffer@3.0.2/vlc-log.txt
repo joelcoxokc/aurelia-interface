@@ -1,0 +1,497 @@
+﻿-- logger module started --
+main debug: VLC media player - 2.1.5 Rincewind
+main debug: Copyright © 1996-2014 the VideoLAN team
+main debug: revision 2.1.4-59-g5f258d5
+main debug: configured with ../extras/package/macosx/../../../configure  '--prefix=/Users/fkuehne/Desktop/videolan/gits/vlc-2.1/release/vlc_install_dir' '--enable-macosx' '--enable-merge-ffmpeg' '--enable-growl' '--enable-faad' '--enable-flac' '--enable-theora' '--enable-shout' '--enable-ncurses' '--enable-twolame' '--enable-realrtsp' '--enable-libass' '--enable-macosx-audio' '--enable-macosx-eyetv' '--enable-macosx-qtkit' '--enable-macosx-vout' '--disable-caca' '--disable-skins2' '--disable-xcb' '--disable-sdl' '--disable-samplerate' '--disable-macosx-dialog-provider' '--with-macosx-sdk=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk' '--build=x86_64-apple-darwin10' '--with-macosx-version-min=10.6' 'build_alias=x86_64-apple-darwin10' 'CC=xcrun clang' 'CXX=xcrun clang++' 'OBJC=xcrun clang'
+main debug: using interface module "logger"
+main debug: looking for interface module matching "logger,none": 15 candidates
+logger: using logger.
+logger debug: opening logfile `vlc-log.txt'
+﻿-- logger module started --
+main debug: VLC media player - 2.1.5 Rincewind
+main debug: Copyright © 1996-2014 the VideoLAN team
+main debug: revision 2.1.4-59-g5f258d5
+main debug: configured with ../extras/package/macosx/../../../configure  '--prefix=/Users/fkuehne/Desktop/videolan/gits/vlc-2.1/release/vlc_install_dir' '--enable-macosx' '--enable-merge-ffmpeg' '--enable-growl' '--enable-faad' '--enable-flac' '--enable-theora' '--enable-shout' '--enable-ncurses' '--enable-twolame' '--enable-realrtsp' '--enable-libass' '--enable-macosx-audio' '--enable-macosx-eyetv' '--enable-macosx-qtkit' '--enable-macosx-vout' '--disable-caca' '--disable-skins2' '--disable-xcb' '--disable-sdl' '--disable-samplerate' '--disable-macosx-dialog-provider' '--with-macosx-sdk=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk' '--build=x86_64-apple-darwin10' '--with-macosx-version-min=10.6' 'build_alias=x86_64-apple-darwin10' 'CC=xcrun clang' 'CXX=xcrun clang++' 'OBJC=xcrun clang'
+main debug: using interface module "logger"
+lua: Lua HTTP interface
+main debug: creating VLM
+lua debug: Loaded /Applications/VLC.app/Contents/MacOS/share/lua/http/custom.lua
+main debug: Creating an input for 'Media Library'
+main debug: net: listening to * port 8080
+main debug: Input is a meta file: disabling unneeded options
+main debug: using timeshift granularity of 50 MiB, in path '/tmp'
+main debug: `file/xspf-open:///Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf' gives access `file' demux `xspf-open' path `/Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf'
+main debug: creating demux: access='file' demux='xspf-open' location='/Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf' file='/Users/feross/Library/Application Support/org.videolan.vlc/ml.xspf'
+main debug: looking for access_demux module matching "file": 14 candidates
+main debug: no access_demux modules matched
+main debug: creating access 'file' location='/Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf', path='/Users/feross/Library/Application Support/org.videolan.vlc/ml.xspf'
+main debug: looking for access module matching "file": 18 candidates
+filesystem debug: opening file `/Users/feross/Library/Application Support/org.videolan.vlc/ml.xspf'
+main debug: using access module "filesystem"
+main debug: Using stream method for AStream*
+main debug: starting pre-buffering
+main debug: received first data after 0 ms
+main debug: pre-buffering done 296 bytes in 0s - 1062 KiB/s
+main debug: looking for stream_filter module matching "any": 9 candidates
+main debug: no stream_filter modules matched
+main debug: looking for stream_filter module matching "record": 9 candidates
+main debug: using stream_filter module "record"
+main debug: creating demux: access='file' demux='xspf-open' location='/Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf' file='/Users/feross/Library/Application Support/org.videolan.vlc/ml.xspf'
+main debug: looking for demux module matching "xspf-open": 63 candidates
+playlist debug: using XSPF playlist reader
+main debug: using demux module "playlist"
+main debug: looking for meta reader module matching "any": 2 candidates
+lua debug: Trying Lua scripts in /Users/feross/Library/Application Support/org.videolan.vlc/lua/meta/reader
+lua debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/reader
+lua debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/reader/filename.luac
+lua debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/share/lua/meta/reader
+main debug: no meta reader modules matched
+main debug: `file/xspf-open:///Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf' successfully opened
+main debug: looking for xml reader module matching "any": 1 candidates
+main debug: using xml reader module "xml"
+playlist debug: parsed 0 tracks successfully
+main debug: EOF reached
+main debug: removing module "playlist"
+main debug: removing module "record"
+main debug: removing module "filesystem"
+main debug: creating audio output
+main debug: looking for audio output module matching "any": 4 candidates
+auhal debug: found 3 audio device(s)
+auhal debug: DevID: 55 DevName: AirPlay
+auhal debug: found 1 stream formats for stream id 56
+auhal debug: DevID: 48 DevName: Built-in Microphone
+auhal debug: this 'Built-in Microphone' is INPUT only. skipping...
+auhal debug: DevID: 38 DevName: Built-in Output
+auhal debug: found 16 stream formats for stream id 39
+main debug: restart requested (2)
+main debug: using audio output module "auhal"
+main debug: keeping audio output
+main debug: adding item `http://localhost:8000/0' ( http://localhost:8000/0 )
+main debug: no fetch required for (null) (art currently (null))
+main debug: looking for interface module matching "hotkeys,none": 15 candidates
+main debug: using interface module "hotkeys"
+main: Running vlc with the default interface. Use 'cvlc' to use vlc without interface.
+main debug: looking for interface module matching "any": 15 candidates
+main debug: looking for services probe module matching "any": 5 candidates
+main debug: no services probe modules matched
+main debug: looking for extension module matching "any": 1 candidates
+lua debug: Opening Lua Extension module
+lua debug: Trying Lua scripts in /Users/feross/Library/Application Support/org.videolan.vlc/lua/extensions
+lua debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/extensions
+lua debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/extensions/VLSub.luac
+lua debug: Scanning Lua script /Applications/VLC.app/Contents/MacOS/share/lua/extensions/VLSub.luac
+lua debug: Script /Applications/VLC.app/Contents/MacOS/share/lua/extensions/VLSub.luac has the following capability flags: 0x5
+lua debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/share/lua/extensions
+main debug: using extension module "lua"
+macosx debug: Found 1 video capture devices
+macosx debug: Found 1 audio capture devices
+main debug: processing request item: http://localhost:8000/0, node: Playlist, skip: 0
+main debug: rebuilding array of current - root Playlist
+main debug: rebuild done - 1 items, index 0
+main debug: starting playback of the new playlist item
+main debug: resyncing on http://localhost:8000/0
+main debug: http://localhost:8000/0 is at 0
+main debug: creating new input thread
+main debug: Creating an input for 'http://localhost:8000/0'
+main debug: using timeshift granularity of 50 MiB, in path '/tmp'
+main debug: `http://localhost:8000/0' gives access `http' demux `' path `localhost:8000/0'
+main debug: creating demux: access='http' demux='' location='localhost:8000/0' file='(null)'
+main debug: looking for access_demux module matching "http": 14 candidates
+main debug: no access_demux modules matched
+main debug: creating access 'http' location='localhost:8000/0', path='(null)'
+main debug: looking for access module matching "http": 18 candidates
+access_http debug: querying proxy for http://localhost:8000/0
+access_http debug: no proxy
+access_http debug: http: server='localhost' port=8000 file='/0'
+main debug: net: connecting to localhost port 8000
+main debug: connection succeeded (socket = 33)
+macosx debug: no optical media found
+access_http error: failed to read answer
+access_http debug: switching to HTTP version 1.0
+main debug: net: connecting to localhost port 8000
+main error: connection failed: Connection refused
+main error: connection failed: Connection refused
+access_http error: cannot connect to localhost:8000
+main debug: net: connecting to localhost port 8000
+main error: connection failed: Connection refused
+main error: connection failed: Connection refused
+access_mms error: cannot connect to localhost:8000
+main debug: no access modules matched
+main error: open of `http://localhost:8000/0' failed
+main debug: finished input
+main debug: dead input
+main debug: changing item without a request (current 0/1)
+main debug: nothing to play
+main: end of playlist, exiting
+main debug: exiting
+macosx debug: Terminating
+-- logger module stopped --
+-- logger module stopped --
+﻿-- logger module started --
+main debug: VLC media player - 2.1.5 Rincewind
+main debug: Copyright © 1996-2014 the VideoLAN team
+main debug: revision 2.1.4-59-g5f258d5
+main debug: configured with ../extras/package/macosx/../../../configure  '--prefix=/Users/fkuehne/Desktop/videolan/gits/vlc-2.1/release/vlc_install_dir' '--enable-macosx' '--enable-merge-ffmpeg' '--enable-growl' '--enable-faad' '--enable-flac' '--enable-theora' '--enable-shout' '--enable-ncurses' '--enable-twolame' '--enable-realrtsp' '--enable-libass' '--enable-macosx-audio' '--enable-macosx-eyetv' '--enable-macosx-qtkit' '--enable-macosx-vout' '--disable-caca' '--disable-skins2' '--disable-xcb' '--disable-sdl' '--disable-samplerate' '--disable-macosx-dialog-provider' '--with-macosx-sdk=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk' '--build=x86_64-apple-darwin10' '--with-macosx-version-min=10.6' 'build_alias=x86_64-apple-darwin10' 'CC=xcrun clang' 'CXX=xcrun clang++' 'OBJC=xcrun clang'
+main debug: using interface module "logger"
+lua: Lua HTTP interface
+main debug: looking for interface module matching "logger,none": 15 candidates
+logger: using logger.
+logger debug: opening logfile `vlc-log.txt'
+﻿-- logger module started --
+main debug: VLC media player - 2.1.5 Rincewind
+main debug: Copyright © 1996-2014 the VideoLAN team
+main debug: revision 2.1.4-59-g5f258d5
+main debug: configured with ../extras/package/macosx/../../../configure  '--prefix=/Users/fkuehne/Desktop/videolan/gits/vlc-2.1/release/vlc_install_dir' '--enable-macosx' '--enable-merge-ffmpeg' '--enable-growl' '--enable-faad' '--enable-flac' '--enable-theora' '--enable-shout' '--enable-ncurses' '--enable-twolame' '--enable-realrtsp' '--enable-libass' '--enable-macosx-audio' '--enable-macosx-eyetv' '--enable-macosx-qtkit' '--enable-macosx-vout' '--disable-caca' '--disable-skins2' '--disable-xcb' '--disable-sdl' '--disable-samplerate' '--disable-macosx-dialog-provider' '--with-macosx-sdk=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk' '--build=x86_64-apple-darwin10' '--with-macosx-version-min=10.6' 'build_alias=x86_64-apple-darwin10' 'CC=xcrun clang' 'CXX=xcrun clang++' 'OBJC=xcrun clang'
+main debug: using interface module "logger"
+main debug: creating VLM
+lua debug: Loaded /Applications/VLC.app/Contents/MacOS/share/lua/http/custom.lua
+main debug: net: listening to * port 8080
+main debug: Creating an input for 'Media Library'
+main debug: Input is a meta file: disabling unneeded options
+main debug: using timeshift granularity of 50 MiB, in path '/tmp'
+main debug: `file/xspf-open:///Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf' gives access `file' demux `xspf-open' path `/Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf'
+main debug: creating demux: access='file' demux='xspf-open' location='/Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf' file='/Users/feross/Library/Application Support/org.videolan.vlc/ml.xspf'
+main debug: looking for access_demux module matching "file": 14 candidates
+main debug: no access_demux modules matched
+main debug: creating access 'file' location='/Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf', path='/Users/feross/Library/Application Support/org.videolan.vlc/ml.xspf'
+main debug: looking for access module matching "file": 18 candidates
+filesystem debug: opening file `/Users/feross/Library/Application Support/org.videolan.vlc/ml.xspf'
+main debug: using access module "filesystem"
+main debug: Using stream method for AStream*
+main debug: starting pre-buffering
+main debug: received first data after 0 ms
+main debug: pre-buffering done 296 bytes in 0s - 12044 KiB/s
+main debug: looking for stream_filter module matching "any": 9 candidates
+main debug: no stream_filter modules matched
+main debug: looking for stream_filter module matching "record": 9 candidates
+main debug: using stream_filter module "record"
+main debug: creating demux: access='file' demux='xspf-open' location='/Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf' file='/Users/feross/Library/Application Support/org.videolan.vlc/ml.xspf'
+main debug: looking for demux module matching "xspf-open": 63 candidates
+playlist debug: using XSPF playlist reader
+main debug: using demux module "playlist"
+main debug: looking for meta reader module matching "any": 2 candidates
+lua debug: Trying Lua scripts in /Users/feross/Library/Application Support/org.videolan.vlc/lua/meta/reader
+lua debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/reader
+lua debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/reader/filename.luac
+lua debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/share/lua/meta/reader
+main debug: no meta reader modules matched
+main debug: `file/xspf-open:///Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf' successfully opened
+main debug: looking for xml reader module matching "any": 1 candidates
+main debug: using xml reader module "xml"
+playlist debug: parsed 0 tracks successfully
+main debug: EOF reached
+main debug: removing module "playlist"
+main debug: removing module "record"
+main debug: removing module "filesystem"
+main debug: creating audio output
+main debug: looking for audio output module matching "any": 4 candidates
+auhal debug: found 3 audio device(s)
+auhal debug: DevID: 55 DevName: AirPlay
+auhal debug: found 1 stream formats for stream id 56
+auhal debug: DevID: 48 DevName: Built-in Microphone
+auhal debug: this 'Built-in Microphone' is INPUT only. skipping...
+auhal debug: DevID: 38 DevName: Built-in Output
+auhal debug: found 16 stream formats for stream id 39
+main debug: restart requested (2)
+main debug: using audio output module "auhal"
+main debug: keeping audio output
+main debug: adding item `http://localhost:8000/0' ( http://localhost:8000/0 )
+main debug: no fetch required for (null) (art currently (null))
+main debug: looking for interface module matching "hotkeys,none": 15 candidates
+main debug: using interface module "hotkeys"
+main: Running vlc with the default interface. Use 'cvlc' to use vlc without interface.
+main debug: looking for interface module matching "any": 15 candidates
+main debug: looking for services probe module matching "any": 5 candidates
+main debug: no services probe modules matched
+main debug: looking for extension module matching "any": 1 candidates
+lua debug: Opening Lua Extension module
+lua debug: Trying Lua scripts in /Users/feross/Library/Application Support/org.videolan.vlc/lua/extensions
+lua debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/extensions
+lua debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/extensions/VLSub.luac
+lua debug: Scanning Lua script /Applications/VLC.app/Contents/MacOS/share/lua/extensions/VLSub.luac
+lua debug: Script /Applications/VLC.app/Contents/MacOS/share/lua/extensions/VLSub.luac has the following capability flags: 0x5
+lua debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/share/lua/extensions
+main debug: using extension module "lua"
+macosx debug: Found 1 video capture devices
+macosx debug: Found 1 audio capture devices
+main debug: processing request item: http://localhost:8000/0, node: Playlist, skip: 0
+main debug: rebuilding array of current - root Playlist
+main debug: rebuild done - 1 items, index 0
+main debug: starting playback of the new playlist item
+main debug: resyncing on http://localhost:8000/0
+main debug: http://localhost:8000/0 is at 0
+main debug: creating new input thread
+main debug: Creating an input for 'http://localhost:8000/0'
+main debug: using timeshift granularity of 50 MiB, in path '/tmp'
+main debug: `http://localhost:8000/0' gives access `http' demux `' path `localhost:8000/0'
+main debug: creating demux: access='http' demux='' location='localhost:8000/0' file='(null)'
+main debug: looking for access_demux module matching "http": 14 candidates
+main debug: no access_demux modules matched
+main debug: creating access 'http' location='localhost:8000/0', path='(null)'
+main debug: looking for access module matching "http": 18 candidates
+access_http debug: querying proxy for http://localhost:8000/0
+access_http debug: no proxy
+access_http debug: http: server='localhost' port=8000 file='/0'
+main debug: net: connecting to localhost port 8000
+main debug: connection succeeded (socket = 34)
+macosx debug: no optical media found
+macosx debug: Terminating
+-- logger module stopped --
+-- logger module stopped --
+﻿-- logger module started --
+main debug: VLC media player - 2.1.5 Rincewind
+main debug: Copyright © 1996-2014 the VideoLAN team
+main debug: revision 2.1.4-59-g5f258d5
+main debug: configured with ../extras/package/macosx/../../../configure  '--prefix=/Users/fkuehne/Desktop/videolan/gits/vlc-2.1/release/vlc_install_dir' '--enable-macosx' '--enable-merge-ffmpeg' '--enable-growl' '--enable-faad' '--enable-flac' '--enable-theora' '--enable-shout' '--enable-ncurses' '--enable-twolame' '--enable-realrtsp' '--enable-libass' '--enable-macosx-audio' '--enable-macosx-eyetv' '--enable-macosx-qtkit' '--enable-macosx-vout' '--disable-caca' '--disable-skins2' '--disable-xcb' '--disable-sdl' '--disable-samplerate' '--disable-macosx-dialog-provider' '--with-macosx-sdk=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk' '--build=x86_64-apple-darwin10' '--with-macosx-version-min=10.6' 'build_alias=x86_64-apple-darwin10' 'CC=xcrun clang' 'CXX=xcrun clang++' 'OBJC=xcrun clang'
+main debug: using interface module "logger"
+lua: Lua HTTP interface
+main debug: looking for interface module matching "logger,none": 15 candidates
+logger: using logger.
+logger debug: opening logfile `vlc-log.txt'
+﻿-- logger module started --
+main debug: VLC media player - 2.1.5 Rincewind
+main debug: Copyright © 1996-2014 the VideoLAN team
+main debug: revision 2.1.4-59-g5f258d5
+main debug: configured with ../extras/package/macosx/../../../configure  '--prefix=/Users/fkuehne/Desktop/videolan/gits/vlc-2.1/release/vlc_install_dir' '--enable-macosx' '--enable-merge-ffmpeg' '--enable-growl' '--enable-faad' '--enable-flac' '--enable-theora' '--enable-shout' '--enable-ncurses' '--enable-twolame' '--enable-realrtsp' '--enable-libass' '--enable-macosx-audio' '--enable-macosx-eyetv' '--enable-macosx-qtkit' '--enable-macosx-vout' '--disable-caca' '--disable-skins2' '--disable-xcb' '--disable-sdl' '--disable-samplerate' '--disable-macosx-dialog-provider' '--with-macosx-sdk=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk' '--build=x86_64-apple-darwin10' '--with-macosx-version-min=10.6' 'build_alias=x86_64-apple-darwin10' 'CC=xcrun clang' 'CXX=xcrun clang++' 'OBJC=xcrun clang'
+main debug: using interface module "logger"
+main debug: creating VLM
+lua debug: Loaded /Applications/VLC.app/Contents/MacOS/share/lua/http/custom.lua
+main debug: Creating an input for 'Media Library'
+main debug: net: listening to * port 8080
+main debug: Input is a meta file: disabling unneeded options
+main debug: using timeshift granularity of 50 MiB, in path '/tmp'
+main debug: `file/xspf-open:///Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf' gives access `file' demux `xspf-open' path `/Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf'
+main debug: creating demux: access='file' demux='xspf-open' location='/Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf' file='/Users/feross/Library/Application Support/org.videolan.vlc/ml.xspf'
+main debug: looking for access_demux module matching "file": 14 candidates
+main debug: no access_demux modules matched
+main debug: creating access 'file' location='/Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf', path='/Users/feross/Library/Application Support/org.videolan.vlc/ml.xspf'
+main debug: looking for access module matching "file": 18 candidates
+filesystem debug: opening file `/Users/feross/Library/Application Support/org.videolan.vlc/ml.xspf'
+main debug: using access module "filesystem"
+main debug: Using stream method for AStream*
+main debug: starting pre-buffering
+main debug: received first data after 0 ms
+main debug: pre-buffering done 296 bytes in 0s - 12567 KiB/s
+main debug: looking for stream_filter module matching "any": 9 candidates
+main debug: no stream_filter modules matched
+main debug: looking for stream_filter module matching "record": 9 candidates
+main debug: using stream_filter module "record"
+main debug: creating demux: access='file' demux='xspf-open' location='/Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf' file='/Users/feross/Library/Application Support/org.videolan.vlc/ml.xspf'
+main debug: looking for demux module matching "xspf-open": 63 candidates
+playlist debug: using XSPF playlist reader
+main debug: using demux module "playlist"
+main debug: looking for meta reader module matching "any": 2 candidates
+lua debug: Trying Lua scripts in /Users/feross/Library/Application Support/org.videolan.vlc/lua/meta/reader
+lua debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/reader
+lua debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/reader/filename.luac
+lua debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/share/lua/meta/reader
+main debug: no meta reader modules matched
+main debug: `file/xspf-open:///Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf' successfully opened
+main debug: looking for xml reader module matching "any": 1 candidates
+main debug: using xml reader module "xml"
+playlist debug: parsed 0 tracks successfully
+main debug: EOF reached
+main debug: removing module "playlist"
+main debug: removing module "record"
+main debug: removing module "filesystem"
+main debug: creating audio output
+main debug: looking for audio output module matching "any": 4 candidates
+auhal debug: found 3 audio device(s)
+auhal debug: DevID: 55 DevName: AirPlay
+auhal debug: found 1 stream formats for stream id 56
+auhal debug: DevID: 48 DevName: Built-in Microphone
+auhal debug: this 'Built-in Microphone' is INPUT only. skipping...
+auhal debug: DevID: 38 DevName: Built-in Output
+auhal debug: found 16 stream formats for stream id 39
+main debug: restart requested (2)
+main debug: using audio output module "auhal"
+main debug: keeping audio output
+main debug: adding item `http://localhost:8000/0' ( http://localhost:8000/0 )
+main debug: no fetch required for (null) (art currently (null))
+main debug: looking for interface module matching "hotkeys,none": 15 candidates
+main debug: using interface module "hotkeys"
+main: Running vlc with the default interface. Use 'cvlc' to use vlc without interface.
+main debug: looking for interface module matching "any": 15 candidates
+main debug: looking for services probe module matching "any": 5 candidates
+main debug: no services probe modules matched
+main debug: looking for extension module matching "any": 1 candidates
+lua debug: Opening Lua Extension module
+lua debug: Trying Lua scripts in /Users/feross/Library/Application Support/org.videolan.vlc/lua/extensions
+lua debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/extensions
+lua debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/extensions/VLSub.luac
+lua debug: Scanning Lua script /Applications/VLC.app/Contents/MacOS/share/lua/extensions/VLSub.luac
+lua debug: Script /Applications/VLC.app/Contents/MacOS/share/lua/extensions/VLSub.luac has the following capability flags: 0x5
+lua debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/share/lua/extensions
+main debug: using extension module "lua"
+macosx debug: Found 1 video capture devices
+macosx debug: Found 1 audio capture devices
+main debug: processing request item: http://localhost:8000/0, node: Playlist, skip: 0
+main debug: rebuilding array of current - root Playlist
+main debug: rebuild done - 1 items, index 0
+main debug: starting playback of the new playlist item
+main debug: resyncing on http://localhost:8000/0
+main debug: http://localhost:8000/0 is at 0
+main debug: creating new input thread
+main debug: Creating an input for 'http://localhost:8000/0'
+main debug: using timeshift granularity of 50 MiB, in path '/tmp'
+main debug: `http://localhost:8000/0' gives access `http' demux `' path `localhost:8000/0'
+main debug: creating demux: access='http' demux='' location='localhost:8000/0' file='(null)'
+main debug: looking for access_demux module matching "http": 14 candidates
+main debug: no access_demux modules matched
+main debug: creating access 'http' location='localhost:8000/0', path='(null)'
+main debug: looking for access module matching "http": 18 candidates
+access_http debug: querying proxy for http://localhost:8000/0
+access_http debug: no proxy
+access_http debug: http: server='localhost' port=8000 file='/0'
+main debug: net: connecting to localhost port 8000
+main debug: connection succeeded (socket = 34)
+macosx debug: no optical media found
+access_http error: failed to read answer
+access_http debug: switching to HTTP version 1.0
+main debug: net: connecting to localhost port 8000
+main error: connection failed: Connection refused
+main error: connection failed: Connection refused
+access_http error: cannot connect to localhost:8000
+main debug: net: connecting to localhost port 8000
+main error: connection failed: Connection refused
+main error: connection failed: Connection refused
+access_mms error: cannot connect to localhost:8000
+main debug: no access modules matched
+main error: open of `http://localhost:8000/0' failed
+main debug: dead input
+main debug: changing item without a request (current 0/1)
+main debug: nothing to play
+main: end of playlist, exiting
+main debug: exiting
+macosx debug: Terminating
+-- logger module stopped --
+-- logger module stopped --
+﻿-- logger module started --
+main debug: VLC media player - 2.1.5 Rincewind
+main debug: Copyright © 1996-2014 the VideoLAN team
+lua: Lua HTTP interface
+main debug: revision 2.1.4-59-g5f258d5
+main debug: configured with ../extras/package/macosx/../../../configure  '--prefix=/Users/fkuehne/Desktop/videolan/gits/vlc-2.1/release/vlc_install_dir' '--enable-macosx' '--enable-merge-ffmpeg' '--enable-growl' '--enable-faad' '--enable-flac' '--enable-theora' '--enable-shout' '--enable-ncurses' '--enable-twolame' '--enable-realrtsp' '--enable-libass' '--enable-macosx-audio' '--enable-macosx-eyetv' '--enable-macosx-qtkit' '--enable-macosx-vout' '--disable-caca' '--disable-skins2' '--disable-xcb' '--disable-sdl' '--disable-samplerate' '--disable-macosx-dialog-provider' '--with-macosx-sdk=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk' '--build=x86_64-apple-darwin10' '--with-macosx-version-min=10.6' 'build_alias=x86_64-apple-darwin10' 'CC=xcrun clang' 'CXX=xcrun clang++' 'OBJC=xcrun clang'
+main debug: using interface module "logger"
+main debug: looking for interface module matching "logger,none": 15 candidates
+logger: using logger.
+logger debug: opening logfile `vlc-log.txt'
+﻿-- logger module started --
+main debug: VLC media player - 2.1.5 Rincewind
+main debug: creating VLM
+main debug: Copyright © 1996-2014 the VideoLAN team
+main debug: revision 2.1.4-59-g5f258d5
+main debug: configured with ../extras/package/macosx/../../../configure  '--prefix=/Users/fkuehne/Desktop/videolan/gits/vlc-2.1/release/vlc_install_dir' '--enable-macosx' '--enable-merge-ffmpeg' '--enable-growl' '--enable-faad' '--enable-flac' '--enable-theora' '--enable-shout' '--enable-ncurses' '--enable-twolame' '--enable-realrtsp' '--enable-libass' '--enable-macosx-audio' '--enable-macosx-eyetv' '--enable-macosx-qtkit' '--enable-macosx-vout' '--disable-caca' '--disable-skins2' '--disable-xcb' '--disable-sdl' '--disable-samplerate' '--disable-macosx-dialog-provider' '--with-macosx-sdk=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.7.sdk' '--build=x86_64-apple-darwin10' '--with-macosx-version-min=10.6' 'build_alias=x86_64-apple-darwin10' 'CC=xcrun clang' 'CXX=xcrun clang++' 'OBJC=xcrun clang'
+lua debug: Loaded /Applications/VLC.app/Contents/MacOS/share/lua/http/custom.lua
+main debug: using interface module "logger"
+main debug: net: listening to * port 8080
+main debug: Creating an input for 'Media Library'
+main debug: Input is a meta file: disabling unneeded options
+main debug: using timeshift granularity of 50 MiB, in path '/tmp'
+main debug: `file/xspf-open:///Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf' gives access `file' demux `xspf-open' path `/Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf'
+main debug: creating demux: access='file' demux='xspf-open' location='/Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf' file='/Users/feross/Library/Application Support/org.videolan.vlc/ml.xspf'
+main debug: looking for access_demux module matching "file": 14 candidates
+main debug: no access_demux modules matched
+main debug: creating access 'file' location='/Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf', path='/Users/feross/Library/Application Support/org.videolan.vlc/ml.xspf'
+main debug: looking for access module matching "file": 18 candidates
+filesystem debug: opening file `/Users/feross/Library/Application Support/org.videolan.vlc/ml.xspf'
+main debug: using access module "filesystem"
+main debug: Using stream method for AStream*
+main debug: starting pre-buffering
+main debug: received first data after 0 ms
+main debug: pre-buffering done 296 bytes in 0s - 9033 KiB/s
+main debug: looking for stream_filter module matching "any": 9 candidates
+main debug: no stream_filter modules matched
+main debug: looking for stream_filter module matching "record": 9 candidates
+main debug: using stream_filter module "record"
+main debug: creating demux: access='file' demux='xspf-open' location='/Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf' file='/Users/feross/Library/Application Support/org.videolan.vlc/ml.xspf'
+main debug: looking for demux module matching "xspf-open": 63 candidates
+playlist debug: using XSPF playlist reader
+main debug: using demux module "playlist"
+main debug: looking for meta reader module matching "any": 2 candidates
+lua debug: Trying Lua scripts in /Users/feross/Library/Application Support/org.videolan.vlc/lua/meta/reader
+lua debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/meta/reader
+lua debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/meta/reader/filename.luac
+lua debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/share/lua/meta/reader
+main debug: no meta reader modules matched
+main debug: `file/xspf-open:///Users/feross/Library/Application%20Support/org.videolan.vlc/ml.xspf' successfully opened
+main debug: looking for xml reader module matching "any": 1 candidates
+main debug: using xml reader module "xml"
+playlist debug: parsed 0 tracks successfully
+main debug: EOF reached
+main debug: removing module "playlist"
+main debug: removing module "record"
+main debug: removing module "filesystem"
+main debug: creating audio output
+main debug: looking for audio output module matching "any": 4 candidates
+auhal debug: found 3 audio device(s)
+auhal debug: DevID: 55 DevName: AirPlay
+auhal debug: found 1 stream formats for stream id 56
+auhal debug: DevID: 48 DevName: Built-in Microphone
+auhal debug: this 'Built-in Microphone' is INPUT only. skipping...
+auhal debug: DevID: 38 DevName: Built-in Output
+auhal debug: found 16 stream formats for stream id 39
+main debug: restart requested (2)
+main debug: using audio output module "auhal"
+main debug: keeping audio output
+main debug: adding item `http://localhost:8000/0' ( http://localhost:8000/0 )
+main debug: no fetch required for (null) (art currently (null))
+main debug: looking for interface module matching "hotkeys,none": 15 candidates
+main debug: using interface module "hotkeys"
+main: Running vlc with the default interface. Use 'cvlc' to use vlc without interface.
+main debug: looking for interface module matching "any": 15 candidates
+main debug: looking for services probe module matching "any": 5 candidates
+main debug: no services probe modules matched
+main debug: looking for extension module matching "any": 1 candidates
+lua debug: Opening Lua Extension module
+lua debug: Trying Lua scripts in /Users/feross/Library/Application Support/org.videolan.vlc/lua/extensions
+lua debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/lua/extensions
+lua debug: Trying Lua playlist script /Applications/VLC.app/Contents/MacOS/share/lua/extensions/VLSub.luac
+lua debug: Scanning Lua script /Applications/VLC.app/Contents/MacOS/share/lua/extensions/VLSub.luac
+lua debug: Script /Applications/VLC.app/Contents/MacOS/share/lua/extensions/VLSub.luac has the following capability flags: 0x5
+lua debug: Trying Lua scripts in /Applications/VLC.app/Contents/MacOS/share/share/lua/extensions
+main debug: using extension module "lua"
+macosx debug: Found 1 video capture devices
+macosx debug: Found 1 audio capture devices
+main debug: processing request item: http://localhost:8000/0, node: Playlist, skip: 0
+main debug: rebuilding array of current - root Playlist
+main debug: rebuild done - 1 items, index 0
+main debug: starting playback of the new playlist item
+main debug: resyncing on http://localhost:8000/0
+main debug: http://localhost:8000/0 is at 0
+main debug: creating new input thread
+main debug: Creating an input for 'http://localhost:8000/0'
+main debug: using timeshift granularity of 50 MiB, in path '/tmp'
+main debug: `http://localhost:8000/0' gives access `http' demux `' path `localhost:8000/0'
+main debug: creating demux: access='http' demux='' location='localhost:8000/0' file='(null)'
+main debug: looking for access_demux module matching "http": 14 candidates
+main debug: no access_demux modules matched
+main debug: creating access 'http' location='localhost:8000/0', path='(null)'
+main debug: looking for access module matching "http": 18 candidates
+access_http debug: querying proxy for http://localhost:8000/0
+access_http debug: no proxy
+access_http debug: http: server='localhost' port=8000 file='/0'
+main debug: net: connecting to localhost port 8000
+main debug: connection succeeded (socket = 34)
+macosx debug: no optical media found
+access_http error: failed to read answer
+access_http debug: switching to HTTP version 1.0
+main debug: net: connecting to localhost port 8000
+main error: connection failed: Connection refused
+main error: connection failed: Connection refused
+access_http error: cannot connect to localhost:8000
+main debug: net: connecting to localhost port 8000
+main error: connection failed: Connection refused
+main error: connection failed: Connection refused
+access_mms error: cannot connect to localhost:8000
+main debug: no access modules matched
+main error: open of `http://localhost:8000/0' failed
+main debug: finished input
+main debug: dead input
+main debug: changing item without a request (current 0/1)
+main debug: nothing to play
+main: end of playlist, exiting
+main debug: exiting
+macosx debug: Terminating
+-- logger module stopped --
+-- logger module stopped --

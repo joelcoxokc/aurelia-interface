@@ -1,0 +1,11 @@
+{
+  "registry": "npm",
+  "jspm": {},
+  "format": "cjs",
+  "ignore": [
+    "node_modules"
+  ],
+  "dependencies": {
+    "url": "url@^0.10.1"
+  }
+}

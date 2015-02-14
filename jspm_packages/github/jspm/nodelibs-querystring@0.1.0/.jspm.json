@@ -1,0 +1,11 @@
+{
+  "registry": "npm",
+  "jspm": {},
+  "format": "cjs",
+  "ignore": [
+    "node_modules"
+  ],
+  "dependencies": {
+    "querystring": "querystring@^0.2.0"
+  }
+}

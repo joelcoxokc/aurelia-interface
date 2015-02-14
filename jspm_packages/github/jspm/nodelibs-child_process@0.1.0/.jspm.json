@@ -1,0 +1,9 @@
+{
+  "registry": "npm",
+  "jspm": {},
+  "format": "cjs",
+  "ignore": [
+    "node_modules"
+  ],
+  "dependencies": {}
+}

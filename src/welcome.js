@@ -1,6 +1,6 @@
 export class Welcome{
   constructor(){
-    this.heading = 'Aurelia ui ';
+    this.heading = 'Welcome to the Aurelia Navigation App!';
     this.firstName = 'John';
     this.lastName = 'Doe';
   }
@@ -10,7 +10,7 @@ export class Welcome{
   }
 
   welcome(){
-    // alert(`Welcome, ${this.fullName}!`);
+    alert(`Welcome, ${this.fullName}!`);
   }
 }
 

@@ -1,7 +1,5 @@
 <template>
-<import from="./ai-class"></import>
-<import from="./ai-btn-toggle"></import>
-<import from="./ai-btn-radio"></import>
+
 
   <h2>${heading}</h2>
   <section>
@@ -25,20 +23,20 @@
       <div>
         <span ai-btn-radio.bind="radioValue">
           <a
-            class="waves-effect waves-light btn"
-            ai-class.bind="{disabled: radioValue != 'Left'}"
+            class="waves-effect waves-light btn btn-primary"
+            ai-class.bind="{active: radioValue == 'Left'}"
             ai-btn-radio-option
             value.bind="'Left'"
             >Left</a>
           <a
-            class="waves-effect waves-light btn"
-            ai-class.bind="{disabled: radioValue != 'Middle'}"
+            class="waves-effect waves-light btn btn-primary"
+            ai-class.bind="{active: radioValue == 'Middle'}"
             ai-btn-radio-option
             value.bind="'Middle'"
             >Middle</a>
           <a
-            class="waves-effect waves-light btn"
-            ai-class.bind="{disabled: radioValue != 'Right'}"
+            class="waves-effect waves-light btn btn-primary"
+            ai-class.bind="{active: radioValue == 'Right'}"
             ai-btn-radio-option
             value.bind="'Right'"
             >Right</a>
@@ -47,11 +45,11 @@
     <div>
       Bound to Models - ${radioValue2.name}
       <div>
-        <span ai-btn-radio.bind="radioValue2">
+        <span class="btn-group" ai-btn-radio.bind="radioValue2">
           <a
             repeat.for="option of radioOptions"
-            class="waves-effect waves-light btn"
-            ai-class.bind="{disabled: $parent.radioValue2 != option}"
+            class="waves-effect waves-light btn btn-primary"
+            ai-class.bind="{active: $parent.radioValue2 == option}"
             ai-btn-radio-option
             value.bind="option"
             >${option.name}</a>

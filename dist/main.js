@@ -1,19 +1,22 @@
-System.register(["aurelia-framework", "aurelia-logging-console", "../resources/index"], function (_export) {
+System.register(["aurelia-framework", "aurelia-logging-console"], function (_export) {
   "use strict";
 
-  var LogManager, ConsoleAppender, Ai;
+  var LogManager, ConsoleAppender;
   _export("configure", configure);
 
   function configure(aurelia) {
+    aurelia.use.defaultBindingLanguage().defaultResources().router().eventAggregator();
 
+    System.normalize("aurelia-interface@dev/dist/system/index").then(function (name) {
+      System.map["aurelia-interface@dev"] = name;
+      System.map["aurelia-interface"] = name;
+      aurelia.use.plugin(name);
 
-    aurelia.use.defaultBindingLanguage().defaultResources().router().eventAggregator().plugin("./a-interface").plugin("./ai-card").plugin("./ai-action").plugin("./ui-class-list").plugin("./ui-element").plugin("./ui-toggle").plugin("./ui-nav-bar").plugin("./ui-nav-aside");
+      aurelia.start().then(function (framework) {
+        console.log("Main", framework);
 
-
-    aurelia.start().then(function (framework) {
-      console.log("Main", framework);
-
-      return framework.setRoot("app", document.body);
+        return framework.setRoot("app", document.body);
+      });
     });
   }
   return {
@@ -21,8 +24,6 @@ System.register(["aurelia-framework", "aurelia-logging-console", "../resources/i
       LogManager = _aureliaFramework.LogManager;
     }, function (_aureliaLoggingConsole) {
       ConsoleAppender = _aureliaLoggingConsole.ConsoleAppender;
-    }, function (_resourcesIndex) {
-      Ai = _resourcesIndex.Ai;
     }],
     execute: function () {
       LogManager.addAppender(new ConsoleAppender());
@@ -30,4 +31,4 @@ System.register(["aurelia-framework", "aurelia-logging-console", "../resources/i
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1haW4uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O01BQ1EsVUFBVSxFQUNWLGVBQWUsRUFDZixFQUFFO3VCQUtNLFNBQVM7O0FBQWxCLFdBQVMsU0FBUyxDQUFDLE9BQU8sRUFBRTs7O0FBR2pDLFdBQU8sQ0FBQyxHQUFHLENBQ1Isc0JBQXNCLEVBQUUsQ0FDeEIsZ0JBQWdCLEVBQUUsQ0FDbEIsTUFBTSxFQUFFLENBQ1IsZUFBZSxFQUFFLENBQ2pCLE1BQU0sQ0FBQyxlQUFlLENBQUMsQ0FDdkIsTUFBTSxDQUFDLFdBQVcsQ0FBQyxDQUNuQixNQUFNLENBQUMsYUFBYSxDQUFDLENBQ3JCLE1BQU0sQ0FBQyxpQkFBaUIsQ0FBQyxDQUN6QixNQUFNLENBQUMsY0FBYyxDQUFDLENBQ3RCLE1BQU0sQ0FBQyxhQUFhLENBQUMsQ0FDckIsTUFBTSxDQUFDLGNBQWMsQ0FBQyxDQUN0QixNQUFNLENBQUMsZ0JBQWdCLENBQUMsQ0FBQTs7O0FBRzNCLFdBQU8sQ0FBQyxLQUFLLEVBQUUsQ0FDZCxJQUFJLENBQUMsVUFBUyxTQUFTLEVBQUU7QUFDdEIsYUFBTyxDQUFDLEdBQUcsQ0FBQyxNQUFNLEVBQUUsU0FBUyxDQUFDLENBQUE7O0FBRzlCLGFBQU8sU0FBUyxDQUFDLE9BQU8sQ0FBQyxLQUFLLEVBQUUsUUFBUSxDQUFDLElBQUksQ0FBQyxDQUFBO0tBQ2pELENBQUMsQ0FBQztHQUNKOzs7QUFoQ08sZ0JBQVUscUJBQVYsVUFBVTs7QUFDVixxQkFBZSwwQkFBZixlQUFlOztBQUNmLFFBQUUsbUJBQUYsRUFBRTs7O0FBR1YsZ0JBQVUsQ0FBQyxXQUFXLENBQUMsSUFBSSxlQUFlLEVBQUUsQ0FBQyxDQUFDO0FBQzlDLGdCQUFVLENBQUMsUUFBUSxDQUFDLFVBQVUsQ0FBQyxNQUFNLENBQUMsS0FBSyxDQUFDLENBQUMiLCJmaWxlIjoibWFpbi5qcyIsInNvdXJjZVJvb3QiOiIvZGlzdC8ifQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm1haW4uanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O01BQVEsVUFBVSxFQUNWLGVBQWU7dUJBSVAsU0FBUzs7QUFBbEIsV0FBUyxTQUFTLENBQUMsT0FBTyxFQUFFO0FBQ2pDLFdBQU8sQ0FBQyxHQUFHLENBQ1Isc0JBQXNCLEVBQUUsQ0FDeEIsZ0JBQWdCLEVBQUUsQ0FDbEIsTUFBTSxFQUFFLENBQ1IsZUFBZSxFQUFFLENBQUE7O0FBRXBCLFVBQU0sQ0FBQyxTQUFTLENBQUMseUNBQXlDLENBQUMsQ0FBQyxJQUFJLENBQUMsVUFBVSxJQUFJLEVBQUU7QUFDL0UsWUFBTSxDQUFDLEdBQUcsQ0FBQyx1QkFBdUIsQ0FBQyxHQUFHLElBQUksQ0FBQztBQUMzQyxZQUFNLENBQUMsR0FBRyxDQUFDLG1CQUFtQixDQUFDLEdBQUcsSUFBSSxDQUFDO0FBQ3ZDLGFBQU8sQ0FBQyxHQUFHLENBQUMsTUFBTSxDQUFDLElBQUksQ0FBQyxDQUFDOztBQUV6QixhQUFPLENBQUMsS0FBSyxFQUFFLENBQ2QsSUFBSSxDQUFDLFVBQVMsU0FBUyxFQUFFO0FBQ3RCLGVBQU8sQ0FBQyxHQUFHLENBQUMsTUFBTSxFQUFFLFNBQVMsQ0FBQyxDQUFBOztBQUc5QixlQUFPLFNBQVMsQ0FBQyxPQUFPLENBQUMsS0FBSyxFQUFFLFFBQVEsQ0FBQyxJQUFJLENBQUMsQ0FBQTtPQUNqRCxDQUFDLENBQUM7S0FDSixDQUFDLENBQUE7R0FDSDs7O0FBekJPLGdCQUFVLHFCQUFWLFVBQVU7O0FBQ1YscUJBQWUsMEJBQWYsZUFBZTs7O0FBRXZCLGdCQUFVLENBQUMsV0FBVyxDQUFDLElBQUksZUFBZSxFQUFFLENBQUMsQ0FBQztBQUM5QyxnQkFBVSxDQUFDLFFBQVEsQ0FBQyxVQUFVLENBQUMsTUFBTSxDQUFDLEtBQUssQ0FBQyxDQUFDIiwiZmlsZSI6Im1haW4uanMiLCJzb3VyY2VSb290IjoiL3NyYy8ifQ==
