@@ -1,5 +1,3 @@
-// documentation for these options can be
-// found at https://6to5.org/docs/usage/options/
 module.exports = {
   filename: '',
   filenameRelative: '',

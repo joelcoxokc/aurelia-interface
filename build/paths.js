@@ -1,27 +1,11 @@
 var path = require('path');
 
 var appRoot = 'src/';
-var pluginRoot = 'plugins/';
 
 module.exports = {
   root: appRoot,
-  source: {
-    js   : appRoot + '**/*.js',
-    html : appRoot + '**/*.html',
-    jade : appRoot + '**/*.jade',
-    style: 'styles/**/*.css',
-  },
-  plugins:{
-    root : pluginRoot,
-    js   : pluginRoot+ '**/*.js',
-    html : pluginRoot+ '**/*.html',
-    jade : pluginRoot+ '**/*.jade',
-    fonts: 'styles/fonts/**/*',
-    styl : {
-      index: 'styles/index.styl',
-      all  : 'styles/**/*.styl'
-    },
-  },
+  source: appRoot + '**/*.js',
+  html: appRoot + '**/*.html',
   style: 'styles/**/*.css',
   output: 'dist/',
   doc:'./doc',
