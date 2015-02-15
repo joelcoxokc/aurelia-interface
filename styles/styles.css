@@ -23,24 +23,81 @@ body {
     margin-top: 50px;
 }
 
-.page-host {
+#page-host {
     position: absolute;
     left: 0;
     right: 0;
-    top: 50px;
+    top: 0;
     bottom: 0;
     overflow-x: hidden;
     overflow-y: auto;
 }
 
-section {
-    margin: 0 20px;
+#page-host > nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    transition-property: right;
+    transition-duration: .25s;
+    transition-delay: 0s;
+    transition-function: ease-out;
 }
 
-.navbar-nav li.loader {
-    margin: 12px 24px 0 6px;
+#page-host > nav #aside-toggle {
+     cursor: pointer;
 }
 
-.pictureDetail {
-    max-width: 425px;
+#page-host > nav .navbar-brand:before {
+    display: block;
+    background-image: url(/aurelia-interface.png);
+    content: '';
+    width: 50px;
+    height: 50px;
+    margin-top: -17px;
+    background-size: 40px 40px;
+    background-repeat: no-repeat;
+    background-position: 5px 5px;
+    float: left;
+}
+
+#page-host > router-view {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    padding: 25px;
+    transition-property: right;
+    transition-duration: .25s;
+    transition-delay: 0s;
+    transition-function: ease-out;
+}
+
+#page-host > aside {
+    position: absolute;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    bottom: 0;
+    padding: 25px;
+    transition-property: right;
+    transition-duration: .25s;
+    transition-delay: 0s;
+    transition-function: ease-out;
+    box-shadow: inset 10px 0px 5px -5px rgba(0,0,0,0.5);
+}
+
+#page-host.aside-open > router-view {
+    right: 300px;
+}
+
+#page-host.aside-open > aside {
+    right: 0;
+}
+
+#page-host.aside-open > nav {
+    right: 300px;
 }

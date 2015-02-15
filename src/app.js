@@ -1,18 +1,18 @@
 import {Router} from 'aurelia-router';
-import bootstrap from 'bootstrap';
 
 export class App {
   static inject() { return [Router]; }
   constructor(router) {
     this.router = router;
+    this.router.title = "Aurelia-Interface"
     this.router.configure(config => {
-      config.title = 'Aurelia';
+      config.title = 'Aurelia Interface';
       config.map([
-        { route: ['','welcome'],  moduleId: 'welcome',      nav: true, title:'Welcome' },
-        { route: 'flickr',        moduleId: 'flickr',       nav: true },
-        { route: 'child-router',  moduleId: 'child-router', nav: true, title:'Child Router' },
-        { route: 'buttons-demo',  moduleId: 'buttons-demo', nav: true, title: 'Buttons Demo' }
+        { route: ['', 'welcome'], moduleId: 'welcome' },
+        { route: 'buttons-demo',  moduleId: 'buttons-demo', nav: true }
       ]);
     });
+
+    this.asideIsOpen = true
   }
 }

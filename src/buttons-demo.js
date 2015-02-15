@@ -1,5 +1,6 @@
 export class ButtonsDemo {
-  constructor (http) {
+  
+  constructor () {
     this.heading = 'Buttons Demo';
 
     this.radioOptions = [
