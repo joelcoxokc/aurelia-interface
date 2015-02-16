@@ -3,9 +3,9 @@ import {Behavior} from 'aurelia-templating';
 export class AiTabsAttachedBehavior {
   static metadata () {
     return Behavior
+      .withProperty('activeTabRef', 'tabRefChanged', 'ai-tabs').and( x => x.bindingIsTwoWay() )
       .withProperty('_showTab', 'showTabChanged', 'ai-show-tab')
       .withProperty('_hideTab', 'hideTabChanged', 'ai-hide-tab')
-      .withProperty('activeTabRef', 'tabRefChanged', 'ai-tabs').and( x => x.bindingIsTwoWay() )
       .syncChildren('tabLinks', 'tabLinksChanged', '[ai-tab-link]')
       .noView()
     ;
@@ -89,9 +89,14 @@ export class AiTabsAttachedBehavior {
     }
   }
 
+  tabRefChanged () {
+    console.log('tabRefChanged', arguments)
+  }
+
   showTabChanged () {
     console.log('showTabChanged', arguments)
   }
+
   hideTabChanged () {
     console.log('hideTabChanged', arguments)
   }

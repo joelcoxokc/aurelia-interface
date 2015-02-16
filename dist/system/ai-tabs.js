@@ -22,9 +22,9 @@ System.register(["aurelia-templating"], function (_export) {
         _prototypeProperties(AiTabsAttachedBehavior, {
           metadata: {
             value: function metadata() {
-              return Behavior.withProperty("_showTab", "showTabChanged", "ai-show-tab").withProperty("_hideTab", "hideTabChanged", "ai-hide-tab").withProperty("activeTabRef", "tabRefChanged", "ai-tabs").and(function (x) {
+              return Behavior.withProperty("activeTabRef", "tabRefChanged", "ai-tabs").and(function (x) {
                 return x.bindingIsTwoWay();
-              }).syncChildren("tabLinks", "tabLinksChanged", "[ai-tab-link]").noView();
+              }).withProperty("_showTab", "showTabChanged", "ai-show-tab").withProperty("_hideTab", "hideTabChanged", "ai-hide-tab").syncChildren("tabLinks", "tabLinksChanged", "[ai-tab-link]").noView();
             },
             writable: true,
             configurable: true
@@ -135,6 +135,13 @@ System.register(["aurelia-templating"], function (_export) {
               } else {
                 tab.style.display = "none";
               }
+            },
+            writable: true,
+            configurable: true
+          },
+          tabRefChanged: {
+            value: function tabRefChanged() {
+              console.log("tabRefChanged", arguments);
             },
             writable: true,
             configurable: true
