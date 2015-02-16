@@ -1,0 +1,27 @@
+<template>
+  Tabs Example
+  <div ai-tabs.bind="selectedTabRef" ai-show-tab.call="showMyTab(tab)" ai-hide-tab.call="hideMyTab(tab)">
+    <ul class="nav nav-tabs">
+      <li>
+        <a ai-tab-link href="tab-1">Tab 1</a>
+      </li>
+      <li>
+        <a ai-tab-link href="tab-2">Tab 2</a>
+      </li>
+      <li>
+        <a ai-tab-link href="tab-3">Tab 3</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane fade" ai-tab="tab-1">
+        Tab 1 Content
+      </div>
+      <div class="tab-pane fade" ai-tab="tab-2">
+        Tab 2 Content
+      </div>
+      <div class="tab-pane fade" ai-tab="tab-3">
+        Tab 3 Content
+      </div>
+    </div>
+  </div>
+</template>

@@ -9,7 +9,8 @@ export class App {
       config.title = 'Aurelia Interface';
       config.map([
         { route: ['', 'welcome'], moduleId: 'welcome' },
-        { route: 'buttons-demo',  moduleId: 'buttons-demo', nav: true }
+        { route: 'buttons-demo',  moduleId: 'buttons-demo', nav: true },
+        { route: 'tabs-demo',  moduleId: 'tabs-demo', nav: true },
       ]);
     });
 
