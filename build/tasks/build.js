@@ -28,10 +28,15 @@ gulp.task('build-system', function () {
     .pipe(gulp.dest(paths.output + 'system'));
 });
 
+gulp.task('build-html', function () {
+  return gulp.src(paths.html)
+    .pipe(gulp.dest(paths.output + 'system'));
+});
+
 gulp.task('build', function(callback) {
   return runSequence(
     'clean',
-    ['build-es6', 'build-commonjs', 'build-amd', 'build-system'],
+    ['build-es6', 'build-commonjs', 'build-amd', 'build-system', 'build-html'],
     callback
   );
 });

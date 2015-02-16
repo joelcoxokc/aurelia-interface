@@ -1,21 +1,21 @@
 import {AiBtnToggleAttachedBehavior} from './ai-btn-toggle'
 import {AiBtnRadioAttachedBehavior} from './ai-btn-radio'
 import {AiClassAttachedBehavior} from './ai-class'
-// import {AInterfaceCustomElement} from './a-interface'
+import {AiTabsAttachedBehavior} from './ai-tabs'
 
 function install(aurelia){
   aurelia.withResources([
-    // AInterfaceCustomElement,
     AiBtnToggleAttachedBehavior,
     AiBtnRadioAttachedBehavior,
     AiClassAttachedBehavior,
+    AiTabsAttachedBehavior
   ]);
 }
 
 export {
-  // AInterfaceCustomElement,
   AiBtnToggleAttachedBehavior,
   AiBtnRadioAttachedBehavior,
   AiClassAttachedBehavior,
+  AiTabsAttachedBehavior,
   install
 };
