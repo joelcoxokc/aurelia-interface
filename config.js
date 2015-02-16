@@ -1,7 +1,6 @@
 System.config({
   "paths": {
     "*": "*.js",
-    "dist/github:*": "jspm_packages/github/*",
     "github:*": "jspm_packages/github/*.js",
     "npm:*": "jspm_packages/npm/*.js",
     "aurelia-skeleton-navigation/*": "lib/*.js",
