@@ -181,6 +181,9 @@
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "source-map": "./ib/source-map"
+  },
   "dependencies": {
     "amdefine": "amdefine@*",
     "path": "github:jspm/nodelibs-path@^0.1.0",

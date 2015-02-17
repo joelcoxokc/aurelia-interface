@@ -55,5 +55,8 @@
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "Base64": "./ase64"
+  },
   "dependencies": {}
 }

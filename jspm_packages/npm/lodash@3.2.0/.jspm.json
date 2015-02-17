@@ -94,6 +94,9 @@
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "lodash": "./index"
+  },
   "dependencies": {
     "process": "github:jspm/nodelibs-process@^0.1.0"
   }

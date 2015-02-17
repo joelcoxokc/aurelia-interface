@@ -53,6 +53,9 @@
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "path-browserify": "./index"
+  },
   "dependencies": {
     "process": "github:jspm/nodelibs-process@^0.1.0"
   }

@@ -93,5 +93,8 @@
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "querystring": "./index"
+  },
   "dependencies": {}
 }

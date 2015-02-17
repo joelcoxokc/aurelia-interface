@@ -2,7 +2,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 this.sourceMap = {
-  SourceMapConsumer: require('source-map/source-map-consumer').SourceMapConsumer,
-  SourceMapGenerator: require('source-map/source-map-generator').SourceMapGenerator,
-  SourceNode: require('source-map/source-node').SourceNode
+  SourceMapConsumer: require('../ib/source-map/source-map-consumer').SourceMapConsumer,
+  SourceMapGenerator: require('../ib/source-map/source-map-generator').SourceMapGenerator,
+  SourceNode: require('../ib/source-map/source-node').SourceNode
 };

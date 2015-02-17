@@ -70,6 +70,9 @@
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "stream-browserify": "./index"
+  },
   "dependencies": {
     "inherits": "inherits@~2.0.1",
     "readable-stream": "readable-stream@^1.0.27-1",

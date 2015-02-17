@@ -1,10 +1,15 @@
 {
   "registry": "npm",
-  "jspm": {},
+  "jspm": {
+    "registry": "npm"
+  },
   "format": "cjs",
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "undefined": "./index"
+  },
   "dependencies": {
     "querystring": "querystring@^0.2.0"
   }

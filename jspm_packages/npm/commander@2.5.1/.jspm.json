@@ -70,6 +70,9 @@
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "commander": "./index"
+  },
   "dependencies": {
     "events": "github:jspm/nodelibs-events@^0.1.0",
     "child_process": "github:jspm/nodelibs-child_process@^0.1.0",

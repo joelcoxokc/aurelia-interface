@@ -11,7 +11,7 @@ export function configure(aurelia) {
     .eventAggregator()
 
   System.normalize("aurelia-interface@dev/dist/system/index").then(function (name) {
-    System.map["aurelia-interface@dev"] = name;
+    System.map["aurelia-interface@master"] = name;
     System.map["aurelia-interface"] = name;
     aurelia.use.plugin(name);
 

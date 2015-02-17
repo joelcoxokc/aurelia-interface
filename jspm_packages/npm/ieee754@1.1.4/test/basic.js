@@ -1,6 +1,6 @@
 /* */ 
 (function(Buffer) {
-  var ieee754 = require("../../ieee754@1.1.4");
+  var ieee754 = require("../index");
   var test = require("tape");
   var EPSILON = 0.00001;
   test('read float', function(t) {

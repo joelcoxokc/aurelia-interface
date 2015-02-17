@@ -56,6 +56,9 @@
   ],
   "registry": "npm",
   "format": "cjs",
+  "map": {
+    "inherits": "./nherits_browser"
+  },
   "dependencies": {
     "util": "github:jspm/nodelibs-util@^0.1.0"
   }

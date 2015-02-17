@@ -34,8 +34,13 @@
     "example",
     "node_modules"
   ],
-  "jspm": {},
+  "jspm": {
+    "registry": "npm"
+  },
   "format": "cjs",
+  "map": {
+    "http-browserify": "./index"
+  },
   "dependencies": {
     "Base64": "Base64@~0.2.0",
     "inherits": "inherits@~2.0.1",

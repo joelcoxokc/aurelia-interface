@@ -53,6 +53,9 @@
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "string_decoder": "./index"
+  },
   "dependencies": {
     "buffer": "github:jspm/nodelibs-buffer@^0.1.0"
   }

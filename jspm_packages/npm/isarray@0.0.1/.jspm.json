@@ -50,5 +50,8 @@
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "isarray": "./index"
+  },
   "dependencies": {}
 }

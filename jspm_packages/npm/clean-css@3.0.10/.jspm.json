@@ -73,6 +73,9 @@
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "clean-css": "./index"
+  },
   "dependencies": {
     "commander": "commander@~2.5.0",
     "source-map": "source-map@~0.1.43",

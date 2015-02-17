@@ -1,0 +1,38 @@
+<template>
+  <div id="page-host" ai-class.bind="{'aside-open': asideIsOpen}">
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          ${router.title}
+        </a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a id="aside-toggle" ai-btn-toggle.bind="asideIsOpen">
+              <i class="fa fa-bars"></i>
+            </a>
+          </li>
+          <li class="loader" if.bind="router.isNavigating">
+            <i class="fa fa-spinner fa-spin fa-2x"></i>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <router-view></router-view>
+    <aside>
+      <ul class="nav">
+        <li class="list-header">Components</li>
+        <ul class="nav">
+          <li
+            repeat.for="row of router.navigation"
+            class="list-item"
+            ai-class.bind="{active: row.isActive}"
+          >
+            <a href.bind="row.href">${row.title}</a>
+          </li>
+        </ul>
+      </ul>
+    </aside>
+  </div>
+</template>

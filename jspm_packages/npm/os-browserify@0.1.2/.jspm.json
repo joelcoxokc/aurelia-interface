@@ -39,6 +39,9 @@
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "os-browserify": "./browser"
+  },
   "dependencies": {
     "os": "github:jspm/nodelibs-os@^0.1.0"
   }

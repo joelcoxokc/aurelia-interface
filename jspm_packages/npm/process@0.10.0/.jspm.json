@@ -53,5 +53,8 @@
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "process": "./rowser"
+  },
   "dependencies": {}
 }

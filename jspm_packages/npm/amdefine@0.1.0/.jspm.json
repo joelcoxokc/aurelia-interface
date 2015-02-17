@@ -54,6 +54,9 @@
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "amdefine": "./mdefine"
+  },
   "dependencies": {
     "path": "github:jspm/nodelibs-path@^0.1.0",
     "process": "github:jspm/nodelibs-process@^0.1.0",

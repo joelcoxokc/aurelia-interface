@@ -2,7 +2,7 @@
 (function(Buffer) {
   var path = require("path");
   var test = require("tape");
-  var Writable = require("../../stream-browserify@1.0.0").Writable;
+  var Writable = require("../index").Writable;
   var inherits = require("inherits");
   inherits(TestWritable, Writable);
   function TestWritable(opt) {

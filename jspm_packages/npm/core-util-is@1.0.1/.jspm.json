@@ -53,6 +53,9 @@
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "core-util-is": "./lib/util"
+  },
   "dependencies": {
     "buffer": "github:jspm/nodelibs-buffer@^0.1.0"
   }

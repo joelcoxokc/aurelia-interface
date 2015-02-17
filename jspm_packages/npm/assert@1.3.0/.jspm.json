@@ -52,6 +52,9 @@
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "assert": "./ssert"
+  },
   "dependencies": {
     "util": "util@0.10.3"
   }

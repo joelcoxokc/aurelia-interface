@@ -1,30 +1,36 @@
 <template>
-  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only">Toggle Navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+
+  <section class="nav-bar-container" role="navigation">
+    <div class="nav-bar-header header-right">
+      <button type="button" class="nav-bar-toggle" click="{aside.open = !aside.open}"  data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <!-- click.trigger="open()" -->
+        <i class="mdi-navigation-menu"></i>
       </button>
-      <a class="navbar-brand" href="#">
-        <i class="fa fa-home"></i>
-        <span>${router.title}</span>
+      <a class="nav-bar-brand nav-right waves-effect waves-dark text-purple" href="#">
+         <!-- <i class="fa fa-home"></i> -->
+        <span>${title}</span>
       </a>
     </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
-          <a href.bind="row.href">${row.title}</a>
-        </li>
-      </ul>
+    <div class="nav-bar-content">
+      <div class="ui-collapse nav-bar-collapse ${showing ? 'open' : ''}" id="bs-example-navbar-collapse-1">
+        <ul class="nav-actions nav-actions-right">
+          <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
+            <a class="waves-effect waves-light text-purple" href.bind="row.href">${row.title}</a>
+          </li>
+          <li ai-btn-toggle.bind="aside.open" >
+            <a class="waves-effect waves-light text-purple">
+              <i class="fa fa-list"></i>
+            </a>
+          </li>
+        </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li class="loader" if.bind="router.isNavigating">
-          <i class="fa fa-spinner fa-spin fa-2x"></i>
-        </li>
-      </ul>
+        <ul class="nav-actions hide-mobile">
+          <li class="loader" if.bind="router.isNavigating">
+            <i class="fa fa-spinner fa-spin fa-2x"></i>
+          </li>
+        </ul>
+      </div>
     </div>
-  </nav>
+  </section>
 </template>

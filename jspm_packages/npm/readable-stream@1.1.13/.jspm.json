@@ -61,7 +61,8 @@
   "jspm": {
     "map": {
       "stream": "stream/index",
-      "util": "@empty"
+      "util": "@empty",
+      "readable-stream": "./readable"
     },
     "registry": "jspm",
     "dependencies": {
@@ -78,7 +79,8 @@
   },
   "map": {
     "stream": "stream/index",
-    "util": "@empty"
+    "util": "@empty",
+    "readable-stream": "./readable"
   },
   "registry": "jspm",
   "format": "cjs",

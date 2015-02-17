@@ -81,6 +81,9 @@
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "punycode": "./punycode"
+  },
   "dependencies": {
     "process": "github:jspm/nodelibs-process@^0.1.0"
   }

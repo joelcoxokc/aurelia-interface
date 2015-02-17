@@ -1,6 +1,6 @@
 /* */ 
 "use strict";
-var qs = require("../../querystring@0.2.0");
+var qs = require("../index");
 var qsTestCases = [['foo=918854443121279438895193', 'foo=918854443121279438895193', {'foo': '918854443121279438895193'}], ['foo=bar', 'foo=bar', {'foo': 'bar'}], ['foo=bar&foo=quux', 'foo=bar&foo=quux', {'foo': ['bar', 'quux']}], ['foo=1&bar=2', 'foo=1&bar=2', {
   'foo': '1',
   'bar': '2'

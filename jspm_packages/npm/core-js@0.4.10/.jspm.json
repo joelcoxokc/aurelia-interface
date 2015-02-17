@@ -73,6 +73,9 @@
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "core-js": "./index"
+  },
   "dependencies": {
     "process": "github:jspm/nodelibs-process@^0.1.0"
   }

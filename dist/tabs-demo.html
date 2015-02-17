@@ -1,27 +1,44 @@
 <template>
-  Tabs Example
-  <div ai-tabs.bind="selectedTabRef" class="${showMyTab.name}">
-    <ul class="nav nav-tabs">
-      <li ai-class.bind="{active: selectedTabRef == 'tab-1'}">
-        <a ai-tab-link href="tab-1">Tab 1</a>
-      </li>
-      <li ai-class.bind="{active: selectedTabRef == 'tab-2'}">
-        <a ai-tab-link href="tab-2">Tab 2</a>
-      </li>
-      <li ai-class.bind="{active: selectedTabRef == 'tab-3'}">
-        <a ai-tab-link href="tab-3">Tab 3</a>
-      </li>
-    </ul>
-    <div class="tab-content">
-      <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-1', active: selectedTabRef == 'tab-1'}" ai-tab="tab-1">
-        Tab 1 Content
-      </div>
-      <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-2', active: selectedTabRef == 'tab-2'}" ai-tab="tab-2">
-        Tab 2 Content
-      </div>
-      <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-3', active: selectedTabRef == 'tab-3'}" ai-tab="tab-3">
-        Tab 3 Content
+  <header class="bg-purple ai-header">
+      <h1 class="text-white page-heading">Tabs Demo</h1>
+  </header>
+
+  <div class="ai-content">
+    <div class="row">
+      <div class="col s8 offset-s2" ai-toggle.bind="showing">
+
+        <div class="ai-card card ai-card">
+          <div class="card-content">
+
+            <div ai-tabs.bind="selectedTabRef" class="${showMyTab.name}">
+              <ul class="nav nav-tabs">
+                <li ai-class.bind="{active: selectedTabRef == 'tab-1'}">
+                  <a ai-tab-link href="tab-1">Tab 1</a>
+                </li>
+                <li ai-class.bind="{active: selectedTabRef == 'tab-2'}">
+                  <a ai-tab-link href="tab-2">Tab 2</a>
+                </li>
+                <li ai-class.bind="{active: selectedTabRef == 'tab-3'}">
+                  <a ai-tab-link href="tab-3">Tab 3</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-1', active: selectedTabRef == 'tab-1'}" ai-tab="tab-1">
+                  Tab 1 Content
+                </div>
+                <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-2', active: selectedTabRef == 'tab-2'}" ai-tab="tab-2">
+                  Tab 2 Content
+                </div>
+                <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-3', active: selectedTabRef == 'tab-3'}" ai-tab="tab-3">
+                  Tab 3 Content
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
+
 </template>

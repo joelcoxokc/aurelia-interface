@@ -1,9 +1,14 @@
 {
   "registry": "npm",
-  "jspm": {},
+  "jspm": {
+    "registry": "npm"
+  },
   "format": "cjs",
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "undefined": "./index"
+  },
   "dependencies": {}
 }

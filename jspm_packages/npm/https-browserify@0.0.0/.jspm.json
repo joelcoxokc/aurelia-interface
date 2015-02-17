@@ -47,6 +47,9 @@
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "https-browserify": "./index"
+  },
   "dependencies": {
     "http": "github:jspm/nodelibs-http@^1.7.0"
   }

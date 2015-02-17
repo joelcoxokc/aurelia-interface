@@ -50,10 +50,13 @@
   "ignore": [
     "node_modules"
   ],
+  "map": {
+    "url": "./rl"
+  },
   "dependencies": {
     "punycode": "punycode@1.3.2",
-    "querystring": "github:jspm/nodelibs-querystring@^0.1.0",
     "assert": "github:jspm/nodelibs-assert@^0.1.0",
-    "util": "github:jspm/nodelibs-util@^0.1.0"
+    "util": "github:jspm/nodelibs-util@^0.1.0",
+    "querystring": "github:jspm/nodelibs-querystring@^0.1.0"
   }
 }

@@ -14,8 +14,8 @@ System.config({
     "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.4.2",
     "aurelia-framework": "github:aurelia/framework@0.8.6",
     "aurelia-http-client": "github:aurelia/http-client@0.5.0",
-    "aurelia-interface": "github:yelvert/aurelia-interface@dev",
-    "aurelia-interface@dev": "github:yelvert/aurelia-interface@dev",
+    "aurelia-interface": "github:joelcoxokc/aurelia-interface@master",
+    "aurelia-interface@master": "github:joelcoxokc/aurelia-interface@master",
     "aurelia-router": "github:aurelia/router@0.5.5",
     "bootstrap": "github:twbs/bootstrap@3.3.2",
     "font-awesome": "npm:font-awesome@4.3.0",
@@ -106,6 +106,19 @@ System.config({
       "aurelia-path": "github:aurelia/path@0.4.3",
       "aurelia-task-queue": "github:aurelia/task-queue@0.2.3",
       "core-js": "npm:core-js@0.4.10"
+    },
+    "github:joelcoxokc/aurelia-interface@master": {
+      "Waves": "github:fians/Waves@0.6.0",
+      "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.9.3",
+      "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.4.2",
+      "aurelia-framework": "github:aurelia/framework@0.8.6",
+      "aurelia-http-client": "github:aurelia/http-client@0.4.4",
+      "aurelia-router": "github:aurelia/router@0.5.5",
+      "aurelia-templating": "github:aurelia/templating@0.8.9",
+      "font-awesome": "npm:font-awesome@4.3.0",
+      "jquery": "github:components/jquery@2.1.3",
+      "lodash": "npm:lodash@3.2.0",
+      "materialize": "github:Dogfalo/materialize@0.95.2"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"

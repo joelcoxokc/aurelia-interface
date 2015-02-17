@@ -48,6 +48,9 @@
   "jspm": {
     "main": "system/index",
     "format": "register",
+    "directories": {
+      "lib": "lib"
+    },
     "dependencies": {
       "aurelia-bootstrapper": "^0.9.1",
       "aurelia-dependency-injection": "^0.4.1",
