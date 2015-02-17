@@ -41,13 +41,17 @@ define(["exports", "aurelia-templating"], function (exports, _aureliaTemplating)
       setActiveTab: {
         value: function setActiveTab(newTabRef) {
           var _this = this;
+
+
           if (newTabRef == this.activeTabRef) return;
 
           this.tabs.forEach(function (tab) {
             return _this.hideTab(tab);
           });
+
           if (newTabRef) {
             var newTab = this.element.querySelector("[ai-tab=\"" + newTabRef + "\"]");
+
             if (newTab) {
               this.showTab(newTab);
               this.activeTabRef = newTabRef;
@@ -64,7 +68,14 @@ define(["exports", "aurelia-templating"], function (exports, _aureliaTemplating)
       },
       bind: {
         value: function bind() {
+          this.element.classList.add("ai-tabs");
+          this.linksContainer = this.element.querySelector(".ai-nav-tabs");
+          this.slider = $("<div class=\"ai-tab-slider\">");
+          this.sliderWidth = 100 / this.tabLinks.length;
+          this._setSliderWidth();
           this.bindLinks();
+
+          $(this.linksContainer).append(this.slider);
         },
         writable: true,
         configurable: true
@@ -87,6 +98,7 @@ define(["exports", "aurelia-templating"], function (exports, _aureliaTemplating)
         value: function bindLinks() {
           var _this = this;
           this.unbindLinks;
+
           this.tabLinks.forEach(function (link) {
             link.addEventListener("click", _this.linkHandler, false);
           });
@@ -107,7 +119,28 @@ define(["exports", "aurelia-templating"], function (exports, _aureliaTemplating)
       _linkHandler: {
         value: function _linkHandler($event) {
           $event.preventDefault();
+          console.log($event.target.offsetLeft);
+          this._setSliderPosition($event.target.offsetLeft);
           this.setActiveTab($event.target.getAttribute("href"));
+        },
+        writable: true,
+        configurable: true
+      },
+      _setSliderPosition: {
+        value: function _setSliderPosition(position) {
+          this._setSliderWidth();
+          this.slider.css("left", position);
+        },
+        writable: true,
+        configurable: true
+      },
+      _setSliderWidth: {
+        value: function _setSliderWidth() {
+          var _this = this;
+          this.slider.css("width", _this.sliderWidth + 10 + "%");
+          setTimeout(function () {
+            _this.slider.css("width", _this.sliderWidth + "%");
+          }, 200);
         },
         writable: true,
         configurable: true
