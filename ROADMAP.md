@@ -9,7 +9,7 @@ AI: Aurelia-Interface
 > A ui web component Library, using aurelia framework.
 
 My Vision for ai is to be able to use this Component Library, with the ability to fully customize it's visual effects. 
-Additional featured include . . .
+Additional features include . . .
 
 **Adding your own Custom CSS Library**
 
