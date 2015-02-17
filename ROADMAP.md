@@ -4,6 +4,11 @@
 
 ##ROADMAP
 
+Plan on completing the basic layouts and functionality of each within the given ETA
+**Note** These components are necessary, because the a great majority of the remaining components and layout features depend on these few components. 
+
+Once V0.1.0 is released, we will begin working on v0.1.1 && v0.1.2
+
 ###V 0.1.0
 
 ####Layout
@@ -96,5 +101,48 @@
 
 #####Components
 Similar to bootstrap's or MaterializeCSS components.
+
+
+###V 0.1.1
+
+> Includes Updates and additional Properties for the current components.
+
+Plan on making a list of behaviors and properties that are not listed in v0.1.0
+
+
+###V 0.1.2
+
+####Layout
+
+ - `<ai-grid>`
+   - `<ai-row>`
+     - size: `1-12`
+     - media: `<xs | sm | md | lg | xl>`
+   - `<ai-col>`
+     - size: `1-12`
+     - media: `<xs | sm | md | lg | xl>`
+ - `<ai-section>`
+ - `<ai-content>`
+ - `<ai-header>`
+ - `<ai-footer>`
+ 
+####Components
+
+ - `<ai-collection>`
+   - expandable: `boolean`
+   - expanded: `boolean`
+   - accordion: `boolean`
+   - `<collection-header>`
+     - `<collection-tools>`
+   - `<collection-item>`
+     - `<item-tools>` 
+ 
+- `<ai-table>`
+- `<ai-icon>`
+- `<ai-form>`
+- `<ai-media>`
+- `<ai-animate>`
+- `<ai-waves>`
+- `<ai-link>`
 
 
