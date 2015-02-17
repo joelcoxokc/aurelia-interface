@@ -1,5 +1,3 @@
-
-
 import {Behavior} from 'aurelia-templating';
 
 
@@ -35,7 +33,6 @@ export class AInterface {
 
     constructor(element) {
 
-            console.log(this.toggler)
             this.element = element
             this.aside   = {};
             this.bar     = {};
@@ -61,4 +58,38 @@ export class AInterface {
 }
 
 
+export class AiBarAttachedBehavior {
 
+    static metadata(){
+
+        return Behavior
+            .withProperty('value', 'valueChnaged', 'ai-bar')
+            .withProperty('size', 'sizeChanged')
+
+    }
+
+
+    static inject(){
+
+        return [Element];
+
+    }
+
+
+    constructor(element){
+        this.element = element
+
+    }
+
+    bind(){
+        console.log('Hello')
+        this.element.classList.add('ai-bar', 'ai-nav-bar')
+
+    }
+
+    sizeChanged(newSize){
+
+        this.element.classList.add('bar-'+newSize);
+
+    }
+}

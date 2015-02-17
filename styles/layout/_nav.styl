@@ -1,13 +1,13 @@
-.ui-nav
+.ai-bar
   flex      : 1 0 auto
   order     : -1
   position  : relative
   flex-container()
 
-  &.ui-nav-bar
+  &.ai-nav-bar
     flex            : 0 0 $nav-bar-height
     box-shadow      : 0 2px 4px rgba(0,0,0,0.2)
-    position        : relative
+    position        : fixed
     flex-direction  : row
     background-color: $shades.white
     width 100%
@@ -91,7 +91,6 @@
           dislpay none
 
         & > *
-          passing        : 6px 12px
           position       : relative
           text-align     : center
           line-height    : $nav-bar-height
@@ -99,6 +98,7 @@
           flex-container()
 
           & > *
+            padding  : 0px 12px
             flex     : 1 0 auto
             dislpay  : block
             position : relative
@@ -144,24 +144,23 @@
 
 
     &.bar-xs
-      flex:  0 0 $nav-bar-height
-      min-max-height($nav-bar-height-xs)
-
+      //
     &.bar-sm
-      flex:  0 0 $nav-bar-height
-      min-max-height($nav-bar-height-sm)
-
+      //
     &.bar-md
-      flex:  0 0 $nav-bar-height
-      min-max-height($nav-bar-height-md)
-
+      //
     &.bar-lg
-      flex:  0 0 $nav-bar-height
-      min-max-height($nav-bar-height-lg)
-
+      //
     &.bar-xl
-      flex: 0 0 $nav-bar-height
-      min-max-height($nav-bar-height-xl)
+      .nav-bar-container
+        padding-top 150px
+        .nav-bar-header
+          min-max-width(500px)
+          margin-bottom 64px
+          .nav-bar-brand
+            font-size 4em
+        .nav-bar-content
+          align-self flex-end
 
 
 .hide-mobile
@@ -174,9 +173,9 @@
     height     800px
 
 @media(min-width: 640px)
-  .ui-nav
+  .ai-bar
 
-    &.ui-nav-bar
+    &.ai-nav-bar
 
       .nav-bar-container
         flex-direction row
@@ -225,7 +224,6 @@
               .nav-actions
                 flex-direction row
                 justify(center)
-
 
 
 

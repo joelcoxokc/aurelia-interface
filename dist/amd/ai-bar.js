@@ -6,17 +6,19 @@ define(["exports", "aurelia-templating"], function (exports, _aureliaTemplating)
   var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
   var Behavior = _aureliaTemplating.Behavior;
-  var AiClassAttachedBehavior = exports.AiClassAttachedBehavior = (function () {
-    function AiClassAttachedBehavior(element) {
-      _classCallCheck(this, AiClassAttachedBehavior);
+  var AiBarAttachedBehavior = exports.AiBarAttachedBehavior = (function () {
+    function AiBarAttachedBehavior(element) {
+      _classCallCheck(this, AiBarAttachedBehavior);
 
       this.element = element;
     }
 
-    _prototypeProperties(AiClassAttachedBehavior, {
+    _prototypeProperties(AiBarAttachedBehavior, {
       metadata: {
         value: function metadata() {
-          return Behavior.withProperty("value", "valueChanged", "ai-class");
+          return Behavior.withProperty("value", null, "ai-bar").and(function (x) {
+            return x.bindingIsTwoWay();
+          }).noView();
         },
         writable: true,
         configurable: true
@@ -31,45 +33,38 @@ define(["exports", "aurelia-templating"], function (exports, _aureliaTemplating)
     }, {
       bind: {
         value: function bind() {
-          this.setupObserver();
-          this.updateClasses();
+          console.log(this);
+          this.handler = this[typeof this.value === "function" ? "_toggle" : "toggle"].bind(this);
+          this.element.addEventListener("click", this.handler, false);
         },
         writable: true,
         configurable: true
       },
-      updateClasses: {
-        value: function updateClasses() {
-          var _this = this;
-          Object.keys(this.value).forEach(function (className) {
-            _this.element.classList[_this.value[className] ? "add" : "remove"](className);
-          });
+      unbind: {
+        value: function unbind() {
+          this.element.removeEventListener("click", this.handler);
         },
         writable: true,
         configurable: true
       },
-      valueChanged: {
-        value: function valueChanged(newValue, oldValue) {
-          this.updateClasses();
-          if (!Object.is(newValue, oldValue)) {
-            this.setupObserver();
-          }
+      toggle: {
+        value: function toggle() {
+          this.value = !this.value;
         },
         writable: true,
         configurable: true
       },
-      setupObserver: {
-        value: function setupObserver() {
-          var self = this;
-          Object.observe(this.value, function () {
-            self.updateClasses();
-          });
+      _toggle: {
+        value: function _toggle() {
+          this._value = !this._value;
+          this.value(this._value);
         },
         writable: true,
         configurable: true
       }
     });
 
-    return AiClassAttachedBehavior;
+    return AiBarAttachedBehavior;
   })();
   Object.defineProperty(exports, "__esModule", {
     value: true

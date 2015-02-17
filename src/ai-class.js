@@ -16,7 +16,6 @@ export class AiClassAttachedBehavior {
   }
 
   bind () {
-    console.log(this)
     this.setupObserver()
     this.updateClasses()
   }
