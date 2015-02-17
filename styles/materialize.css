@@ -1446,7 +1446,6 @@ small {
     .card .card-title.activator {
       cursor: pointer; }
   .card a {
-    color: #ffab40;
     margin-right: 20px;
     -webkit-transition: color 0.3s ease;
     -moz-transition: color 0.3s ease;
@@ -1454,8 +1453,6 @@ small {
     -ms-transition: color 0.3s ease;
     transition: color 0.3s ease;
     text-transform: uppercase; }
-    .card a:hover {
-      color: #ffd8a6; }
   .card.small {
     height: 300px;
     position: relative; }
