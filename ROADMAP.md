@@ -5,6 +5,7 @@
 ##ROADMAP
 
 Plan on completing the basic layouts and functionality of each within the given ETA
+
 **Note** These components are necessary, because the a great majority of the remaining components and layout features depend on these few components. 
 
 Once V0.1.0 is released, we will begin working on v0.1.1 && v0.1.2
