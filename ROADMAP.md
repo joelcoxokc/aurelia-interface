@@ -146,3 +146,102 @@ Plan on making a list of behaviors and properties that are not listed in v0.1.0
 - `<ai-link>`
 
 
+###V 0.1.3
+> Includes Updates and additional Properties for the current components.
+
+Plan on making a list of behaviors and properties that are not listed in v0.1.2
+
+###V 0.1.4
+
+####Layout
+ - `<ai-subheader>`
+ - `<ai-aside-inner>`
+
+####Components
+ - `<ai-button-sheet>`
+ - `<ai-chip>`
+ - `<ai-list>`
+   - `<ai-list-controls>`
+ - `<ai-menu>`
+ - `<ai-picker>`
+ - `<ai-progress>`
+ - `<ai-slider>`
+ - `<ai-switch>`
+ - `<ai-tooltip>`
+ - `<ai-text-field>`
+ 
+ 
+ 
+###V 0.1.5
+
+> Includes Updates and additional Properties for the current components.
+
+Plan on making a list of behaviors and properties that are not listed in v0.1.4
+
+
+###V 0.1.6
+
+> introduce User Select Patters
+
+####Patterns
+ - `<ai-gesture>`
+ - `<ai-scroll>`
+ - `<ai-swipe>`
+
+####Layout
+ - `<ai-affix>`
+ 
+####Components
+ - `<ai-select>`
+ - `<ai-search>`
+ - `<ai-data-grid>`
+ - `<ai-notify>`
+ - `<ai-popover>`
+ - `<ai-collapsible>`
+   - `<collapsible-item>`
+ - `<ai-action-group>`
+ - `<ai-btn-group>`
+
+###V 0.1.7
+
+> Includes Updates and additional Properties for the current components.
+
+Plan on making a list of behaviors and properties that are not listed in v0.1.6
+
+
+###V 0.1.8
+
+> Introduce Default AI Pages
+
+> Introduce Default AI Helpers
+
+####Helpers
+ - `<ai-shadow>`
+ - `<ai-layer>`
+ - `<ai-waves>`
+ - `<ai-bg>`
+ - `<ai-text>`
+
+####Page
+ - `<ai-page>`
+ - `<ai-page-header>`
+ - `<ai-page-content>`
+ - `<ai-page-footer>`
+ 
+####Layout
+ - `<ai-nav>`
+ 
+####Components
+
+ - `<ai-input-group>`
+ - `<ai-label>`
+ - `<ai-thumbnail>`
+ - `<ai-breadcrumb>`
+ - `<ai-blockquote>`
+ - `<ai-collection-group>`
+ - `<ai-list-gropu>`
+ - `<ai-collapsible-group>`
+ - `<ai-pagination>`
+ - `<ai-block>`
+ 
+ 
