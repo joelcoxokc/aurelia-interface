@@ -9,15 +9,27 @@
 ####Layout
  - Complete ai-layout, which includes the following
  - `<a-interface>` **Global Application Wrapper**
+     - Complete: true
+     - ETA: 2/17/15
  - `<ai-nav-aside>` **custom configurable side navigation**
+     - Complete: true
+     - ETA: 2/17/15
  - `<ai-nav-bar>` **cutom configurable top app navigation**
+     - Complete: False
+     - ETA: 2/17/15
  - `<ai-body>` **depending on the flex-direction of the interface**
+     - Complete: true
  - `<ai-main>` **wrapper for `<router-view>`**
+     - Complete: True
+
 
 ####Components
  - `<ai-tabs>`
      - `<tab-link>`
      - `<tab-content>`
+     - Complete: False
+     - ETA: 2/19/15
+
 
  - `<ai-card>`
      - type: `panel | default | reveal`
@@ -25,20 +37,28 @@
      - `<card-content>`
      - `<card-footer>`
      - `<card-image>`
+     - Complete: Pending
+     - ETA: 2/17/15
 
  - `<ai-action>`
      - type: `raised | flat`
      - shape: `round`
      - reveal: `boolan`
+     - Complete: False
+     - ETA: 2/18/15
 
  - `<ai-modal>`
      - `<modal-header>`
      - `<modal-content>`
      - `<modal-footer>`
+     - Complete: False
+     - ETA: 2/19/15
 
  - `<ai-dropdown>`
      - `<dropdown-toggle>`
      - `<dropdown-content>`
+     - Complete: False
+     - ETA: 2/19/15
 
 #####a-interface
 
