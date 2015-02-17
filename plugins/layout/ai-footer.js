@@ -1,12 +1,12 @@
 import {Behavior} from 'aurelia-templating'
 
 
-export class AiBody{
+export class AiFooter{
 
     static metadata(){
 
         return Behavior
-            .customElement('ai-body')
+            .customElement('ai-footer')
             .withProperty('direction')
 
     }
@@ -25,9 +25,9 @@ export class AiBody{
 
     }
 
-    bind(){
+    attahced(){
 
-      this.element.classList.add('ai-body');
+      this.element.classList.add('ai-footer');
 
     }
 

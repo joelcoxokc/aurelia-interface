@@ -1,13 +1,39 @@
 <template>
     <import from="./a-interface"></import>
     <import from="./layout-primary"></import>
+    <import from='./ai-nav-aside'></import>
+    <import from='./ai-nav-bar'></import>
+    <import from='./ai-body'></import>
+    <import from='./ai-main'></import>
+    <import from='./ai-footer'></import>
 
     <a-interface
-                direction="is-row"
-                nav.bind="{right:true, bar:true}"
-                bar.bind="{fixed:true, size:'sm', mobile:true}">
+                direction="row"
+                aside.bind="aside"
+                bar.bind="bar">
 
-                <layout-primary aside.bind="aside" router.bind="router"></layout-primary>
+
+        <ai-body direction.bind="column">
+
+            <ai-nav-bar
+                    class="ui-nav ui-nav-bar"
+                    router.bind="router"
+                    aside.bind="aside">
+            </ai-nav-bar>
+
+            <ai-main>
+                <router-view></router-view>
+            </ai-main>
+
+            <ai-footer class="ai-card-footer"></ai-footer>
+
+        </ai-body>
+
+        <ai-nav-aside
+                size.bind="aside.size"
+                side.bind="aside.side"
+                fixed.bind="aside.fixed"
+                open.bind="aside.open"></ai-nav-aside>
 
     </a-interface>
 </template>

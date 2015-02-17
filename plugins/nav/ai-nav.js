@@ -1,6 +1,5 @@
 import {Behavior} from 'aurelia-framework'
-import {Aside}    from './aside'
-import {Bar}      from './bar'
+
 
 var defaults = {
     aside: {
@@ -13,12 +12,12 @@ var defaults = {
         fixed : true,
         open  : false,
         size  : 'sm',
-        barId : 'bar1'
+        barId : 'bar1',
     }
 
 }
 
-export class Nav {
+export class NavBar {
 
     static metadata(){
 
@@ -27,44 +26,41 @@ export class Nav {
 
     }
 
-    static inject() {
-
-        return [Aside, Bar]
-
-    }
-    activate(){
-        console.log('me')
-    }
-
-    constructor(aside, bar){
-        this.$aside = aside
-        this.$bar   = bar
-        this.bars   = {}
-        this.asides = {}
-    }
-
-    addBar(options){
-
-        options = _.assign(defaults.bar, options);
-
-        if (this.bars[options.barId]) {
-
-            return console.error(`Bar ${options.barId} already Exists`);
-        }
-
-        this.bars[options.barId] = new this.$bar(options);
+    constructor(options){
+        options = options || {};
+        this.defaults = defaults.bar;
+        this.fixed = options.fixed || this.defaults.fixed;
+        this.open  = options.open  || this.defaults.open;
+        this.size  = options.size  || this.defaults.size;
+        this.barId = options.barId || this.defaults.barId;
 
     }
 
-    addAside(){
+}
 
-        options = _.assign(defaults.aside, options);
+export class NavAside {
 
-        if (this.bars[options.asideId]) {
+    static metadata(){
 
-            return console.error(`Aside ${options.barId} already Exists`);
-        }
+        return Behavior
+            .withProperty('toggle')
 
-        this.bars[options.asideId] = new this.$aside(options);
     }
+
+    constructor(options){
+        options = options || {};
+        this.defaults = defaults.aside;
+        this.fixed    = options.fixed   || this.defaults.fixed;
+        this.open     = options.open    || this.defaults.open;
+        this.side     = options.side    || this.defaults.side;
+        this.asideId  = options.asideId || this.defaults.asideId;
+
+    }
+
+    toggle(value){
+
+        console.log('toggled',  value)
+
+    }
+
 }

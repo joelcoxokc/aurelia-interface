@@ -1,13 +1,21 @@
-import {Router} from 'aurelia-router';
+import {Router}    from 'aurelia-router';
 import {Behaviore} from 'aurelia-framework';
+import {NavBar, NavAside} from './aurelia-interface';
 
 export class App {
 
 
-    static inject() { return [Router, Element]; }
+    static inject() {
+
+        return [Router];
+
+    }
 
 
     constructor(router) {
+
+        this.bar   = new NavBar()
+        this.aside = new NavAside()
 
         this.router = router;
         this.router.configure(
