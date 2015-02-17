@@ -1,5 +1,4 @@
 import {Behavior, BoundViewFactory, ViewSlot} from 'aurelia-templating';
-import {Bar}              from './bar'
 import {UiElement}        from './ui-element';
 
 
@@ -36,6 +35,11 @@ export class AiNavBar extends UiElement {
 
     }
 
+
+    bind(){
+
+      console.log('AiNavBar directive', this)
+    }
 
     open(){
 

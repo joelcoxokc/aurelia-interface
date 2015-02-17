@@ -1,8 +1,6 @@
 
 
 import {Behavior} from 'aurelia-templating';
-import {Aside}             from './aside'
-import {Bar}               from './bar'
 
 
 var defaults = {
@@ -31,17 +29,16 @@ export class AInterface {
 
     static inject() {
 
-            return [Element,Bar];
+            return [Element];
 
     }
 
-    constructor(element, bar) {
+    constructor(element) {
 
             console.log(this.toggler)
             this.element = element
             this.aside   = {};
             this.bar     = {};
-            this.aside   = new Aside(defaults)
             this.showing = true
 
     }

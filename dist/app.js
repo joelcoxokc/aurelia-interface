@@ -1,12 +1,15 @@
-System.register(["aurelia-router", "aurelia-framework"], function (_export) {
+System.register(["aurelia-router", "aurelia-framework", "./aurelia-interface"], function (_export) {
   "use strict";
 
-  var Router, Behaviore, _prototypeProperties, _classCallCheck, App;
+  var Router, Behaviore, NavBar, NavAside, _prototypeProperties, _classCallCheck, App;
   return {
     setters: [function (_aureliaRouter) {
       Router = _aureliaRouter.Router;
     }, function (_aureliaFramework) {
       Behaviore = _aureliaFramework.Behaviore;
+    }, function (_aureliaInterface) {
+      NavBar = _aureliaInterface.NavBar;
+      NavAside = _aureliaInterface.NavAside;
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
@@ -16,6 +19,9 @@ System.register(["aurelia-router", "aurelia-framework"], function (_export) {
       App = _export("App", (function () {
         function App(router) {
           _classCallCheck(this, App);
+
+          this.bar = new NavBar();
+          this.aside = new NavAside();
 
           this.router = router;
           this.router.configure(function (config) {
@@ -29,7 +35,7 @@ System.register(["aurelia-router", "aurelia-framework"], function (_export) {
         _prototypeProperties(App, {
           inject: {
             value: function inject() {
-              return [Router, Element];
+              return [Router];
             },
             writable: true,
             configurable: true
@@ -41,4 +47,4 @@ System.register(["aurelia-router", "aurelia-framework"], function (_export) {
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7TUFBUSxNQUFNLEVBQ04sU0FBUyx5Q0FFSixHQUFHOzs7QUFIUixZQUFNLGtCQUFOLE1BQU07O0FBQ04sZUFBUyxxQkFBVCxTQUFTOzs7Ozs7O0FBRUosU0FBRztBQU1ELGlCQU5GLEdBQUcsQ0FNQSxNQUFNO2dDQU5ULEdBQUc7O0FBUVIsY0FBSSxDQUFDLE1BQU0sR0FBRyxNQUFNLENBQUM7QUFDckIsY0FBSSxDQUFDLE1BQU0sQ0FBQyxTQUFTLENBQ2pCLFVBQUEsTUFBTSxFQUFJO0FBRU4sa0JBQU0sQ0FBQyxLQUFLLEdBQUcsU0FBUyxDQUFDO0FBQ3pCLGtCQUFNLENBQUMsR0FBRyxDQUFDLENBRVAsRUFBRSxLQUFLLEVBQUUsQ0FBQyxFQUFFLEVBQUMsU0FBUyxDQUFDLEVBQUcsUUFBUSxFQUFFLFNBQVMsRUFBTyxHQUFHLEVBQUUsSUFBSSxFQUFFLEtBQUssRUFBQyxTQUFTLEVBQUUsRUFDaEYsRUFBRSxLQUFLLEVBQUUsUUFBUSxFQUFTLFFBQVEsRUFBRSxRQUFRLEVBQVEsR0FBRyxFQUFFLElBQUksRUFBRSxFQUMvRCxFQUFFLEtBQUssRUFBRSxjQUFjLEVBQUcsUUFBUSxFQUFFLGNBQWMsRUFBRSxHQUFHLEVBQUUsSUFBSSxFQUFFLEtBQUssRUFBQyxjQUFjLEVBQUUsRUFDckYsRUFBRSxLQUFLLEVBQUUsY0FBYyxFQUFHLFFBQVEsRUFBRSxjQUFjLEVBQUUsR0FBRyxFQUFFLElBQUksRUFBRSxLQUFLLEVBQUUsY0FBYyxFQUFFLENBRXpGLENBQUMsQ0FBQzs7V0FHTixDQUFDLENBQUM7O1NBR1Y7OzZCQTFCUSxHQUFHO0FBR0wsZ0JBQU07bUJBQUEsa0JBQUc7QUFBRSxxQkFBTyxDQUFDLE1BQU0sRUFBRSxPQUFPLENBQUMsQ0FBQzthQUFFOzs7Ozs7ZUFIcEMsR0FBRyIsImZpbGUiOiJhcHAuanMiLCJzb3VyY2VSb290IjoiL2Rpc3QvIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7TUFBUSxNQUFNLEVBQ04sU0FBUyxFQUNULE1BQU0sRUFBRSxRQUFRLHlDQUVYLEdBQUc7OztBQUpSLFlBQU0sa0JBQU4sTUFBTTs7QUFDTixlQUFTLHFCQUFULFNBQVM7O0FBQ1QsWUFBTSxxQkFBTixNQUFNO0FBQUUsY0FBUSxxQkFBUixRQUFROzs7Ozs7O0FBRVgsU0FBRztBQVVELGlCQVZGLEdBQUcsQ0FVQSxNQUFNO2dDQVZULEdBQUc7O0FBWVIsY0FBSSxDQUFDLEdBQUcsR0FBSyxJQUFJLE1BQU0sRUFBRSxDQUFBO0FBQ3pCLGNBQUksQ0FBQyxLQUFLLEdBQUcsSUFBSSxRQUFRLEVBQUUsQ0FBQTs7QUFFM0IsY0FBSSxDQUFDLE1BQU0sR0FBRyxNQUFNLENBQUM7QUFDckIsY0FBSSxDQUFDLE1BQU0sQ0FBQyxTQUFTLENBQ2pCLFVBQUEsTUFBTSxFQUFJO0FBRU4sa0JBQU0sQ0FBQyxLQUFLLEdBQUcsU0FBUyxDQUFDO0FBQ3pCLGtCQUFNLENBQUMsR0FBRyxDQUFDLENBRVAsRUFBRSxLQUFLLEVBQUUsQ0FBQyxFQUFFLEVBQUMsU0FBUyxDQUFDLEVBQUcsUUFBUSxFQUFFLFNBQVMsRUFBTyxHQUFHLEVBQUUsSUFBSSxFQUFFLEtBQUssRUFBQyxTQUFTLEVBQUUsRUFDaEYsRUFBRSxLQUFLLEVBQUUsUUFBUSxFQUFTLFFBQVEsRUFBRSxRQUFRLEVBQVEsR0FBRyxFQUFFLElBQUksRUFBRSxFQUMvRCxFQUFFLEtBQUssRUFBRSxjQUFjLEVBQUcsUUFBUSxFQUFFLGNBQWMsRUFBRSxHQUFHLEVBQUUsSUFBSSxFQUFFLEtBQUssRUFBQyxjQUFjLEVBQUUsRUFDckYsRUFBRSxLQUFLLEVBQUUsY0FBYyxFQUFHLFFBQVEsRUFBRSxjQUFjLEVBQUUsR0FBRyxFQUFFLElBQUksRUFBRSxLQUFLLEVBQUUsY0FBYyxFQUFFLENBRXpGLENBQUMsQ0FBQzs7V0FHTixDQUFDLENBQUM7O1NBR1Y7OzZCQWpDUSxHQUFHO0FBR0wsZ0JBQU07bUJBQUEsa0JBQUc7QUFFWixxQkFBTyxDQUFDLE1BQU0sQ0FBQyxDQUFDO2FBRW5COzs7Ozs7ZUFQUSxHQUFHIiwiZmlsZSI6ImFwcC5qcyIsInNvdXJjZVJvb3QiOiIvZGlzdC8ifQ==

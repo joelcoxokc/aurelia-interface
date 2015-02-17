@@ -10,6 +10,7 @@ export class AiToggle extends UiElement {
 
     }
 
+
     static inject(){
 
         return [Element]

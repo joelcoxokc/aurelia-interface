@@ -1,5 +1,4 @@
 import {Behavior}   from 'aurelia-templating';
-import {Aside}      from './aside'
 import {UiElement}  from './ui-element'
 
 var defaults = {
@@ -20,6 +19,7 @@ export class AiNavAside extends UiElement{
               .withProperty('fixed')
               .withProperty('side')
               .withProperty('size')
+              .withProperty('aside')
 
     }
 
@@ -36,8 +36,8 @@ export class AiNavAside extends UiElement{
     }
 
     bind(){
-
-        var classList = ['ui-aside', 'ui-aside-nav', `aside-${this.side}`]
+        console.log(this)
+        var classList = ['ai-aside', 'ai-aside-nav', `aside-${this.side}`]
         this.fixed && classList.push('aside-fixed')
         this.addClass(classList)
 
