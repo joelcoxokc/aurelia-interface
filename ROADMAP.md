@@ -64,6 +64,9 @@ Once V0.1.0 is released, we will begin working on v0.1.1 && v0.1.2
      - `<dropdown-content>`
      - Complete: False
      - ETA: 2/19/15
+ 
+ - `<ai-checkbox>`
+ - `<ai-radio>`
 
 #####a-interface
 
@@ -243,5 +246,18 @@ Plan on making a list of behaviors and properties that are not listed in v0.1.6
  - `<ai-collapsible-group>`
  - `<ai-pagination>`
  - `<ai-block>`
+ 
+ 
+###V 0.1.9
+
+> Includes Updates and additional Properties for the current components.
+
+Plan on making a list of behaviors and properties that are not listed in v0.1.8
+
+
+###V 0.1.10
+
+####Components
+ - `<ai-scrollbar>`
  
  
