@@ -2,11 +2,29 @@
 
 ---
 
+##Goal
+
+AI: Aurelia-Interface
+
+> A ui web component Library, using aurelia framework.
+
+My Vision for ai is to be able to use this Component Library, with the ability to fully customize it's visual effects. 
+Additional featured include . . .
+
+**Adding your own Custom CSS Library**
+
+**Install and use current css Libraries EI Bootstrap, Foundation, MaterializeCSS**
+
+
 ##ROADMAP
 
 Plan on completing the basic layouts and functionality of each within the given ETA
 
 **Note** These components are necessary, because a great majority of the remaining components and layout features depend on these few components. 
+
+These Components should be wrapped as their own customElements, controlling everything that remains within it's childNodes.
+
+
 
 Once V0.1.0 is released, we will begin working on v0.1.1 && v0.1.2
 
