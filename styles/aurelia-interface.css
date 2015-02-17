@@ -4129,7 +4129,7 @@ template {
       -ms-flex: 0 0 64px;
           flex: 0 0 64px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-  position: fixed;
+  position: relative;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
@@ -4148,7 +4148,7 @@ template {
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
-  position: relative;
+  position: fixed;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -4185,12 +4185,6 @@ template {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 100%;
-  min-width: 100%;
-  max-width: 100%;
-  height: inherit;
-  min-height: inherit;
-  max-height: inherit;
   box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4232,6 +4226,7 @@ template {
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
   position: relative;
+  color: inherit;
   line-height: 64px;
 }
 .ai-bar.ai-nav-bar .nav-bar-header .nav-bar-brand.nav-right {
@@ -4325,10 +4320,7 @@ template {
   cursor: point;
   -webkit-transition: background-color 200ms, cubic-bezier(0, 0.74, 0, 0.99), color 200ms, cubic-bezier(0, 0.74, 0, 0.99);
           transition: background-color 200ms, cubic-bezier(0, 0.74, 0, 0.99), color 200ms, cubic-bezier(0, 0.74, 0, 0.99);
-}
-.ai-bar.ai-nav-bar .nav-bar-content .nav-actions > * > *:hover {
-  background-color: #9c27b0;
-  color: #fff !important;
+  color: inherit;
 }
 .ai-bar.ai-nav-bar .nav-bar-content .nav-actions.nav-actions-right {
   -webkit-box-ordinal-group: 3;
@@ -4351,7 +4343,6 @@ template {
   overflow: hidden;
   height: 0;
   width: 100%;
-  background-color: #fff;
   box-shadow: 0px 2px 4px rgba(0,0,0,0.3);
 }
 .ai-bar.ai-nav-bar .nav-bar-collapse.open {
@@ -4375,6 +4366,47 @@ template {
   width: 100%;
   text-align: left;
 }
+.ai-bar.ai-nav-bar.bar-xs {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 64px;
+      -ms-flex: 0 0 64px;
+          flex: 0 0 64px;
+  height: 48px;
+  min-height: 48px;
+  max-height: 48px;
+}
+.ai-bar.ai-nav-bar.bar-sm {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 64px;
+      -ms-flex: 0 0 64px;
+          flex: 0 0 64px;
+  height: 64px;
+  min-height: 64px;
+  max-height: 64px;
+}
+.ai-bar.ai-nav-bar.bar-md {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 64px;
+      -ms-flex: 0 0 64px;
+          flex: 0 0 64px;
+  height: 80px;
+  min-height: 80px;
+  max-height: 80px;
+}
+.ai-bar.ai-nav-bar.bar-lg {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 64px;
+      -ms-flex: 0 0 64px;
+          flex: 0 0 64px;
+  height: 120px;
+  min-height: 120px;
+  max-height: 120px;
+}
+.ai-bar.ai-nav-bar.bar-xl {
+  height: 240px;
+  min-height: 240px;
+  max-height: 240px;
+}
 .ai-bar.ai-nav-bar.bar-xl .nav-bar-container {
   padding-top: 150px;
 }
@@ -4382,7 +4414,6 @@ template {
   width: 500px;
   min-width: 500px;
   max-width: 500px;
-  margin-bottom: 64px;
 }
 .ai-bar.ai-nav-bar.bar-xl .nav-bar-container .nav-bar-header .nav-bar-brand {
   font-size: 4em;
@@ -4744,11 +4775,6 @@ template {
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
-  min-height: 400px;
-  max-height: 400px;
-}
-.ai-content {
-  margin-top: -100px;
 }
 .ui-main {
   -webkit-box-ordinal-group: 2;

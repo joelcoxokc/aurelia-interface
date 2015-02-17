@@ -10,9 +10,9 @@ export class App {
     this.router.configure(config => {
       config.title = 'Aurelia Interface';
       config.map([
-        { route: ['', 'welcome'],  moduleId: 'welcome', title:'ai', bar:{size:'sm'} },
-        { route: 'buttons-demo' ,  moduleId: 'buttons-demo', 'title':'Buttons Demo', nav: true, bar:{size:'xl'} },
-        { route: 'tabs-demo'    ,  moduleId: 'tabs-demo', title:'Tabs Demo', nav: true , bar:{size:'xl'}},
+        { route: ['', 'welcome'],  moduleId: 'welcome', title:'ai', bar:{size:'sm', bg:'white', color:'purple'} },
+        { route: 'buttons-demo' ,  moduleId: 'buttons-demo', 'title':'Buttons Demo', nav: true, bar:{size:'xl', bg:'purple', color:'white'} },
+        { route: 'tabs-demo'    ,  moduleId: 'tabs-demo', title:'Tabs Demo', nav: true , bar:{size:'xl',bg:'purple', color:'white'}},
       ]);
     });
 

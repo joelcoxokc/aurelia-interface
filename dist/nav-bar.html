@@ -6,7 +6,7 @@
       <!-- click.trigger="open()" -->
         <i class="mdi-navigation-menu"></i>
       </button>
-      <a class="nav-bar-brand nav-right waves-effect waves-dark text-purple" href="#">
+      <a class="nav-bar-brand nav-right waves-effect waves-dark" href="#">
          <!-- <i class="fa fa-home"></i> -->
         <span>${title}</span>
       </a>
@@ -16,10 +16,10 @@
       <div class="ui-collapse nav-bar-collapse ${showing ? 'open' : ''}" id="bs-example-navbar-collapse-1">
         <ul class="nav-actions nav-actions-right">
           <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
-            <a class="waves-effect waves-light text-purple" href.bind="row.href">${row.title}</a>
+            <a class="waves-effect waves-light" href.bind="row.href">${row.title}</a>
           </li>
           <li ai-btn-toggle.bind="aside.open" >
-            <a class="waves-effect waves-light text-purple">
+            <a class="waves-effect waves-light">
               <i class="fa fa-list"></i>
             </a>
           </li>
