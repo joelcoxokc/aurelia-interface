@@ -7,7 +7,7 @@
   &.ai-nav-bar
     flex            : 0 0 $nav-bar-height
     box-shadow      : 0 2px 4px rgba(0,0,0,0.2)
-    position        : fixed
+    position        : relative
     flex-direction  : row
     background-color: $shades.white
     width 100%
@@ -20,7 +20,7 @@
 
     & > .nav-bar-container
       flex          : 1 0 auto
-      position      : relative
+      position      : fixed
       flex-direction: column
       width 100%
       min-width 100%
@@ -35,8 +35,6 @@
       padding         : 0px 8px
       align(center)
       justify(center)
-      min-max-width(100%)
-      min-max-height(inherit)
       flex-container()
 
       .nav-bar-toggle
@@ -58,6 +56,7 @@
         order       : 0
         flex        : 1 0 auto
         position    : relative
+        color       : inherit
         line-height : $nav-bar-height
         &.nav-right
           text-align: right
@@ -105,10 +104,10 @@
             font-size: 1.3rem
             cursor   : point
             transition background-color 200ms, cubic-bezier(0,.74,0,.99), color 200ms, cubic-bezier(0,.74,0,.99)
-
+            color inherit
             &:hover
-              background-color: $purple.base
-              color           : white !important
+              // background-color: $purple.base
+              // color           : white !important
 
         &.nav-actions-right
           order         : 2
@@ -125,7 +124,7 @@
       overflow  : hidden
       height    : 0
       width     : 100%
-      background-color: $shades.white
+      // background-color: $shades.white
       box-shadow 0px 2px 4px rgba(0,0,0,0.3)
       // transition max-height 1s cubic-bezier(0,.74,0,.99)
       &.open
@@ -144,19 +143,29 @@
 
 
     &.bar-xs
-      //
+      flex:  0 0 $nav-bar-height
+      min-max-height($nav-bar-height-xs)
+
     &.bar-sm
-      //
+      flex:  0 0 $nav-bar-height
+      min-max-height($nav-bar-height-sm)
+
     &.bar-md
-      //
+      flex:  0 0 $nav-bar-height
+      min-max-height($nav-bar-height-md)
+
     &.bar-lg
-      //
+      flex:  0 0 $nav-bar-height
+      min-max-height($nav-bar-height-lg)
+
     &.bar-xl
+      // flex: 0 0 $nav-bar-height
+      min-max-height($nav-bar-height-xl)
       .nav-bar-container
         padding-top 150px
         .nav-bar-header
           min-max-width(500px)
-          margin-bottom 64px
+          // margin-bottom 64px/
           .nav-bar-brand
             font-size 4em
         .nav-bar-content
