@@ -30,6 +30,7 @@ var AiClassAttachedBehavior = exports.AiClassAttachedBehavior = (function () {
   }, {
     bind: {
       value: function bind() {
+        console.log(this);
         this.setupObserver();
         this.updateClasses();
       },

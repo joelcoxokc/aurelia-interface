@@ -31,6 +31,7 @@ define(["exports", "aurelia-templating"], function (exports, _aureliaTemplating)
     }, {
       bind: {
         value: function bind() {
+          console.log(this);
           this.setupObserver();
           this.updateClasses();
         },

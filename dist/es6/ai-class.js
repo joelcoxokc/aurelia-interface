@@ -10,12 +10,13 @@ export class AiClassAttachedBehavior {
   static inject() {
     return [Element];
   }
-  
+
   constructor (element) {
     this.element = element
   }
 
   bind () {
+    console.log(this)
     this.setupObserver()
     this.updateClasses()
   }

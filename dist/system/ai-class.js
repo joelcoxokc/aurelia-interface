@@ -36,6 +36,7 @@ System.register(["aurelia-templating"], function (_export) {
         }, {
           bind: {
             value: function bind() {
+              console.log(this);
               this.setupObserver();
               this.updateClasses();
             },

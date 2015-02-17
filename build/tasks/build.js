@@ -4,6 +4,7 @@ var to5 = require('gulp-6to5');
 var paths = require('../paths');
 var compilerOptions = require('../6to5-options');
 var assign = Object.assign || require('object.assign');
+var $      = require('gulp-load-plugins')({lazy:false});
 
 gulp.task('build-es6', function () {
   return gulp.src(paths.source)
@@ -40,3 +41,6 @@ gulp.task('build', function(callback) {
     callback
   );
 });
+
+
+
