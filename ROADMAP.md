@@ -16,12 +16,32 @@
 
 ####Components
  - `<ai-tabs>`
+     - `<tab-link>`
+     - `<tab-content>`
+
  - `<ai-card>`
+     - type: `panel | default | reveal`
+     - `<card-header>`
+     - `<card-content>`
+     - `<card-footer>`
+     - `<card-image>`
+
  - `<ai-action>`
+     - type: `raised | flat`
+     - shape: `round`
+     - reveal: `boolan`
+
  - `<ai-modal>`
+     - `<modal-header>`
+     - `<modal-content>`
+     - `<modal-footer>`
+
  - `<ai-dropdown>`
+     - `<dropdown-toggle>`
+     - `<dropdown-content>`
 
 #####a-interface
+
 **properties: **
  - aside
      - Global Aside bar bound to the root interface
