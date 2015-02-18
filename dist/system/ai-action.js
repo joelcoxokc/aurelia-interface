@@ -1,30 +1,27 @@
 System.register(["aurelia-templating"], function (_export) {
   "use strict";
 
-  var Behavior, BoundViewFactory, ViewSlot, ViewCompiler, _prototypeProperties, _classCallCheck, NavMe;
+  var Behavior, _prototypeProperties, _classCallCheck, AiAction;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
-      BoundViewFactory = _aureliaTemplating.BoundViewFactory;
-      ViewSlot = _aureliaTemplating.ViewSlot;
-      ViewCompiler = _aureliaTemplating.ViewCompiler;
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
-      NavMe = _export("NavMe", (function () {
-        function NavMe(element) {
-          _classCallCheck(this, NavMe);
+      AiAction = _export("AiAction", (function () {
+        function AiAction(element) {
+          _classCallCheck(this, AiAction);
 
-          this.elememt = element;
+          this.element = element;
         }
 
-        _prototypeProperties(NavMe, {
+        _prototypeProperties(AiAction, {
           metadata: {
             value: function metadata() {
-              return Behavior.customElement("nav-me").withProperty("value", "valueChanged", "nav-me");
+              return Behavior.customElement("ai-action").withProperty("type").withProperty("shape").noView();
             },
             writable: true,
             configurable: true
@@ -37,14 +34,16 @@ System.register(["aurelia-templating"], function (_export) {
             configurable: true
           }
         }, {
-          attached: {
-            value: function attached() {},
+          bind: {
+            value: function bind() {
+              this.element.classList.add("ai-action", "action-" + this.type, "action-" + this.shape);
+            },
             writable: true,
             configurable: true
           }
         });
 
-        return NavMe;
+        return AiAction;
       })());
     }
   };

@@ -1,11 +1,11 @@
-System.register(["./ai-btn-toggle", "./ai-btn-radio", "./ai-class", "./ai-tabs", "./nav-me"], function (_export) {
+System.register(["./ai-btn-toggle", "./ai-btn-radio", "./ai-class", "./ai-tabs", "./ai-action"], function (_export) {
   "use strict";
 
-  var AiBtnToggleAttachedBehavior, AiBtnRadioAttachedBehavior, AiClassAttachedBehavior, AiTabsAttachedBehavior, NavMe;
+  var AiBtnToggleAttachedBehavior, AiBtnRadioAttachedBehavior, AiClassAttachedBehavior, AiTabsAttachedBehavior, AiAction;
 
 
   function install(aurelia) {
-    aurelia.withResources([AiBtnToggleAttachedBehavior, AiBtnRadioAttachedBehavior, AiClassAttachedBehavior, AiTabsAttachedBehavior, NavMe]);
+    aurelia.withResources([AiBtnToggleAttachedBehavior, AiBtnRadioAttachedBehavior, AiClassAttachedBehavior, AiTabsAttachedBehavior, AiAction]);
   }
 
   return {
@@ -17,8 +17,8 @@ System.register(["./ai-btn-toggle", "./ai-btn-radio", "./ai-class", "./ai-tabs",
       AiClassAttachedBehavior = _aiClass.AiClassAttachedBehavior;
     }, function (_aiTabs) {
       AiTabsAttachedBehavior = _aiTabs.AiTabsAttachedBehavior;
-    }, function (_navMe) {
-      NavMe = _navMe.NavMe;
+    }, function (_aiAction) {
+      AiAction = _aiAction.AiAction;
     }],
     execute: function () {
       _export("AiBtnToggleAttachedBehavior", AiBtnToggleAttachedBehavior);
@@ -27,9 +27,7 @@ System.register(["./ai-btn-toggle", "./ai-btn-radio", "./ai-class", "./ai-tabs",
 
       _export("AiClassAttachedBehavior", AiClassAttachedBehavior);
 
-      _export("AiTabsAttachedBehavior", AiTabsAttachedBehavior);
-
-      _export("NavMe", NavMe);
+      _export("AiAction", AiAction);
 
       _export("install", install);
     }

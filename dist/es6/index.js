@@ -2,7 +2,7 @@ import {AiBtnToggleAttachedBehavior} from './ai-btn-toggle'
 import {AiBtnRadioAttachedBehavior} from './ai-btn-radio'
 import {AiClassAttachedBehavior} from './ai-class'
 import {AiTabsAttachedBehavior} from './ai-tabs'
-import {NavMe} from './nav-me'
+import {AiAction} from './ai-action'
 
 function install(aurelia){
   aurelia.withResources([
@@ -10,7 +10,7 @@ function install(aurelia){
     AiBtnRadioAttachedBehavior,
     AiClassAttachedBehavior,
     AiTabsAttachedBehavior,
-    NavMe
+    AiAction
   ]);
 }
 
@@ -18,7 +18,6 @@ export {
   AiBtnToggleAttachedBehavior,
   AiBtnRadioAttachedBehavior,
   AiClassAttachedBehavior,
-  AiTabsAttachedBehavior,
-  NavMe,
+  AiAction,
   install
 };

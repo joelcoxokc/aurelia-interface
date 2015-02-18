@@ -4,23 +4,18 @@ var _prototypeProperties = function (child, staticProps, instanceProps) { if (st
 
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
-var _aureliaTemplating = require("aurelia-templating");
+var Behavior = require("aurelia-templating").Behavior;
+var AiAction = exports.AiAction = (function () {
+  function AiAction(element) {
+    _classCallCheck(this, AiAction);
 
-var Behavior = _aureliaTemplating.Behavior;
-var BoundViewFactory = _aureliaTemplating.BoundViewFactory;
-var ViewSlot = _aureliaTemplating.ViewSlot;
-var ViewCompiler = _aureliaTemplating.ViewCompiler;
-var NavMe = exports.NavMe = (function () {
-  function NavMe(element) {
-    _classCallCheck(this, NavMe);
-
-    this.elememt = element;
+    this.element = element;
   }
 
-  _prototypeProperties(NavMe, {
+  _prototypeProperties(AiAction, {
     metadata: {
       value: function metadata() {
-        return Behavior.customElement("nav-me").withProperty("value", "valueChanged", "nav-me");
+        return Behavior.customElement("ai-action").withProperty("type").withProperty("shape").noView();
       },
       writable: true,
       configurable: true
@@ -33,14 +28,16 @@ var NavMe = exports.NavMe = (function () {
       configurable: true
     }
   }, {
-    attached: {
-      value: function attached() {},
+    bind: {
+      value: function bind() {
+        this.element.classList.add("ai-action", "action-" + this.type, "action-" + this.shape);
+      },
       writable: true,
       configurable: true
     }
   });
 
-  return NavMe;
+  return AiAction;
 })();
 Object.defineProperty(exports, "__esModule", {
   value: true
