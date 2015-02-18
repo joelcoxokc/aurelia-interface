@@ -14,7 +14,7 @@ export class AiAction{
     }
 
     static inject(){
-service
+
         return [Element]
 
     }

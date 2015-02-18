@@ -15,8 +15,13 @@ System.register(["aurelia-templating"], function (_export) {
         function AiDropdown(element) {
           _classCallCheck(this, AiDropdown);
 
+          var _this = this;
           this.element = element;
           this.isOpen = false;
+
+          this.toggle = function () {
+            _this.isOpen = !_this.isOpen;
+          };
         }
 
         _prototypeProperties(AiDropdown, {
@@ -35,95 +40,23 @@ System.register(["aurelia-templating"], function (_export) {
             configurable: true
           }
         }, {
-          isOpenChanged: {
-            value: function isOpenChanged(newValue) {
-              var _this = this;
-              console.log(newValue);
-
-            },
-            writable: true,
-            configurable: true
-          },
           bind: {
             value: function bind() {
-              var _this = this;
-              this.element.addEventListener("click", _this.open(), false);
+              this.element.addEventListener("click", this.toggle, false);
             },
             writable: true,
             configurable: true
           },
           unbind: {
             value: function unbind() {
-              var _this = this;
-              this.element.removeEventListener("click", _this.toggle(), false);
-              document.removeEventListener("keyDown", _this.escapeKey(), false);
+              this.element.removeEventListener("click", this.toggle, false);
             },
             writable: true,
             configurable: true
           },
-          toggle: {
-            value: function toggle() {
-              var _this = this;
-              return function (event) {
-                event.preventDefault();
-                _this.isOpen = !_this.isOpen;
-
-                _this[_this.isOpen ? "close" : "open"]();
-              };
-            },
-            writable: true,
-            configurable: true
-          },
-          open: {
-            value: function open() {
-              var _this = this;
-              this.unbind();
-              return function (event) {
-                event.preventDefault();
-                this.docBind();
-                _this.element.classList.add("dropdown-open");
-              };
-            },
-            writable: true,
-            configurable: true
-          },
-          close: {
-            value: function close() {
-              var _this = this;
-              return function (event) {
-                event.preventDefault();
-                _this.element.classList.add("dropdown-open");
-                this.unbind();
-                this.bindToggle();
-              };
-            },
-            writable: true,
-            configurable: true
-          },
-          escapeKey: {
-            value: function escapeKey(event) {
-              var _this = this;
-              return function (event) {
-                event.preventDefault();
-                if (event.which === 27) {
-                  _this.close();
-                }
-              };
-            },
-            writable: true,
-            configurable: true
-          },
-          docBind: {
-            value: function docBind() {
-              document.addEventListener("click", this.close(), false);
-              document.addEventListener("keyDown", this.escapeKey(), false);
-            },
-            writable: true,
-            configurable: true
-          },
-          toggleBind: {
-            value: function toggleBind() {
-              this.element.addEventListener("click", this.open(), false);
+          isOpenChanged: {
+            value: function isOpenChanged(newValue) {
+              this.element.classList[newValue ? "add" : "remove"]("dropdown-open");
             },
             writable: true,
             configurable: true
