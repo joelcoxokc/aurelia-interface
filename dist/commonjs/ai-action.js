@@ -28,7 +28,6 @@ System.register(["aurelia-templating"], function (_export) {
           },
           inject: {
             value: function inject() {
-              service;
               return [Element];
             },
             writable: true,

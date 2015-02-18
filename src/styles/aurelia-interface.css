@@ -5856,6 +5856,16 @@ template {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+.ai-tabs .tab-pane {
+  display: none;
+}
+.ai-tabs .tab-pane.active {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
 .ai-tabs ul.ai-nav-tabs,
 .ai-tabs .ai-nav-tabs {
   overflow: hidden;

@@ -46,6 +46,7 @@ export class AiTabsAttachedBehavior {
   }
 
   bind () {
+    this.activeTabRef = 'tab-3'
     this.element.classList.add('ai-tabs')
     this.linksContainer = this.element.querySelector('.ai-nav-tabs')
     this.slider         = $('<div class="ai-tab-slider">')
