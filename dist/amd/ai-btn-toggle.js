@@ -38,7 +38,6 @@ System.register(["aurelia-templating"], function (_export) {
         }, {
           bind: {
             value: function bind() {
-              this.handler = this[typeof this.value === "function" ? "_toggle" : "toggle"].bind(this);
               this.element.addEventListener("click", this.handler, false);
             },
             writable: true,

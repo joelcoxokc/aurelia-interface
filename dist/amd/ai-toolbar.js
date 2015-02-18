@@ -21,6 +21,7 @@ System.register(["aurelia-templating"], function (_export) {
         function AiToolbar(element) {
           _classCallCheck(this, AiToolbar);
 
+          var _this = this;
           this.element = element;
           this.current = defaults;
 
@@ -71,9 +72,17 @@ System.register(["aurelia-templating"], function (_export) {
           bind: {
             value: function bind() {
               var classList = ["ai-toolbar"];
+              var _this = this;
+
+              Object.observe(this.router, function () {
+                _this.size = _this.router.currentInstruction.config.toolbar.size || defaults.size;
+                _this.bgColor = _this.router.currentInstruction.config.toolbar.bgColor || defaults.bgColor;
+                _this.textColor = _this.router.currentInstruction.config.toolbar.bgColor || defaults.textColor;
+              });
+
               this.fixed && classList.push(this.pre("toolbar", "fixed"));
               this.bgColor && classList.push(this.pre("bg", this.bgColor));
-              this.textColor && classList.push(this.pre("bg", this.textColor));
+              this.textColor && classList.push(this.pre("text", this.textColor));
               this.size && classList.push(this.pre("toolbar", this.size));
               this.addClass(classList);
             },
@@ -104,11 +113,13 @@ System.register(["aurelia-templating"], function (_export) {
           },
           sizeChanged: {
             value: function sizeChanged(value) {
-              if (value === this.currentSize) {
+              if (value === this.current.size) {
                 return;
               }
-              this.onSize(value);
-              this.addClass("toolbar-" + value);
+              console.log("size", value);
+              this.element.classList.remove("toolbar-" + this.current.size);
+              this.element.classList.add("toolbar-" + value);
+              this.current.size = value;
             },
             writable: true,
             configurable: true

@@ -75,6 +75,9 @@ System.register(["aurelia-templating"], function (_export) {
         }, {
           bind: {
             value: function bind() {
+              var _this = this;
+
+
               var classList = ["ai-aside-nav"];
               this.fixed && classList.push(this.pre("aside", "fixed"));
               this.open && classList.push(this.pre("aside", "open"));
@@ -116,6 +119,18 @@ System.register(["aurelia-templating"], function (_export) {
               }
               this.onSize(value);
               this.addClass("toolbar-" + value);
+            },
+            writable: true,
+            configurable: true
+          },
+          openChanged: {
+            value: function openChanged(value) {
+              if (value) {
+                this.element.classList.add("aside-open");
+                console.log(value);
+                return;
+              }
+              this.element.classList.remove("aside-open");
             },
             writable: true,
             configurable: true
