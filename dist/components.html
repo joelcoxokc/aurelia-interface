@@ -1,6 +1,7 @@
 <template>
     <import from="./system/ai-card"></import>
     <import from="./system/ai-tabs"></import>
+    <import from="./system/ai-dropdown"></import>
     <div class="section">
         <div class="flex sm6">
             <div ai-tabs.bind="selectedTabRef" class="${showMyTab.name}">
@@ -25,7 +26,11 @@
                         Tab 2 Content
                       </div>
                       <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-3', active: selectedTabRef == 'tab-3'}" ai-tab="tab-3">
-                        Tab 3 Content
+
+                        <ai-dropdown>
+                            <button class="btn btn-large btn-raised waves-effect waves-light">DropDown</button>
+                        </ai-dropdown>
+
                       </div>
                     </div>
                   </div>

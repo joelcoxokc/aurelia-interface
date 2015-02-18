@@ -1,6 +1,7 @@
 import { AiBtnToggleAttachedBehavior
        , AiBtnRadioAttachedBehavior
        , AiTabsAttachedBehavior
+       , AiDropdown
        , AiAction
        , AiCard
        } from './components/index'
@@ -14,26 +15,12 @@ import { AiMain
 
 import {AiClassAttachedBehavior} from './util/index'
 
-// function install(aurelia){
-//   aurelia
-//     .withResources( [ AiBtnToggleAttachedBehavior
-//                     , AiBtnRadioAttachedBehavior
-//                     , AiClassAttachedBehavior
-//                     , AiTabsAttachedBehavior
-//                     , AiAction
-//                     , AiMain
-//                     , AiBody
-//                     , AiFooter
-//                     , AiHeader
-//                     , AiAside
-//                     ]);
-// }
-
 
 export{ AiBtnToggleAttachedBehavior
       , AiBtnRadioAttachedBehavior
       , AiClassAttachedBehavior
       , AiTabsAttachedBehavior
+      , AiDropdown
       , AiAction
       , AiCard
       , AiMain
@@ -42,10 +29,3 @@ export{ AiBtnToggleAttachedBehavior
       , AiHeader
       , AiAside
       };
-
-
-// export { AiBtnToggleAttachedBehavior
-//        , AiBtnRadioAttachedBehavior
-//        , AiTabsAttachedBehavior
-//        , AiAction
-//        } from './components/index'
