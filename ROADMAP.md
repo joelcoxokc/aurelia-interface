@@ -8,7 +8,7 @@ AI: Aurelia-Interface
 
 > A ui web component Library, using aurelia framework.
 
-My Vision for ai is to be able to use this Component Library, with the ability to fully customize it's visual effects. 
+My Vision for ai is to be able to use this Component Library, with the ability to fully customize it's visual effects.
 Additional features include . . .
 
 **Adding your own Custom CSS Library**
@@ -20,7 +20,7 @@ Additional features include . . .
 
 Plan on completing the basic layouts and functionality of each within the given ETA
 
-**Note** These components are necessary, because a great majority of the remaining components and layout features depend on these few components. 
+**Note** These components are necessary, because a great majority of the remaining components and layout features depend on these few components.
 
 These Components should be wrapped as their own customElements, controlling everything that remains within it's childNodes.
 
@@ -74,7 +74,7 @@ Once V0.1.0 is released, we will begin working on v0.1.1 && v0.1.2
 
 ##Layout
  - Complete ai-layout, which includes the following
- 
+
 ###Structure
 
  ```html
@@ -97,7 +97,7 @@ Once V0.1.0 is released, we will begin working on v0.1.1 && v0.1.2
             </ai-main>
 
             <ai-footer></ai-footer>
-            
+
         </ai-body>
         <ai-aside
                 router.bind="router"
@@ -119,11 +119,15 @@ Once V0.1.0 is released, we will begin working on v0.1.1 && v0.1.2
 
     </a-interface>
  ```
+#note
+
+######These are not the only css properties being applied to each element,
+######Just the important ones.
 
 ###a-interface
 
 **Global Application Wrapper**
-   
+
  - Complete: true
  - ETA: 2/17/15
  - metadata
@@ -145,8 +149,8 @@ Once V0.1.0 is released, we will begin working on v0.1.1 && v0.1.2
 
 ###ai-header
 
-**Wrapper for application dynamic header** 
-    
+**Wrapper for application dynamic header**
+
  - Complete: true
  - ETA: 2/17/15
  - metadata
@@ -203,7 +207,7 @@ Once V0.1.0 is released, we will begin working on v0.1.1 && v0.1.2
          * `order: 2`
      + `.aside-left`
          * `order: -1`
-     
+
 ---
 
 ###ai-body
@@ -343,7 +347,7 @@ For the time being, it will be stand Alone
      - `<dropdown-content>`
      - Complete: False
      - ETA: 2/19/15
- 
+
  - `<ai-checkbox>`
  - `<ai-radio>`
 
@@ -407,7 +411,7 @@ Plan on making a list of behaviors and properties that are not listed in v0.1.0
  - `<ai-content>`
  - `<ai-header>`
  - `<ai-footer>`
- 
+
 ####Components
 
  - `<ai-collection>`
@@ -417,8 +421,8 @@ Plan on making a list of behaviors and properties that are not listed in v0.1.0
    - `<collection-header>`
      - `<collection-tools>`
    - `<collection-item>`
-     - `<item-tools>` 
- 
+     - `<item-tools>`
+
 - `<ai-table>`
 - `<ai-icon>`
 - `<ai-form>`
@@ -451,9 +455,9 @@ Plan on making a list of behaviors and properties that are not listed in v0.1.2
  - `<ai-switch>`
  - `<ai-tooltip>`
  - `<ai-text-field>`
- 
- 
- 
+
+
+
 ###V 0.1.5
 
 > Includes Updates and additional Properties for the current components.
@@ -472,7 +476,7 @@ Plan on making a list of behaviors and properties that are not listed in v0.1.4
 
 ####Layout
  - `<ai-affix>`
- 
+
 ####Components
  - `<ai-select>`
  - `<ai-search>`
@@ -509,10 +513,10 @@ Plan on making a list of behaviors and properties that are not listed in v0.1.6
  - `<ai-page-header>`
  - `<ai-page-content>`
  - `<ai-page-footer>`
- 
+
 ####Layout
  - `<ai-nav>`
- 
+
 ####Components
 
  - `<ai-input-group>`
@@ -525,8 +529,8 @@ Plan on making a list of behaviors and properties that are not listed in v0.1.6
  - `<ai-collapsible-group>`
  - `<ai-pagination>`
  - `<ai-block>`
- 
- 
+
+
 ###V 0.1.9
 
 > Includes Updates and additional Properties for the current components.
@@ -538,5 +542,5 @@ Plan on making a list of behaviors and properties that are not listed in v0.1.8
 
 ####Components
  - `<ai-scrollbar>`
- 
- 
+
+
