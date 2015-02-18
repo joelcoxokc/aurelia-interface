@@ -1,0 +1,236 @@
+.ai-toolbar
+  order           : -1
+  flex            : 0 0 $nav-bar-height
+  flex-direction  : row
+  flex-container()
+
+  position        : relative
+  width           : 100%
+  height          : auto
+  min-width       : 100%
+  max-width       : 100%
+  min-height      : $nav-bar-height
+  max-height      : auto
+  box-shadow      : 0 2px 4px rgba(0,0,0,0.2)
+  background-color: $shades.white
+
+
+  & > .toolbar-container
+    flex          : 1 0 auto
+    position      : relative
+    flex-direction: column
+    width inherit
+    flex-container()
+    min-max-height(inherit)
+
+  &.toolbar-fixed
+    & > .toolbar-container
+      position      : fixed
+
+
+  .toolbar-header
+    order           : 0
+    flex            : 1 0 auto
+    position        : relative
+    padding         : 0px 8px
+    align(center)
+    justify(center)
+    flex-container()
+
+    .toolbar-toggle
+      order : -1
+      font-size   : 2rem
+      flex        : 1 0 auto
+      outline     : none
+      padding     : 0 6px
+      max-width   : 64px
+      line-height : $nav-bar-height
+      background  : none
+      border      : none
+      cursor      : pointer
+      &.nav-right
+        order: 1
+
+    .toolbar-brand
+      font-size   : 2rem
+      order       : 0
+      flex        : 1 0 auto
+      position    : relative
+      color       : inherit
+      line-height : $nav-bar-height
+      &.nav-right
+        text-align: right
+
+  .toolbar-content
+    order : 1
+    flex  : 1 0 auto
+    flex-direction column
+    width(inherit)
+    flex-container()
+    // min-max-height(0)
+
+
+
+    .toolbar-collapse,
+    .toolbar-actions
+      flex: 1 0 auto
+      position: relative
+      flex-container()
+      flex-direction: column
+
+
+  .nav-actions
+    order         : 0
+    flex          : 1 0 auto
+    position      : relative
+    flex-direction: row
+    flex-container()
+
+    &.hide-mobile
+      dislpay none
+
+    & > *
+      position       : relative
+      text-align     : center
+      line-height    : $nav-bar-height
+      justify(flex-start)
+      flex-container()
+
+      & > *
+        padding  : 0px 24px
+        flex     : 1 0 auto
+        dislpay  : block
+        position : relative
+        font-size: 1.3rem
+        cursor   : point
+        transition background-color 200ms, cubic-bezier(0,.74,0,.99), color 200ms, cubic-bezier(0,.74,0,.99)
+        color inherit
+        &:hover
+          // background-color: $purple.base
+          // color           : white !important
+
+    &.nav-actions-right
+      order         : 2
+      // flex 0 3 auto
+      width 0
+      justify(flex-end)
+      align(flex-end)
+      // align-content: flex-end
+
+
+  .toolbar-collapse
+    top       : -2px
+    position  : relative
+    overflow  : hidden
+    height    : 0
+    width     : 100%
+    // background-color: $shades.white
+    box-shadow 0px 2px 4px rgba(0,0,0,0.3)
+    // transition max-height 1s cubic-bezier(0,.74,0,.99)
+    &.open
+
+      height:  auto
+
+      .nav-actions
+        flex-direction column
+        justify(flex-start)
+        align-content flex-start
+        flex-container()
+          dislpay:none
+        & > *
+          width 100%
+          text-align left
+
+
+  &.toolbar-xs
+    flex:  0 0 $nav-bar-height
+    min-max-height($nav-bar-height-xs)
+    .nav-actions > *
+      line-height $nav-bar-height-xs
+
+  &.toolbar-sm
+    flex:  0 0 $nav-bar-height
+    min-max-height($nav-bar-height-sm)
+
+  &.toolbar-md
+    flex:  0 0 $nav-bar-height
+    min-max-height($nav-bar-height-md)
+
+  &.toolbar-lg
+    flex:  0 0 $nav-bar-height
+    min-max-height($nav-bar-height-lg)
+
+  &.toolbar-xl
+    // flex: 0 0 $nav-bar-height
+    min-max-height($nav-bar-height-xl)
+    .toolbar-container
+      padding-top 150px
+      .toolbar-header
+        min-max-width(500px)
+        // margin-bottom 64px/
+        .toolbar-brand
+          font-size 4em
+      .toolbar-content
+        align-self flex-end
+
+
+.hide-mobile
+  dislpay:none !important
+
+@keyframes nav-bar-drop
+  0%
+    height     0
+  100%
+    height     800px
+
+@media(min-width: 640px)
+
+  .ai-toolbar
+
+    .toolbar-container
+      flex-direction row
+
+
+      .toolbar-header
+
+        flex 0 0 $nav-aside-width
+        align(center)
+        justify(center)
+
+        &.header-right
+          justify(flex-end)
+
+        min-max-width($nav-aside-width)
+
+        .toolbar-toggle
+          display none
+
+        .toolbar-brand
+          &.nav-right
+            text-align  : center
+
+      .toolbar-content
+        flex-direction row
+        min-max-height($nav-bar-height)
+
+        .nav-actions
+          flex-direction row
+          flex-container()
+          &.hide-mobile
+            flex-container()
+          & > *
+            text-align center
+            width 0
+              // align-self flex-end
+
+        .toolbar-collapse
+          top 0
+          position relative
+          flex-direction row
+          box-shadow none
+          min-max-height(100%)
+          &.open
+            height  : auto
+            .nav-actions
+              flex-direction row
+              justify(center)

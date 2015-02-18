@@ -16,7 +16,8 @@ export class AiBtnToggleAttachedBehavior {
   }
 
   bind () {
-    this.handler = this[typeof this.value === 'function' ? '_toggle' : 'toggle'].bind(this)
+    // this.handler = this[typeof this.value === 'function' ? '_toggle' : 'toggle'].bind(this)
+
     this.element.addEventListener('click', this.handler, false)
   }
 

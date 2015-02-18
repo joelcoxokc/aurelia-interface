@@ -9,6 +9,7 @@ module.exports = {
   source: appRoot   + '**/*.js',
   html  : appRoot   + '**/*.html',
   style : styleRoot + '**/*.css',
+
   stylus: 'src/styles/index.styl',
   output: 'dist/',
   doc:'./doc',
@@ -19,7 +20,8 @@ module.exports = {
       views   : appRoot   + '**/*.html'   ,
       stylus  : styleRoot + '**/*.styl' ,
       css     : styleRoot + '**/*.css'  ,
-      styl    : styleRoot + 'index.styl'
+      styl    : styleRoot + 'index.styl',
+      styles  : styleRoot
     },
   demo: {
       scripts : demoRoot + '**/*.js'  ,

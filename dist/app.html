@@ -1,32 +1,51 @@
     <template>
-      <import from="./system/ai-header"></import>
+      <import from="./system/ai-toolbar"></import>
       <import from="./system/a-interface"></import>
+      <import from="./system/ai-footer"></import>
+      <import from="./system/ai-aside-nav"></import>
       <import from="./system/ai-main"></import>
       <import from="./system/ai-body"></import>
-      <import from="./system/ai-footer"></import>
-      <import from="./system/ai-aside"></import>
+      <import from="./nav-bar"></import>
 
 
-      <div class="a-interface is-row">
+      <a-interface
+                  direction="interface.direction"
+                  router.bind="router"
+                  aside.bind="aside"
+                  toolbar.bind="toolbar">
 
 
-        <section class="ai-body">
+        <ai-body direction.bind="interface.direction">
 
-          <nav-bar router.bind="router" size.bind="bar.size" aside.bind="aside"></nav-bar>
+          <ai-toolbar
+                    router.bind="router"
+                    toolbar.bind="toolbar"
+                    size.bind="toolbar.size"
+                    fixed="true"
+                    text-color.bind="toolbar.textColor"
+                    bg-color.bind="toolbar.bgColor"
+                    >
+                    <nav-bar aside.bind="aside" router.bind="router" toolbar.bind="toolbar" class="toolbar-container"></nav-bar>
+          </ai-toolbar>
 
-          <main class="ai-main">
+          <ai-main>
             <router-view></router-view>
-          </main>
+          </ai-main>
 
-          <footer class="ai-footer"></footer>
+          <ai-footer></ai-footer>
 
-        </section>
-
-
-        <nav-aside bar.bind="bar" router.bind="router" ai-class.bind="{'aside-open': aside.open}"></nav-aside>
+        </ai-body>
 
 
-      </div>
+        <ai-aside-nav
+                side.bind="aside.side"
+                router.bind="router"
+                fixed="aside.false"
+                fold="aside.false"
+                size.bind="aside.size"
+                open.bind="aside.open"
+                ></ai-aside-nav>
 
+      </a-interface>
 
     </template>

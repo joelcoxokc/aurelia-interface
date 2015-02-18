@@ -1,24 +1,24 @@
 <template>
+    <import from="./system/ai-btn-toggle"></import>
 
-  <section class="nav-bar-container" role="navigation">
-    <div class="nav-bar-header header-right">
-      <button type="button" class="nav-bar-toggle" click="{aside.open = !aside.open}"  data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+    <div class="toolbar-header header-right">
+      <button type="button" class="toolbar-toggle" click="{aside.open = !aside.open}"  data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
       <!-- click.trigger="open()" -->
         <i class="mdi-navigation-menu"></i>
       </button>
-      <a class="nav-bar-brand nav-right waves-effect waves-${color}" href="#">
+      <a class="toolbar-brand nav-right waves-effect waves-${color}" href="#">
          <!-- <i class="fa fa-home"></i> -->
         <span>${title}</span>
       </a>
     </div>
 
-    <div class="nav-bar-content">
-      <div class="ui-collapse nav-bar-collapse ${showing ? 'open' : ''}" id="bs-example-navbar-collapse-1">
+    <div class="toolbar-content">
+      <div class="ui-collapse toolbar-collapse ${showing ? 'open' : ''}" id="bs-example-navbar-collapse-1">
         <ul class="nav-actions nav-actions-right">
           <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
             <a class="waves-effect waves-${color}" href.bind="row.href">${row.title}</a>
           </li>
-          <li ai-btn-toggle.bind="aside.open" >
+          <li click.delegate="toggle()" >
             <a class="waves-effect waves-${color}">
               <i class="fa fa-bars"></i>
             </a>
@@ -32,5 +32,4 @@
         </ul>
       </div>
     </div>
-  </section>
 </template>

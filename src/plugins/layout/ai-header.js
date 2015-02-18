@@ -1,10 +1,6 @@
 import {Behavior} from 'aurelia-templating';
 
-var defaults =  {
-                , side : 'right'
-                , size : 'sm'
-                , open : false
-                , fold : false
+var defaults =  { size : 'sm'
                 , fixed: true
                 , bgColor  : 'white'
                 , textColor: 'purple'
@@ -37,13 +33,13 @@ export class AiHeader{
 
     bind(){
         this.classList = [];
-        this.addClass('ai-aside')
+        this.addClass('ai-header')
     }
 
     sizeChanged(newSize){
         newSize = newSize || defaults.size;
-        this.removeClass(`aside-${this.currentSize}`)
-        this.addClass(`aside-${newSize}`)
+        this.removeClass(`header-${this.currentSize}`)
+        this.addClass(`header-${newSize}`)
         this.currentSize = this.size;
 
     }

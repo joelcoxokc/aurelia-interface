@@ -1,7 +1,6 @@
 import {Behavior} from 'aurelia-templating';
 
-var defaults =  {
-                , side : 'right'
+var defaults =  { side : 'right'
                 , size : 'sm'
                 , open : false
                 , fold : false

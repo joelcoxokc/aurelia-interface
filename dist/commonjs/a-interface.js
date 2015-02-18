@@ -1,7 +1,7 @@
 System.register(["aurelia-templating"], function (_export) {
   "use strict";
 
-  var Behavior, _prototypeProperties, _classCallCheck, AInterface;
+  var Behavior, _prototypeProperties, _classCallCheck, directions, defaults, AInterface;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
@@ -11,35 +11,51 @@ System.register(["aurelia-templating"], function (_export) {
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
+      directions = {
+        column: "is-column",
+        row: "is-row"
+      };
+      defaults = {
+        direction: "row"
+      };
       AInterface = _export("AInterface", (function () {
-        function AInterface() {
+        function AInterface(element) {
           _classCallCheck(this, AInterface);
 
-          this.direction = "row";
+          this.element = element;
+          this.direction = defaults.direction;
         }
 
         _prototypeProperties(AInterface, {
           metatdata: {
             value: function metatdata() {
-              return Behavior.withProperty("direction");
-
+              return Behavior.customElement("a-interface").withProperty("direction", "directionChanged").withProperty("router").withProperty("aside").withProperty("toolbar");
+            },
+            writable: true,
+            configurable: true
+          },
+          inject: {
+            value: function inject() {
+              return [Element];
             },
             writable: true,
             configurable: true
           }
         }, {
-          _bind: {
-            value: function _bind() {
+          bind: {
+            value: function bind() {
               this.classList = ["a-interface"];
               this.direction && this.classList.push("is-" + this.direction);
-              this.addClass.apply(this.classList);
+              this.addClass.apply(this, this.classList);
             },
             writable: true,
             configurable: true
           },
-          directionChaned: {
-            value: function directionChaned(value) {
-              this.addClass(value);
+          directionChanged: {
+            value: function directionChanged(value) {
+              var lastClass = value === "row" ? "column" : "row";
+              this.removeClass(directions[lastClass]);
+              this.addClass(directions[value]);
             },
             writable: true,
             configurable: true

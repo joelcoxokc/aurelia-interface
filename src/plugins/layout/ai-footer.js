@@ -5,7 +5,7 @@ export class AiFooter{
     static metadata(){
         return Behavior
             .customElement('ai-footer')
-            .withProperty('')
+            // .withProperty('')
     }
 
     static inject(){
@@ -16,5 +16,9 @@ export class AiFooter{
 
         this.element = element
 
+    }
+
+    bind() {
+        this.element.classList.add('ai-footer')
     }
 }

@@ -82,6 +82,6 @@ gulp
               .pipe($.concat('aurelia-interface.css'))
               .pipe($.autoprefixer())
               .pipe($.plumber.stop())
-              .pipe(gulp.dest(paths.output))
+              .pipe(gulp.dest(paths.src.styles))
         }
     }

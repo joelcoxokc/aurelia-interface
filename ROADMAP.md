@@ -254,6 +254,7 @@ For the time being, it will be stand Alone
  - metadata
      + `customElement('ai-toolbar')`
      + `withProperty('router') {Object}`
+     + `withProperty('brand') {String}`
      + `withProperty('size') {String} <xs | sm | md | lg | xl>`
      + `withProperty('fixed') {Boolean}`
      + `withProperty('bg-color') {String}`

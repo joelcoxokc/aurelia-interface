@@ -1,5 +1,6 @@
-import {Behavior} from 'aurelia-templating';
-var directions,oposites,defaults;
+import {Behavior} from 'aurelia-templating'
+
+var directions,oposites,defaults
 
 directions ={
     row   : 'is-row',
@@ -7,12 +8,12 @@ directions ={
 }
 oposites  ={
     column: directions.row ,
-    row   : direction.column
+    row   : directions.column
 }
 defaults  = {
     direction: 'row'
 }
-export class AiBody{
+export class AiMain{
 
     static metadata(){
         return Behavior
@@ -32,7 +33,7 @@ export class AiBody{
 
     bind(){
 
-        this.element.classList.add('ai-body')
+        this.element.classList.add('ai-main')
 
     }
 

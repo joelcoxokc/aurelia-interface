@@ -15,6 +15,7 @@ function install(aurelia){
 export {
   AiBtnToggleAttachedBehavior,
   AiBtnRadioAttachedBehavior,
+  AiTabsAttachedBehavior,
   AiAction,
   install
 };

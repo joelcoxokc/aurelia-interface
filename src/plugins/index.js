@@ -1,23 +1,49 @@
-import {AiBtnToggleAttachedBehavior} from './ai-btn-toggle'
-import {AiBtnRadioAttachedBehavior} from './ai-btn-radio'
-import {AiClassAttachedBehavior} from './ai-class'
-import {AiTabsAttachedBehavior} from './ai-tabs'
-import {AiAction} from './ai-action'
+import { AiBtnToggleAttachedBehavior
+       , AiBtnRadioAttachedBehavior
+       , AiTabsAttachedBehavior
+       , AiAction
+       } from './components/index'
 
-function install(aurelia){
-  aurelia.withResources([
-    AiBtnToggleAttachedBehavior,
-    AiBtnRadioAttachedBehavior,
-    AiClassAttachedBehavior,
-    AiTabsAttachedBehavior,
-    AiAction
-  ]);
-}
+import { AiMain
+       , AiBody
+       , AiFooter
+       , AiHeader
+       , AiAside
+       } from './layout/index'
 
-export {
-  AiBtnToggleAttachedBehavior,
-  AiBtnRadioAttachedBehavior,
-  AiClassAttachedBehavior,
-  AiAction,
-  install
-};
+import {AiClassAttachedBehavior} from './util/index'
+
+// function install(aurelia){
+//   aurelia
+//     .withResources( [ AiBtnToggleAttachedBehavior
+//                     , AiBtnRadioAttachedBehavior
+//                     , AiClassAttachedBehavior
+//                     , AiTabsAttachedBehavior
+//                     , AiAction
+//                     , AiMain
+//                     , AiBody
+//                     , AiFooter
+//                     , AiHeader
+//                     , AiAside
+//                     ]);
+// }
+
+
+export{ AiBtnToggleAttachedBehavior
+      , AiBtnRadioAttachedBehavior
+      , AiClassAttachedBehavior
+      , AiTabsAttachedBehavior
+      , AiAction
+      , AiMain
+      , AiBody
+      , AiFooter
+      , AiHeader
+      , AiAside
+      };
+
+
+// export { AiBtnToggleAttachedBehavior
+//        , AiBtnRadioAttachedBehavior
+//        , AiTabsAttachedBehavior
+//        , AiAction
+//        } from './components/index'

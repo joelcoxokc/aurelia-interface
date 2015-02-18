@@ -33,10 +33,10 @@ export class AInterface{
 
     }
 
-    _bind(){
+    bind(){
         this.classList = ['a-interface']
         this.direction && this.classList.push(`is-${this.direction}`)
-        this.addClass.apply(this.classList)
+        this.addClass.apply(this, this.classList)
 
     }
 
