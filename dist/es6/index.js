@@ -1,23 +1,21 @@
-import {AiBtnToggleAttachedBehavior} from './ai-btn-toggle'
-import {AiBtnRadioAttachedBehavior} from './ai-btn-radio'
-import {AiClassAttachedBehavior} from './ai-class'
-import {AiTabsAttachedBehavior} from './ai-tabs'
-import {AiAction} from './ai-action'
+System.register(["./ai-class"], function (_export) {
+  "use strict";
 
-function install(aurelia){
-  aurelia.withResources([
-    AiBtnToggleAttachedBehavior,
-    AiBtnRadioAttachedBehavior,
-    AiClassAttachedBehavior,
-    AiTabsAttachedBehavior,
-    AiAction
-  ]);
-}
+  var AiClassAttachedBehavior;
 
-export {
-  AiBtnToggleAttachedBehavior,
-  AiBtnRadioAttachedBehavior,
-  AiClassAttachedBehavior,
-  AiAction,
-  install
-};
+
+  function install(aurelia) {
+    aurelia.withResources([AiClassAttachedBehavior]);
+  }
+
+  return {
+    setters: [function (_aiClass) {
+      AiClassAttachedBehavior = _aiClass.AiClassAttachedBehavior;
+    }],
+    execute: function () {
+      _export("AiClassAttachedBehavior", AiClassAttachedBehavior);
+
+      _export("install", install);
+    }
+  };
+});

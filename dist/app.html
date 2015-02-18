@@ -1,0 +1,32 @@
+    <template>
+      <import from="./system/ai-header"></import>
+      <import from="./system/a-interface"></import>
+      <import from="./system/ai-main"></import>
+      <import from="./system/ai-body"></import>
+      <import from="./system/ai-footer"></import>
+      <import from="./system/ai-aside"></import>
+
+
+      <div class="a-interface is-row">
+
+
+        <section class="ai-body">
+
+          <nav-bar router.bind="router" size.bind="bar.size" aside.bind="aside"></nav-bar>
+
+          <main class="ai-main">
+            <router-view></router-view>
+          </main>
+
+          <footer class="ai-footer"></footer>
+
+        </section>
+
+
+        <nav-aside bar.bind="bar" router.bind="router" ai-class.bind="{'aside-open': aside.open}"></nav-aside>
+
+
+      </div>
+
+
+    </template>

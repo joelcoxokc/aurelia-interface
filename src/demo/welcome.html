@@ -1,0 +1,24 @@
+<template>
+  <!-- <import from="./ai-card"></import> -->
+  <section>
+
+    <header class="bg-purple ai-header">
+      <h1 class="text-white page-heading">${heading}</h1>
+    </header>
+
+    <div class="ai-content">
+      <div class="row">
+        <div class="col s8 offset-s2" ai-toggle.bind="showing">
+
+          <div class="ai-card card ai-card">
+              <div class="card-content">
+                  <h2 class="card-heading">${heading}</h2>
+                  <footer class="card-footer"></footer>
+              </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

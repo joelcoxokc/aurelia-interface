@@ -1,0 +1,18 @@
+<template>
+
+    <header class="aside-header bar-xl bg-grey bg-darken-4">
+      <h3 class="center">${heading}</h3>
+    </header>
+    <ul class="ai-nav-list">
+      <li class="list-header">Components</li>
+      <ul class="nav">
+        <li
+          repeat.for="row of router.navigation"
+          class="list-item"
+          ai-class.bind="{active: row.isActive}">
+          <a href.bind="row.href">${row.title}</a>
+        </li>
+      </ul>
+    </ul>
+
+</template>

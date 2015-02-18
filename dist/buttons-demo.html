@@ -1,0 +1,88 @@
+<template>
+
+  <!-- <import from="ai-action"></import> -->
+
+  <section>
+    <!-- <header class="bg-purple ai-header">
+      <h1 class="text-white page-heading">${heading}</h1>
+    </header> -->
+
+    <div class="ai-content">
+      <div class="row">
+        <div class="col s8 offset-s2" ai-toggle.bind="showing">
+
+
+          <div class="ai-card card ai-card">
+              <div class="card-content">
+                <h2 class="card-heading">Ai Actions</h2>
+                <!-- <ai-action type="floating" shape="round"></ai-action> -->
+                <a
+                  class="waves-effect waves-light btn btn-primary"
+                  ai-btn-toggle.call="checkboxChanged(newVal)"
+                >Toggle Callback</a>
+              </div>
+          </div>
+
+          <div class="ai-card card ai-card">
+              <div class="card-content">
+                <h2 class="card-heading">Button Toggle/Checkbox</h2>
+                <a
+                  class="waves-effect waves-light btn btn-primary"
+                  ai-class.bind="{active: checkboxIsChecked}"
+                  ai-btn-toggle.bind="checkboxIsChecked"
+                >
+                  Toggle Property - ${checkboxIsChecked ? 'Checked' : 'Unchecked'}
+                </a>
+                <a
+                  class="waves-effect waves-light btn btn-primary"
+                  ai-btn-toggle.call="checkboxChanged(newVal)"
+                >Toggle Callback</a>
+              </div>
+          </div>
+
+          <div class="ai-card card ai-card">
+            <div class="card-content">
+              <h2 class="card-heading">Radio Buttons</h2>
+              <p>Hard Coded Options - ${radioValue}</p>
+              <span ai-btn-radio.bind="radioValue">
+                <a
+                  class="waves-effect waves-light btn btn-primary"
+                  ai-class.bind="{active: radioValue == 'Left'}"
+                  ai-btn-radio-option
+                  value.bind="'Left'"
+                  >Left</a>
+                <a
+                  class="waves-effect waves-light btn btn-primary"
+                  ai-class.bind="{active: radioValue == 'Middle'}"
+                  ai-btn-radio-option
+                  value.bind="'Middle'"
+                  >Middle</a>
+                <a
+                  class="waves-effect waves-light btn btn-primary"
+                  ai-class.bind="{active: radioValue == 'Right'}"
+                  ai-btn-radio-option
+                  value.bind="'Right'"
+                  >Right</a>
+              </span>
+              <p> Bound to Models - ${radioValue2.name}</p>
+              <div>
+                <span class="btn-group" ai-btn-radio.bind="radioValue2">
+                  <a
+                    repeat.for="option of radioOptions"
+                    class="waves-effect waves-light btn btn-primary"
+                    ai-class.bind="{active: $parent.radioValue2 == option}"
+                    ai-btn-radio-option
+                    value.bind="option"
+                    >${option.name}</a>
+                </span>
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

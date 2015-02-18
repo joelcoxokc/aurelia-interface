@@ -82,14 +82,14 @@ Once V0.1.0 is released, we will begin working on v0.1.1 && v0.1.2
                 direction="row"
                 router.bind="router"
                 aside.bind="aside"
-                bar.bind="bar">
+                toolbar.bind="toolbar">
         <ai-body>
             <ai-header
                         router.bind="router"
-                        size.bind="bar.size"
+                        size.bind="toolbar.size"
                         fixed="true"
-                        bg-color.bind="bar.bgColor"
-                        text-color.bind="bar.text-color">
+                        bg-color.bind="toolbar.bgColor"
+                        text-color.bind="toolbar.text-color">
             </ai-header>
 
             <ai-main container="false">
@@ -135,7 +135,7 @@ Once V0.1.0 is released, we will begin working on v0.1.1 && v0.1.2
      + `withProperty('direction', directionChanged) {String} <column | row>`
      + `withProperty('router')`
      + `withProperty('aside')`
-     + `withProperty('bar')`
+     + `withProperty('toolbar')`
  - inject
      + Element
  - element.classList

@@ -6,41 +6,82 @@ var compilerOptions = require('../6to5-options');
 var assign = Object.assign || require('object.assign');
 var $      = require('gulp-load-plugins')({lazy:false});
 
-gulp.task('build-es6', function () {
-  return gulp.src(paths.source)
-    .pipe(gulp.dest(paths.output + 'es6'));
-});
 
-gulp.task('build-commonjs', function () {
-  return gulp.src(paths.source)
-    .pipe(to5(assign({}, compilerOptions, {modules:'common'})))
-    .pipe(gulp.dest(paths.output + 'commonjs'));
-});
 
-gulp.task('build-amd', function () {
-  return gulp.src(paths.source)
-    .pipe(to5(assign({}, compilerOptions, {modules:'amd'})))
-    .pipe(gulp.dest(paths.output + 'amd'));
-});
+gulp
+    .task('build:source', [ 'source:es6'
+                          , 'source:amd'
+                          , 'source:views'
+                          , 'source:styles'
+                          , 'source:system'
+                          , 'source:commonjs'
+                          ])
 
-gulp.task('build-system', function () {
-  return gulp.src(paths.source)
-    .pipe(to5(assign({}, compilerOptions, {modules:'system'})))
-    .pipe(gulp.dest(paths.output + 'system'));
-});
+    .task('build:demo', [ 'demo:views'
+                        , 'demo:system'
+                        ])
+    .task('build', $.sequence('clean', ['build:demo','build:source']));
 
-gulp.task('build-html', function () {
-  return gulp.src(paths.html)
-    .pipe(gulp.dest(paths.output + 'system'));
-});
+gulp
+    .task('source:es6'      , system(paths.src.scripts, 'es6').dist)
+    .task('source:amd'      , system(paths.src.scripts, 'amd').dist)
+    .task('source:commonjs' , system(paths.src.scripts, 'commonjs').dist)
+    .task('source:system'   , system(paths.src.scripts, 'system').system)
+    .task('source:views'    , views(paths.src.views   , 'system'))
+    .task('source:styles'   , stylus(paths.src.styl ))
+    ;
 
-gulp.task('build', function(callback) {
-  return runSequence(
-    'clean',
-    ['build-es6', 'build-commonjs', 'build-amd', 'build-system', 'build-html'],
-    callback
-  );
-});
+
+gulp
+    .task('demo:views'  , views(paths.demo.views   ))
+    .task('demo:system' , system(paths.demo.scripts).system)
+    ;
 
 
 
+    function system(source, name) {
+        return {
+          system: function() {
+              name = name || '';
+              return gulp
+                    .src(source)
+                    .pipe($.flatten())
+                    .pipe($.plumber())
+                    .pipe($.changed(paths.output, {extension: '.js'}))
+                    .pipe($.sourcemaps.init())
+                    .pipe(to5(assign({}, compilerOptions, {modules: 'system'} )))
+                    .pipe($.sourcemaps.write({includeContent: false, sourceRoot: '/' + paths.root }))
+                    .pipe(gulp.dest(paths.output + name));
+            },
+          dist: function() {
+              name = name || '';
+              return gulp.src(source)
+                  .pipe($.flatten())
+                  .pipe(to5(assign({}, compilerOptions, {modules: 'system'} )))
+                  .pipe(gulp.dest(paths.output + name));
+            }
+        }
+    }
+
+    function views(source, name) {
+        name = name || '';
+        return function(){
+            return gulp
+              .src(source)
+              .pipe($.flatten())
+              .pipe(gulp.dest(paths.output + name));
+        }
+    }
+
+
+    function stylus(source) {
+        return function() {
+            return gulp.src(source)
+              .pipe($.plumber())
+              .pipe($.stylus())
+              .pipe($.concat('aurelia-interface.css'))
+              .pipe($.autoprefixer())
+              .pipe($.plumber.stop())
+              .pipe(gulp.dest(paths.output))
+        }
+    }
