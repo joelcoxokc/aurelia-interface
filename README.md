@@ -1,4 +1,4 @@
-![enter image description here](https://github.com/joelcoxokc/aurelia-interface/blob/master/aurelia-interface.png)
+![enter image description here](https://github.com/joelcoxokc/aurelia-interface/blob/refactor/aurelia-interface.png)
 
 # aurelia-interface
 
