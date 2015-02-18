@@ -75,6 +75,49 @@ Once V0.1.0 is released, we will begin working on v0.1.1 && v0.1.2
 ##Layout
  - Complete ai-layout, which includes the following
  
+###Structure
+
+ ```html
+    <a-interface
+                direction="row"
+                router.bind="router"
+                aside.bind="aside"
+                bar.bind="bar">
+        <ai-body>
+            <ai-header
+                        router.bind="router"
+                        size.bind="bar.size"
+                        fixed="true"
+                        bg-color.bind="bar.bgColor"
+                        text-color.bind="bar.text-color">
+            </ai-header>
+
+            <ai-main container="false">
+                <router-view></router-view>
+            </ai-main>
+            
+        </ai-body>
+        <ai-aside
+                router.bind="router"
+                side="right"
+                size="md"
+                fixed=true
+                fold=false
+                open.bind="aside.right.open">
+        </ai-aside>
+        <ai-aside
+                router.bind="router"
+                side="left"
+                size="md"
+                fixed=true
+                fold=false
+                open.bind="aside.left.open">
+        </ai-aside>
+
+
+    </a-interface>
+ ```
+
 ###a-interface
 
 **Global Application Wrapper**
@@ -96,6 +139,7 @@ Once V0.1.0 is released, we will begin working on v0.1.1 && v0.1.2
      + `.is-row`
          * `flex-direction: row`
 
+---
 
 ###ai-header
 
@@ -124,6 +168,8 @@ Once V0.1.0 is released, we will begin working on v0.1.1 && v0.1.2
          * `height: 180px`
      + `.header-xl`
          * `height: 240px`
+
+---
 
 ###ai-aside
  - metadata
@@ -156,6 +202,8 @@ Once V0.1.0 is released, we will begin working on v0.1.1 && v0.1.2
      + `.aside-left`
          * `order: -1`
      
+---
+
 ###ai-body
  - metadata
      + `customElement('ai-body')`
