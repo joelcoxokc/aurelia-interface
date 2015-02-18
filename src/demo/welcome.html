@@ -1,5 +1,5 @@
 <template>
-  <!-- <import from="./ai-card"></import> -->
+  <import from="./system/ai-card"></import>
   <section>
 
     <header class="bg-purple ai-header header-xl">
@@ -10,12 +10,10 @@
       <div class="row">
         <div class="col s8 offset-s2" ai-toggle.bind="showing">
 
-          <div class="ai-card card ai-card">
-              <div class="card-content">
-                  <h2 class="card-heading">${heading}</h2>
-                  <footer class="card-footer"></footer>
-              </div>
-          </div>
+          <ai-card>
+            <h2 class="card-heading">${heading}</h2>
+            <footer class="card-footer"></footer>
+          </ai-card>
 
         </div>
       </div>

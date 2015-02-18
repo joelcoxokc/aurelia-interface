@@ -1,6 +1,6 @@
 export class Welcome{
   constructor(){
-    this.heading = 'Aurelia ui ';
+    this.heading = 'Aurelia Interface ';
     this.firstName = 'John';
     this.lastName = 'Doe';
 
