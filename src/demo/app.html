@@ -6,6 +6,7 @@
       <import from="./system/ai-main"></import>
       <import from="./system/ai-body"></import>
       <import from="./nav-bar"></import>
+      <import from="./nav-aside"></import>
 
 
       <a-interface
@@ -44,7 +45,9 @@
                 fold="aside.false"
                 size.bind="aside.size"
                 open.bind="aside.open"
-                ></ai-aside-nav>
+                >
+                <nav-aside size.bind="toolbar.size" aside.bind="aside" router.bind="router"></nav-aside>
+                </ai-aside-nav>
 
       </a-interface>
 

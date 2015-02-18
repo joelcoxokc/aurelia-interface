@@ -15,8 +15,8 @@ export class AiToolbar{
             .withProperty('router')
             .withProperty('fixed')
             .withProperty('brand', 'brandChanged')
-            .withProperty('bg-color', 'bgChanged')
-            .withProperty('text-color', 'textChanged')
+            .withProperty('bgColor', 'bgChanged')
+            .withProperty('textColor', 'textChanged')
             .withProperty('size', 'sizeChanged')
     }
 
@@ -42,7 +42,6 @@ export class AiToolbar{
     bind(){
         var classList = ['ai-toolbar']
         var _this = this;
-
 
         this.fixed     && classList.push(this.pre('toolbar', 'fixed'))
         this.bgColor   && classList.push(this.pre('bg', this.bgColor))
@@ -81,7 +80,6 @@ export class AiToolbar{
     sizeChanged(value){
 
         if(value === this.current.size){ return }
-        console.log('size', value)
         this.element.classList.remove(`toolbar-${this.current.size}`)
         this.element.classList.add(`toolbar-${value}`)
         this.current.size = value;

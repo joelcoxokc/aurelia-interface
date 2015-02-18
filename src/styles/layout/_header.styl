@@ -2,6 +2,15 @@
     flex-container()
     flex   : 1 0 auto
     height : $header-height
+    align-items: center
+    justify-content: center
+    position: relative
+
+    .toggle-btn
+        top: 0
+        position: absolute
+
+
 
     &.header-xs
         height: $header-height-xs
@@ -14,5 +23,18 @@
     &.header-xl
         height: $header-height-xl
 
+
+
 .ai-content
     margin-top: 20px
+
+
+.ai-aside-nav
+    &.aside-right
+        .ai-header
+            .toggle-btn
+                right 0
+    &.aside-left
+        .ai-header
+            .toggle-btn
+                left 0

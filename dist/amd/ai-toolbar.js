@@ -27,24 +27,6 @@ System.register(["aurelia-templating"], function (_export) {
 
           _.assign(this, this.current);
 
-          this.resetSize = createToggle("size", "toolbar", this.removeClass, this.resetSize);
-          this.resetText = createToggle("textColor", "text", this.removeClass, this.resetText);
-          this.resetBg = createToggle("bgColor", "bg", this.removeClass, this.resetBg);
-
-          function createToggle(name, prefix, toggleMethod, resetMethod) {
-            var classed = _.capitalize(name);
-            return function (value) {
-              _this["on" + classed] = _this.adapter(name, "" + prefix + "-" + value, toggleMethod, resetMethod);
-            };
-          }
-          function adapter(name, args, toggleMethod, callback) {
-            var _this = this;
-            return function (value) {
-              toggleMethod(args);
-              callback(value);
-              _this.current[name] = value;
-            };
-          }
           this.pre = function (prefix) {
             var args = Array.prototype.slice.call(arguments).slice(1);
             return _.map(args, function (arg, index) {
@@ -56,7 +38,7 @@ System.register(["aurelia-templating"], function (_export) {
         _prototypeProperties(AiToolbar, {
           metadata: {
             value: function metadata() {
-              return Behavior.customElement("ai-toolbar").withProperty("router").withProperty("fixed").withProperty("brand", "brandChanged").withProperty("bg-color", "bgChanged").withProperty("text-color", "textChanged").withProperty("size", "sizeChanged");
+              return Behavior.customElement("ai-toolbar").withProperty("router").withProperty("fixed").withProperty("brand", "brandChanged").withProperty("bgColor", "bgChanged").withProperty("textColor", "textChanged").withProperty("size", "sizeChanged");
             },
             writable: true,
             configurable: true
@@ -74,39 +56,40 @@ System.register(["aurelia-templating"], function (_export) {
               var classList = ["ai-toolbar"];
               var _this = this;
 
-              Object.observe(this.router, function () {
-                _this.size = _this.router.currentInstruction.config.toolbar.size || defaults.size;
-                _this.bgColor = _this.router.currentInstruction.config.toolbar.bgColor || defaults.bgColor;
-                _this.textColor = _this.router.currentInstruction.config.toolbar.bgColor || defaults.textColor;
-              });
-
               this.fixed && classList.push(this.pre("toolbar", "fixed"));
               this.bgColor && classList.push(this.pre("bg", this.bgColor));
               this.textColor && classList.push(this.pre("text", this.textColor));
               this.size && classList.push(this.pre("toolbar", this.size));
               this.addClass(classList);
+              Object.observe(this.router, function () {
+                _this.size = _this.router.currentInstruction.config.toolbar.size || defaults.size;
+                _this.bgColor = _this.router.currentInstruction.config.toolbar.bgColor || defaults.bgColor;
+                _this.textColor = _this.router.currentInstruction.config.toolbar.textColor || defaults.textColor;
+              });
             },
             writable: true,
             configurable: true
           },
           bgChanged: {
             value: function bgChanged(value) {
-              if (value === this.currentBg) {
+              if (value === this.current.bgColor) {
                 return;
               }
-              this.onBg(value);
-              this.addClass("bg-" + value);
+              this.element.classList.remove("bg-" + this.current.bgColor);
+              this.element.classList.add("bg-" + value);
+              this.current.bgColor = value;
             },
             writable: true,
             configurable: true
           },
           textChanged: {
             value: function textChanged(value) {
-              if (value === this.currentText) {
+              if (value === this.current.textColor) {
                 return;
               }
-              this.onText(value);
-              this.addClass("text-" + value);
+              this.element.classList.remove("text-" + this.current.textColor);
+              this.element.classList.add("text-" + value);
+              this.current.textColor = value;
             },
             writable: true,
             configurable: true
@@ -116,22 +99,9 @@ System.register(["aurelia-templating"], function (_export) {
               if (value === this.current.size) {
                 return;
               }
-              console.log("size", value);
               this.element.classList.remove("toolbar-" + this.current.size);
               this.element.classList.add("toolbar-" + value);
               this.current.size = value;
-            },
-            writable: true,
-            configurable: true
-          },
-          adapter: {
-            value: function adapter(args, elementMethod, callback, storageKey) {
-              var _this = this;
-              return function (value) {
-                elementMethod(args);
-                callback(value);
-                _this[storageKey] = value;
-              };
             },
             writable: true,
             configurable: true

@@ -1,8 +1,11 @@
 <template>
+    <import from="./system/ai-header"></import>
 
-    <header class="aside-header bar-xl bg-grey bg-darken-4">
+    <ai-header router.bind="router">
+      <button click.delegate="toggle()" class="btn btn-flat bg-purple text-white btn-lg ai-action toggle-btn"><i class="mdi-navigation-menu"></i></button>
       <h3 class="center">${heading}</h3>
-    </header>
+    </ai-header>
+
     <ul class="ai-nav-list">
       <li class="list-header">Components</li>
       <ul class="nav">

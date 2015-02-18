@@ -13,23 +13,22 @@ System.register(["aurelia-templating"], function (_export) {
 
       defaults = { size: "sm",
         fixed: true,
-        bgColor: "white",
-        textColor: "purple"
+        bg: "white",
+        text: "purple"
       };
       AiHeader = _export("AiHeader", (function () {
         function AiHeader(element) {
           _classCallCheck(this, AiHeader);
 
           this.element = element;
-          this.currentSize = defaults.size;
-          this.currentBg = defaults.bgColor;
-          this.currentText = defaults.textColor;
+          this.current = defaults;
+          _.assign(this, this.current);
         }
 
         _prototypeProperties(AiHeader, {
           metadata: {
             value: function metadata() {
-              return Behavior.customElement("ai-header").withProperty("router").withProperty("size", "sizeChanged").withProperty("fixed", "fixedChanged").withProperty("bg-color", "bgChanged").withProperty("text-color", "textChanged");
+              return Behavior.customElement("ai-header").withProperty("router").withProperty("size", "sizeChanged").withProperty("fixed", "fixedChanged").withProperty("bg", "bgChanged").withProperty("text", "textChanged");
             },
             writable: true,
             configurable: true
@@ -44,8 +43,16 @@ System.register(["aurelia-templating"], function (_export) {
         }, {
           bind: {
             value: function bind() {
+              var _this = this;
               this.classList = [];
-              this.addClass("ai-header");
+              this.element.classList.add("ai-header", "header-" + this.size);
+
+              Object.observe(this.router, function () {
+                console.log("headomg", _this.router.currentInstruction.config.toolbar.bgColor);
+                _this.size = _this.router.currentInstruction.config.toolbar.size || _this.current.size;
+                _this.bg = _this.router.currentInstruction.config.toolbar.bgColor || _this.current.bg;
+                _this.text = _this.router.currentInstruction.config.toolbar.textColor || _this.current.text;
+              });
             },
             writable: true,
             configurable: true
@@ -53,27 +60,27 @@ System.register(["aurelia-templating"], function (_export) {
           sizeChanged: {
             value: function sizeChanged(newSize) {
               newSize = newSize || defaults.size;
-              this.removeClass("header-" + this.currentSize);
-              this.addClass("header-" + newSize);
-              this.currentSize = this.size;
+              this.element.classList.remove("header-" + this.current.size);
+              this.element.classList.add("header-" + newSize);
+              this.current.size = this.size;
             },
             writable: true,
             configurable: true
           },
           bgChanged: {
             value: function bgChanged(newBg) {
-              this.removeClass("bg-" + this.currentBg);
-              this.addClass("bg-" + this.newBg);
-              this.currentBg = this.bgColor;
+              this.element.classList.remove("bg-" + this.current.bg);
+              this.element.classList.add("bg-" + this.newBg);
+              this.current.bg = newBg;
             },
             writable: true,
             configurable: true
           },
           textChanged: {
             value: function textChanged(value) {
-              this.removeClass("text-" + this.currentText);
-              this.addClass("text-" + this.newText);
-              this.currentText = this.textColor;
+              this.element.classList.remove("text-" + this.current.text);
+              this.element.classList.add("text-" + this.newText);
+              this.current.text = value;
             },
             writable: true,
             configurable: true

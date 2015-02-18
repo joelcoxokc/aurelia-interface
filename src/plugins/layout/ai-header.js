@@ -1,9 +1,9 @@
 import {Behavior} from 'aurelia-templating';
 
 var defaults =  { size : 'sm'
-                , fixed: true
-                , bgColor  : 'white'
-                , textColor: 'purple'
+                , fixed: false
+                , bg  : 'white'
+                , text: 'purple'
                 }
 
 export class AiHeader{
@@ -14,8 +14,8 @@ export class AiHeader{
             .withProperty('router')
             .withProperty('size'      , 'sizeChanged')
             .withProperty('fixed'     , 'fixedChanged')
-            .withProperty('bg-color'  , 'bgChanged')
-            .withProperty('text-color', 'textChanged')
+            .withProperty('bg'        , 'bgChanged')
+            .withProperty('text'      , 'textChanged')
     }
 
     static inject(){
@@ -25,38 +25,47 @@ export class AiHeader{
     constructor(element){
 
         this.element     = element
-        this.currentSize = defaults.size;
-        this.currentBg   = defaults.bgColor;
-        this.currentText = defaults.textColor;
+        this.current     = defaults;
+        _.assign(this, this.current)
 
     }
 
     bind(){
+
+        var _this = this;
         this.classList = [];
-        this.addClass('ai-header')
+        this.element.classList.add('ai-header', `header-`+this.size)
+
+        Object.observe(this.router, function(){
+            console.log('headomg', _this.router.currentInstruction.config.toolbar.bgColor)
+            _this.size = _this.router.currentInstruction.config.toolbar.size      || _this.current.size
+            _this.bg = _this.router.currentInstruction.config.toolbar.bgColor     || _this.current.bg
+            _this.text = _this.router.currentInstruction.config.toolbar.textColor || _this.current.text
+        })
     }
 
     sizeChanged(newSize){
         newSize = newSize || defaults.size;
-        this.removeClass(`header-${this.currentSize}`)
-        this.addClass(`header-${newSize}`)
-        this.currentSize = this.size;
+        this.element.classList.remove(`header-${this.current.size}`)
+        this.element.classList.add(`header-${newSize}`)
+        this.current.size = this.size;
 
     }
 
     bgChanged(newBg){
 
-        this.removeClass(`bg-${this.currentBg}`)
-        this.addClass(`bg-${this.newBg}`)
-        this.currentBg = this.bgColor
+        this.element.classList.remove(`bg-${this.current.bg}`)
+        this.element.classList.add(`bg-${newBg}`)
+        this.current.bg = newBg
 
     }
 
-    textChanged(value){
-        this.removeClass(`text-${this.currentText}`)
-        this.addClass(`text-${this.newText}`)
-        this.currentText = this.textColor
+    textChanged(newText){
+        this.element.classList.remove(`text-${this.current.text}`)
+        this.element.classList.add(`text-${newText}`)
+        this.current.text = newText
     }
+
 
     addClass(){
 

@@ -5,9 +5,10 @@ export class NavAside {
     static metadata(){
 
         return Behavior
+            .customElement('nav-aside')
             .withProperty('router')
             .withProperty('aside')
-            .withProperty('size', 'size-changed')
+            .withProperty('size', 'sizeChanged')
             .withProperty('bar')
 
     }
@@ -22,15 +23,17 @@ export class NavAside {
     constructor(element){
         this.heading = 'ai';
         this.element = element;
+        // Object.observe(this.router)
 
     }
 
 
+    toggle(){
+        this.aside.open = !this.aside.open
+    }
+
     bind(){
-
-
-        this.element.classList.add('ai-aside', 'ai-aside-nav', 'aside-fixed', 'aside-left');
-
+        this.router = this.router
 
     }
 
