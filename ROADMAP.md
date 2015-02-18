@@ -30,6 +30,49 @@ Once V0.1.0 is released, we will begin working on v0.1.1 && v0.1.2
 
 ###V 0.1.0
 
+####Directory Structure
+
+     ```
+     components/
+         ai-btn.js
+         ai-tabs.js
+         ai-card.js
+         ai-modal.js
+         ai-action.js
+         ai-dropdown.js
+         ai-btn-checkbox.js
+         ai-btn-radio.js
+         index.js
+     services/
+         nav.js
+         toggle.js
+         nav-bar.js
+         nav-aside.js
+         index.js
+     layout/
+         ai-body.js
+         ai-main.js
+         ai-grid.js
+         ai-header.js
+         ai-footer.js
+         ai-section.js
+         ai-container.js
+         index.js
+     core/
+         a-interface.js
+         index.js
+     nav/
+         ai-nav-aside.js
+         ai-nav-bar.js
+         ai-nav.js
+         index.js
+     util/
+         ai-class.js
+         ai-toggle.js
+         index.js
+
+     ```
+
 ####Layout
  - Complete ai-layout, which includes the following
  - `<a-interface>` **Global Application Wrapper**
