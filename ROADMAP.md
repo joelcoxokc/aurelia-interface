@@ -95,6 +95,8 @@ Once V0.1.0 is released, we will begin working on v0.1.1 && v0.1.2
             <ai-main container="false">
                 <router-view></router-view>
             </ai-main>
+
+            <ai-footer></ai-footer>
             
         </ai-body>
         <ai-aside
