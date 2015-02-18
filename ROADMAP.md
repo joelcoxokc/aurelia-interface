@@ -32,7 +32,7 @@ Once V0.1.0 is released, we will begin working on v0.1.1 && v0.1.2
 
 ####Directory Structure
 
-     ```
+ ```
      components/
          ai-btn.js
          ai-tabs.js
@@ -70,7 +70,7 @@ Once V0.1.0 is released, we will begin working on v0.1.1 && v0.1.2
          ai-class.js
          ai-toggle.js
          index.js
-     ```
+ ```
 
 ##Layout
  - Complete ai-layout, which includes the following
