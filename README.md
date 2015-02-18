@@ -1,13 +1,10 @@
-![enter image description here](https://github.com/joelcoxokc/aurelia-interface/blob/refactor/aurelia-interface.png)
+![enter image description here](https://github.com/joelcoxokc/aurelia-interface/blob/master/aurelia-interface.png)
 
 # aurelia-interface
 
 [![Join the chat at https://gitter.im/joelcoxokc/aurelia-interface](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/joelcoxokc/aurelia-interface?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 UI Library for [Aurelia](http://www.aurelia.io/) platform.
-
-
-[![Join the chat at https://gitter.im/joelcoxokc/ui-aurelia](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/joelcoxokc/ui-aurelia?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 
 > To keep up to date on [Aurelia](http://www.aurelia.io/), please visit and subscribe to [the official blog](http://blog.durandal.io/). If you have questions, we invite you to join us on [our Gitter Channel](https://gitter.im/aurelia/discuss).
