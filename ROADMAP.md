@@ -70,27 +70,194 @@ Once V0.1.0 is released, we will begin working on v0.1.1 && v0.1.2
          ai-class.js
          ai-toggle.js
          index.js
-
      ```
 
-####Layout
+##Layout
  - Complete ai-layout, which includes the following
- - `<a-interface>` **Global Application Wrapper**
-     - Complete: true
-     - ETA: 2/17/15
- - `<ai-nav-aside>` **custom configurable side navigation**
-     - Complete: true
-     - ETA: 2/17/15
- - `<ai-nav-bar>` **cutom configurable top app navigation**
-     - Complete: False
-     - ETA: 2/17/15
- - `<ai-body>` **depending on the flex-direction of the interface**
-     - Complete: true
- - `<ai-main>` **wrapper for `<router-view>`**
-     - Complete: True
+ 
+###a-interface
+
+**Global Application Wrapper**
+   
+ - Complete: true
+ - ETA: 2/17/15
+ - metadata
+     + `customElement('a-interface')`
+     + `withProperty('direction', directionChanged) {String} <column | row>`
+     + `withProperty('router')`
+     + `withProperty('aside')`
+     + `withProperty('bar')`
+ - inject
+     + Element
+ - element.classList
+     + `.a-interface`
+     + `.is-column`
+         * `flex-direction: column`
+     + `.is-row`
+         * `flex-direction: row`
 
 
-####Components
+###ai-header
+
+**Wrapper for application dynamic header** 
+    
+ - Complete: true
+ - ETA: 2/17/15
+ - metadata
+     + `customElement('ai-header')`
+     + `withProperty('router') {Object}`
+     + `withProperty('size') {String} <xs | sm | md | lg | xl>`
+     + `withProperty('fixed') {Boolean}`
+     + `withProperty('bg-color') {String}`
+     + `withProperty('text-color') {String}`
+ - inject
+     + Element
+ - element.classList
+     + `.ai-header`
+     + `.header-xs`
+         * `height: 48px`
+     + `.header-sm`
+         * `height: 64px`
+     + `.header-md`
+         * `height: 120px`
+     + `.header-lg`
+         * `height: 180px`
+     + `.header-xl`
+         * `height: 240px`
+
+###ai-aside
+ - metadata
+     + `customElement('ai-aside')`
+     + `withProperty('router') {Object}`
+     + `withProperty('side') {String} <left | right>`
+     + `withProperty('size') {String} <sm | md | lg>`
+     + `withProperty('open') {Boolean}`
+     + `withProperty('fold') {Boolean}`
+     + `withProperty('fixed') {Boolean}`
+ - inject
+     + Element
+ - element.classList
+     + `.ai-aside`
+         * `.flex-direction: column`
+         * `width: 0px`
+     + `.aside-open`
+         * `.aside-sm`
+             - `width: 200px`
+         * `.aside-md`
+             - `width: 250px`
+         * `.aside-lg`
+             - `width: 320px`
+     + `.aside-fold`
+         * `width: 64px`
+     + `.aside-fixed`
+         * `position: fixed`
+     + `.aside-right`
+         * `order: 2`
+     + `.aside-left`
+         * `order: -1`
+     
+###ai-body
+ - metadata
+     + `customElement('ai-body')`
+     + `withProperty('direction') {String} (Opposite of a-interface)`
+ - inject
+     + Element
+ - element.classList
+     + `.ai-body`
+     + `.body-row`
+         * `flex-direction: row`
+     + `.body-column`
+         * `flex-direction: column`
+
+---
+
+###ai-main
+ - metadata
+     + `customElement('ai-main')`
+     + `withProperty('container') {Boolean}`
+ - inject
+     + Element
+ - element.classList
+     + `.ai-main`
+         * `flex-direction: column`
+     + `.main-container`
+         * `max-width: 70%`
+
+---
+
+##Nav
+
+###ai-toolbar
+
+The properties Here are similar to `ai-header` I have not decided whether I should wrap the `ai-toolbar` in an `ai-header` or not.
+
+For the time being, it will be stand Alone
+
+**Also considering naming this Layout Nav Component `ai-nav-bar`**
+
+ - Complete: true
+ - ETA: 2/17/15
+ - metadata
+     + `customElement('ai-toolbar')`
+     + `withProperty('router') {Object}`
+     + `withProperty('size') {String} <xs | sm | md | lg | xl>`
+     + `withProperty('fixed') {Boolean}`
+     + `withProperty('bg-color') {String}`
+     + `withProperty('text-color') {String}`
+ - inject
+     + Element
+ - element.classList
+     + `.ai-toolbar`
+     + `.toolbar-xs`
+         * `height: 48px`
+     + `.toolbar-sm`
+         * `height: 64px`
+     + `.toolbar-md`
+         * `height: 120px`
+     + `.toolbar-lg`
+         * `height: 180px`
+     + `.toolbar-xl`
+         * `height: 240px`
+
+###ai-aside-nav
+
+The properties Here are similar to `ai-asie` I have not decided whether I should wrap the `ai-aside-nav` in an `ai-aside` or not.
+
+For the time being, it will be stand Alone
+ - metadata
+     + `customElement('ai-aside-nav')`
+     + `withProperty('router') {Object}`
+     + `withProperty('side') {String} <left | right>`
+     + `withProperty('size') {String} <sm | md | lg>`
+     + `withProperty('open') {Boolean}`
+     + `withProperty('fold') {Boolean}`
+     + `withProperty('fixed') {Boolean}`
+ - inject
+     + Element
+ - element.classList
+     + `.ai-aside-nav`
+         * `.flex-direction: column`
+         * `width: 0px`
+     + `.aside-open`
+         * `.aside-sm`
+             - `width: 200px`
+         * `.aside-md`
+             - `width: 250px`
+         * `.aside-lg`
+             - `width: 320px`
+     + `.aside-fold`
+         * `width: 64px`
+     + `.aside-fixed`
+         * `position: fixed`
+     + `.aside-right`
+         * `order: 2`
+     + `.aside-left`
+         * `order: -1`
+
+
+
+##Components
+
  - `<ai-tabs>`
      - `<tab-link>`
      - `<tab-content>`
