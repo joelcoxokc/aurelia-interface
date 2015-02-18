@@ -21,7 +21,7 @@ System.register(["aurelia-templating"], function (_export) {
         _prototypeProperties(AiCard, {
           metadata: {
             value: function metadata() {
-              return Behavior.customElement("ai-card").withproperty("type");
+              return Behavior.customElement("ai-card").withProperty("type");
             },
             writable: true,
             configurable: true

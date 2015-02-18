@@ -1,0 +1,37 @@
+.row
+    width: 100%
+    flex 1 0 auto
+    flex-direction row
+    position: relative
+    margin-left: auto
+    margin-right: auto
+    margin-bottom 20px
+    flex-conainer()
+
+.section
+    flex-conainer()
+    flex-direction  row
+    // flex 1 0 auto
+
+.flex
+    flex-conainer()
+    flex-direction: column
+    position relative
+    float left
+
+for screen, size in $screens
+    @media(min-width: size)
+        .flex
+            for i in 1..12
+                s = unit((100% / 12)*i, '%')
+                &.{screen}{i}
+                    flex 0 0 s !important
+                    min-max-width(s)
+
+
+                &.offset-{screen}{i}
+                    margin-left: s !important
+
+.row .flex,
+.section .flex
+    padding: 0 0.75rem
