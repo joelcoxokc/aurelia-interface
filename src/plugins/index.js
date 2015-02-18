@@ -11,9 +11,10 @@ import { AiMain
        , AiFooter
        , AiHeader
        , AiAside
+       , AiAside
        } from './layout/index'
 
-import {AiClassAttachedBehavior} from './util/index'
+import {AiClassAttachedBehavior, AiElement} from './util/index'
 
 
 export{ AiBtnToggleAttachedBehavior
@@ -28,4 +29,5 @@ export{ AiBtnToggleAttachedBehavior
       , AiFooter
       , AiHeader
       , AiAside
+      , AiElement
       };

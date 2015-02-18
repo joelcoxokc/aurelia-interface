@@ -1,4 +1,5 @@
     import {AiClassAttachedBehavior} from './ai-class'
+    import {AiElement} from './ai-element'
 
     function install(aurelia){
 
@@ -13,6 +14,7 @@
     export {
 
         AiClassAttachedBehavior,
+        AiElement,
         install
 
     };

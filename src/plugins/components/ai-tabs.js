@@ -82,7 +82,7 @@ export class AiTabsAttachedBehavior {
 
   _linkHandler ($event) {
     $event.preventDefault()
-    console.log($event.target.offsetLeft)
+    // console.log($event.target.offsetLeft)
     this._setSliderPosition($event.target.offsetLeft)
     this.setActiveTab($event.target.getAttribute('href'))
   }
@@ -117,14 +117,14 @@ export class AiTabsAttachedBehavior {
   }
 
   tabRefChanged () {
-    console.log('tabRefChanged', arguments)
+    // console.log('tabRefChanged', arguments)
   }
 
   showTabChanged () {
-    console.log('showTabChanged', arguments)
+    // console.log('showTabChanged', arguments)
   }
 
   hideTabChanged () {
-    console.log('hideTabChanged', arguments)
+    // console.log('hideTabChanged', arguments)
   }
 }
