@@ -84,6 +84,13 @@ create-reveal(side, direction, order, alignment, sizing)
             overflow: hidden
             width 0
             height 0
+            transition height 400ms cubic-bezier(0,.9,.01,.99), width 400ms cubic-bezier(0,.9,.01,.99)
+        for index in 1..12
+            delay = (index * 100) / 2
+            .ai-btn:nth-child({index})
+                transition height 400ms cubic-bezier(0,.9,.01,.99) unit(delay, 'ms') , width 400ms cubic-bezier(0,.9,.01,.99) unit(delay, 'ms')
+
+
 
     create-reveal(left  , row   ,  1, flex-end  , height)
     create-reveal(right , row   , -1, flex-start, height)

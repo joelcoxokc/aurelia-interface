@@ -5905,6 +5905,56 @@ template {
   overflow: hidden;
   width: 0;
   height: 0;
+  -webkit-transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99), width 400ms cubic-bezier(0, 0.9, 0.01, 0.99);
+          transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99), width 400ms cubic-bezier(0, 0.9, 0.01, 0.99);
+}
+.ai-action-reveal .action-buttons .ai-btn:nth-child(1) {
+  -webkit-transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 50ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 50ms;
+          transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 50ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 50ms;
+}
+.ai-action-reveal .action-buttons .ai-btn:nth-child(2) {
+  -webkit-transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 100ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 100ms;
+          transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 100ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 100ms;
+}
+.ai-action-reveal .action-buttons .ai-btn:nth-child(3) {
+  -webkit-transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 150ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 150ms;
+          transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 150ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 150ms;
+}
+.ai-action-reveal .action-buttons .ai-btn:nth-child(4) {
+  -webkit-transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 200ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 200ms;
+          transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 200ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 200ms;
+}
+.ai-action-reveal .action-buttons .ai-btn:nth-child(5) {
+  -webkit-transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 250ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 250ms;
+          transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 250ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 250ms;
+}
+.ai-action-reveal .action-buttons .ai-btn:nth-child(6) {
+  -webkit-transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 300ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 300ms;
+          transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 300ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 300ms;
+}
+.ai-action-reveal .action-buttons .ai-btn:nth-child(7) {
+  -webkit-transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 350ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 350ms;
+          transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 350ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 350ms;
+}
+.ai-action-reveal .action-buttons .ai-btn:nth-child(8) {
+  -webkit-transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 400ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 400ms;
+          transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 400ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 400ms;
+}
+.ai-action-reveal .action-buttons .ai-btn:nth-child(9) {
+  -webkit-transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 450ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 450ms;
+          transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 450ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 450ms;
+}
+.ai-action-reveal .action-buttons .ai-btn:nth-child(10) {
+  -webkit-transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 500ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 500ms;
+          transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 500ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 500ms;
+}
+.ai-action-reveal .action-buttons .ai-btn:nth-child(11) {
+  -webkit-transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 550ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 550ms;
+          transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 550ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 550ms;
+}
+.ai-action-reveal .action-buttons .ai-btn:nth-child(12) {
+  -webkit-transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 600ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 600ms;
+          transition: height 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 600ms, width 400ms cubic-bezier(0, 0.9, 0.01, 0.99) 600ms;
 }
 .ai-action-reveal.reveal-left {
   -webkit-box-flex: 1;

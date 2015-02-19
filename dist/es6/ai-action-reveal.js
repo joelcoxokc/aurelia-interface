@@ -1,7 +1,7 @@
 System.register(["aurelia-templating", "./ai-element"], function (_export) {
   "use strict";
 
-  var Behavior, AiElement, _prototypeProperties, _inherits, _classCallCheck, AiActionReveal;
+  var Behavior, AiElement, _prototypeProperties, _inherits, _classCallCheck, defaults, AiActionReveal;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
@@ -15,13 +15,19 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
+      defaults = {
+        side: top,
+        reveal: false
+      };
       AiActionReveal = _export("AiActionReveal", (function (AiElement) {
         function AiActionReveal(element) {
           var _this = this;
           _classCallCheck(this, AiActionReveal);
 
           this.element = element;
+          this.current = defaults;
 
+          _.assign(this, this.current);
 
           this.handle = function () {
             _this.reveal = !_this.reveal;
@@ -33,7 +39,7 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
         _prototypeProperties(AiActionReveal, {
           metadata: {
             value: function metadata() {
-              return Behavior.customElement("ai-action").withProperty("reveal", "onReveal");
+              return Behavior.customElement("ai-action-reveal").withProperty("reveal", "onReveal").withProperty("side", "sideChanged");
             },
             writable: true,
             configurable: true
@@ -46,18 +52,41 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
             configurable: true
           }
         }, {
+          getViewStrategy: {
+            value: function getViewStrategy(strategy) {
+              console.log(strategy);
+            },
+            writable: true,
+            configurable: true
+          },
           bind: {
             value: function bind() {
-              this.addClass("ai-action-reveal");
+              this.addClass("ai-action-reveal", "reveal-" + this.side);
               this.addEvent("mouseenter", this.toggleReveal);
               this.addEvent("mouseout", this.toggleReveal);
             },
             writable: true,
             configurable: true
           },
+          unbind: {
+            value: function unbind() {
+              this.removeEvent("mouseenter", this.toggleReveal);
+              this.removeEvent("mouseout", this.toggleReveal);
+            },
+            writable: true,
+            configurable: true
+          },
+          sideChanged: {
+            value: function sideChanged(newSide) {
+              this.removeClass("reveal-" + this.current.side);
+              this.addClass("reveal-" + newSide);
+            },
+            writable: true,
+            configurable: true
+          },
           onReveal: {
             value: function onReveal(value) {
-              console.log("revealed", value);
+              this[value ? "addClass" : "removeClass"]("reveal");
             },
             writable: true,
             configurable: true

@@ -4,6 +4,7 @@
     <import from="./system/ai-dropdown"></import>
     <import from="./system/ai-action-reveal"></import>
     <import from="./system/ai-btn"></import>
+
     <div class="section">
       <div class="flex sm12">
           <div ai-tabs.bind="selectedTabRef" class="${showMyTab.name}">
@@ -15,7 +16,7 @@
                     <a ai-tab-link href="tab-2">aiModal</a>
                   </li>
                   <li class='active' ai-class.bind="{active: selectedTabRef == 'tab-3'}">
-                    <a ai-tab-link href="tab-3">aiDropdown</a>
+                    <a ai-tab-link href="tab-3">aiAction</a>
                   </li>
               </ul>
               <div class="ai-card card ai-card">
@@ -28,10 +29,19 @@
                       Tab 2 Content
                     </div>
                     <div class="tab-pane fade in active" ai-class.bind="{in: selectedTabRef == 'tab-3', active: selectedTabRef == 'tab-3'}" ai-tab="tab-3">
-
-                      <ai-action-reveal reveal=true side=left>
+                      <ai-action-reveal side="right">
                           <div class="primary-action">
-                              <ai-btn type="raised" shape="round" icon="mdi-content-create"></ai-btn>
+                              <ai-btn type="raised" shape="round" icon="mdi-content-add" next-icon="mdi-content-create"></ai-btn>
+                          </div>
+                          <div class="action-buttons">
+                              <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
+                              <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
+                              <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
+                          </div>
+                      </ai-action-reveal>
+                      <ai-action-reveal side="left">
+                          <div class="primary-action">
+                              <ai-btn type="raised" shape="round" icon="mdi-content-add" next-icon="mdi-content-create"></ai-btn>
                           </div>
                           <div class="action-buttons">
                               <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>

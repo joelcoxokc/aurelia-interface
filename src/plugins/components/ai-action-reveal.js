@@ -3,7 +3,7 @@ import {AiElement} from './ai-element'
 
 var defaults = {
     side: top,
-    reveal: false
+    value: false
 }
 
 export class AiActionReveal extends AiElement{
@@ -12,8 +12,8 @@ export class AiActionReveal extends AiElement{
 
         return Behavior
             .customElement('ai-action-reveal')
-            .withProperty('reveal', 'onReveal')
-            .withProperty('side'  , 'sideChanged')
+            .withProperty('value', 'valueChanged')
+            .withProperty('side', 'sideChanged')
 
     }
 
@@ -28,11 +28,10 @@ export class AiActionReveal extends AiElement{
 
         this.element = element
         this.current = defaults
-
         _.assign(this, this.current)
 
         this.handle = ()=>{
-            this.reveal = !this.reveal
+            this.value = !this.value
         }
     }
 
@@ -61,16 +60,16 @@ export class AiActionReveal extends AiElement{
     }
 
 
-    onReveal(value){
+    // valueChanged(value){
 
-        this[value ? 'addClass' : 'removeClass']('reveal')
+    //     this[value ? 'addClass' : 'removeClass']('reveal')
 
-    }
+    // }
 
 
     toggleReveal(event){
         event.preventDefault();
-        this.reveal = !this.reveal
+        this.value = !this.value
     }
 
 }
