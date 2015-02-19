@@ -3,4 +3,5 @@ export class Layout{
     this.heading = 'aiLayout ';
 
   }
+
 }
