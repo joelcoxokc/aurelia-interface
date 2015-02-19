@@ -5785,6 +5785,185 @@ template {
 .btn-large {
   background-color: #2196f3;
 }
+.ai-btn {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  border: none;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 2px;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+.ai-btn.btn-round {
+  border-radius: 100%;
+  height: 64px;
+  width: 64px;
+}
+.ai-btn.btn-sm {
+  height: 40px;
+  width: 40px;
+}
+.ai-btn.btn-md {
+  height: 64px;
+  width: 64px;
+}
+.ai-btn.btn-lg {
+  height: 80px;
+  width: 80px;
+}
+.ai-btn.btn-flat {
+  box-shadow: 0;
+}
+.ai-btn:hover {
+  box-shadow: 0px 6px 8px rgba(0,0,0,0.2);
+}
+.ai-btn:active {
+  box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+}
+.ai-btn .action-buttons .ai-btn {
+  width: 0 !important;
+  height: 0 !important;
+}
+.ai-btn .primary-action {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.ai-action-reveal {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.ai-action-reveal .action-buttons {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+.ai-action-reveal.reveal-left {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.ai-action-reveal.reveal-left .action-buttons {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 64px;
+  min-height: 64px;
+  max-height: 64px;
+}
+.ai-action-reveal.reveal-right {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.ai-action-reveal.reveal-right .action-buttons {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 64px;
+  min-height: 64px;
+  max-height: 64px;
+}
+.ai-action-reveal.reveal-top {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.ai-action-reveal.reveal-top .action-buttons {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 64px;
+  min-width: 64px;
+  max-width: 64px;
+}
+.ai-action-reveal.reveal-bottom {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.ai-action-reveal.reveal-bottom .action-buttons {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 64px;
+  min-width: 64px;
+  max-width: 64px;
+}
 .ai-card {
   box-sizing: border-box;
   display: -webkit-box;

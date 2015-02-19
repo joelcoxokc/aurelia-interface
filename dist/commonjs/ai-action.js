@@ -16,9 +16,12 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
       AiAction = _export("AiAction", (function (AiElement) {
-        function AiAction() {
+        function AiAction(element) {
           var _this = this;
           _classCallCheck(this, AiAction);
+
+          this.element = element;
+
 
           this.handle = function () {
             _this.reveal = !_this.reveal;
@@ -30,7 +33,14 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
         _prototypeProperties(AiAction, {
           metadata: {
             value: function metadata() {
-              return Behavior.customElement("ai-action").withProperty("type").withProperty("shape").withProperty("reveal", "isRevealed");
+              return Behavior.customElement("ai-action").withProperty("type").withProperty("shape").withProperty("reveal", "onReveal");
+            },
+            writable: true,
+            configurable: true
+          },
+          inject: {
+            value: function inject() {
+              return [Element];
             },
             writable: true,
             configurable: true
@@ -38,9 +48,24 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
         }, {
           bind: {
             value: function bind() {
-              console.log(this);
               this.addClass("btn", "btn-large", "btn-raised", "waves-effect", "waves-light", "ai-action", "action-" + this.type, "action-" + this.shape);
-              this.element.addEventListener("mouseenter", this.handle, false);
+              this.addEvent("mouseenter", this.toggleReveal);
+              this.addEvent("mouseout", this.toggleReveal);
+            },
+            writable: true,
+            configurable: true
+          },
+          onReveal: {
+            value: function onReveal(value) {
+              console.log("revealed", value);
+            },
+            writable: true,
+            configurable: true
+          },
+          toggleReveal: {
+            value: function toggleReveal(event) {
+              event.preventDefault();
+              this.reveal = !this.reveal;
             },
             writable: true,
             configurable: true

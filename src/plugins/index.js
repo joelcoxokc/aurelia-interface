@@ -2,8 +2,10 @@ import { AiBtnToggleAttachedBehavior
        , AiBtnRadioAttachedBehavior
        , AiTabsAttachedBehavior
        , AiDropdown
+       , AiActionReveal
        , AiAction
        , AiCard
+       , AiBtn
        } from './components/index'
 
 import { AiMain
@@ -22,6 +24,7 @@ export{ AiBtnToggleAttachedBehavior
       , AiClassAttachedBehavior
       , AiTabsAttachedBehavior
       , AiDropdown
+      , AiActionReveal
       , AiAction
       , AiCard
       , AiMain
@@ -29,5 +32,6 @@ export{ AiBtnToggleAttachedBehavior
       , AiFooter
       , AiHeader
       , AiAside
+      , AiBtn
       , AiElement
       };

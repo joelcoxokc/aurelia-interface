@@ -3,7 +3,9 @@ import {AiBtnRadioAttachedBehavior} from './ai-btn-radio'
 import {AiTabsAttachedBehavior} from './ai-tabs'
 import {AiAction} from './ai-action'
 import {AiCard} from './ai-card'
+import {AiBtn} from './ai-btn'
 import {AiDropdown} from './ai-dropdown'
+import {AiActionReveal} from './ai-action-reveal'
 
 function install(aurelia){
   aurelia.withResources([
@@ -12,7 +14,9 @@ function install(aurelia){
     AiTabsAttachedBehavior,
     AiDropdown,
     AiAction,
+    AiActionReveal,
     AiCard,
+    AiBtn,
   ]);
 }
 
@@ -22,6 +26,8 @@ export {
   AiTabsAttachedBehavior,
   AiDropdown,
   AiAction,
+  AiActionReveal,
   AiCard,
+  AiBtn,
   install
 };

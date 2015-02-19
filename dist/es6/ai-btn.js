@@ -1,7 +1,7 @@
 System.register(["aurelia-templating", "./ai-element"], function (_export) {
   "use strict";
 
-  var Behavior, AiElement, _prototypeProperties, _inherits, _classCallCheck, AiAction;
+  var Behavior, AiElement, _prototypeProperties, _inherits, _classCallCheck, AiBtn;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
@@ -15,25 +15,19 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
-      AiAction = _export("AiAction", (function (AiElement) {
-        function AiAction(element) {
-          var _this = this;
-          _classCallCheck(this, AiAction);
+      AiBtn = _export("AiBtn", (function (AiElement) {
+        function AiBtn(element) {
+          _classCallCheck(this, AiBtn);
 
           this.element = element;
-
-
-          this.handle = function () {
-            _this.reveal = !_this.reveal;
-          };
         }
 
-        _inherits(AiAction, AiElement);
+        _inherits(AiBtn, AiElement);
 
-        _prototypeProperties(AiAction, {
+        _prototypeProperties(AiBtn, {
           metadata: {
             value: function metadata() {
-              return Behavior.customElement("ai-action").withProperty("type").withProperty("shape").withProperty("reveal", "onReveal");
+              return Behavior.customElement("ai-btn").withProperty("shape", "shapeChanged").withProperty("type", "typeChanged").withProperty("icon", "iconChanged").withProperty("size", "sizeChanged").withProperty("nextIcon", "nextIconChanged", "next-icon");
             },
             writable: true,
             configurable: true
@@ -48,31 +42,32 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
         }, {
           bind: {
             value: function bind() {
-              this.addClass("btn", "btn-large", "btn-raised", "waves-effect", "waves-light", "ai-action", "action-" + this.type, "action-" + this.shape);
-              this.addEvent("mouseenter", this.toggleReveal);
-              this.addEvent("mouseout", this.toggleReveal);
+              this.addClass("ai-btn", "btn", "btn-" + this.type, "btn-" + this.shape, "btn-" + this.size);
+              this.icon && this.useIcon(this.icon);
             },
             writable: true,
             configurable: true
           },
-          onReveal: {
-            value: function onReveal(value) {
-              console.log("revealed", value);
+          attachIcon: {
+            value: function attachIcon() {
+              this.iconElement = document.createElement("i");
+
+              this.element.appendChild(this.iconElement);
             },
             writable: true,
             configurable: true
           },
-          toggleReveal: {
-            value: function toggleReveal(event) {
-              event.preventDefault();
-              this.reveal = !this.reveal;
+          useIcon: {
+            value: function useIcon(iconName) {
+              !this.iconElement && this.attachIcon();
+              this.iconElement.classList.add(iconName);
             },
             writable: true,
             configurable: true
           }
         });
 
-        return AiAction;
+        return AiBtn;
       })(AiElement));
     }
   };

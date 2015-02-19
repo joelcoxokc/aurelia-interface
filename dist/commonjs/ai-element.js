@@ -1,9 +1,11 @@
-System.register([], function (_export) {
+System.register(["aurelia-templating"], function (_export) {
   "use strict";
 
-  var _prototypeProperties, _classCallCheck, AiElement;
+  var Behavior, _prototypeProperties, _classCallCheck, AiElement;
   return {
-    setters: [],
+    setters: [function (_aureliaTemplating) {
+      Behavior = _aureliaTemplating.Behavior;
+    }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
 

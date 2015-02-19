@@ -1,7 +1,7 @@
 System.register(["aurelia-templating", "./ai-element"], function (_export) {
   "use strict";
 
-  var Behavior, AiElement, _prototypeProperties, _inherits, _classCallCheck, AiAction;
+  var Behavior, AiElement, _prototypeProperties, _inherits, _classCallCheck, AiActionReveal;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
@@ -15,10 +15,10 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
-      AiAction = _export("AiAction", (function (AiElement) {
-        function AiAction(element) {
+      AiActionReveal = _export("AiActionReveal", (function (AiElement) {
+        function AiActionReveal(element) {
           var _this = this;
-          _classCallCheck(this, AiAction);
+          _classCallCheck(this, AiActionReveal);
 
           this.element = element;
 
@@ -28,12 +28,12 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
           };
         }
 
-        _inherits(AiAction, AiElement);
+        _inherits(AiActionReveal, AiElement);
 
-        _prototypeProperties(AiAction, {
+        _prototypeProperties(AiActionReveal, {
           metadata: {
             value: function metadata() {
-              return Behavior.customElement("ai-action").withProperty("type").withProperty("shape").withProperty("reveal", "onReveal");
+              return Behavior.customElement("ai-action").withProperty("reveal", "onReveal");
             },
             writable: true,
             configurable: true
@@ -48,7 +48,7 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
         }, {
           bind: {
             value: function bind() {
-              this.addClass("btn", "btn-large", "btn-raised", "waves-effect", "waves-light", "ai-action", "action-" + this.type, "action-" + this.shape);
+              this.addClass("ai-action-reveal");
               this.addEvent("mouseenter", this.toggleReveal);
               this.addEvent("mouseout", this.toggleReveal);
             },
@@ -72,7 +72,7 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
           }
         });
 
-        return AiAction;
+        return AiActionReveal;
       })(AiElement));
     }
   };
