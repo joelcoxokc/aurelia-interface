@@ -55,6 +55,9 @@ System.register(["aurelia-templating"], function (_export) {
             value: function bind() {
               var classList = ["ai-toolbar"];
               var _this = this;
+              this.container = this.element.firstElementChild;
+
+              this.container.classList.add("bg-" + this.bgColor, "text-" + this.textColor);
 
               this.fixed && classList.push(this.pre("toolbar", "fixed"));
               this.bgColor && classList.push(this.pre("bg", this.bgColor));
@@ -75,8 +78,8 @@ System.register(["aurelia-templating"], function (_export) {
               if (value === this.current.bgColor) {
                 return;
               }
-              this.element.classList.remove("bg-" + this.current.bgColor);
-              this.element.classList.add("bg-" + value);
+              this.container.classList.remove("bg-" + this.current.bgColor);
+              this.container.classList.add("bg-" + this.bgColor);
               this.current.bgColor = value;
             },
             writable: true,
@@ -87,8 +90,8 @@ System.register(["aurelia-templating"], function (_export) {
               if (value === this.current.textColor) {
                 return;
               }
-              this.element.classList.remove("text-" + this.current.textColor);
-              this.element.classList.add("text-" + value);
+              this.container.classList.remove("text-" + this.current.textColor);
+              this.container.classList.add("text-" + this.textColor);
               this.current.textColor = value;
             },
             writable: true,
