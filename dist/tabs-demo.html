@@ -8,7 +8,7 @@
       <div class="col s8 offset-s2" ai-toggle.bind="showing">
 
 
-        <div ai-tabs.bind="selectedTabRef" class="${showMyTab.name}">
+        <div ai-tabs="active-tab-ref.two-way: selectedTabRef; show-tab.call: updateTabSliderPosition(tabsInstance);" class="${showMyTab.name}">
           <nav class="ai-bar ai-nav-bar bar-xs bg-teal accent-4 text-white">
             <div class="nav-bar-container">
               <ul class="nav-actions">
@@ -35,6 +35,7 @@
             <li ai-class.bind="{active: selectedTabRef == 'tab-3'}">
               <a ai-tab-link href="tab-3">Tab 3</a>
             </li>
+            <div class="ai-tab-slider"></div>
           </ul>
           <div class="ai-card card ai-card">
             <div class="card-content">

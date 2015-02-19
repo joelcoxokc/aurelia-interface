@@ -1,10 +1,12 @@
-System.register(["aurelia-templating"], function (_export) {
+System.register(["aurelia-templating", "aurelia-framework"], function (_export) {
   "use strict";
 
-  var Behavior, _prototypeProperties, _classCallCheck, AiTabsAttachedBehavior;
+  var Behavior, TWO_WAY, _prototypeProperties, _classCallCheck, AiTabsAttachedBehavior;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
+    }, function (_aureliaFramework) {
+      TWO_WAY = _aureliaFramework.TWO_WAY;
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
@@ -22,9 +24,9 @@ System.register(["aurelia-templating"], function (_export) {
         _prototypeProperties(AiTabsAttachedBehavior, {
           metadata: {
             value: function metadata() {
-              return Behavior.withProperty("activeTabRef", "tabRefChanged", "ai-tabs").and(function (x) {
-                return x.bindingIsTwoWay();
-              }).withProperty("_showTab", "showTabChanged", "ai-show-tab").withProperty("_hideTab", "hideTabChanged", "ai-hide-tab").syncChildren("tabLinks", "tabLinksChanged", "[ai-tab-link]").noView();
+              return Behavior.withOptions().and(function (x) {
+                x.withProperty("activeTabRef", "tabRefChanged", "active-tab-ref", false, TWO_WAY).withProperty("_showTab", "showTabChanged", "show-tab").withProperty("_hideTab", "hideTabChanged", "hide-tab");
+              }).syncChildren("tabLinks", "tabLinksChanged", "[ai-tab-link]").noView();
             },
             writable: true,
             configurable: true
@@ -43,12 +45,30 @@ System.register(["aurelia-templating"], function (_export) {
             },
             configurable: true
           },
+          activeTabLink: {
+            get: function () {
+              var _this = this;
+              return this.tabLinks.find(function (x) {
+                return x.getAttribute("href") === _this.activeTabRef;
+              });
+            },
+            configurable: true
+          },
+          activeTabContent: {
+            get: function () {
+              var _this = this;
+              return this.tabs.find(function (x) {
+                return x.getAttribute("ai-tab") === _this.activeTabRef;
+              });
+            },
+            configurable: true
+          },
           setActiveTab: {
             value: function setActiveTab(newTabRef) {
               var _this = this;
-
-
-              if (newTabRef == this.activeTabRef) return;
+              var force = arguments[1] === undefined ? false : arguments[1];
+              if (force !== true && newTabRef == this.activeTabRef) return;
+              this.activeTabRef = newTabRef;
 
               this.tabs.forEach(function (tab) {
                 return _this.hideTab(tab);
@@ -59,7 +79,6 @@ System.register(["aurelia-templating"], function (_export) {
 
                 if (newTab) {
                   this.showTab(newTab);
-                  this.activeTabRef = newTabRef;
                   return newTab;
                 } else {
                   throw new Error("ai-tab element for " + newTabRef + " not found");
@@ -73,15 +92,8 @@ System.register(["aurelia-templating"], function (_export) {
           },
           bind: {
             value: function bind() {
-              this.activeTabRef = "tab-3";
               this.element.classList.add("ai-tabs");
-              this.linksContainer = this.element.querySelector(".ai-nav-tabs");
-              this.slider = $("<div class=\"ai-tab-slider\">");
-              this.sliderWidth = 100 / this.tabLinks.length;
-              this._setSliderWidth();
               this.bindLinks();
-
-              $(this.linksContainer).append(this.slider);
             },
             writable: true,
             configurable: true
@@ -89,6 +101,13 @@ System.register(["aurelia-templating"], function (_export) {
           unbind: {
             value: function unbind() {
               this.unbindLinks();
+            },
+            writable: true,
+            configurable: true
+          },
+          attached: {
+            value: function attached() {
+              this.setActiveTab(this.activeTabRef, true);
             },
             writable: true,
             configurable: true
@@ -125,37 +144,21 @@ System.register(["aurelia-templating"], function (_export) {
           _linkHandler: {
             value: function _linkHandler($event) {
               $event.preventDefault();
-              this._setSliderPosition($event.target.offsetLeft);
               this.setActiveTab($event.target.getAttribute("href"));
-            },
-            writable: true,
-            configurable: true
-          },
-          _setSliderPosition: {
-            value: function _setSliderPosition(position) {
-              this._setSliderWidth();
-              this.slider.css("left", position);
-            },
-            writable: true,
-            configurable: true
-          },
-          _setSliderWidth: {
-            value: function _setSliderWidth() {
-              var _this = this;
-              this.slider.css("width", _this.sliderWidth + 10 + "%");
-              setTimeout(function () {
-                _this.slider.css("width", _this.sliderWidth + "%");
-              }, 200);
             },
             writable: true,
             configurable: true
           },
           showTab: {
             value: function showTab(tab) {
-              if (typeof this._showTab === "function") {
-                this._showTab(tab);
-              } else {
+              var defaultShowTab = (function () {
                 tab.style.display = "block";
+              }).bind(this);
+
+              if (typeof this._showTab === "function") {
+                this._showTab(this, defaultShowTab);
+              } else {
+                defaultShowTab();
               }
             },
             writable: true,
@@ -163,27 +166,37 @@ System.register(["aurelia-templating"], function (_export) {
           },
           hideTab: {
             value: function hideTab(tab) {
-              if (typeof this._hideTab === "function") {
-                this._hideTab(tab);
-              } else {
+              var defaultHideTab = (function () {
                 tab.style.display = "none";
+              }).bind(this);
+
+              if (typeof this._hideTab === "function") {
+                this._hideTab(this, defaultHideTab);
+              } else {
+                defaultHideTab();
               }
             },
             writable: true,
             configurable: true
           },
           tabRefChanged: {
-            value: function tabRefChanged() {},
+            value: function tabRefChanged() {
+              console.log("tabRefChanged", arguments);
+            },
             writable: true,
             configurable: true
           },
           showTabChanged: {
-            value: function showTabChanged() {},
+            value: function showTabChanged() {
+              console.log("showTabChanged", arguments);
+            },
             writable: true,
             configurable: true
           },
           hideTabChanged: {
-            value: function hideTabChanged() {},
+            value: function hideTabChanged() {
+              console.log("hideTabChanged", arguments);
+            },
             writable: true,
             configurable: true
           }
