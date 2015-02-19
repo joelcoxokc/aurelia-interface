@@ -3,3 +3,102 @@
 
 .btn-large
     background-color: $blue.base
+.ai-btn
+    flex-container()
+    border         : none
+    align-items    : center
+    border-radius  : 2px
+    justify-content: center
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2)
+    padding: 0
+    margin: 0
+    text-align: center
+
+    &.btn-round
+        border-radius: 100%
+        height 64px
+        width 64px
+
+
+    &.btn-sm
+        height: 40px
+        width: 40px
+    &.btn-md
+        height: 64px
+        width: 64px
+    &.btn-lg
+        height: 80px
+        width: 80px
+
+    &.btn-flat
+        box-shadow: 0
+
+    &:hover
+        box-shadow: 0px 6px 8px rgba(0,0,0,0.2)
+
+    &:active
+        box-shadow: 0px 3px 5px rgba(0,0,0,0.2)
+
+    .action-buttons
+        .ai-btn
+            width:  0 !important
+            height: 0 !important
+
+    .primary-action
+        flex-container()
+        flex           : 1 0 auto
+        align-items    : center
+        justify-content: center
+
+.ai-action-reveal
+    flex-container()
+    position: relative
+    flex-direction: column
+    align-items: center
+    justify-content: center
+
+    .action-buttons
+        flex-direction()
+        height          : 0
+        width           : 0
+        overflow        : hidden
+        align-items     : center
+        justify-content : center
+        position        : relative
+        flex-direction  : column
+        text-align center
+
+    &.reveal-left
+        flex-direction row
+
+
+        .action-buttons
+            flex-direction row
+            min-max-height($btn-size)
+
+    &.reveal-right
+        flex-direction row
+
+
+        .action-buttons
+            flex-direction row
+            min-max-height($btn-size)
+
+    &.reveal-top
+        flex-direction: column
+
+
+        .action-buttons
+            flex-direction: column
+            min-max-width($btn-size)
+
+    &.reveal-bottom
+        flex-direction: column
+
+
+        .action-buttons
+            flex-direction: column
+            min-max-width($btn-size)
+
+
+

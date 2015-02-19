@@ -1,0 +1,104 @@
+{
+  "name": "aurelia-bootstrapper",
+  "version": "0.9.3",
+  "description": "Sets up the default configuration for the aurelia framework and gets you up and running quick and easy.",
+  "keywords": [
+    "aurelia",
+    "bootstrapper",
+    "spa"
+  ],
+  "homepage": "http://aurelia.io",
+  "bugs": {
+    "url": "https://github.com/aurelia/bootstrapper/issues"
+  },
+  "license": "MIT",
+  "author": "Rob Eisenberg <rob@bluespire.com> (http://robeisenberg.com/)",
+  "main": "system/index",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/aurelia/bootstrapper"
+  },
+  "jspm": {
+    "main": "system/index",
+    "format": "register",
+    "directories": {
+      "lib": "dist"
+    },
+    "dependencies": {
+      "aurelia-event-aggregator": "^0.2.2",
+      "aurelia-framework": "^0.8.2",
+      "aurelia-history": "^0.2.2",
+      "aurelia-history-browser": "^0.2.3",
+      "aurelia-loader-default": "^0.4.1",
+      "aurelia-logging-console": "^0.2.2",
+      "aurelia-router": "^0.5.1",
+      "aurelia-templating": "^0.8.4",
+      "aurelia-templating-binding": "^0.8.2",
+      "aurelia-templating-resources": "^0.8.3",
+      "aurelia-templating-router": "^0.9.2"
+    }
+  },
+  "devDependencies": {
+    "aurelia-tools": "git://github.com/aurelia/tools.git",
+    "conventional-changelog": "0.0.11",
+    "del": "^1.1.0",
+    "gulp": "^3.8.10",
+    "gulp-6to5": "^2.0.0",
+    "gulp-bump": "^0.1.11",
+    "gulp-jshint": "^1.9.0",
+    "gulp-yuidoc": "^0.1.2",
+    "jasmine-core": "^2.1.3",
+    "jshint-stylish": "^1.0.0",
+    "karma": "^0.12.28",
+    "karma-6to5-preprocessor": "^1.0.0",
+    "karma-chrome-launcher": "^0.1.7",
+    "karma-jasmine": "^0.3.2",
+    "karma-jspm": "^1.0.1",
+    "object.assign": "^1.0.3",
+    "run-sequence": "^1.0.2",
+    "vinyl-paths": "^1.0.0"
+  },
+  "aurelia": {
+    "usedBy": [],
+    "documentation": {
+      "links": [
+        {
+          "rel": "license",
+          "mediaType": "text/plain",
+          "title": "The MIT License (MIT)",
+          "href": "LICENSE"
+        },
+        {
+          "rel": "describedby",
+          "mediaType": "application/aurelia-doc+json",
+          "title": "API",
+          "href": "doc/api.json"
+        },
+        {
+          "rel": "version-history",
+          "mediaType": "text/markdown",
+          "title": "Change Log",
+          "href": "doc/CHANGELOG.md"
+        }
+      ]
+    }
+  },
+  "format": "register",
+  "directories": {
+    "lib": "dist"
+  },
+  "registry": "jspm",
+  "dependencies": {
+    "aurelia-event-aggregator": "^0.2.2",
+    "aurelia-framework": "^0.8.2",
+    "aurelia-history": "^0.2.2",
+    "aurelia-history-browser": "^0.2.3",
+    "aurelia-loader-default": "^0.4.1",
+    "aurelia-logging-console": "^0.2.2",
+    "aurelia-router": "^0.5.1",
+    "aurelia-templating": "^0.8.4",
+    "aurelia-templating-binding": "^0.8.2",
+    "aurelia-templating-resources": "^0.8.3",
+    "aurelia-templating-router": "^0.9.2"
+  }
+}

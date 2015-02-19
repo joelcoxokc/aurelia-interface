@@ -12,7 +12,7 @@ System.register(["aurelia-templating"], function (_export) {
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
       defaults = { size: "sm",
-        fixed: true,
+        fixed: false,
         bg: "white",
         text: "purple"
       };
@@ -70,17 +70,17 @@ System.register(["aurelia-templating"], function (_export) {
           bgChanged: {
             value: function bgChanged(newBg) {
               this.element.classList.remove("bg-" + this.current.bg);
-              this.element.classList.add("bg-" + this.newBg);
+              this.element.classList.add("bg-" + newBg);
               this.current.bg = newBg;
             },
             writable: true,
             configurable: true
           },
           textChanged: {
-            value: function textChanged(value) {
+            value: function textChanged(newText) {
               this.element.classList.remove("text-" + this.current.text);
-              this.element.classList.add("text-" + this.newText);
-              this.current.text = value;
+              this.element.classList.add("text-" + newText);
+              this.current.text = newText;
             },
             writable: true,
             configurable: true

@@ -73,6 +73,7 @@ System.register(["aurelia-templating"], function (_export) {
           },
           bind: {
             value: function bind() {
+              this.activeTabRef = "tab-3";
               this.element.classList.add("ai-tabs");
               this.linksContainer = this.element.querySelector(".ai-nav-tabs");
               this.slider = $("<div class=\"ai-tab-slider\">");
@@ -124,7 +125,6 @@ System.register(["aurelia-templating"], function (_export) {
           _linkHandler: {
             value: function _linkHandler($event) {
               $event.preventDefault();
-              console.log($event.target.offsetLeft);
               this._setSliderPosition($event.target.offsetLeft);
               this.setActiveTab($event.target.getAttribute("href"));
             },
@@ -173,23 +173,17 @@ System.register(["aurelia-templating"], function (_export) {
             configurable: true
           },
           tabRefChanged: {
-            value: function tabRefChanged() {
-              console.log("tabRefChanged", arguments);
-            },
+            value: function tabRefChanged() {},
             writable: true,
             configurable: true
           },
           showTabChanged: {
-            value: function showTabChanged() {
-              console.log("showTabChanged", arguments);
-            },
+            value: function showTabChanged() {},
             writable: true,
             configurable: true
           },
           hideTabChanged: {
-            value: function hideTabChanged() {
-              console.log("hideTabChanged", arguments);
-            },
+            value: function hideTabChanged() {},
             writable: true,
             configurable: true
           }

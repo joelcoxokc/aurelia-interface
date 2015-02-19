@@ -1,0 +1,1 @@
+{"project":{},"files":{"test/fixtures/hello.txt":{"name":"test/fixtures/hello.txt","modules":{"fixture":1},"classes":{},"fors":{},"namespaces":{}}},"modules":{"fixture":{"name":"fixture","submodules":{},"classes":{},"fors":{},"namespaces":{},"tag":"module","file":"test/fixtures/hello.txt","line":1}},"classes":{},"classitems":[],"warnings":[]}
