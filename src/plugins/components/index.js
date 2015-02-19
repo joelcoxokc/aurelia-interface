@@ -8,26 +8,24 @@ import {AiDropdown} from './ai-dropdown'
 import {AiActionReveal} from './ai-action-reveal'
 
 function install(aurelia){
-  aurelia.withResources([
-    AiBtnToggleAttachedBehavior,
-    AiBtnRadioAttachedBehavior,
-    AiTabsAttachedBehavior,
-    AiDropdown,
-    AiAction,
-    AiActionReveal,
-    AiCard,
-    AiBtn,
-  ]);
+  aurelia.withResources([ AiBtnToggleAttachedBehavior
+                        , AiBtnRadioAttachedBehavior
+                        , AiTabsAttachedBehavior
+                        , AiActionReveal
+                        , AiDropdown
+                        , AiAction
+                        , AiCard
+                        , AiBtn
+                        ]);
 }
 
-export {
-  AiBtnToggleAttachedBehavior,
-  AiBtnRadioAttachedBehavior,
-  AiTabsAttachedBehavior,
-  AiDropdown,
-  AiAction,
-  AiActionReveal,
-  AiCard,
-  AiBtn,
-  install
-};
+export  {AiBtnToggleAttachedBehavior
+        , AiBtnRadioAttachedBehavior
+        , AiTabsAttachedBehavior
+        , AiActionReveal
+        , AiDropdown
+        , AiAction
+        , AiCard
+        , AiBtn
+        , install
+        };

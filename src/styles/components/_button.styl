@@ -50,55 +50,49 @@
         align-items    : center
         justify-content: center
 
+create-reveal(side, direction, order, alignment, sizing)
+    &.reveal-{side}
+        flex            : 1 0 auto
+        flex-direction  : direction
+        justify-content : alignment
+        .primary-action
+            order: order
+        .action-buttons
+            order: -(order)
+            flex-direction direction
+            min-max-{sizing}($btn-size)
+
+
 .ai-action-reveal
     flex-container()
     position: relative
     flex-direction: column
     align-items: center
     justify-content: center
+    cursor: pointer
 
     .action-buttons
-        flex-direction()
-        height          : 0
-        width           : 0
+        flex-container()
         overflow        : hidden
         align-items     : center
         justify-content : center
         position        : relative
         flex-direction  : column
         text-align center
+        .ai-btn
+            margin 0 5px
+            overflow: hidden
+            width 0
+            height 0
 
-    &.reveal-left
-        flex-direction row
+    create-reveal(left  , row   ,  1, flex-end  , height)
+    create-reveal(right , row   , -1, flex-start, height)
+    create-reveal(top   , column,  1, flex-end  , width )
+    create-reveal(bottom, column, -1, flex-start, width )
 
-
+    &:hover
         .action-buttons
-            flex-direction row
-            min-max-height($btn-size)
-
-    &.reveal-right
-        flex-direction row
-
-
-        .action-buttons
-            flex-direction row
-            min-max-height($btn-size)
-
-    &.reveal-top
-        flex-direction: column
-
-
-        .action-buttons
-            flex-direction: column
-            min-max-width($btn-size)
-
-    &.reveal-bottom
-        flex-direction: column
-
-
-        .action-buttons
-            flex-direction: column
-            min-max-width($btn-size)
-
-
+            .ai-btn
+                width  $btn-size-xs
+                height $btn-size-xs
 
