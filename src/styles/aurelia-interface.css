@@ -5038,14 +5038,6 @@ template {
     height: 800px;
   }
 }
-@-o-keyframes nav-bar-drop {
-  0% {
-    height: 0;
-  }
-  100% {
-    height: 800px;
-  }
-}
 @keyframes nav-bar-drop {
   0% {
     height: 0;
@@ -5628,14 +5620,6 @@ template {
   }
 }
 @-webkit-keyframes nav-bar-drop {
-  0% {
-    height: 0;
-  }
-  100% {
-    height: 800px;
-  }
-}
-@-o-keyframes nav-bar-drop {
   0% {
     height: 0;
   }

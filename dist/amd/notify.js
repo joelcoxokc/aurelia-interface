@@ -29,14 +29,14 @@ System.register(["aurelia-event-aggregator"], function (_export) {
         }, {
           subscribe: {
             value: function subscribe(message, callback) {
-              this.eventAggregator.subscribe(SomeMessage, callback);
+              this.eventAggregator.subscribe(message, callback);
             },
             writable: true,
             configurable: true
           },
           publish: {
-            value: function publish(message, callback) {
-              this.eventAggregator.subscribe(SomeMessage, callback);
+            value: function publish(message, payload) {
+              this.eventAggregator.publish(message, payload);
             },
             writable: true,
             configurable: true

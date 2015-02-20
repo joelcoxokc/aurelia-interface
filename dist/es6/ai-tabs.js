@@ -67,8 +67,9 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
             value: function setActiveTab(newTabRef) {
               var _this = this;
               var force = arguments[1] === undefined ? false : arguments[1];
-              if (force !== true && newTabRef == this.activeTabRef) return;
-              this.activeTabRef = newTabRef;
+              if (force !== true && newTabRef == this.activeTabRef) {
+                return;
+              }this.activeTabRef = newTabRef;
 
               this.tabs.forEach(function (tab) {
                 return _this.hideTab(tab);

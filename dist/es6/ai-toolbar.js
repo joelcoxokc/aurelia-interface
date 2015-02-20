@@ -1,14 +1,18 @@
-System.register(["aurelia-templating", "./ai-element", "./toolbar"], function (_export) {
+System.register(["aurelia-templating", "./ai-element", "./interface-element", "./toolbar", "./notify"], function (_export) {
   "use strict";
 
-  var Behavior, InterfaceElement, Toolbar, _prototypeProperties, _inherits, _classCallCheck, AiToolbar, ToolbarContainer;
+  var Behavior, AiElement, InterfaceElement, Toolbar, Notify, _prototypeProperties, _inherits, _classCallCheck, defaults, AiToolbar, ToolbarContainer;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
     }, function (_aiElement) {
-      InterfaceElement = _aiElement.InterfaceElement;
+      AiElement = _aiElement.AiElement;
+    }, function (_interfaceElement) {
+      InterfaceElement = _interfaceElement.InterfaceElement;
     }, function (_toolbar) {
       Toolbar = _toolbar.Toolbar;
+    }, function (_notify) {
+      Notify = _notify.Notify;
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
@@ -17,34 +21,40 @@ System.register(["aurelia-templating", "./ai-element", "./toolbar"], function (_
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
-      AiToolbar = _export("AiToolbar", (function (InterfaceElement) {
-        function AiToolbar(element) {
+      defaults = ["size", "fixed", "bgColor", "textColor", "brand"];
+      AiToolbar = _export("AiToolbar", (function (AiElement) {
+        function AiToolbar(element, notify) {
           _classCallCheck(this, AiToolbar);
 
           var _this = this;
-          this.current = new Toolbar();
+
+          this.events = notify;
           this.element = element;
+          this.current = new Toolbar();
+
 
           _.assign(this, this.current);
 
-          this.toolbar && _(this).assign(this.toolbar);
 
           this.addClass("ai-toolbar");
+          this.events.subscribe("$stateChanged", function (payload) {
+            console.log("Recieved from ai-toolbar", payload);
+          });
         }
 
-        _inherits(AiToolbar, InterfaceElement);
+        _inherits(AiToolbar, AiElement);
 
         _prototypeProperties(AiToolbar, {
           metadata: {
             value: function metadata() {
-              return Behavior.customElement("ai-toolbar").withProperty("router").withProperty("fixed").withProperty("brand", "brandChanged").withProperty("bgColor", "bgChanged").withProperty("textColor", "textChanged").withProperty("size", "sizeChanged").withProperty("toolbar");
+              return Behavior.customElement("ai-toolbar").withProperty("router").withProperty("fixed").withProperty("brand", "brandChanged").withProperty("bgColor", "bgChanged").withProperty("textColor", "textChanged").withProperty("size", "sizeChanged").withProperty("toolbar", "toolbarChanged");
             },
             writable: true,
             configurable: true
           },
           inject: {
             value: function inject() {
-              return [Element];
+              return [Element, Notify];
             },
             writable: true,
             configurable: true
@@ -53,8 +63,13 @@ System.register(["aurelia-templating", "./ai-element", "./toolbar"], function (_
           bind: {
             value: function bind() {
               this.container = new ToolbarContainer(this.element.firstElementChild);
-
-              this.toolbar.subscribe("");
+            },
+            writable: true,
+            configurable: true
+          },
+          toolbarChanged: {
+            value: function toolbarChanged(tools) {
+              console.log("tools", tools);
             },
             writable: true,
             configurable: true
@@ -73,6 +88,11 @@ System.register(["aurelia-templating", "./ai-element", "./toolbar"], function (_
             writable: true,
             configurable: true
           },
+          brandChanged: {
+            value: function brandChanged() {},
+            writable: true,
+            configurable: true
+          },
           sizeChanged: {
             value: function sizeChanged(value) {
               return this.toggleClassList("size", "toolbar-");
@@ -83,7 +103,7 @@ System.register(["aurelia-templating", "./ai-element", "./toolbar"], function (_
         });
 
         return AiToolbar;
-      })(InterfaceElement));
+      })(AiElement));
       ToolbarContainer = (function (AiElement) {
         function ToolbarContainer() {
           for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {

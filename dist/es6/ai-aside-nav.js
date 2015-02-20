@@ -76,8 +76,6 @@ System.register(["aurelia-templating"], function (_export) {
           bind: {
             value: function bind() {
               var _this = this;
-
-
               var classList = ["ai-aside-nav"];
               this.fixed && classList.push(this.pre("aside", "fixed"));
               this.open && classList.push(this.pre("aside", "open"));

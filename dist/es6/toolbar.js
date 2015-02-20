@@ -20,27 +20,26 @@ System.register(["aurelia-templating", "./notify"], function (_export) {
         brand: "brand"
       };
       Toolbar = _export("Toolbar", (function () {
-        function Toolbar(options) {
+        function Toolbar(notify) {
           _classCallCheck(this, Toolbar);
 
+          this.notify = notify;
           this.defaults = defaults;
           _.assign(this, this.defaults);
-          _.assign(this, options);
-
-
         }
 
         _prototypeProperties(Toolbar, {
-          metadata: {
-            value: function metadata() {
-              return Behavior.withProperty("fixed").withProperty("size", "sizeChanged").withProperty("brand", "brandChanged").withProperty("bgColor", "bgChanged").withProperty("textColor", "textChanged");
+          inject: {
+            value: function inject() {
+              return [Notify];
             },
             writable: true,
             configurable: true
           }
         }, {
           configure: {
-            value: function configure(options) {
+            value: function configure(options, reset) {
+              reset && this.reset();
               _.assign(this, options);
             },
             writable: true,
