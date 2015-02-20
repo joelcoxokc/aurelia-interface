@@ -1,10 +1,12 @@
-System.register(["aurelia-router"], function (_export) {
+System.register(["aurelia-router", "./system/toolbar"], function (_export) {
   "use strict";
 
-  var Router, _prototypeProperties, _classCallCheck, App;
+  var Router, Toolbar, _prototypeProperties, _classCallCheck, App;
   return {
     setters: [function (_aureliaRouter) {
       Router = _aureliaRouter.Router;
+    }, function (_systemToolbar) {
+      Toolbar = _systemToolbar.Toolbar;
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
@@ -12,14 +14,23 @@ System.register(["aurelia-router"], function (_export) {
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
       App = _export("App", (function () {
-        function App(router) {
+        function App(router, toolbar) {
+          var _this = this;
           _classCallCheck(this, App);
+
+          this.toolbar = toolbar;
+          this.toolbar.configure({
+            size: "sm",
+            bgColor: "white",
+            textColor: "purple"
+          });
+
 
           this.router = router;
           this.router.title = "Aurelia-Interface";
           this.router.configure(function (config) {
             config.title = "Aurelia Interface";
-            config.map([{ route: ["", "welcome"], moduleId: "welcome", title: "ai", toolbar: { size: "xl", bgColor: "bg-purple", textColor: "text-white" } }, { route: "buttons-demo", moduleId: "buttons-demo", title: "ai-Btn", nav: true, toolbar: { size: "sm", bgColor: "bg-white", textColor: "text-purple" } }, { route: "tabs-demo", moduleId: "tabs-demo", title: "ai-Tabs", nav: true, toolbar: { size: "sm", bgColor: "bg-white", textColor: "text-purple" } }, { route: "components", moduleId: "components", title: "ai-Components", nav: true, toolbar: { size: "sm", bgColor: ["bg-teal", "accent-4"], textColor: "text-white" } }, { route: "layouts", moduleId: "layouts", title: "ai-Layouts", nav: true, toolbar: { size: "sm", bgColor: "bg-indigo", textColor: "text-white" } }]);
+            config.map([{ route: ["", "welcome"], moduleId: "welcome", title: "ai", toolbar: _this.toolbar }, { route: "buttons-demo", moduleId: "buttons-demo", title: "ai-Btn", nav: true, toolbar: _this.toolbar }, { route: "tabs-demo", moduleId: "tabs-demo", title: "ai-Tabs", nav: true, toolbar: _this.toolbar }, { route: "components", moduleId: "components", title: "ai-Components", nav: true, toolbar: _this.toolbar }, { route: "layouts", moduleId: "layouts", title: "ai-Layouts", nav: true, toolbar: _this.toolbar }]);
           });
 
           this.aside = {
@@ -30,17 +41,13 @@ System.register(["aurelia-router"], function (_export) {
 
           this["interface"] = {
             direction: "row" };
-          this.toolbar = {
-            size: "sm",
-            bgColor: "white",
-            textColor: "purple"
-          };
+
         }
 
         _prototypeProperties(App, {
           inject: {
             value: function inject() {
-              return [Router];
+              return [Router, Toolbar];
             },
             writable: true,
             configurable: true
@@ -52,4 +59,4 @@ System.register(["aurelia-router"], function (_export) {
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,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
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFwcC5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7TUFBUSxNQUFNLEVBQ04sT0FBTyx5Q0FHRixHQUFHOzs7QUFKUixZQUFNLGtCQUFOLE1BQU07O0FBQ04sYUFBTyxrQkFBUCxPQUFPOzs7Ozs7O0FBR0YsU0FBRztBQUVILGlCQUZBLEdBQUcsQ0FFRixNQUFNLEVBQUUsT0FBTzs7Z0NBRmhCLEdBQUc7O0FBSVosY0FBSSxDQUFDLE9BQU8sR0FBRyxPQUFPLENBQUE7QUFDdEIsY0FBSSxDQUFDLE9BQU8sQ0FBQyxTQUFTLENBQUM7QUFDckIsZ0JBQUksRUFBRSxJQUFJO0FBQ1YsbUJBQU8sRUFBQyxPQUFPO0FBQ2YscUJBQVMsRUFBQyxRQUFRO1dBQ25CLENBQUMsQ0FBQTs7O0FBR0YsY0FBSSxDQUFDLE1BQU0sR0FBRyxNQUFNLENBQUM7QUFDckIsY0FBSSxDQUFDLE1BQU0sQ0FBQyxLQUFLLEdBQUcsbUJBQW1CLENBQUE7QUFDdkMsY0FBSSxDQUFDLE1BQU0sQ0FBQyxTQUFTLENBQUMsVUFBQSxNQUFNLEVBQUk7QUFDOUIsa0JBQU0sQ0FBQyxLQUFLLEdBQUcsbUJBQW1CLENBQUM7QUFDbkMsa0JBQU0sQ0FBQyxHQUFHLENBQUMsQ0FFVCxFQUFFLEtBQUssRUFBRSxDQUFDLEVBQUUsRUFBRSxTQUFTLENBQUMsRUFBRyxRQUFRLEVBQUUsU0FBUyxFQUFPLEtBQUssRUFBRSxJQUFJLEVBQUUsT0FBTyxFQUFDLE1BQUssT0FBTyxFQUFFLEVBQ3hGLEVBQUUsS0FBSyxFQUFFLGNBQWMsRUFBSSxRQUFRLEVBQUUsY0FBYyxFQUFFLEtBQUssRUFBRSxRQUFRLEVBQUUsR0FBRyxFQUFFLElBQUksRUFBRSxPQUFPLEVBQUMsTUFBSyxPQUFPLEVBQUUsRUFDdkcsRUFBRSxLQUFLLEVBQUUsV0FBVyxFQUFPLFFBQVEsRUFBRSxXQUFXLEVBQUssS0FBSyxFQUFFLFNBQVMsRUFBRSxHQUFHLEVBQUUsSUFBSSxFQUFHLE9BQU8sRUFBQyxNQUFLLE9BQU8sRUFBQyxFQUN4RyxFQUFFLEtBQUssRUFBRSxZQUFZLEVBQU0sUUFBUSxFQUFFLFlBQVksRUFBSSxLQUFLLEVBQUUsZUFBZSxFQUFFLEdBQUcsRUFBRSxJQUFJLEVBQUcsT0FBTyxFQUFDLE1BQUssT0FBTyxFQUFDLEVBQzlHLEVBQUUsS0FBSyxFQUFFLFNBQVMsRUFBUyxRQUFRLEVBQUUsU0FBUyxFQUFPLEtBQUssRUFBRSxZQUFZLEVBQUssR0FBRyxFQUFFLElBQUksRUFBRyxPQUFPLEVBQUMsTUFBSyxPQUFPLEVBQUMsQ0FDL0csQ0FBQyxDQUFDO1dBQ0osQ0FBQyxDQUFDOztBQUVILGNBQUksQ0FBQyxLQUFLLEdBQUc7QUFDWCxnQkFBSSxFQUFDLEtBQUs7QUFDVixnQkFBSSxFQUFDLE1BQU07QUFDWCxnQkFBSSxFQUFDLElBQUk7V0FDVixDQUFBOztBQUVELGNBQUksYUFBVSxHQUFHO0FBQ2YscUJBQVMsRUFBRSxLQUFLLEVBQ2pCLENBQUE7O1NBR0Y7OzZCQXJDVSxHQUFHO0FBQ1AsZ0JBQU07bUJBQUEsa0JBQUc7QUFBRSxxQkFBTyxDQUFDLE1BQU0sRUFBRSxPQUFPLENBQUMsQ0FBQzthQUFFOzs7Ozs7ZUFEbEMsR0FBRyIsImZpbGUiOiJhcHAuanMiLCJzb3VyY2VSb290IjoiL3NyYy9wbHVnaW5zLyJ9

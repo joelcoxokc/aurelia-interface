@@ -1,23 +1,30 @@
+import {EventAggregator} from 'aurelia-event-aggregator';
+
 export class Welcome{
-  constructor(){
-    this.heading = 'Aurelia Interface ';
-    this.firstName = 'John';
-    this.lastName = 'Doe';
 
-  }
+    static inject(){
 
-  get fullName(){
-    return `${this.firstName} ${this.lastName}`;
-  }
+        return [EventAggregator];
 
+    }
 
-  welcome(){
-    // alert(`Welcome, ${this.fullName}!`);
-  }
-}
+    constructor(eventAggregator){
+        this.events = eventAggregator
+        this.heading = 'Aurelia Interface ';
+    }
 
-export class UpperValueConverter {
-  toView(value){
-    return value && value.toUpperCase();
-  }
+    activate(params, queryString, routeConfig){
+
+        if(routeConfig){
+            this.toolbar = routeConfig.toolbar
+            this.toolbar
+                .configure({ size      : 'xl'
+                           , fixed     : true
+                           , bgColor   : 'purple'
+                           , textColor : 'white'
+                           })
+            this.events.publish('$stateChanged', this.toolbar)
+        }
+
+    }
 }

@@ -9,9 +9,9 @@ export function configure(aurelia) {
     .defaultResources()
     .router()
     .eventAggregator()
-
   System.normalize("./dist/system/index").then(function (name) {
     System.map["aurelia-interface"] = name;
+
     aurelia.use.plugin(name);
 
     aurelia.start()

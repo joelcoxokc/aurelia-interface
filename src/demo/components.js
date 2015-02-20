@@ -1,19 +1,25 @@
 export class Components{
-  constructor(){
-    this.heading = 'aiComponents ';
-    this.selectedTabRef = 'tab-2'
-  }
-  updateTabSliderPosition (tabsInstance, next) {
-    let slider = tabsInstance.element.querySelector('.ai-tab-slider')
-    let sliderWidth = 100 / tabsInstance.tabLinks.length
+    constructor(){
+        this.heading = 'aiComponents ';
+        this.selectedTabRef = 'tab-2'
+    }
 
-    slider.style.width = sliderWidth + 10 + '%';
-    slider.style.left = tabsInstance.activeTabLink.offsetLeft + 'px';
+    activate(params, queryString, config){
+        config.toolbar.reset()
 
-    setTimeout(function(){
-      slider.style.width = sliderWidth + '%';
-    }, 200)
+    }
 
-    next()
-  }
+    updateTabSliderPosition (tabsInstance, next) {
+        let slider = tabsInstance.element.querySelector('.ai-tab-slider')
+        let sliderWidth = 100 / tabsInstance.tabLinks.length
+
+        slider.style.width = sliderWidth + 10 + '%';
+        slider.style.left = tabsInstance.activeTabLink.offsetLeft + 'px';
+
+        setTimeout(function(){
+            slider.style.width = sliderWidth + '%';
+        }, 200)
+
+        next()
+    }
 }

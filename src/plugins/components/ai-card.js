@@ -1,13 +1,14 @@
 import {Behavior} from 'aurelia-templating';
+import {AiElement} from './ai-element';
 
 
-export class AiCard{
+export class AiCard extends{
 
     static metadata(){
 
         return Behavior
             .customElement('ai-card')
-            .withProperty('type')
+            .withProperty('type', 'typeChanged')
 
     }
 
@@ -20,7 +21,11 @@ export class AiCard{
     }
 
     bind(){
-        this.element.classList.add('ai-card')
+        this.addClass('ai-card')
+    }
+
+    typeChanged(){
+
     }
 
 }

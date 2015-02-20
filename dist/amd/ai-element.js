@@ -57,7 +57,7 @@ System.register(["aurelia-templating"], function (_export) {
             configurable: true
           },
           removeEvent: {
-            value: function removeEvent() {
+            value: function removeEvent(evt, callback) {
               var _this = this;
 
               this.element.removeEventListener(evt, callInContext, false);
@@ -65,6 +65,27 @@ System.register(["aurelia-templating"], function (_export) {
               function callInContext() {
                 callback.apply(_this, arguments);
               }
+            },
+            writable: true,
+            configurable: true
+          },
+          toggleClassList: {
+            value: function toggleClassList(property, prefix, context, prev, next, init) {
+              prefix = prefix || "";
+              context = context || this;
+              prev = prev || context.current[property];
+              next = next || context[property];
+
+              if (context[property] === context.current[property]) {
+                return;
+              }
+
+              prefix && (prev = prefix + prev, next = prefix + next);
+
+              this.removeClass(prev);
+              this.addClass(next);
+              context.current[property] = context[property];
+              return;
             },
             writable: true,
             configurable: true

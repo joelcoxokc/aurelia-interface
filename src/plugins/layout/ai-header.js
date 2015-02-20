@@ -1,4 +1,5 @@
 import {Behavior} from 'aurelia-templating';
+import {AiElement} from './ai-element';
 
 var defaults =  { size : 'sm'
                 , fixed: false
@@ -6,7 +7,7 @@ var defaults =  { size : 'sm'
                 , text: 'purple'
                 }
 
-export class AiHeader{
+export class AiHeader extends AiElement{
 
     static metadata(){
         return Behavior
@@ -65,16 +66,4 @@ export class AiHeader{
         this.current.text = newText
     }
 
-
-    addClass(){
-        var args = _.flatten(arguments, true)
-        console.log('add',args)
-        this.element.classList.add.apply(this.element.classList, args)
-    }
-
-    removeClass(){
-        var args = _.flatten(arguments, true)
-        console.log('remove', args)
-        this.element.classList.removeClass.apply(this.element.classList, args)
-    }
 }

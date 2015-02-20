@@ -1,10 +1,12 @@
-    import {AiClassAttachedBehavior} from './ai-class'
+    import {AiToolbar} from './ai-toolbar'
+    import {Toolbar} from './toolbar'
 
     function install(aurelia){
 
         aurelia.withResources([
 
-            AiClassAttachedBehavior
+            AiToolbar,
+            Toolbar
 
         ]);
 
@@ -12,7 +14,8 @@
 
     export {
 
-        AiClassAttachedBehavior,
+        AiToolbar,
+        Toolbar,
         install
 
     };

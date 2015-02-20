@@ -1,4 +1,5 @@
 import {Router} from 'aurelia-router';
+
 export class ButtonsDemo {
 
 
@@ -15,8 +16,8 @@ export class ButtonsDemo {
         ]
     }
 
-    activate(value){
-        console.log(value)
+    activate(params, queryString, config){
+        config.toolbar.reset()
 
     }
 

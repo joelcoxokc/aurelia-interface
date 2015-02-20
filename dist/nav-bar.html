@@ -2,7 +2,7 @@
     <import from="./system/ai-btn-toggle"></import>
 
     <div class="toolbar-header header-right">
-      <button type="button" class="toolbar-toggle" click="{aside.open = !aside.open}"  data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <button type="button" class="toolbar-toggle" click="{aside.open = !aside.open}" >
       <!-- click.trigger="open()" -->
         <i class="mdi-navigation-menu"></i>
       </button>
@@ -13,7 +13,7 @@
     </div>
 
     <div class="toolbar-content">
-      <div class="ui-collapse toolbar-collapse ${showing ? 'open' : ''}" id="bs-example-navbar-collapse-1">
+      <div class="ui-collapse toolbar-collapse ${showing ? 'open' : ''}">
         <ul class="nav-actions nav-actions-right">
           <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
             <a class="waves-effect waves-${color}" href.bind="row.href">${row.title}</a>

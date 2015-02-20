@@ -1,13 +1,17 @@
-System.register(["aurelia-templating"], function (_export) {
+System.register(["aurelia-templating", "./ai-element"], function (_export) {
   "use strict";
 
-  var Behavior, _prototypeProperties, _classCallCheck, defaults, AiHeader;
+  var Behavior, AiElement, _prototypeProperties, _inherits, _classCallCheck, defaults, AiHeader;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
+    }, function (_aiElement) {
+      AiElement = _aiElement.AiElement;
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
+
+      _inherits = function (subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
@@ -16,7 +20,7 @@ System.register(["aurelia-templating"], function (_export) {
         bg: "white",
         text: "purple"
       };
-      AiHeader = _export("AiHeader", (function () {
+      AiHeader = _export("AiHeader", (function (AiElement) {
         function AiHeader(element) {
           _classCallCheck(this, AiHeader);
 
@@ -24,6 +28,8 @@ System.register(["aurelia-templating"], function (_export) {
           this.current = defaults;
           _.assign(this, this.current);
         }
+
+        _inherits(AiHeader, AiElement);
 
         _prototypeProperties(AiHeader, {
           metadata: {
@@ -83,29 +89,11 @@ System.register(["aurelia-templating"], function (_export) {
             },
             writable: true,
             configurable: true
-          },
-          addClass: {
-            value: function addClass() {
-              var args = _.flatten(arguments, true);
-              console.log("add", args);
-              this.element.classList.add.apply(this.element.classList, args);
-            },
-            writable: true,
-            configurable: true
-          },
-          removeClass: {
-            value: function removeClass() {
-              var args = _.flatten(arguments, true);
-              console.log("remove", args);
-              this.element.classList.removeClass.apply(this.element.classList, args);
-            },
-            writable: true,
-            configurable: true
           }
         });
 
         return AiHeader;
-      })());
+      })(AiElement));
     }
   };
 });

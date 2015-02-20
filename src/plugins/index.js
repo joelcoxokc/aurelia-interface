@@ -18,6 +18,7 @@ import { AiMain
 
 import {AiClassAttachedBehavior, AiElement} from './util/index'
 
+import {Toolbar} from './nav/index'
 
 export{ AiBtnToggleAttachedBehavior
       , AiBtnRadioAttachedBehavior
@@ -34,4 +35,5 @@ export{ AiBtnToggleAttachedBehavior
       , AiAside
       , AiBtn
       , AiElement
+      , Toolbar
       };

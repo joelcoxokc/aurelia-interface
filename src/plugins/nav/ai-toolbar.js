@@ -1,14 +1,12 @@
 import {Behavior} from 'aurelia-templating'
 import {AiElement} from './ai-element'
+import {InterfaceElement} from './interface-element'
+import {Toolbar}   from './toolbar'
+import {Notify} from './notify';
 
-var defaults =  { size : 'sm'
-                , fixed: true
-                , bgColor  : 'white'
-                , textColor: 'purple'
-                , brand    : 'brand'
-                }
+var defaults =  [ 'size' , 'fixed' , 'bgColor' , 'textColor' , 'brand' ]
 
-export class AiToolbar{
+export class AiToolbar extends AiElement{
 
     static metadata(){
         return Behavior
@@ -19,97 +17,82 @@ export class AiToolbar{
             .withProperty('bgColor', 'bgChanged')
             .withProperty('textColor', 'textChanged')
             .withProperty('size', 'sizeChanged')
-            .withProperty('toolbar')
+            .withProperty('toolbar', 'toolbarChanged')
     }
 
     static inject(){
-        return [Element]
+        return [Element, Notify]
     }
 
-    constructor(element){
+    constructor(element, notify){
         var _this = this;
-        this.element = element
-        this.current = defaults;
+
+        this.events   = notify;
+        this.element  = element
+        this.current  = new Toolbar()
+
+        // this.toolbar &&( this.toolbar = this.toolbar )
 
         _.assign(this, this.current);
 
-        this.pre = function(prefix){
-            var args = Array.prototype.slice.call(arguments).slice(1)
-            return _.map(args, (arg, index)=>{
-                return `${prefix}-${arg}`
-            })
-        }
+
+        this.addClass('ai-toolbar')
+        this.events.subscribe('$stateChanged', (payload)=>{
+            console.log('Recieved from ai-toolbar', payload)
+        })
     }
 
     bind(){
-        var classList = ['ai-toolbar']
-        var _this = this;
         this.container = new ToolbarContainer(this.element.firstElementChild)
-
-        console.log(this.size)
-
-        this.fixed     && classList.push('toolbar-fixed')
-        this.bgColor   && classList.push(this.bgColor)
-        this.textColor && classList.push(this.textColor)
-        this.size      && classList.push(`toolbar-${this.size}`)
-        this.container.addClass(this.bgColor, this.textColor)
-
-        this.addClass(classList);
-
-        Object.observe(this.router, function(){
-            _this.size = _this.router.currentInstruction.config.toolbar.size           || defaults.size
-            _this.bgColor = _this.router.currentInstruction.config.toolbar.bgColor     || defaults.bgColor
-            _this.textColor = _this.router.currentInstruction.config.toolbar.textColor || defaults.textColor
-        })
-        // Object.observe(this.router.navigation, ()=>{
-            // console.log(this.router.navigation.container.viewModel.aside)
-        // })
-
     }
+
+    toolbarChanged(tools){
+        console.log('tools', tools)
+    }
+
 
     bgChanged(value){
+        return this.container.toggleClassList('bgColor', 'bg-', this, null, null, 'hello')
+    }
 
-        if(value === this.current.bgColor){ return }
-        this.container.removeClass(this.current.bgColor)
-        this.container.addClass(this.bgColor)
-        this.current.bgColor = value;
+
+    textChanged(value){
+        return this.container.toggleClassList('textColor', 'text-', this)
 
     }
 
-    textChanged(value){
-
-        if(value === this.current.textColor){ return }
-        this.container.removeClass(this.current.textColor)
-        this.container.addClass(this.textColor)
-        this.current.textColor = value;
+    brandChanged(){
 
     }
 
     sizeChanged(value){
 
-        if(value === this.current.size){ return }
-        this.removeClass(`toolbar-${this.current.size}`)
-        this.addClass(`toolbar-${value}`)
-        this.current.size = value;
+        return this.toggleClassList('size', 'toolbar-')
 
     }
 
-    addClass(){
-        var args = _.flatten(arguments, true)
-        console.log(args)
-        this.element.classList.add.apply(this.element.classList, args)
-    }
-
-    removeClass(array){
-        var args = Array.isArray(array) ? array : arguments;
-        this.element.classList.removeClass.apply(this.element.classList, args)
-    }
 }
 
 
 class ToolbarContainer extends AiElement{
 
-    constructor(element){
-        this.element = element;
+    constructor(...args){
+        this.element = args[0]
     }
 }
+
+
+
+
+
+
+
+/*
+Object.observe(this.router, (evt, value)=>{
+    var config = this.router.currentInstruction.config.toolbar
+    config.size      ?( this.size = config.size )            : ( this.size = this.defaults.size )
+    config.fixed     ?( this.fixed = config.fixed )          : ( this.fixed = this.defaults.fixed )
+    config.bgColor   ?( this.bgColor = config.bgColor )      : ( this.bgColor = this.defaults.bgColor )
+    config.textColor ?( this.textColor = config.textColor )  : ( this.textColor = this.defaults.textColor )
+})
+ */
