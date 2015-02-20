@@ -20,50 +20,114 @@
             </li>
             <div class="ai-tab-slider"></div>
           </ul>
-          <div class="ai-card card ai-card">
-            <div class="card-content">
-                <div class="tab-content">
-                  <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-1', active: selectedTabRef == 'tab-1'}" ai-tab="tab-1">
-                    Tab 1 Content
-                  </div>
-                  <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-2', active: selectedTabRef == 'tab-2'}" ai-tab="tab-2">
-                    Tab 2 Content
-                  </div>
-                  <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-3', active: selectedTabRef == 'tab-3'}" ai-tab="tab-3">
+          <div class="tab-content">
 
-                    <div class=row>
-                      <div class='flex md6'>
+            <section class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-1', active: selectedTabRef == 'tab-1'}" ai-tab="tab-1">
+              <div class="section">
+                <div class="flex md6 offset-md3">
 
-                        <ai-action-reveal side="left">
-                            <div class="primary-action">
-                                <ai-btn type="raised" shape="round" icon="mdi-content-add" next-icon="mdi-content-create"></ai-btn>
-                            </div>
-                            <div class="action-buttons">
-                                <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-                                <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-                                <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-                            </div>
-                        </ai-action-reveal>
 
+                  <ai-card>
+
+
+                    <div class="card-body"><p>I am a simple card</p></div>
+
+
+                  </ai-card>
+
+                  <ai-card>
+
+                    <h2 class="card-heading">Card Heading</h2>
+                    <div class="card-body"><p>This card has a heading component</p></div>
+
+
+                  </ai-card>
+
+                  <ai-card>
+
+                    <h2 class="card-heading">Card Heading</h2>
+                    <div class="card-body"><p>This card has a heading & footer component.</p></div>
+                    <div class="card-footer"><p class="card-footer-text">card-footer component</p></div>
+
+
+                  </ai-card>
+
+                  <ai-card>
+                    <nav class="ai-bar ai-nav-bar bar-xs bg-teal accent-4 text-white">
+                      <div class="nav-bar-container">
+                        <ul class="nav-actions">
+                          <li>
+                            <a class="text-white"><i class="fa fa-bars"></i></a>
+                          </li>
+                        </ul>
+                        <ul class="nav-actions nav-actions-right">
+                          <li>
+                            <a class="text-white"><i class="fa fa-bell-o"></i></a>
+                            <a class="text-white"><i class="fa fa-pencil"></i></a>
+                            <a class="text-white"><i class="fa fa-ellipsis-v"></i></a>
+                          </li>
+                        </ul>
                       </div>
-                      <div class='flex md6'>
+                    </nav>
+                    <h2 class="card-heading">More Components</h2>
+                    <div class="card-body"><p>The ai-card is packed with different components and features</p></div>
+                    <footer class="card-footer"><p class="card-footer-text">I am the card-footer</p></footer>
 
-                        <ai-action-reveal side="right">
-                            <div class="primary-action">
-                                <ai-btn type="raised" shape="round" icon="mdi-content-add" next-icon="mdi-content-create"></ai-btn>
-                            </div>
-                            <div class="action-buttons">
-                                <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-                                <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-                                <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-                            </div>
-                        </ai-action-reveal>
+                  </ai-card>
 
-                      </div>
-                    </div>
-                  </div>
+
                 </div>
+              </div>
+            </section>
+            <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-2', active: selectedTabRef == 'tab-2'}" ai-tab="tab-2">
+              Tab 2 Content
+
+
+
+
+
+
             </div>
+
+
+
+
+
+            <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-3', active: selectedTabRef == 'tab-3'}" ai-tab="tab-3">
+
+              <div class=row>
+                <div class='flex md6'>
+
+                  <ai-action-reveal side="left">
+                      <div class="primary-action">
+                          <ai-btn type="raised" shape="round" icon="mdi-content-add" next-icon="mdi-content-create"></ai-btn>
+                      </div>
+                      <div class="action-buttons">
+                          <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
+                          <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
+                          <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
+                      </div>
+                  </ai-action-reveal>
+
+                </div>
+                <div class='flex md6'>
+
+                  <ai-action-reveal side="right">
+                      <div class="primary-action">
+                          <ai-btn type="raised" shape="round" icon="mdi-content-add" next-icon="mdi-content-create"></ai-btn>
+                      </div>
+                      <div class="action-buttons">
+                          <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
+                          <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
+                          <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
+                      </div>
+                  </ai-action-reveal>
+
+                </div>
+              </div>
+            </div>
+
+
           </div>
 
         </div>

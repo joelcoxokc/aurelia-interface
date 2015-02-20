@@ -8,6 +8,7 @@ export class AiCard extends AiElement{
 
         return Behavior
             .customElement('ai-card')
+            .withProperty('heading')
             .withProperty('type', 'typeChanged')
 
     }
@@ -18,9 +19,11 @@ export class AiCard extends AiElement{
 
     constructor(element){
         this.element = element
+        this.heading = this.element.getElementsByClassName('card-heading')
     }
 
     bind(){
+        this.heading = this.heading[0]
         this.addClass('ai-card')
     }
 

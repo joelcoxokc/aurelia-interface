@@ -3,13 +3,15 @@
     position: relateive
     flex 1 0 auto
     padding: 0
+    margin-bottom: 20px
+    margin-top: 10px
     .card-content
         flex-container()
         flex : 1 0 auto
-        background-color: white
         box-shadow: 0px 2px 4px rgba(0,0,0,0.2)
         flex-direction column
     .card-heading
+        background-color: white
         flex-container()
         padding: 10px
         margin: 0
@@ -17,7 +19,18 @@
         font-weight: 100
         color: $grey.base
 
-    .ai-card-footer
-        position: relateive
+    .card-body
+        background-color: white
+        flex-direction row
+        flex : 1 0 auto
         flex-container()
+        padding 10px
+
+    .card-footer
+        background-color: white
+        flex-container()
+        position: relateive
         flex: 1 0 auto
+        border-top 1px solid #dddddd
+        .card-footer-text
+            padding 10px

@@ -27,13 +27,19 @@ System.register(["aurelia-templating"], function (_export) {
             configurable: true
           }
         }, {
-          addClass: {
-            value: function addClass() {
-              var args = _(arguments).flatten(true).map(function (item) {
+          _parseArgs: {
+            value: function _parseArgs(args) {
+              return _(args).flatten(true).map(function (item) {
                 return item.split(" ");
               }).flatten().value();
+            },
+            writable: true,
+            configurable: true
+          },
+          addClass: {
+            value: function addClass() {
+              var args = this._parseArgs(arguments);
 
-              console.log(args);
 
 
               this.element.classList.add.apply(this.element.classList, args);
@@ -43,7 +49,7 @@ System.register(["aurelia-templating"], function (_export) {
           },
           removeClass: {
             value: function removeClass() {
-              var args = _(arguments).flatten(true).value();
+              var args = this._parseArgs(arguments);
               this.element.classList.remove.apply(this.element.classList, args);
             },
             writable: true,
