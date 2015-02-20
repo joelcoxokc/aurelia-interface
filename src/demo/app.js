@@ -9,8 +9,8 @@ export class App {
     this.toolbar = toolbar
     this.toolbar.configure({
       size: 'sm',
-      bgColor:'white',
-      textColor:'purple'
+      bgColor:'bg-white',
+      textColor:'text-purple'
     })
     this.aside = {
       open:false,

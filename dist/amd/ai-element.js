@@ -29,7 +29,13 @@ System.register(["aurelia-templating"], function (_export) {
         }, {
           addClass: {
             value: function addClass() {
-              var args = _.flatten(arguments, true);
+              var args = _(arguments).flatten(true).map(function (item) {
+                return item.split(" ");
+              }).flatten().value();
+
+              console.log(args);
+
+
               this.element.classList.add.apply(this.element.classList, args);
             },
             writable: true,
@@ -37,7 +43,7 @@ System.register(["aurelia-templating"], function (_export) {
           },
           removeClass: {
             value: function removeClass() {
-              var args = _.flatten(arguments, true);
+              var args = _(arguments).flatten(true).value();
               this.element.classList.remove.apply(this.element.classList, args);
             },
             writable: true,
@@ -70,18 +76,19 @@ System.register(["aurelia-templating"], function (_export) {
             configurable: true
           },
           toggleClassList: {
-            value: function toggleClassList(property, prefix, context, prev, next, init) {
+            value: function toggleClassList(property, prefix, context, prev, next) {
               prefix = prefix || "";
               context = context || this;
               prev = prev || context.current[property];
               next = next || context[property];
+
 
               if (context[property] === context.current[property]) {
                 return;
               }
 
               prefix && (prev = prefix + prev, next = prefix + next);
-
+              console.log(next);
               this.removeClass(prev);
               this.addClass(next);
               context.current[property] = context[property];

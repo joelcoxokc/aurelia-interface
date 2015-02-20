@@ -20,8 +20,8 @@ export class Welcome{
             this.toolbar
                 .configure({ size      : 'xl'
                            , fixed     : true
-                           , bgColor   : 'purple'
-                           , textColor : 'white'
+                           , bgColor   : 'bg-purple'
+                           , textColor : 'text-white'
                            })
             this.events.publish('$stateChanged', this.toolbar)
         }

@@ -76,14 +76,14 @@ System.register(["aurelia-templating", "./ai-element", "./interface-element", ".
           },
           bgChanged: {
             value: function bgChanged(value) {
-              return this.container.toggleClassList("bgColor", "bg-", this, null, null, "hello");
+              return this.container.toggleClassList("bgColor", "", this);
             },
             writable: true,
             configurable: true
           },
           textChanged: {
             value: function textChanged(value) {
-              return this.container.toggleClassList("textColor", "text-", this);
+              return this.container.toggleClassList("textColor", "", this);
             },
             writable: true,
             configurable: true

@@ -10,8 +10,8 @@ export class Layout{
 
     activate(params, queryString, config){
 
-         config.toolbar.configure({ bgColor :'indigo'
-                                 , textColor:'white'
+         config.toolbar.configure({ bgColor :'bg-indigo'
+                                 , textColor:'text-white'
                                  }
         , true)
 

@@ -15,8 +15,8 @@ System.register(["aurelia-templating", "./notify"], function (_export) {
 
       defaults = { size: "sm",
         fixed: true,
-        bgColor: "white",
-        textColor: "purple",
+        bgColor: "bg-white",
+        textColor: "text-purple",
         brand: "brand"
       };
       Toolbar = _export("Toolbar", (function () {

@@ -3,8 +3,8 @@ import {Notify} from './notify';
 
 var defaults =  { size : 'sm'
                 , fixed    : true
-                , bgColor  : 'white'
-                , textColor: 'purple'
+                , bgColor  : 'bg-white'
+                , textColor: 'text-purple'
                 , brand    : 'brand'
                 }
 

@@ -51,12 +51,12 @@ export class AiToolbar extends AiElement{
 
 
     bgChanged(value){
-        return this.container.toggleClassList('bgColor', 'bg-', this, null, null, 'hello')
+        return this.container.toggleClassList('bgColor', '', this)
     }
 
 
     textChanged(value){
-        return this.container.toggleClassList('textColor', 'text-', this)
+        return this.container.toggleClassList('textColor', '', this)
 
     }
 

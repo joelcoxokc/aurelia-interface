@@ -10,10 +10,8 @@ export class Components{
 
     activate(params, queryString, config){
 
-        config.toolbar.configure({ bgColor:'teal' 'accent-4'
-                                 , textColor:'white'
-                                 }
-        , true)
+        config.toolbar.configure(
+            { bgColor:'bg-teal accent-4', textColor:'text-white'}, true)
 
     }
 

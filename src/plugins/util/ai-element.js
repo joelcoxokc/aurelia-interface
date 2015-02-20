@@ -15,9 +15,19 @@ export class AiElement{
 
     }
 
+    _parseArgs(args){
+        return _(args)
+            .flatten(true)
+            .map(function(item){
+                return item.split(' ')
+            })
+            .flatten()
+            .value()
+    }
 
     addClass(){
-        var args = _(arguments).flatten(true).value()
+        var args = this._parseArgs(arguments)
+
 
 
         this.element.classList.add.apply(this.element.classList, args)
@@ -25,7 +35,7 @@ export class AiElement{
     }
 
     removeClass(){
-        var args = _(arguments).flatten(true).value()
+        var args = this._parseArgs(arguments)
         this.element.classList.remove.apply(this.element.classList, args)
     }
 
@@ -58,19 +68,20 @@ export class AiElement{
      * @param  {String}   prev      [assigns the class name to be removed, Uses prev instead of the value of context[property] ]
      * @param  {String}   next      [Same as prev, except next will be the className added]
      */
-    toggleClassList(property, prefix, context, prev, next, init){
+    toggleClassList(property, prefix, context, prev, next){
 
         prefix = prefix || '';
         context = context || this;
         prev = prev || context.current[property]
         next = next || context[property]
 
+
         if(context[property] === context.current[property]){ return }
 
         prefix &&( (prev = prefix + prev)
                  , (next = prefix + next)
                  )
-        if(next.split(',').length){ next = next.split(',') }
+        // if(next.split(',').length){ next = next.split(',') }
         console.log(next)
         this.removeClass(prev)
         this.addClass(next)

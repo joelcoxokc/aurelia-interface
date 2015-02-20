@@ -4,8 +4,12 @@ export class TabsDemo {
         this.selectedTabRef = 'tab-2'
     }
 
-    activate(params, queryString, config){
-        config.toolbar.reset()
+    activate(params, queryString, config) {
+
+        config.toolbar.configure({ bgColor:'bg-white'
+                                 , textColor:'text-purple'
+                                 }
+        , true)
 
     }
 
