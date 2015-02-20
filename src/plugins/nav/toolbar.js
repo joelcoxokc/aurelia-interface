@@ -21,8 +21,9 @@ export class Toolbar{
         _.assign(this, this.defaults)
     }
 
-    configure(options){
+    configure(options, reset){
 
+        reset &&( this.reset() )
         _.assign(this, options)
 
     }
