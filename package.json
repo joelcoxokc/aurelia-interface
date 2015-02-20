@@ -1,22 +1,27 @@
 {
-  "name": "aurelia-skeleton-navigation",
-  "version": "0.9.5",
-  "description": "A starter kit for building a standard navigation-style app with Aurelia.",
+  "name": "aurelia-interface",
+  "version": "0.1.0",
+  "description": "ui library for aurelia",
   "keywords": [
     "aurelia",
+    "user interface"
+    "ui",
+    "material",
+    "design",
+    "css",
     "navigation",
     "skeleton"
   ],
   "homepage": "http://aurelia.io",
   "bugs": {
-    "url": "https://github.com/aurelia/skeleton-navigation/issues"
+    "url": "https://github.com/joelcoxokc/aurelia-interface/issues"
   },
   "license": "MIT",
-  "author": "Rob Eisenberg <rob@bluespire.com> (http://robeisenberg.com/)",
+  "author": "JoelCox <joel.cox.dev@gmail.com> (http://joelcox.io/)",
   "main": "dist/commonjs/index.js",
   "repository": {
     "type": "git",
-    "url": "http://github.com/aurelia/skeleton-navigation"
+    "url": "http://github.com/joelcoxokc/aurelia-interface"
   },
   "devDependencies": {
     "aurelia-tools": "^0.1.0",
@@ -70,6 +75,12 @@
       "materialize": "github:Dogfalo/materialize@^0.95.2"
     }
   },
-  "dependencies": {
+  "dependencies": {},
+  "directories": {
+    "doc": "doc",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
