@@ -47,6 +47,7 @@ export class AiToolbar{
         this.container = new ToolbarContainer(this.element.firstElementChild)
 
         console.log(this.size)
+
         this.fixed     && classList.push('toolbar-fixed')
         this.bgColor   && classList.push(this.bgColor)
         this.textColor && classList.push(this.textColor)
