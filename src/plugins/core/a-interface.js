@@ -1,5 +1,6 @@
 import {Behavior} from 'aurelia-templating'
-
+import {Container} from 'aurelia-framework'
+import {Inst} from '../main'
 
 var directions = {
     column:'is-column',
@@ -23,13 +24,17 @@ export class AInterface{
     }
 
     static inject(){
-        return [Element]
+        return [Element, Inst]
     }
 
 
-    constructor(element){
+    constructor(element, inst){
+        this.inst = inst
+
+        console.log(this.inst)
         this.element   = element;
         this.direction = defaults.direction
+
 
     }
 
@@ -60,6 +65,36 @@ export class AInterface{
 
     }
 }
+
+
+
+
+
+// import {Behavior} from 'aurelia-templating'
+// import {Container} from 'aurelia-framework'
+// import {Inst} from './main'
+
+// export class AInterface{
+
+
+//     static metatdata(){
+
+//         return Behavior
+//             .customElement('a-interface')
+//             .withProperty('toolbar')
+//     }
+
+//     static inject(){
+//         return [Element, Container]
+//     }
+
+
+//     constructor(element, container){
+//         this.element   = element;
+//         this.inst = container.get(Inst)
+//     }
+
+// }
 
 
 
