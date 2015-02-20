@@ -10,7 +10,10 @@ export class Components{
 
     activate(params, queryString, config){
 
-        config.toolbar.reset()
+        config.toolbar.configure({ bgColor:['teal', 'accent-4']
+                                 , textColor:'white'
+                                 }
+        , true)
 
     }
 
