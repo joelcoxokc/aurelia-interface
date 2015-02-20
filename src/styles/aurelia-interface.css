@@ -4622,12 +4622,17 @@ template {
   display: -webkit-flex;
   display: flex;
 }
+.ai-bar.bar-ink {
+  box-shadow: 0 !important;
+}
+.ai-bar.bar-paper {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
 .ai-bar.ai-nav-bar {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 64px;
       -ms-flex: 0 0 64px;
           flex: 0 0 64px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   position: relative;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;

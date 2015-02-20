@@ -3,7 +3,7 @@ export class Components{
     constructor(){
 
         this.heading = 'aiComponents ';
-        this.selectedTabRef = 'tab-1'
+        this.selectedTabRef = 'tab-2'
 
     }
 

@@ -20,6 +20,7 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
           _classCallCheck(this, AiCard);
 
           this.element = element;
+          this.heading = this.element.getElementsByClassName("card-heading");
         }
 
         _inherits(AiCard, AiElement);
@@ -27,7 +28,7 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
         _prototypeProperties(AiCard, {
           metadata: {
             value: function metadata() {
-              return Behavior.customElement("ai-card").withProperty("type", "typeChanged");
+              return Behavior.customElement("ai-card").withProperty("heading").withProperty("type", "typeChanged");
             },
             writable: true,
             configurable: true
@@ -42,6 +43,7 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
         }, {
           bind: {
             value: function bind() {
+              this.heading = this.heading[0];
               this.addClass("ai-card");
             },
             writable: true,

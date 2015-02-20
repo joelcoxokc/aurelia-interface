@@ -4,9 +4,14 @@
   position  : relative
   flex-container()
 
+  &.bar-ink
+    box-shadow 0 !important
+
+  &.bar-paper
+    box-shadow      : 0 2px 4px rgba(0,0,0,0.2)
+
   &.ai-nav-bar
     flex            : 0 0 $nav-bar-height
-    box-shadow      : 0 2px 4px rgba(0,0,0,0.2)
     position        : relative
     flex-direction  : row
     background-color: $shades.white
@@ -16,7 +21,6 @@
     min-height: $nav-bar-height
     max-height: auto
     height: auto
-
 
     & > .nav-bar-container
       flex          : 1 0 auto
@@ -175,6 +179,8 @@
             font-size 4em
         .nav-bar-content
           align-self flex-end
+
+
 
 
 .hide-mobile
