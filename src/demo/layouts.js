@@ -1,14 +1,22 @@
 export class Layout{
+
     constructor(){
+
         this.heading = 'aiLayout ';
         this.selectedTabRef = 'tab-1'
+
     }
+
 
     activate(params, queryString, config){
+
         config.toolbar.reset()
+
     }
 
+
     updateTabSliderPosition (tabsInstance, next) {
+
         let slider = tabsInstance.element.querySelector('.ai-tab-slider')
         let sliderWidth = 100 / tabsInstance.tabLinks.length
 
@@ -20,6 +28,6 @@ export class Layout{
         }, 200)
 
         next()
-    }
 
+    }
 }

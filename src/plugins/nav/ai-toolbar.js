@@ -31,7 +31,6 @@ export class AiToolbar extends AiElement{
         this.element  = element
         this.current  = new Toolbar()
 
-        // this.toolbar &&( this.toolbar = this.toolbar )
 
         _.assign(this, this.current);
 

@@ -64,10 +64,6 @@ export class AiAsideNav{
 
     bind(){
         var _this = this;
-        // Object.observe(this.router, function(){
-        //     console.log(_this.router.currentInstruction.config)
-        // })
-
         var classList = ['ai-aside-nav']
         this.fixed     && classList.push(this.pre('aside', 'fixed'))
         this.open      && classList.push(this.pre('aside', 'open'))

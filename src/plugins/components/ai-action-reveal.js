@@ -59,54 +59,9 @@ export class AiActionReveal extends AiElement{
 
     }
 
-
-    // valueChanged(value){
-
-    //     this[value ? 'addClass' : 'removeClass']('reveal')
-
-    // }
-
-
     toggleReveal(event){
         event.preventDefault();
         this.value = !this.value
     }
 
 }
-
-
-
-
-
-/*
-
-
-
-<!--
-
-
- <ai-action-reveal side="right">
-    <div class="primary-action">
-        <ai-btn type="raised" shape="round" icon="mdi-content-add" next-icon="mdi-content-create"></ai-btn>
-    </div>
-    <div class="action-buttons">
-        <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-        <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-        <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-    </div>
-</ai-action-reveal>
-<ai-action-reveal side="left">
-    <div class="primary-action">
-        <ai-btn type="raised" shape="round" icon="mdi-content-add" next-icon="mdi-content-create"></ai-btn>
-    </div>
-    <div class="action-buttons">
-        <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-        <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-        <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-    </div>
-</ai-action-reveal>
-
- -->
-
-
- */

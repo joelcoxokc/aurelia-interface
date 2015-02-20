@@ -2,10 +2,7 @@ import {Router} from 'aurelia-router';
 
 export class ButtonsDemo {
 
-
-
     constructor () {
-
 
         this.heading = 'Buttons Demo';
 
@@ -14,14 +11,20 @@ export class ButtonsDemo {
             {name: 'Second'},
             {name: 'Third'}
         ]
+
     }
 
+
     activate(params, queryString, config){
+
         config.toolbar.reset()
 
     }
 
+
     checkboxChanged (newVal) {
+
         alert(newVal ? 'Checked' : 'Unchecked')
+
     }
 }
