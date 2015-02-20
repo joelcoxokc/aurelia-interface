@@ -2,7 +2,7 @@ import {Behavior} from 'aurelia-templating';
 import {AiElement} from './ai-element';
 
 
-export class AiCard extends{
+export class AiCard extends AiElement{
 
     static metadata(){
 
