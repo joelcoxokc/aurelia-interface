@@ -17,13 +17,15 @@ export class AiElement{
 
 
     addClass(){
-        var args = _.flatten(arguments, true)
+        var args = _(arguments).flatten(true).value()
+
+
         this.element.classList.add.apply(this.element.classList, args)
 
     }
 
     removeClass(){
-        var args = _.flatten(arguments, true)
+        var args = _(arguments).flatten(true).value()
         this.element.classList.remove.apply(this.element.classList, args)
     }
 
@@ -68,7 +70,8 @@ export class AiElement{
         prefix &&( (prev = prefix + prev)
                  , (next = prefix + next)
                  )
-
+        if(next.split(',').length){ next = next.split(',') }
+        console.log(next)
         this.removeClass(prev)
         this.addClass(next)
         context.current[property] = context[property];
