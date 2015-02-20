@@ -12,7 +12,6 @@ System.config({
     "Waves": "github:fians/Waves@0.6.0",
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.9.3",
     "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.4.2",
-    "aurelia-event-router": "github:joelcoxokc/aurelia-event-router@master",
     "aurelia-framework": "github:aurelia/framework@0.8.6",
     "aurelia-http-client": "github:aurelia/http-client@0.4.4",
     "aurelia-router": "github:aurelia/router@0.5.5",
@@ -104,13 +103,6 @@ System.config({
       "aurelia-metadata": "github:aurelia/metadata@0.3.1",
       "aurelia-path": "github:aurelia/path@0.4.3",
       "aurelia-task-queue": "github:aurelia/task-queue@0.2.3",
-      "core-js": "npm:core-js@0.4.10"
-    },
-    "github:joelcoxokc/aurelia-event-router@master": {
-      "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.4.2",
-      "aurelia-history": "github:aurelia/history@0.2.2",
-      "aurelia-path": "github:aurelia/path@0.4.3",
-      "aurelia-route-recognizer": "github:aurelia/route-recognizer@0.2.2",
       "core-js": "npm:core-js@0.4.10"
     },
     "github:jspm/nodelibs-assert@0.1.0": {
