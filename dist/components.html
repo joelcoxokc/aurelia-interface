@@ -10,13 +10,13 @@
         <div ai-tabs="active-tab-ref.two-way: selectedTabRef; show-tab.call: updateTabSliderPosition(tabsInstance);" class="${showMyTab.name}">
           <ul class="ai-nav-tabs">
             <li ai-class.bind="{active: selectedTabRef == 'tab-1'}">
-              <a ai-tab-link href="tab-1">Tab 1</a>
+              <a ai-tab-link href="tab-1">aiCard</a>
             </li>
             <li ai-class.bind="{active: selectedTabRef == 'tab-2'}">
-              <a ai-tab-link href="tab-2">Tab 2</a>
+              <a ai-tab-link href="tab-2">aiModal</a>
             </li>
             <li ai-class.bind="{active: selectedTabRef == 'tab-3'}">
-              <a ai-tab-link href="tab-3">Tab 3</a>
+              <a ai-tab-link href="tab-3">aiAction</a>
             </li>
             <div class="ai-tab-slider"></div>
           </ul>
@@ -30,26 +30,37 @@
                     Tab 2 Content
                   </div>
                   <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-3', active: selectedTabRef == 'tab-3'}" ai-tab="tab-3">
-                    <ai-action-reveal side="right">
-                        <div class="primary-action">
-                            <ai-btn type="raised" shape="round" icon="mdi-content-add" next-icon="mdi-content-create"></ai-btn>
-                        </div>
-                        <div class="action-buttons">
-                            <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-                            <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-                            <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-                        </div>
-                    </ai-action-reveal>
-                    <ai-action-reveal side="left">
-                        <div class="primary-action">
-                            <ai-btn type="raised" shape="round" icon="mdi-content-add" next-icon="mdi-content-create"></ai-btn>
-                        </div>
-                        <div class="action-buttons">
-                            <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-                            <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-                            <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-                        </div>
-                    </ai-action-reveal>
+
+                    <div class=row>
+                      <div class='flex md6'>
+
+                        <ai-action-reveal side="left">
+                            <div class="primary-action">
+                                <ai-btn type="raised" shape="round" icon="mdi-content-add" next-icon="mdi-content-create"></ai-btn>
+                            </div>
+                            <div class="action-buttons">
+                                <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
+                                <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
+                                <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
+                            </div>
+                        </ai-action-reveal>
+
+                      </div>
+                      <div class='flex md6'>
+
+                        <ai-action-reveal side="right">
+                            <div class="primary-action">
+                                <ai-btn type="raised" shape="round" icon="mdi-content-add" next-icon="mdi-content-create"></ai-btn>
+                            </div>
+                            <div class="action-buttons">
+                                <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
+                                <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
+                                <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
+                            </div>
+                        </ai-action-reveal>
+
+                      </div>
+                    </div>
                   </div>
                 </div>
             </div>

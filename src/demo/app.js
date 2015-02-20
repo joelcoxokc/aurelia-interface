@@ -13,7 +13,7 @@ export class App {
         { route: 'buttons-demo' ,  moduleId: 'buttons-demo', title: 'ai-Btn', nav: true, toolbar:{size:'sm', bgColor:'bg-white', textColor:'text-purple'} },
         { route: 'tabs-demo'    ,  moduleId: 'tabs-demo'   , title: 'ai-Tabs', nav: true , toolbar:{size:'sm',bgColor:'bg-white', textColor:'text-purple'}},
         { route: 'components'   ,  moduleId: 'components'  , title: 'ai-Components', nav: true , toolbar:{size:'sm',bgColor:['bg-teal', 'accent-4'], textColor:'text-white'}},
-        { route: 'layouts'      ,  moduleId: 'layouts'     , title: 'ai-Layouts'   , nav: true , toolbar:{size:'sm',bgColor:'bg-white', textColor:'text-purple'}},
+        { route: 'layouts'      ,  moduleId: 'layouts'     , title: 'ai-Layouts'   , nav: true , toolbar:{size:'sm',bgColor:'bg-indigo', textColor:'text-white'}},
       ]);
     });
 

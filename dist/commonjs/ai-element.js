@@ -29,14 +29,16 @@ System.register(["aurelia-templating"], function (_export) {
         }, {
           addClass: {
             value: function addClass() {
-              this.element.classList.add.apply(this.element.classList, arguments);
+              var args = _.flatten(arguments, true);
+              this.element.classList.add.apply(this.element.classList, args);
             },
             writable: true,
             configurable: true
           },
           removeClass: {
             value: function removeClass() {
-              this.element.classList.remove.apply(this.element.classList, arguments);
+              var args = _.flatten(arguments, true);
+              this.element.classList.remove.apply(this.element.classList, args);
             },
             writable: true,
             configurable: true

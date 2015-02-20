@@ -1,12 +1,16 @@
-System.register(["aurelia-templating"], function (_export) {
+System.register(["aurelia-templating", "./ai-element"], function (_export) {
   "use strict";
 
-  var Behavior, _prototypeProperties, _classCallCheck, defaults, AiToolbar;
+  var Behavior, AiElement, _inherits, _prototypeProperties, _classCallCheck, defaults, AiToolbar, ToolbarContainer;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
+    }, function (_aiElement) {
+      AiElement = _aiElement.AiElement;
     }],
     execute: function () {
+      _inherits = function (subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
+
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
@@ -55,15 +59,18 @@ System.register(["aurelia-templating"], function (_export) {
             value: function bind() {
               var classList = ["ai-toolbar"];
               var _this = this;
-              this.container = this.element.firstElementChild;
+              this.container = new ToolbarContainer(this.element.firstElementChild);
 
-              this.container.classList.add("bg-" + this.bgColor, "text-" + this.textColor);
+              console.log(this.container);
 
-              this.fixed && classList.push(this.pre("toolbar", "fixed"));
-              this.bgColor && classList.push(this.pre("bg", this.bgColor));
-              this.textColor && classList.push(this.pre("text", this.textColor));
-              this.size && classList.push(this.pre("toolbar", this.size));
+              this.fixed && classList.push("toolbar-fixed");
+              this.bgColor && classList.push(this.bgColor);
+              this.textColor && classList.push(this.textColor);
+              this.size && classList.push("toolbar-" + this.size);
+              this.container.addClass(this.bgColor, this.textColor);
+
               this.addClass(classList);
+
               Object.observe(this.router, function () {
                 _this.size = _this.router.currentInstruction.config.toolbar.size || defaults.size;
                 _this.bgColor = _this.router.currentInstruction.config.toolbar.bgColor || defaults.bgColor;
@@ -78,8 +85,8 @@ System.register(["aurelia-templating"], function (_export) {
               if (value === this.current.bgColor) {
                 return;
               }
-              this.container.classList.remove("bg-" + this.current.bgColor);
-              this.container.classList.add("bg-" + this.bgColor);
+              this.container.removeClass(this.current.bgColor);
+              this.container.addClass(this.bgColor);
               this.current.bgColor = value;
             },
             writable: true,
@@ -90,8 +97,8 @@ System.register(["aurelia-templating"], function (_export) {
               if (value === this.current.textColor) {
                 return;
               }
-              this.container.classList.remove("text-" + this.current.textColor);
-              this.container.classList.add("text-" + this.textColor);
+              this.container.removeClass(this.current.textColor);
+              this.container.addClass(this.textColor);
               this.current.textColor = value;
             },
             writable: true,
@@ -102,16 +109,17 @@ System.register(["aurelia-templating"], function (_export) {
               if (value === this.current.size) {
                 return;
               }
-              this.element.classList.remove("toolbar-" + this.current.size);
-              this.element.classList.add("toolbar-" + value);
+              this.removeClass("toolbar-" + this.current.size);
+              this.addClass("toolbar-" + value);
               this.current.size = value;
             },
             writable: true,
             configurable: true
           },
           addClass: {
-            value: function addClass(array) {
-              var args = Array.isArray(array) ? array : arguments;
+            value: function addClass() {
+              var args = _.flatten(arguments, true);
+              console.log(args);
               this.element.classList.add.apply(this.element.classList, args);
             },
             writable: true,
@@ -129,6 +137,17 @@ System.register(["aurelia-templating"], function (_export) {
 
         return AiToolbar;
       })());
+      ToolbarContainer = (function (AiElement) {
+        function ToolbarContainer(element) {
+          _classCallCheck(this, ToolbarContainer);
+
+          this.element = element;
+        }
+
+        _inherits(ToolbarContainer, AiElement);
+
+        return ToolbarContainer;
+      })(AiElement);
     }
   };
 });

@@ -1,7 +1,7 @@
 export class Components{
   constructor(){
     this.heading = 'aiComponents ';
-
+    this.selectedTabRef = 'tab-2'
   }
   updateTabSliderPosition (tabsInstance, next) {
     let slider = tabsInstance.element.querySelector('.ai-tab-slider')
