@@ -19,9 +19,12 @@ System.register(["aurelia-templating"], function (_export) {
         direction: "row"
       };
       AInterface = _export("AInterface", (function () {
-        function AInterface(element) {
+        function AInterface(element, container) {
           _classCallCheck(this, AInterface);
 
+          this.container = container;
+
+          console.log(this.container);
           this.element = element;
           this.direction = defaults.direction;
         }
@@ -36,7 +39,7 @@ System.register(["aurelia-templating"], function (_export) {
           },
           inject: {
             value: function inject() {
-              return [Element];
+              return [Element, Container];
             },
             writable: true,
             configurable: true
