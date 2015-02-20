@@ -17,14 +17,14 @@ export class AiElement{
 
 
     addClass(){
-
-        this.element.classList.add.apply(this.element.classList, arguments)
+        var args = _.flatten(arguments, true)
+        this.element.classList.add.apply(this.element.classList, args)
 
     }
 
     removeClass(){
-
-        this.element.classList.remove.apply(this.element.classList, arguments)
+        var args = _.flatten(arguments, true)
+        this.element.classList.remove.apply(this.element.classList, args)
     }
 
     addEvent(evt, callback){

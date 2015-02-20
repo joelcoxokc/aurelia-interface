@@ -1,4 +1,5 @@
 import {Behavior} from 'aurelia-templating'
+import {AiElement} from './ai-element'
 
 var defaults =  { size : 'sm'
                 , fixed: true
@@ -42,15 +43,18 @@ export class AiToolbar{
     bind(){
         var classList = ['ai-toolbar']
         var _this = this;
-        this.container = this.element.firstElementChild;
+        this.container = new ToolbarContainer(this.element.firstElementChild)
 
-        this.container.classList.add(`bg-${this.bgColor}`, `text-${this.textColor}`)
+        console.log(this.container)
 
-        this.fixed     && classList.push(this.pre('toolbar', 'fixed'))
-        this.bgColor   && classList.push(this.pre('bg', this.bgColor))
-        this.textColor && classList.push(this.pre('text', this.textColor))
-        this.size      && classList.push(this.pre('toolbar', this.size))
+        this.fixed     && classList.push('toolbar-fixed')
+        this.bgColor   && classList.push(this.bgColor)
+        this.textColor && classList.push(this.textColor)
+        this.size      && classList.push(`toolbar-${this.size}`)
+        this.container.addClass(this.bgColor, this.textColor)
+
         this.addClass(classList);
+
         Object.observe(this.router, function(){
             _this.size = _this.router.currentInstruction.config.toolbar.size           || defaults.size
             _this.bgColor = _this.router.currentInstruction.config.toolbar.bgColor     || defaults.bgColor
@@ -65,8 +69,8 @@ export class AiToolbar{
     bgChanged(value){
 
         if(value === this.current.bgColor){ return }
-        this.container.classList.remove(`bg-${this.current.bgColor}`)
-        this.container.classList.add(`bg-${this.bgColor}`)
+        this.container.removeClass(this.current.bgColor)
+        this.container.addClass(this.bgColor)
         this.current.bgColor = value;
 
     }
@@ -74,8 +78,8 @@ export class AiToolbar{
     textChanged(value){
 
         if(value === this.current.textColor){ return }
-        this.container.classList.remove(`text-${this.current.textColor}`)
-        this.container.classList.add(`text-${this.textColor}`)
+        this.container.removeClass(this.current.textColor)
+        this.container.addClass(this.textColor)
         this.current.textColor = value;
 
     }
@@ -83,19 +87,28 @@ export class AiToolbar{
     sizeChanged(value){
 
         if(value === this.current.size){ return }
-        this.element.classList.remove(`toolbar-${this.current.size}`)
-        this.element.classList.add(`toolbar-${value}`)
+        this.removeClass(`toolbar-${this.current.size}`)
+        this.addClass(`toolbar-${value}`)
         this.current.size = value;
 
     }
 
-    addClass(array){
-        var args = Array.isArray(array) ? array : arguments;
+    addClass(){
+        var args = _.flatten(arguments, true)
+        console.log(args)
         this.element.classList.add.apply(this.element.classList, args)
     }
 
     removeClass(array){
         var args = Array.isArray(array) ? array : arguments;
         this.element.classList.removeClass.apply(this.element.classList, args)
+    }
+}
+
+
+class ToolbarContainer extends AiElement{
+
+    constructor(element){
+        this.element = element;
     }
 }

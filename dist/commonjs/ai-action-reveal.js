@@ -17,7 +17,7 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
 
       defaults = {
         side: top,
-        reveal: false
+        value: false
       };
       AiActionReveal = _export("AiActionReveal", (function (AiElement) {
         function AiActionReveal(element) {
@@ -26,11 +26,10 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
 
           this.element = element;
           this.current = defaults;
-
           _.assign(this, this.current);
 
           this.handle = function () {
-            _this.reveal = !_this.reveal;
+            _this.value = !_this.value;
           };
         }
 
@@ -39,7 +38,7 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
         _prototypeProperties(AiActionReveal, {
           metadata: {
             value: function metadata() {
-              return Behavior.customElement("ai-action-reveal").withProperty("reveal", "onReveal").withProperty("side", "sideChanged");
+              return Behavior.customElement("ai-action-reveal").withProperty("value", "valueChanged").withProperty("side", "sideChanged");
             },
             writable: true,
             configurable: true
@@ -52,13 +51,6 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
             configurable: true
           }
         }, {
-          getViewStrategy: {
-            value: function getViewStrategy(strategy) {
-              console.log(strategy);
-            },
-            writable: true,
-            configurable: true
-          },
           bind: {
             value: function bind() {
               this.addClass("ai-action-reveal", "reveal-" + this.side);
@@ -84,17 +76,10 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
             writable: true,
             configurable: true
           },
-          onReveal: {
-            value: function onReveal(value) {
-              this[value ? "addClass" : "removeClass"]("reveal");
-            },
-            writable: true,
-            configurable: true
-          },
           toggleReveal: {
             value: function toggleReveal(event) {
               event.preventDefault();
-              this.reveal = !this.reveal;
+              this.value = !this.value;
             },
             writable: true,
             configurable: true
