@@ -26,6 +26,7 @@ System.register(["aurelia-templating", "./notify"], function (_export) {
           this.notify = notify;
           this.defaults = defaults;
           _.assign(this, this.defaults);
+          return this;
         }
 
         _prototypeProperties(Toolbar, {
@@ -37,10 +38,20 @@ System.register(["aurelia-templating", "./notify"], function (_export) {
             configurable: true
           }
         }, {
+          init: {
+            value: function init(options) {
+              this.reset();
+              _.assign(this, options);
+              return this;
+            },
+            writable: true,
+            configurable: true
+          },
           configure: {
             value: function configure(options, reset) {
               reset && this.reset();
               _.assign(this, options);
+              return this;
             },
             writable: true,
             configurable: true

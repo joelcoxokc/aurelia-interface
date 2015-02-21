@@ -1,10 +1,14 @@
-System.register(["aurelia-templating"], function (_export) {
+System.register(["aurelia-templating", "aurelia-framework", "../main"], function (_export) {
   "use strict";
 
-  var Behavior, _prototypeProperties, _classCallCheck, directions, defaults, AInterface;
+  var Behavior, Container, Inst, _prototypeProperties, _classCallCheck, directions, defaults, AInterface;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
+    }, function (_aureliaFramework) {
+      Container = _aureliaFramework.Container;
+    }, function (_main) {
+      Inst = _main.Inst;
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
@@ -19,11 +23,15 @@ System.register(["aurelia-templating"], function (_export) {
         direction: "row"
       };
       AInterface = _export("AInterface", (function () {
-        function AInterface(element) {
+        function AInterface(element, inst) {
           _classCallCheck(this, AInterface);
 
+          this.inst = inst;
+
+          console.log(this.inst);
           this.element = element;
           this.direction = defaults.direction;
+
         }
 
         _prototypeProperties(AInterface, {
@@ -36,7 +44,7 @@ System.register(["aurelia-templating"], function (_export) {
           },
           inject: {
             value: function inject() {
-              return [Element];
+              return [Element, Inst];
             },
             writable: true,
             configurable: true
