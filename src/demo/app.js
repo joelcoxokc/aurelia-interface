@@ -1,27 +1,32 @@
 import {Router} from 'aurelia-router';
 import {Toolbar} from './system/toolbar'
-
+import {Aside} from './system/aside'
 
 export class App {
-  static inject() { return [Router, Toolbar]; }
-  constructor(router, toolbar) {
+  static inject() { return [Router, Toolbar, Aside]; }
+  constructor(router, toolbar, aside) {
 
-    this.toolbar = toolbar
-    this.toolbar.configure({
-      size: 'sm',
-      bgColor:'bg-white',
-      textColor:'text-purple'
-    })
-    this.aside = {
-      open:false,
-      side:'left',
-      size:'md'
-    }
+    this.aside   = aside.init({ open:false
+                              , side:'left'
+                              , size:'md' });
+
+    this.toolbar = toolbar.init({ size     : 'sm'
+                                , bgColor  : 'bg-white'
+                                , textColor: 'text-purple' });
+
+    // this.toolbar.configure({
+    //   size: 'sm',
+    //   bgColor:'bg-white',
+    //   textColor:'text-purple'
+    // })
+
+
+    console.log(this.toolbar)
+
 
     this.interface = {
       direction: 'row',
     }
-
 
     this.router = router;
     this.router.title = "Aurelia-Interface"
@@ -35,8 +40,5 @@ export class App {
         { route: 'layouts'      ,  moduleId: 'layouts-demo'     , title: 'ai-Layouts'   , nav: true , toolbar:this.toolbar},
       ]);
     });
-
-
-
   }
 }

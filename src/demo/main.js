@@ -1,5 +1,8 @@
 import {LogManager} from 'aurelia-framework';
 import {ConsoleAppender} from 'aurelia-logging-console';
+import {Aside} from './system/aside'
+
+
 
 LogManager.addAppender(new ConsoleAppender());
 LogManager.setLevel(LogManager.levels.debug);
@@ -18,7 +21,7 @@ export function configure(aurelia) {
     aurelia.start()
     .then(function(framework) {
         console.log('Main', framework)
-        framework.container.registerInstance(Inst, new Inst())
+        framework.container.registerInstance(Aside, new Aside())
         // return
         return framework.setRoot('app', document.body)
     });

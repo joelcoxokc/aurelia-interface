@@ -9,7 +9,7 @@ export class Welcome{
     }
 
     constructor(eventAggregator){
-        this.events = eventAggregator
+        this.events = eventAggregator1
         this.heading = 'Aurelia Interface ';
     }
 

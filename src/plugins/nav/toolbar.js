@@ -19,13 +19,20 @@ export class Toolbar{
         this.notify = notify
         this.defaults = defaults;
         _.assign(this, this.defaults)
+        return this
+    }
+
+    init(options){
+        this.reset()
+        _.assign(this, options)
+        return this
     }
 
     configure(options, reset){
 
         reset &&( this.reset() )
         _.assign(this, options)
-
+        return this
     }
 
     reset(options){
