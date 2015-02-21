@@ -1,4 +1,5 @@
 import {Behavior} from 'aurelia-templating'
+// import {EventAggregator} from 'aurelia-event-aggregator';
 import {EventAggregator} from 'aurelia-framework'
 
 var defaults =  { size : 'sm'

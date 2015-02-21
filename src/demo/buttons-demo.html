@@ -10,27 +10,26 @@
               <div class="card-content">
                 <h2 class="card-heading">Ai Actions</h2>
                 <!-- <ai-action type="floating" shape="round"></ai-action> -->
-                <a
-                  class="waves-effect waves-light btn btn-primary"
-                  ai-btn-toggle.call="checkboxChanged(newVal)"
-                >Toggle Callback</a>
+               <button class="ai-btn waves-effect waves-light">delault</button>
               </div>
           </div>
 
           <div class="ai-card card ai-card">
               <div class="card-content">
                 <h2 class="card-heading">Button Toggle/Checkbox</h2>
-                <a
-                  class="waves-effect waves-light btn btn-primary"
-                  ai-class.bind="{active: checkboxIsChecked}"
-                  ai-btn-toggle.bind="checkboxIsChecked"
-                >
-                  Toggle Property - ${checkboxIsChecked ? 'Checked' : 'Unchecked'}
-                </a>
-                <a
-                  class="waves-effect waves-light btn btn-primary"
-                  ai-btn-toggle.call="checkboxChanged(newVal)"
-                >Toggle Callback</a>
+                <span>
+                  <buttton
+                    class="waves-effect waves-light ai-btn "
+                    ai-class.bind="{active: checkboxIsChecked}"
+                    ai-btn-toggle.bind="checkboxIsChecked"
+                  >
+                    Toggle Property - ${checkboxIsChecked ? 'Checked' : 'Unchecked'}
+                  </buttton>
+                  <button
+                    class="waves-effect waves-light ai-btn"
+                    ai-btn-toggle.call="checkboxChanged(newVal)"
+                  >Toggle Callback</button>
+                </span>
               </div>
           </div>
 
@@ -39,35 +38,35 @@
               <h2 class="card-heading">Radio Buttons</h2>
               <p>Hard Coded Options - ${radioValue}</p>
               <span ai-btn-radio.bind="radioValue">
-                <a
-                  class="waves-effect waves-light btn btn-primary"
+                <button
+                  class="waves-effect waves-light ai-btn btn-primary"
                   ai-class.bind="{active: radioValue == 'Left'}"
                   ai-btn-radio-option
                   value.bind="'Left'"
-                  >Left</a>
-                <a
-                  class="waves-effect waves-light btn btn-primary"
+                  >Left</button>
+                <button
+                  class="waves-effect waves-light ai-btn btn-primary"
                   ai-class.bind="{active: radioValue == 'Middle'}"
                   ai-btn-radio-option
                   value.bind="'Middle'"
-                  >Middle</a>
-                <a
-                  class="waves-effect waves-light btn btn-primary"
+                  >Middle</button>
+                <button
+                  class="waves-effect waves-light ai-btn btn-primary"
                   ai-class.bind="{active: radioValue == 'Right'}"
                   ai-btn-radio-option
                   value.bind="'Right'"
-                  >Right</a>
+                  >Right</button>
               </span>
               <p> Bound to Models - ${radioValue2.name}</p>
               <div>
                 <span class="btn-group" ai-btn-radio.bind="radioValue2">
-                  <a
+                  <button
                     repeat.for="option of radioOptions"
-                    class="waves-effect waves-light btn btn-primary"
+                    class="waves-effect waves-light ai-btn btn-primary"
                     ai-class.bind="{active: $parent.radioValue2 == option}"
                     ai-btn-radio-option
                     value.bind="option"
-                    >${option.name}</a>
+                    >${option.name}</button>
                 </span>
               </div>
             </div>
