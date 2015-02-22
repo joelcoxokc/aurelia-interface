@@ -1,4 +1,4 @@
-![enter image description here](https://github.com/joelcoxokc/aurelia-interface/blob/master/templogo.png)
+![enter image description here](http://i.imgur.com/UjnkYkj.png)
 
 # aurelia-interface
 
