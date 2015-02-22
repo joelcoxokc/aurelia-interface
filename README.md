@@ -1,4 +1,4 @@
-![enter image description here](http://i.imgur.com/UjnkYkj.png)
+![enter image description here](http://i.imgur.com/YfdTCGf.png)
 
 # aurelia-interface
 
