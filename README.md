@@ -4,30 +4,23 @@
 
 [![Join the chat at https://gitter.im/joelcoxokc/aurelia-interface](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/joelcoxokc/aurelia-interface?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-UI Library for [Aurelia](http://www.aurelia.io/) platform.
+A Google Material Design based UI Library for the [Aurelia](http://www.aurelia.io/) platform.
 
 
 > To keep up to date on [Aurelia](http://www.aurelia.io/), please visit and subscribe to [the official blog](http://blog.durandal.io/). If you have questions, we invite you to join us on [our Gitter Channel](https://gitter.im/aurelia/discuss).
 
 
-##CONTRIBUTERS
+## Contribution
 
-**Plugins** are found in the `./plugins` directory.
+**Plugins** are found in [./__plugins](/__plugins).
 
-**Demo Application** found in the `./src` directory
+**Demo Application** is found in [./src](/src).
 
-**Stylus && CSS** found in the `./styles` directory
+**HTML** We are using HTML for our views, however, you are able to use jade(Though we still recommend using HTML)
 
+**Flex-Box** We are using Flex-Box to build this library.
 
-**HTML** We are using HTML for our views, However, You are able to use jade
-**NOTE** We Recommend the usage of HTML over Jade.
-
-**Flex-Box**We are using Flex-Box to build this Library.
-
-**Components**We are implementing any possible component from a multitude of other Frameworks & Libraries.
-
-Please Contact me via Email before beginning work on a plugin, as many are already building some plugins.
-
+**Components** We are implementing a multitude of components from other Frameworks & Libraries.
 
 
 ### TODO
