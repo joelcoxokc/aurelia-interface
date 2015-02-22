@@ -19,7 +19,7 @@ export class ButtonsDemo {
     activate(params, queryString, config){
 
         config.toolbar.configure(
-                { bgColor:'bg-white' , textColor:'text-purple'}
+                { bgColor:'bg-grey darken-4', textColor:'text-white'}
         , true)
 
     }

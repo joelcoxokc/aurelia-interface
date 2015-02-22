@@ -13,6 +13,7 @@ export function configure(aurelia) {
     .defaultResources()
     .router()
     .eventAggregator()
+    .plugin('./resources/index');
   System.normalize("./dist/system/index").then(function (name) {
     System.map["aurelia-interface"] = name;
 

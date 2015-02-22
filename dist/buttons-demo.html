@@ -8,7 +8,7 @@
 
 
         <div ai-tabs="active-tab-ref.two-way: selectedTabRef; show-tab.call: updateTabSliderPosition(tabsInstance);" class="${showMyTab.name}">
-          <ul class="ai-nav-tabs">
+          <ul class="ai-nav-tabs bg-grey darken-3">
             <li ai-class.bind="{active: selectedTabRef == 'tab-1'}">
               <a ai-tab-link href="tab-1">aiBtn</a>
             </li>
@@ -25,20 +25,32 @@
 
             <section class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-1', active: selectedTabRef == 'tab-1'}" ai-tab="tab-1">
               <div class="section">
-                <div class="flex md6 offset-md3">
+                <div class="flex md8 offset-md2">
 
 
                   <ai-card>
 
 
-                    <h2 class="card-heading">Ai Actions</h2>
+                    <h2 class="card-heading">AiBtn</h2>
                     <div class="card-body">
-                      <button class="ai-btn waves-effect waves-light">delault</button>
-                      <button class="ai-btn waves-effect waves-light btn-primary">primary</button>
-                      <button class="ai-btn waves-effect waves-light btn-success">success</button>
-                      <button class="ai-btn waves-effect waves-light btn-warning">warning</button>
-                      <button class="ai-btn waves-effect waves-light btn-danger">danger</button>
-                      <button class="ai-btn waves-effect waves-light btn-invert">invert</button>
+
+                    <div class="row">
+                        <div class="flex md12">
+                          <ai-btn waves=dark>default</ai-btn>
+                          <ai-btn waves=light color="info">info</ai-btn>
+                          <ai-btn waves=light color="primary">primary</ai-btn>
+                          <ai-btn waves=light color="success">success</ai-btn>
+                          <ai-btn waves=light color="warning">warning</ai-btn>
+                          <ai-btn waves=light color="danger">danger</ai-btn>
+                          <ai-btn waves=light color="invert">invert</ai-btn>
+
+                        </div>
+                    </div>
+                    <example base="../dist/examples/ai-btn">
+                      <column size="md6">
+                        <file src="view.html" view="true"></file>
+                      </column>
+                    </example>
                     </div>
 
 
@@ -46,43 +58,26 @@
 
                   <ai-card>
 
-                    <h2 class="card-heading">Card Heading</h2>
-                    <div class="card-body"><p>This card has a heading component</p></div>
+                    <h2 class="card-heading">aiBtn attachedProperty( <strong>size</strong> )</h2>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="flex md12">
+                              <ai-btn waves=light size="sm" color="primary">small</ai-btn>
+                              <ai-btn waves=light size="md" color="primary">medium</ai-btn>
+                              <ai-btn waves=light size="lg" color="primary">large</ai-btn>
+                              <ai-btn waves=light size="xl" color="primary">Extra large</ai-btn>
+                            </div>
+                        </div>
+                        <example base="../dist/examples/ai-btn">
+                          <column size="md6">
+                            <file src="size.html" view="true"></file>
+                          </column>
+                        </example>
+                    </div>
 
 
                   </ai-card>
 
-                  <ai-card>
-
-                    <h2 class="card-heading">Card Heading</h2>
-                    <div class="card-body"><p>This card has a heading & footer component.</p></div>
-                    <div class="card-footer"><p class="card-footer-text">card-footer component</p></div>
-
-
-                  </ai-card>
-
-                  <ai-card>
-                    <nav class="ai-bar ai-nav-bar bar-ink bar-xs bg-teal accent-4 text-white">
-                      <div class="nav-bar-container">
-                        <ul class="nav-actions">
-                          <li>
-                            <a class="text-white"><i class="fa fa-bars"></i></a>
-                          </li>
-                        </ul>
-                        <ul class="nav-actions nav-actions-right">
-                          <li>
-                            <a class="text-white"><i class="fa fa-bell-o"></i></a>
-                            <a class="text-white"><i class="fa fa-pencil"></i></a>
-                            <a class="text-white"><i class="fa fa-ellipsis-v"></i></a>
-                          </li>
-                        </ul>
-                      </div>
-                    </nav>
-                    <h2 class="card-heading">More Components</h2>
-                    <div class="card-body"><p>The ai-card is packed with different components and features</p></div>
-                    <footer class="card-footer"><p class="card-footer-text">I am the card-footer</p></footer>
-
-                  </ai-card>
 
 
                 </div>

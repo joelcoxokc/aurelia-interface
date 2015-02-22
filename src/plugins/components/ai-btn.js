@@ -1,6 +1,7 @@
 import {Behavior}  from 'aurelia-templating'
 import {AiElement} from './ai-element'
 
+var properties = ['color', 'shape', 'type', 'size']
 
 export class AiBtn extends AiElement{
 
@@ -8,10 +9,12 @@ export class AiBtn extends AiElement{
 
         return Behavior
             .customElement('ai-btn')
-            .withProperty('shape', 'shapeChanged')
-            .withProperty('type', 'typeChanged')
-            .withProperty('icon', 'iconChanged')
-            .withProperty('size', 'sizeChanged')
+            .withProperty('color')
+            .withProperty('shape')
+            .withProperty('type')
+            .withProperty('icon')
+            .withProperty('size')
+            .withProperty('waves')
             .withProperty('nextIcon', 'nextIconChanged', 'next-icon')
 
     }
@@ -28,7 +31,12 @@ export class AiBtn extends AiElement{
     }
 
     bind(){
-        this.addClass('ai-btn', 'btn', `btn-${this.type}`,`btn-${this.shape}`, `btn-${this.size}`)
+        var classList = ['ai-btn']
+        _.each(properties, (item)=>{
+            this[item] && classList.push(`btn-${this[item]}`)
+        })
+        this.waves && classList.push('waves-effect', `waves-${this.waves}`)
+        this.addClass.apply(this, classList)
         this.icon &&( this.useIcon(this.icon) )
     }
 

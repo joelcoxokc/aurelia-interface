@@ -42,3 +42,37 @@
     margin: 100px;
     font-weight: 100;
 }
+
+
+
+.markdown-body h1 .anchor,
+.markdown-body h2 .anchor,
+.markdown-body h3 .anchor,
+.markdown-body h4 .anchor,
+.markdown-body h5 .anchor,
+.markdown-body h6 .anchor {
+    display: none;
+}
+
+.markdown-body h1:hover .anchor,
+.markdown-body h2:hover .anchor,
+.markdown-body h3:hover .anchor,
+.markdown-body h4:hover .anchor,
+.markdown-body h5:hover .anchor,
+.markdown-body h6:hover .anchor {
+    padding-left: 8px;
+    margin-left: -30px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.markdown-body h1 .anchor .glyphicon-link,
+.markdown-body h2 .anchor .glyphicon-link,
+.markdown-body h3 .anchor .glyphicon-link,
+.markdown-body h4 .anchor .glyphicon-link,
+.markdown-body h5 .anchor .glyphicon-link,
+.markdown-body h6 .anchor .glyphicon-link {
+    font-size: 16px;
+    color: #000;
+    width: 22px;
+}

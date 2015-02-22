@@ -8,14 +8,13 @@ a.ai-btn,
     flex-container()
     padding        : 0 2rem
     float          : left
-    margin: 0
+    margin         : 20px 20px 0 0
     outline        : none
     border         : none
     text-align     : center
     align-items    : center
     justify-content: center
-    margin-right   : 20px
-    align-self     : flex-start
+    // align-self     : flex-start
     box-shadow     : $btn-box-shadow
     border-radius  : $btn-border-radius
     line-height    : $btn-line-height
@@ -37,14 +36,16 @@ a.ai-btn,
 
 
     &.btn-sm
-        height: 40px
-        width: 40px
+        padding    : 0 1.6rem
+        line-height: 24px
     &.btn-md
-        height: 64px
-        width: 64px
+        line-height: 38px
     &.btn-lg
-        height: 80px
-        width: 80px
+        padding    : 0 3rem
+        line-height: 64px
+    &.btn-xl
+        padding    : 0 4rem
+        line-height: 80px
 
     &.btn-flat
         box-shadow: 0
