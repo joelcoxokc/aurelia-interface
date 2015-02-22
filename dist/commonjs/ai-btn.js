@@ -1,7 +1,7 @@
 System.register(["aurelia-templating", "./ai-element"], function (_export) {
   "use strict";
 
-  var Behavior, AiElement, _prototypeProperties, _inherits, _classCallCheck, AiBtn;
+  var Behavior, AiElement, _prototypeProperties, _inherits, _classCallCheck, properties, AiBtn;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
@@ -15,6 +15,7 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
+      properties = ["color", "shape", "type", "size"];
       AiBtn = _export("AiBtn", (function (AiElement) {
         function AiBtn(element) {
           _classCallCheck(this, AiBtn);
@@ -27,7 +28,7 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
         _prototypeProperties(AiBtn, {
           metadata: {
             value: function metadata() {
-              return Behavior.customElement("ai-btn").withProperty("shape", "shapeChanged").withProperty("type", "typeChanged").withProperty("icon", "iconChanged").withProperty("size", "sizeChanged").withProperty("nextIcon", "nextIconChanged", "next-icon");
+              return Behavior.customElement("ai-btn").withProperty("color").withProperty("shape").withProperty("type").withProperty("icon").withProperty("size").withProperty("waves").withProperty("nextIcon", "nextIconChanged", "next-icon");
             },
             writable: true,
             configurable: true
@@ -42,7 +43,13 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
         }, {
           bind: {
             value: function bind() {
-              this.addClass("ai-btn", "btn", "btn-" + this.type, "btn-" + this.shape, "btn-" + this.size);
+              var _this = this;
+              var classList = ["ai-btn"];
+              _.each(properties, function (item) {
+                _this[item] && classList.push("btn-" + _this[item]);
+              });
+              this.waves && classList.push("waves-effect", "waves-" + this.waves);
+              this.addClass.apply(this, classList);
               this.icon && this.useIcon(this.icon);
             },
             writable: true,
