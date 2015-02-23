@@ -3805,13 +3805,13 @@
   background-color: #000;
 }
 .text-black {
-  color: #000;
+  color: #000 !important;
 }
 .bg-white {
   background-color: #fff;
 }
 .text-white {
-  color: #fff;
+  color: #fff !important;
 }
 .no-select {
   -webkit-touch-callout: none;
