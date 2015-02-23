@@ -1,17 +1,31 @@
+import {Router} from 'aurelia-router';
+import {Navigation} from './resources/navigation-container'
+
 export class Components{
 
-    constructor(){
+    static inject() { return [Navigation]; }
 
+    constructor(navigation){
         this.heading = 'aiComponents ';
-        this.selectedTabRef = 'tab-2'
-
+        this.navigation = navigation;
+        this.selectedTabRef = 'ai-btn'
+        this.components = {
+            'aibtn': {
+                name: 'ai-btn',
+                sections:[ { name:'default', useTitle:true, tag: 'Element', codes: ['default'], body:true}
+                         ]
+            }
+        }
     }
 
 
     activate(params, queryString, config){
+        console.log(config.children[0].config.moduleId)
+        this.childNavs = config.children
+        console.log(this.selectedTabRef)
 
-        config.toolbar.configure(
-            { bgColor:'bg-teal accent-4', textColor:'text-white'}, true)
+         config.toolbar.configure(
+                { bgColor:'bg-grey darken-4', textColor:'text-white'}, true)
 
     }
 

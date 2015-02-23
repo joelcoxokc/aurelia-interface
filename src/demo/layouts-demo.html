@@ -9,52 +9,72 @@
 
         <div ai-tabs="active-tab-ref.two-way: selectedTabRef; show-tab.call: updateTabSliderPosition(tabsInstance);" class="${showMyTab.name}">
           <ul class="ai-nav-tabs bg-indigo text-white">
-            <li ai-class.bind="{active: selectedTabRef == 'tab-1'}">
-              <a ai-tab-link href="tab-1">a-interface</a>
+            <li ai-class.bind="{active: selectedTabRef == 'a-interface'}">
+              <a ai-tab-link href="a-interface">a-interface</a>
             </li>
-            <li ai-class.bind="{active: selectedTabRef == 'tab-2'}">
-              <a ai-tab-link href="tab-2">aiBody</a>
+            <li ai-class.bind="{active: selectedTabRef == 'ai-body'}">
+              <a ai-tab-link href="ai-body">aiBody</a>
             </li>
-            <li ai-class.bind="{active: selectedTabRef == 'tab-3'}">
-              <a ai-tab-link href="tab-3">aiHeader</a>
+            <li ai-class.bind="{active: selectedTabRef == 'ai-header'}">
+              <a ai-tab-link href="ai-header">aiHeader</a>
             </li>
-            <li ai-class.bind="{active: selectedTabRef == 'tab-4'}">
-              <a ai-tab-link href="tab-4">aiAside</a>
+            <li ai-class.bind="{active: selectedTabRef == 'ai-aside'}">
+              <a ai-tab-link href="ai-aside">aiAside</a>
             </li>
-            <li ai-class.bind="{active: selectedTabRef == 'tab-5'}">
-              <a ai-tab-link href="tab-5">aiFooter</a>
+            <li ai-class.bind="{active: selectedTabRef == 'ai-footer'}">
+              <a ai-tab-link href="ai-footer">aiFooter</a>
             </li>
-            <li ai-class.bind="{active: selectedTabRef == 'tab-6'}">
-              <a ai-tab-link href="tab-6">aiMain</a>
+            <li ai-class.bind="{active: selectedTabRef == 'ai-main'}">
+              <a ai-tab-link href="ai-main">aiMain</a>
             </li>
 
             <div class="ai-tab-slider"></div>
           </ul>
-          <div class="ai-card card ai-card">
-            <div class="card-content">
-                <div class="tab-content">
-                  <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-1', active: selectedTabRef == 'tab-1'}" ai-tab="tab-1">
-                    Tab 1 Content
+          <div class="tab-content">
+            <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'a-interface', active: selectedTabRef == 'a-interface'}" ai-tab="a-interface">
+              <div class="section">
+                <div class="flex md8 offset-md2">
+                    <compose view-model="./examples/a-interface/demo" view="./examples/a-interface/demo.html"></compose>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'ai-body', active: selectedTabRef == 'ai-body'}" ai-tab="ai-body">
+              <div class="section">
+                <div class="flex md8 offset-md2">
+                    <compose view-model="./examples/ai-body/demo" view="./examples/ai-body/demo.html"></compose>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'ai-header', active: selectedTabRef == 'ai-header'}" ai-tab="ai-header">
+              <div class="section">
+                <div class="flex md8 offset-md2">
+                    <compose view-model="./examples/ai-header/demo" view="./examples/ai-header/demo.html"></compose>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'ai-aside', active: selectedTabRef == 'ai-aside'}" ai-tab="ai-aside">
+                <div class="section">
+                  <div class="flex md8 offset-md2">
+                      <compose view-model="./examples/ai-aside/demo" view="./examples/ai-aside/demo.html"></compose>
                   </div>
-                  <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-2', active: selectedTabRef == 'tab-2'}" ai-tab="tab-2">
-                    Tab 2 Content
+              </div>
+            </div>
+            <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'ai-footer', active: selectedTabRef == 'ai-footer'}" ai-tab="ai-footer">
+                <div class="section">
+                  <div class="flex md8 offset-md2">
+                      <compose view-model="./examples/ai-footer/demo" view="./examples/ai-footer/demo.html"></compose>
                   </div>
-                  <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-3', active: selectedTabRef == 'tab-3'}" ai-tab="tab-3">
-                    Tab 3 Content
-                  </div>
-                  <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-4', active: selectedTabRef == 'tab-4'}" ai-tab="tab-4">
-                      Tab 4 Content
-                  </div>
-                  <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-5', active: selectedTabRef == 'tab-5'}" ai-tab="tab-5">
-                      Tab 5 Content
-                  </div>
-                  <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-6', active: selectedTabRef == 'tab-6'}" ai-tab="tab-6">
-                      Tab 6 Content
-                  </div>
-
-
                 </div>
             </div>
+            <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'ai-main', active: selectedTabRef == 'ai-main'}" ai-tab="ai-main">
+                <div class="section">
+                  <div class="flex md8 offset-md2">
+                      <compose view-model="./examples/ai-main/demo" view="./examples/ai-main/demo.html"></compose>
+                  </div>
+                </div>
+            </div>
+
+
           </div>
 
         </div>

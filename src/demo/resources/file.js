@@ -36,7 +36,6 @@ export class File {
       url: 'src/' + context.base + '/' + src,
       repoUrl: context.githubBase + '/src/' + context.base + '/' + src
     };
-
     if (this.view === 'true')
       example.view = this.info;
 

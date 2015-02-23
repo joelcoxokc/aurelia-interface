@@ -15,7 +15,7 @@
     <div class="toolbar-content">
       <div class="ui-collapse toolbar-collapse ${showing ? 'open' : ''}">
         <ul class="nav-actions nav-actions-right">
-          <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
+          <li repeat.for="row of navs" class="${row.isActive ? 'active' : ''}">
             <a class="waves-effect waves-${color}" href.bind="row.href">${row.title}</a>
           </li>
           <li click.delegate="toggle()" >

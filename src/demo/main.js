@@ -1,6 +1,7 @@
 import {LogManager} from 'aurelia-framework';
 import {ConsoleAppender} from 'aurelia-logging-console';
 import {Aside} from './system/aside'
+import {Navigation} from './resources/navigation-container'
 
 
 
@@ -23,6 +24,7 @@ export function configure(aurelia) {
     .then(function(framework) {
         console.log('Main', framework)
         framework.container.registerInstance(Aside, new Aside())
+        framework.container.registerInstance(Navigation, new Navigation())
         // return
         return framework.setRoot('app', document.body)
     });

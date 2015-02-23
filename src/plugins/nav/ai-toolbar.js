@@ -18,6 +18,7 @@ export class AiToolbar extends AiElement{
             .withProperty('textColor', 'textChanged')
             .withProperty('size', 'sizeChanged')
             .withProperty('toolbar', 'toolbarChanged')
+            .withProperty('multi-menu')
     }
 
     static inject(){
@@ -30,14 +31,15 @@ export class AiToolbar extends AiElement{
         this.events   = notify;
         this.element  = element
         this.current  = new Toolbar()
-
+        this.person = 'joel'
 
         _.assign(this, this.current);
 
 
+
         this.addClass('ai-toolbar')
         this.events.subscribe('$stateChanged', (payload)=>{
-            console.log('Recieved from ai-toolbar', payload)
+            // console.log('Recieved from ai-toolbar', payload)
         })
     }
 
@@ -46,7 +48,6 @@ export class AiToolbar extends AiElement{
     }
 
     toolbarChanged(tools){
-        console.log('tools', tools)
     }
 
 

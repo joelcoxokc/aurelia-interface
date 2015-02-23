@@ -1,7 +1,37 @@
-<import from="../example"></import>
-<import from="../file"></import>
-<import from="../column"></import>
 <template>
-  <content></content>
+        <import from="./example"></import>
+        <import from="./file"></import>
+        <import from="./column"></import>
+        <!-- <import from="../dist/system/ai-card"></import> -->
+        <div class="flex md8 offset-md2">
+            <div class="ai-card" repeat.for="doc of sections">
+                <div class="card-content">
+                    <h2 class="card-heading" if.bind="doc.heading">${doc.heading} <span if.bind="doc.withProp">.withProperty(<strong>${doc.withProp}</strong>)</span></h2>
+                    <h2 class="card-heading" if.bind="views.heading">
+                        <compose view="../examples/${name}/${doc.name}.heading.html"></compose>
+                    </h2>
 
+                    <div class="card-body" if.bind="doc.views.body">
+                        <compose view-model="../examples/${name}/demo" view="../examples/${name}/${doc.name}.body.html"></compose>
+                    </div>
+                    <div class="card-body" if.bind="doc.body">
+                        <div class=row if.bind="doc.information">
+                            <div class='flex md6'>
+                                <p repeat.for="info of doc.information">${info}</p>
+                            </div>
+                        </div>
+                        <div class="row" repeat.for="code of doc.codes">
+                            <div class="flex md12">
+
+                               <!--  <example base="../examples/${doc.name">
+                                    <column size="md6">
+                                        <file src="default.html" view="true"></file>
+                                    </column>
+                                </example> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 </template>

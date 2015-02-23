@@ -31,7 +31,6 @@ export class AInterface{
     constructor(element, inst){
         this.inst = inst
 
-        console.log(this.inst)
         this.element   = element;
         this.direction = defaults.direction
 

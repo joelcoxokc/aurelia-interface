@@ -1,6 +1,6 @@
 import {Behavior} from 'aurelia-framework';
 import commonmark from 'commonmark';
-import {isExternalLink, titleToSlug} from './util';
+import {isExternalLink, titleToSlug} from '../util';
 
 var reader = new commonmark.Parser(),
     writer = new commonmark.HtmlRenderer();
@@ -13,9 +13,7 @@ function fixIndent(markdown) {
   /*
   This is intended to remove indentation that is not really part of
   the markdown, to preserve the ability to indent the markup properly.
-
   In the example below the total indentation will be reduced by 4 characters.
-
   |
   |<template>
   |  <markdown>
@@ -28,7 +26,6 @@ function fixIndent(markdown) {
   |  </markdown>
   |</template>
   |
-
   */
   var result = /^( +)\S/im.exec(markdown);
   if (result) {

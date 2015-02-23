@@ -107,7 +107,7 @@ export class AiTabsAttachedBehavior {
     let defaultHideTab = function () {
       tab.style.display = 'none';
     }.bind(this)
-    
+
     if (typeof this._hideTab === 'function') {
       this._hideTab(this, defaultHideTab)
     } else {

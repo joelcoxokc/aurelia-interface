@@ -82,7 +82,6 @@ export class AiElement{
                  , (next = prefix + next)
                  )
         // if(next.split(',').length){ next = next.split(',') }
-        console.log(next)
         this.removeClass(prev)
         this.addClass(next)
         context.current[property] = context[property];

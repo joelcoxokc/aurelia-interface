@@ -1,0 +1,54 @@
+<template>
+    <import from="../../system/ai-btn"></import>
+    <import from="../../system/ai-card"></import>
+    <import from="../../resources/example"></import>
+    <import from="../../resources/file"></import>
+    <import from="../../resources/column"></import>
+    <ai-card>
+        <h2 class="card-heading">ai-Body Element</h2>
+        <div class="card-body">
+          <div class=row>
+            <div class='flex md6'>
+              <p>Due to the way CSS Flex box works, we must keep the asides and the headers and footer outside of the same element</p>
+              <p>Yes there are work arounds, However, we are not going to make you guys have to work around work arounds... if that makes since. </p>
+              <p>The ai-body simply swaps his flex-direction based on the a-interface element</p>
+            </div>
+          </div>
+           <example base="../dist/examples/ai-body">
+              <column size="md6">
+                <file src="default.html" view="true"></file>
+              </column>
+            </example>
+        </div>
+    </ai-card>
+    <ai-card>
+        <h2 class="card-heading">ai-Body <strong>How to</strong></h2>
+        <div class="card-body">
+          <div class=row>
+            <div class='flex md6'>
+              <p><strong>How do I know when to use column or row?</strong></p>
+              <p>This is based on where you have you ai-aside elements</p>
+              <p>The row property will lay it's children out in one row . . .as many columns</p>
+              <p>The Column property will lay it's children out in one columns . . . as many rows</p>
+              <p>In this case,  we want three two columns</p>
+              <ul>
+                  <li>Column #1 will be the left <strong>ai-aside</strong></li>
+                  <li>Column #2 will be the <strong>ai-body</strong></li>
+              </ul>
+              <p>Inside the <strong>ai-body</strong> We want three rows</p>
+              <ul>
+                  <li>Row #1 will be the <strong>ai-toolbar</strong></li>
+                  <li>Row #2 will be the <strong>ai-main (app content)</strong></li>
+                  <li>Row #3 will be the <strong>ai-footer</strong></li>
+              </ul>
+            </div>
+          </div>
+           <example base="../dist/examples/ai-body">
+              <column size="md6">
+                <file src="body.html" view="true"></file>
+              </column>
+            </example>
+        </div>
+    </ai-card>
+
+</template>

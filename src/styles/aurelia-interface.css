@@ -5211,6 +5211,24 @@ template {
 .ai-main.main-container {
   max-width: 70%;
 }
+.ai-section {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+.ai-section .section.no-pad {
+  padding: 0;
+}
+.ai-section .section.no-pad-bot {
+  padding-bottom: 0;
+}
+.ai-section .section.no-pad-top {
+  padding-top: 0;
+}
 .ai-toolbar {
   -webkit-box-ordinal-group: 0;
   -webkit-order: -1;

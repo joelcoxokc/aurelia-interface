@@ -42,14 +42,17 @@ gulp
     function system(source, name) {
         return {
           system: function() {
+            var filter = $.filter('!**/*-mkd.js')
               name = name || '';
               return gulp
                     .src(source)
                     .pipe($.plumber())
                     .pipe($.changed(paths.output, {extension: '.js'}))
+                    .pipe(filter)
                     .pipe($.sourcemaps.init())
                     .pipe(to5(assign({}, compilerOptions, {modules: 'system'} )))
                     .pipe($.sourcemaps.write({includeContent: false, sourceRoot: '/' + paths.root }))
+                    .pipe(filter.restore())
                     .pipe(gulp.dest(paths.output + name));
             },
           dist: function() {

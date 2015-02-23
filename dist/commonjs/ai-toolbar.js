@@ -31,15 +31,14 @@ System.register(["aurelia-templating", "./ai-element", "./interface-element", ".
           this.events = notify;
           this.element = element;
           this.current = new Toolbar();
-
+          this.person = "joel";
 
           _.assign(this, this.current);
 
 
+
           this.addClass("ai-toolbar");
-          this.events.subscribe("$stateChanged", function (payload) {
-            console.log("Recieved from ai-toolbar", payload);
-          });
+          this.events.subscribe("$stateChanged", function (payload) {});
         }
 
         _inherits(AiToolbar, AiElement);
@@ -47,7 +46,7 @@ System.register(["aurelia-templating", "./ai-element", "./interface-element", ".
         _prototypeProperties(AiToolbar, {
           metadata: {
             value: function metadata() {
-              return Behavior.customElement("ai-toolbar").withProperty("router").withProperty("fixed").withProperty("brand", "brandChanged").withProperty("bgColor", "bgChanged").withProperty("textColor", "textChanged").withProperty("size", "sizeChanged").withProperty("toolbar", "toolbarChanged");
+              return Behavior.customElement("ai-toolbar").withProperty("router").withProperty("fixed").withProperty("brand", "brandChanged").withProperty("bgColor", "bgChanged").withProperty("textColor", "textChanged").withProperty("size", "sizeChanged").withProperty("toolbar", "toolbarChanged").withProperty("multi-menu");
             },
             writable: true,
             configurable: true
@@ -68,9 +67,7 @@ System.register(["aurelia-templating", "./ai-element", "./interface-element", ".
             configurable: true
           },
           toolbarChanged: {
-            value: function toolbarChanged(tools) {
-              console.log("tools", tools);
-            },
+            value: function toolbarChanged(tools) {},
             writable: true,
             configurable: true
           },

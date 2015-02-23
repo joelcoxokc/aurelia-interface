@@ -94,7 +94,6 @@ System.register(["aurelia-templating"], function (_export) {
               }
 
               prefix && (prev = prefix + prev, next = prefix + next);
-              console.log(next);
               this.removeClass(prev);
               this.addClass(next);
               context.current[property] = context[property];

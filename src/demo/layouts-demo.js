@@ -3,7 +3,7 @@ export class Layout{
     constructor(){
 
         this.heading = 'aiLayout ';
-        this.selectedTabRef = 'tab-1'
+        this.selectedTabRef = 'a-interface'
 
     }
 

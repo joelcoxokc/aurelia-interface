@@ -28,7 +28,6 @@ System.register(["aurelia-templating", "aurelia-framework", "../main"], function
 
           this.inst = inst;
 
-          console.log(this.inst);
           this.element = element;
           this.direction = defaults.direction;
 

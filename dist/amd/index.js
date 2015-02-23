@@ -1,7 +1,7 @@
-System.register(["./ai-class", "./ai-element"], function (_export) {
+System.register(["./ai-class"], function (_export) {
   "use strict";
 
-  var AiClassAttachedBehavior, AiElement;
+  var AiClassAttachedBehavior;
 
 
   function install(aurelia) {
@@ -11,13 +11,9 @@ System.register(["./ai-class", "./ai-element"], function (_export) {
   return {
     setters: [function (_aiClass) {
       AiClassAttachedBehavior = _aiClass.AiClassAttachedBehavior;
-    }, function (_aiElement) {
-      AiElement = _aiElement.AiElement;
     }],
     execute: function () {
       _export("AiClassAttachedBehavior", AiClassAttachedBehavior);
-
-      _export("AiElement", AiElement);
 
       _export("install", install);
     }

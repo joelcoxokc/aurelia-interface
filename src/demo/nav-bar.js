@@ -9,6 +9,7 @@ export class NavBar {
             .withProperty('router')
             .withProperty('toolbar')
             .withProperty('aside')
+            .withProperty('navs')
 
     }
 
@@ -22,17 +23,13 @@ export class NavBar {
     constructor(element){
 
         this.element   = element
-        this.heading   = 'ai';
-
+        this.heading   = 'ai'
     }
 
 
     bind(){
-
         this.title = this.router.title
-
     }
-
 
     toggle(){
 
