@@ -7,10 +7,10 @@ import {File} from './file';
 import {Demo} from './demo';
 
 export function install(aurelia) {
-  aurelia.withResources(Markdown, Source, Demo);
+  aurelia.withResources(Markdown, Source);
 
   // aurelia.container.registerInstance(
     // ExampleContext,
     // new ExampleContext('https://github.com/jdanyow/aurelia-converters-sample/blob/gh-pages'))
-  aurelia.withResources(Markdown, Source, Example, Column, File, Demo);
+  aurelia.withResources(Markdown, Source, Example, Column, File);
 }
