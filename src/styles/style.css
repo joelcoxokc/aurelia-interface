@@ -50,6 +50,9 @@
     min-height: 600px;    */
 }
 
+.heading-lg {
+    font-size: 2.4rem !important;
+}
 
 .markdown-body h1 .anchor,
 .markdown-body h2 .anchor,

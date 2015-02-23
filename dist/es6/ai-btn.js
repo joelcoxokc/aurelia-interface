@@ -28,7 +28,7 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
         _prototypeProperties(AiBtn, {
           metadata: {
             value: function metadata() {
-              return Behavior.customElement("ai-btn").withProperty("color").withProperty("shape").withProperty("type").withProperty("icon").withProperty("size").withProperty("waves").withProperty("nextIcon", "nextIconChanged", "next-icon");
+              return Behavior.customElement("ai-btn").withProperty("color").withProperty("shape").withProperty("type").withProperty("icon").withProperty("size").withProperty("waves").withProperty("bg").withProperty("text").withProperty("nextIcon", "nextIconChanged", "next-icon");
             },
             writable: true,
             configurable: true
@@ -48,6 +48,18 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
               _.each(properties, function (item) {
                 _this[item] && classList.push("btn-" + _this[item]);
               });
+              if (this.text) {
+                for (var _iterator = this.text.split(" ")[Symbol.iterator](), _step; !(_step = _iterator.next()).done;) {
+                  var color = _step.value;
+                  classList.push("text-" + color);
+                }
+              }
+              if (this.bg) {
+                for (var _iterator2 = this.bg.split(" ")[Symbol.iterator](), _step2; !(_step2 = _iterator2.next()).done;) {
+                  var color = _step2.value;
+                  classList.push("bg-" + color);
+                }
+              }
               this.waves && classList.push("waves-effect", "waves-" + this.waves);
               this.addClass.apply(this, classList);
               this.icon && this.useIcon(this.icon);
