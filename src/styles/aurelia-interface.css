@@ -5813,6 +5813,7 @@ a.ai-btn,
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+  cursor: pointer;
   box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
   border-radius: 2px;
   line-height: 38px;
@@ -5841,19 +5842,43 @@ a.ai-btn.btn-sm,
   padding: 0 1.6rem;
   line-height: 24px;
 }
+a.ai-btn.btn-sm.btn-round,
+.ai-btn.btn-sm.btn-round {
+  padding: 0;
+  height: 24px;
+  width: 24px;
+}
 a.ai-btn.btn-md,
 .ai-btn.btn-md {
   line-height: 38px;
+}
+a.ai-btn.btn-md.btn-round,
+.ai-btn.btn-md.btn-round {
+  padding: 0;
+  height: 38px;
+  width: 38px;
 }
 a.ai-btn.btn-lg,
 .ai-btn.btn-lg {
   padding: 0 3rem;
   line-height: 64px;
 }
+a.ai-btn.btn-lg.btn-round,
+.ai-btn.btn-lg.btn-round {
+  padding: 0;
+  height: 64px;
+  width: 64px;
+}
 a.ai-btn.btn-xl,
 .ai-btn.btn-xl {
   padding: 0 4rem;
   line-height: 80px;
+}
+a.ai-btn.btn-xl.btn-round,
+.ai-btn.btn-xl.btn-round {
+  padding: 0;
+  height: 80px;
+  width: 80px;
 }
 a.ai-btn.btn-flat,
 .ai-btn.btn-flat {
@@ -6171,6 +6196,35 @@ a.ai-btn.btn-invert,
   width: 48px;
   height: 48px;
 }
+.ai-action {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  width: 80px;
+  height: 80px;
+  margin: 0;
+  outline: none;
+  border: none;
+  text-align: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  line-height: 38px;
+  -webkit-transition: box-shadow 300ms ease;
+          transition: box-shadow 300ms ease;
+  background: transparent !important;
+}
+.ai-action .ai-btn {
+  margin: 0;
+  padding: 0;
+}
 .ai-card {
   box-sizing: border-box;
   display: -webkit-box;
@@ -6364,4 +6418,170 @@ a.ai-btn.btn-invert,
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+.ai-group-btn {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.ai-action-group {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  cursor: pointer;
+}
+.ai-action-group .ai-btn {
+  margin-top: 0;
+}
+.ai-action-group .ai-action {
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 80px;
+      -ms-flex: 0 0 80px;
+          flex: 0 0 80px;
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+      -ms-flex-order: 1;
+          order: 1;
+}
+.ai-action-group .ai-btn-group {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+.ai-action-group .ai-btn-group .at-btn {
+  width: 38px;
+  height: 38px;
+}
+.ai-action-group .ai-btn-group .at-btn.btn-position-0 {
+  -webkit-transition: width 200ms ease-out 0ms, height 200ms ease-out 0ms;
+          transition: width 200ms ease-out 0ms, height 200ms ease-out 0ms;
+}
+.ai-action-group .ai-btn-group .at-btn.btn-position-1 {
+  -webkit-transition: width 200ms ease-out 33.333333333333336ms, height 200ms ease-out 33.333333333333336ms;
+          transition: width 200ms ease-out 33.333333333333336ms, height 200ms ease-out 33.333333333333336ms;
+}
+.ai-action-group .ai-btn-group .at-btn.btn-position-2 {
+  -webkit-transition: width 200ms ease-out 66.66666666666667ms, height 200ms ease-out 66.66666666666667ms;
+          transition: width 200ms ease-out 66.66666666666667ms, height 200ms ease-out 66.66666666666667ms;
+}
+.ai-action-group .ai-btn-group .at-btn.btn-position-3 {
+  -webkit-transition: width 200ms ease-out 100ms, height 200ms ease-out 100ms;
+          transition: width 200ms ease-out 100ms, height 200ms ease-out 100ms;
+}
+.ai-action-group .ai-btn-group .at-btn.btn-position-4 {
+  -webkit-transition: width 200ms ease-out 133.33333333333334ms, height 200ms ease-out 133.33333333333334ms;
+          transition: width 200ms ease-out 133.33333333333334ms, height 200ms ease-out 133.33333333333334ms;
+}
+.ai-action-group .ai-btn-group .at-btn.btn-position-5 {
+  -webkit-transition: width 200ms ease-out 166.66666666666666ms, height 200ms ease-out 166.66666666666666ms;
+          transition: width 200ms ease-out 166.66666666666666ms, height 200ms ease-out 166.66666666666666ms;
+}
+.ai-action-group .ai-btn-group .at-btn.btn-position-6 {
+  -webkit-transition: width 200ms ease-out 200ms, height 200ms ease-out 200ms;
+          transition: width 200ms ease-out 200ms, height 200ms ease-out 200ms;
+}
+.ai-action-group .ai-btn-group .at-btn.btn-position-7 {
+  -webkit-transition: width 200ms ease-out 233.33333333333334ms, height 200ms ease-out 233.33333333333334ms;
+          transition: width 200ms ease-out 233.33333333333334ms, height 200ms ease-out 233.33333333333334ms;
+}
+.ai-action-group .ai-btn-group .at-btn.btn-position-8 {
+  -webkit-transition: width 200ms ease-out 266.6666666666667ms, height 200ms ease-out 266.6666666666667ms;
+          transition: width 200ms ease-out 266.6666666666667ms, height 200ms ease-out 266.6666666666667ms;
+}
+.ai-action-group .ai-btn-group .at-btn.btn-position-9 {
+  -webkit-transition: width 200ms ease-out 300ms, height 200ms ease-out 300ms;
+          transition: width 200ms ease-out 300ms, height 200ms ease-out 300ms;
+}
+.ai-action-group .ai-btn-group .at-btn.btn-position-10 {
+  -webkit-transition: width 200ms ease-out 333.3333333333333ms, height 200ms ease-out 333.3333333333333ms;
+          transition: width 200ms ease-out 333.3333333333333ms, height 200ms ease-out 333.3333333333333ms;
+}
+.ai-action-group .ai-btn-group .at-btn.btn-position-11 {
+  -webkit-transition: width 200ms ease-out 366.6666666666667ms, height 200ms ease-out 366.6666666666667ms;
+          transition: width 200ms ease-out 366.6666666666667ms, height 200ms ease-out 366.6666666666667ms;
+}
+.ai-action-group.action-group-left {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.ai-action-group.action-group-left .ai-action {
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+      -ms-flex-order: 1;
+          order: 1;
+}
+.ai-action-group.action-group-left .ai-btn-group {
+  width: 20%;
+  -webkit-box-ordinal-group: 0;
+  -webkit-order: -1;
+      -ms-flex-order: -1;
+          order: -1;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.ai-action-group.action-group-right {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.ai-action-group.action-group-right .ai-action {
+  -webkit-box-ordinal-group: 0;
+  -webkit-order: -1;
+      -ms-flex-order: -1;
+          order: -1;
+}
+.ai-action-group.action-group-right .ai-btn-group {
+  width: 20%;
+  -webkit-box-ordinal-group: 2;
+  -webkit-order: 1;
+      -ms-flex-order: 1;
+          order: 1;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.ai-action-group.action-off .ai-btn-group .ai-btn {
+  width: 0;
+  height: 0;
 }

@@ -2,37 +2,38 @@
     <import from="../../system/ai-action-reveal"></import>
     <import from="../../system/ai-btn"></import>
     <import from="../../system/ai-card"></import>
+    <import from="../../system/ai-action-group"></import>
     <ai-card>
         <h2 class="card-heading">Revealing Action Buttons</h2>
         <div class="card-body">
           <div class=row>
             <div class='flex md6'>
 
-              <ai-action-reveal side="left">
-                  <div class="primary-action">
-                      <ai-btn type="raised" shape="round" icon="mdi-content-add" next-icon="mdi-content-create"></ai-btn>
+              <ai-action-group type="reveal" side="left">
+                  <ai-action class="ai-action">
+                      <ai-btn type="raised" shape="round" icon="mdi-content-add" waves="dark" next-icon="mdi-content-create"></ai-btn>
+                  </ai-action>
+                  <div class="ai-btn-group">
+                      <ai-btn size="md" type="raised" shape="round" color="primary" waves="light" icon="mdi-action-grade"></ai-btn>
+                      <ai-btn size="md" type="raised" shape="round" color="primary" waves="light" icon="mdi-action-grade"></ai-btn>
+                      <ai-btn size="md" type="raised" shape="round" color="primary" waves="light" icon="mdi-action-grade"></ai-btn>
                   </div>
-                  <div class="action-buttons">
-                      <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-                      <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-                      <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-                  </div>
-              </ai-action-reveal>
+              </ai-action-group>
 
             </div>
             <div class='flex md6'>
 
-              <ai-action-reveal side="right">
-                  <div class="primary-action">
-                      <ai-btn type="raised" shape="round" icon="mdi-content-add" next-icon="mdi-content-create"></ai-btn>
-                  </div>
-                  <div class="action-buttons">
-                      <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-                      <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-                      <ai-btn size="sm" type="raised" shape="round" icon="mdi-action-grade"></ai-btn>
-                  </div>
-              </ai-action-reveal>
+              <ai-action-group type="reveal" side="right">
 
+                  <ai-action class="ai-action">
+                      <ai-btn type="raised" shape="round" icon="mdi-content-add" waves="dark" next-icon="mdi-content-create"></ai-btn>
+                  </ai-action>
+                  <div class="ai-btn-group">
+                      <ai-btn size="md" type="raised" shape="round" color="primary" waves="light" icon="mdi-action-grade"></ai-btn>
+                      <ai-btn size="md" type="raised" shape="round" color="primary" waves="light" icon="mdi-action-grade"></ai-btn>
+                      <ai-btn size="md" type="raised" shape="round" color="primary" waves="light" icon="mdi-action-grade"></ai-btn>
+                  </div>
+              </ai-action-group>
             </div>
           </div>
            <example base="../dist/examples/ai-action">

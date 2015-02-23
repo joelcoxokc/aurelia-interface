@@ -1,0 +1,70 @@
+
+make-btn-transition(properties, props2)
+    transition: properties, props2
+
+ai-btn-transition-varients()
+    for i in 1..12
+        index = (i - 1)
+        time = (index * 100)/(3)
+        delay = unit(time, 'ms')
+        &.btn-position-{index}
+            transition width 200ms ease-out delay, height 200ms ease-out delay
+
+
+
+.ai-action-group
+    flex-container()
+    cursor: pointer
+    .ai-btn
+        margin-top: 0
+        // transition: width 100ms ease-out, height 100ms ease-out
+
+
+    .ai-action
+        flex : 0 0 80px
+        order: 1
+
+    .ai-btn-group
+        flex       : 1 0 auto
+        align-items: center
+        justify-content: center
+        flex-container()
+
+        .at-btn
+            width: 38px
+            height: 38px
+            ai-btn-transition-varients();
+
+
+    &.action-group-left
+        flex-direction: row
+        .ai-action
+            order: 1
+
+        .ai-btn-group
+            width      : (100% - 80px)
+            order      : -1
+            flex-direction : row
+            justify-content: flex-end
+
+    &.action-group-right
+        flex-direction: row
+        .ai-action
+            order: -1
+
+        .ai-btn-group
+            width      : (100% - 80px)
+            order      : 1
+            flex-direction : row
+            justify-content: flex-start
+
+    &.action-off
+        .ai-btn-group
+            .ai-btn
+                width :0
+                height:0
+
+
+
+
+

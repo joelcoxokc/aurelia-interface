@@ -14,6 +14,7 @@ a.ai-btn,
     text-align     : center
     align-items    : center
     justify-content: center
+    cursor         : pointer
     // align-self     : flex-start
     box-shadow     : $btn-box-shadow
     border-radius  : $btn-border-radius
@@ -38,14 +39,30 @@ a.ai-btn,
     &.btn-sm
         padding    : 0 1.6rem
         line-height: 24px
+        &.btn-round
+            padding    : 0
+            height: 24px
+            width: 24px
     &.btn-md
         line-height: 38px
+        &.btn-round
+            padding    : 0
+            height: 38px
+            width: 38px
     &.btn-lg
         padding    : 0 3rem
         line-height: 64px
+        &.btn-round
+            padding    : 0
+            height     : 64px
+            width      : 64px
     &.btn-xl
         padding    : 0 4rem
         line-height: 80px
+        &.btn-round
+            padding    : 0
+            height     : 80px
+            width      : 80px
 
     &.btn-flat
         box-shadow: 0
