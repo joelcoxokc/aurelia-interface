@@ -1,0 +1,24 @@
+ul.ai-list,
+.ai-list
+    list-style: none
+    width inherit
+    flex-container()
+
+    &.list-vertical
+        flex-direction: column
+
+    li.ai-item,.ai-item, .ai-link
+        line-height: 48px
+        display: block
+        width: 100%
+        flex 1 0 auto
+        & > *
+            padding-left: 23px
+            display: block
+
+    .ai-link
+        cursor: pointer
+
+        &:hover
+            background-color: $grey.lighten-4
+

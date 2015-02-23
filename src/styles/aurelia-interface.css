@@ -6309,6 +6309,53 @@ a.ai-btn.btn-invert,
 .ai-card .card-footer .card-footer-text {
   padding: 10px;
 }
+.ai-dropdown {
+  overflow: visible;
+  position: relative;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+.ai-dropdown .dropdown-container {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  width: 0%;
+  height: 0%;
+  overflow: hidden;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  z-index: 1000;
+  position: absolute;
+  top: 102%;
+  left: 0;
+  background-color: #fff;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  -webkit-transition: height 600ms cubic-bezier(0, 0.9, 0.01, 0.99), width 200ms cubic-bezier(0, 0.9, 0.01, 0.99);
+          transition: height 600ms cubic-bezier(0, 0.9, 0.01, 0.99), width 200ms cubic-bezier(0, 0.9, 0.01, 0.99);
+}
+.ai-dropdown .dropdown-container .ai-list {
+  min-width: 100%;
+  overflow: scroll;
+}
+.ai-dropdown .dropdown-container .ai-list > * {
+  min-width: 100%;
+}
+.ai-dropdown.dropdown-left {
+  right: 0;
+}
+.ai-dropdown.dropdown-right {
+  left: 0;
+}
+.ai-dropdown.dropdown-open .dropdown-container {
+  width: 100%;
+}
 .ai-tabs {
   box-sizing: border-box;
   display: -webkit-box;
@@ -6418,6 +6465,55 @@ a.ai-btn.btn-invert,
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+ul.ai-list,
+.ai-list {
+  list-style: none;
+  width: inherit;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+ul.ai-list.list-vertical,
+.ai-list.list-vertical {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+ul.ai-list li.ai-item,
+.ai-list li.ai-item,
+ul.ai-list .ai-item,
+.ai-list .ai-item,
+ul.ai-list .ai-link,
+.ai-list .ai-link {
+  line-height: 48px;
+  display: block;
+  width: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+}
+ul.ai-list li.ai-item > *,
+.ai-list li.ai-item > *,
+ul.ai-list .ai-item > *,
+.ai-list .ai-item > *,
+ul.ai-list .ai-link > *,
+.ai-list .ai-link > * {
+  padding-left: 23px;
+  display: block;
+}
+ul.ai-list .ai-link,
+.ai-list .ai-link {
+  cursor: pointer;
+}
+ul.ai-list .ai-link:hover,
+.ai-list .ai-link:hover {
+  background-color: #f5f5f5;
 }
 .ai-group-btn {
   box-sizing: border-box;

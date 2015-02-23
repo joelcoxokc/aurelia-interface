@@ -1,0 +1,42 @@
+<template>
+    <import from="../../system/ai-action-reveal"></import>
+    <import from="../../system/ai-btn"></import>
+    <import from="../../system/ai-card"></import>
+    <import from="../../system/ai-action-group"></import>
+    <import from="../../system/ai-dropdown"></import>
+    <import from="../../system/ai-dropdown-btn"></import>
+    <ai-card>
+        <h2 class="card-heading">ai-Dropdowns</h2>
+        <div class="card-body">
+          <div class=row style="margin-bottom:200px;">
+            <div class='flex md6'>
+
+              <ai-dropdown side="right">
+
+                  <ai-btn type="raised"
+                          waves="dark"
+                          color="primary"
+                          class="dropdown-btn">
+                          DropDown</ai-btn>
+
+                  <ul class="ai-list list-vertical">
+                    <li class="ai-link"><a>Link #1</a></li>
+                    <li class="ai-link"><a>Link #2</a></li>
+                    <li class="ai-link"><a>Link #3</a></li>
+                    <li class="ai-link"><a>Link #4</a></li>
+                  </ul>
+
+              </ai-dropdown>
+
+            </div>
+
+          </div>
+           <example base="../dist/examples/ai-dropdown">
+              <column size="md6">
+                <file src="default.html" view="true"></file>
+              </column>
+            </example>
+        </div>
+    </ai-card>
+
+</template>

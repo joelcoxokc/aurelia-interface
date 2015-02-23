@@ -20,6 +20,9 @@
               <a ai-tab-link href="ai-action">aiAction</a>
             </li>
             <li ai-class.bind="{active: selectedTabRef == 'ai-card'}">
+              <a ai-tab-link href="ai-dropdown">aiDropdown</a>
+            </li>
+            <li ai-class.bind="{active: selectedTabRef == 'ai-card'}">
               <a ai-tab-link href="ai-card">aiCard</a>
             </li>
             <li ai-class.bind="{active: selectedTabRef == 'ai-modal'}">
@@ -46,6 +49,14 @@
               <div class="section">
                 <div class="flex md8 offset-md2">
                     <compose view-model="./examples/ai-action/demo" view="./examples/ai-action/demo.html"></compose>
+                </div>
+              </div>
+            </section>
+            <section class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'ai-dropdown', active: selectedTabRef == 'ai-dropdown'}" ai-tab="ai-dropdown">
+
+              <div class="section">
+                <div class="flex md8 offset-md2">
+                    <compose view-model="./examples/ai-dropdown/demo" view="./examples/ai-dropdown/demo.html"></compose>
                 </div>
               </div>
             </section>
