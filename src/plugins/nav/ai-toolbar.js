@@ -3,6 +3,8 @@ import {AiElement} from './ai-element'
 import {InterfaceElement} from './interface-element'
 import {Toolbar}   from './toolbar'
 import {Notify} from './notify';
+import {AsideToggle} from './aside-toggle';
+
 
 var defaults =  [ 'size' , 'fixed' , 'bgColor' , 'textColor' , 'brand' ]
 
@@ -22,12 +24,12 @@ export class AiToolbar extends AiElement{
     }
 
     static inject(){
-        return [Element, Notify]
+        return [Element, Notify, AsideToggle]
     }
 
-    constructor(element, notify){
+    constructor(element, notify, asideToggle){
         var _this = this;
-
+        this.asideToggle = asideToggle;
         this.events   = notify;
         this.element  = element
         this.current  = new Toolbar()
