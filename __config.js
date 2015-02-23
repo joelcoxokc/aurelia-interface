@@ -3,8 +3,7 @@ System.config({
     "*": "*.js",
     "github:*": "jspm_packages/github/*.js",
     "npm:*": "jspm_packages/npm/*.js",
-    "aurelia-skeleton-navigation/*": "lib/*.js",
-    "aurelia-interface/*": "lib/*.js"
+    "aurelia-skeleton-navigation/*": "lib/*.js"
   }
 });
 
@@ -14,10 +13,9 @@ System.config({
     "aurelia-bootstrapper": "github:aurelia/bootstrapper@0.9.3",
     "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.4.2",
     "aurelia-framework": "github:aurelia/framework@0.8.6",
-    "aurelia-http-client": "github:aurelia/http-client@0.5.2",
+    "aurelia-http-client": "github:aurelia/http-client@0.4.4",
     "aurelia-router": "github:aurelia/router@0.5.5",
     "aurelia-templating": "github:aurelia/templating@0.8.11",
-    "commonmark": "npm:commonmark@0.17.1",
     "font-awesome": "npm:font-awesome@4.3.0",
     "jquery": "github:components/jquery@2.1.3",
     "lodash": "npm:lodash@3.2.0",
@@ -58,7 +56,7 @@ System.config({
       "aurelia-history": "github:aurelia/history@0.2.2",
       "core-js": "npm:core-js@0.4.10"
     },
-    "github:aurelia/http-client@0.5.2": {
+    "github:aurelia/http-client@0.4.4": {
       "aurelia-path": "github:aurelia/path@0.4.3",
       "core-js": "npm:core-js@0.4.10"
     },
@@ -148,13 +146,17 @@ System.config({
     "github:jspm/nodelibs-util@0.1.0": {
       "util": "npm:util@0.10.3"
     },
-    "github:systemjs/plugin-css@0.1.6": {
+    "github:systemjs/plugin-css@0.1.5": {
       "clean-css": "npm:clean-css@3.0.10",
-      "fs": "github:jspm/nodelibs-fs@0.1.1",
-      "path": "github:jspm/nodelibs-path@0.1.0"
+      "fs": "github:jspm/nodelibs-fs@0.1.1"
+    },
+    "github:twbs/bootstrap@3.3.2": {
+      "css": "github:systemjs/plugin-css@0.1.5",
+      "jquery": "github:components/jquery@2.1.3"
     },
     "npm:amdefine@0.1.0": {
       "fs": "github:jspm/nodelibs-fs@0.1.1",
+      "module": "github:jspm/nodelibs-module@0.1.0",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1"
     },
@@ -184,11 +186,6 @@ System.config({
       "events": "github:jspm/nodelibs-events@0.1.0",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.1"
-    },
-    "npm:commonmark@0.17.1": {
-      "fs": "github:jspm/nodelibs-fs@0.1.1",
-      "process": "github:jspm/nodelibs-process@0.1.1",
-      "util": "github:jspm/nodelibs-util@0.1.0"
     },
     "npm:core-js@0.4.10": {
       "process": "github:jspm/nodelibs-process@0.1.1"
@@ -254,4 +251,3 @@ System.config({
     }
   }
 });
-
