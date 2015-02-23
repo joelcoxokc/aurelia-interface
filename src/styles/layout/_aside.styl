@@ -1,10 +1,67 @@
+$aside-width-xs              = 150px
+$aside-width-sm              = 200px
+$aside-width-md              = 250px
+$aside-width-lg              = 320px
+$aside-width-xl              = 240px
+$aside-width                 = 0px
+$aside-fold-width            = 64px
+
+
+create-aside-varient(size, onOpen, onClose, onFold)
+
+  &.aside-is-open
+      flex: 0 0 onOpen
+      min-max-width(onOpen)
+
+  &.aside-is-folded
+    flex: 0 0 onFold
+    min-max-width(onFold)
+
+  &.aside-{size}
+    flex: 0 0 onClose
+    min-max-width(onClose)
+
+    &.aside-is-open
+      flex: 0 0 onOpen
+      min-max-width(onOpen)
+
+    &.aside-is-folded
+      flex: 0 0 onFold
+      min-max-width(onFold)
+
 .ai-aside
-  overflow hidden
-  flex           : 1 0 auto
-  position       : relative
-  flex-direction : column
+
+  flex             : 0 0 0
+  z-index          : 1010
+  overflow         : hidden
+  position         : relative
+  flex-direction   : column
+  background-color : white
+  box-shadow       : 4px 0px 8px rgba(0,0,0,.2)
+
   min-max-height(100%)
+  min-max-width(0)
   flex-container()
+
+  &.aside-is-fixed
+    position fixed
+    top: 0
+
+  &.aside-left
+    left : 0
+    order: -1
+  &.aside-right
+    right : 0
+    order : 2
+
+
+
+  create-aside-varient(xs, $aside-width-xs, 0, $aside-fold-width)
+  create-aside-varient(sm, $aside-width-sm, 0, $aside-fold-width)
+  create-aside-varient(md, $aside-width-md, 0, $aside-fold-width)
+  create-aside-varient(lg, $aside-width-lg, 0, $aside-fold-width)
+  create-aside-varient(xl, $aside-width-xl, 0, $aside-fold-width)
+
 
 
 
