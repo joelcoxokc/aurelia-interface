@@ -51,9 +51,14 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
           bind: {
             value: function bind() {
               this.container = this.element.querySelector(".dropdown-container");
+              this.btnContainer = this.element.querySelector(".dropdown-btn-container");
               this.items = this.container.getElementsByClassName("ai-item");
               this.links = this.container.getElementsByClassName("ai-link");
+              this.btn = this.container.querySelector("ai-btn.dropdown-btn");
               this.element.addEventListener("click", this.toggle, false);
+              console.log(this.btn);
+              console.log(this.btnContainer);
+              this.btnContainer.appendChild(this.btn);
             },
             writable: true,
             configurable: true
