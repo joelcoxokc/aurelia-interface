@@ -13,9 +13,10 @@
   max-height      : auto
   box-shadow      : 0 2px 4px rgba(0,0,0,0.2)
   background-color: $shades.white
-
-
+  transition      : height 400ms cubic-bezier(0,.9,.01,.99)
   & > .toolbar-container
+    transition      : height 400ms cubic-bezier(0,.9,.01,.99), background 400ms ease-out
+
     flex          : 1 0 auto
     position      : relative
     flex-direction: column
@@ -143,21 +144,21 @@
 
 
   &.toolbar-xs
-    flex:  0 0 $nav-bar-height
+    // flex:  0 0 $nav-bar-height
     min-max-height($nav-bar-height-xs)
     .nav-actions > *
       line-height $nav-bar-height-xs
 
   &.toolbar-sm
-    flex:  0 0 $nav-bar-height
+    // flex:  0 0 $nav-bar-height
     min-max-height($nav-bar-height-sm)
 
   &.toolbar-md
-    flex:  0 0 $nav-bar-height
+    // flex:  0 0 $nav-bar-height
     min-max-height($nav-bar-height-md)
 
   &.toolbar-lg
-    flex:  0 0 $nav-bar-height
+    // flex:  0 0 $nav-bar-height
     min-max-height($nav-bar-height-lg)
 
   &.toolbar-xl
