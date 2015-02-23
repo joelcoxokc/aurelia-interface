@@ -3805,13 +3805,13 @@
   background-color: #000;
 }
 .text-black {
-  color: #000;
+  color: #000 !important;
 }
 .bg-white {
   background-color: #fff;
 }
 .text-white {
-  color: #fff;
+  color: #fff !important;
 }
 .no-select {
   -webkit-touch-callout: none;
@@ -4046,7 +4046,7 @@ body,
 html {
   margin: 0;
   padding: 0;
-  font-size: 14px;
+  font-size: 16px;
   width: 100vw;
   min-width: 100vw;
   max-width: 100vw;
@@ -4056,6 +4056,7 @@ html {
   font-family: "Roboto";
   font-weight: 200;
   overflow: hidden;
+  background-color: #f5f5f5;
 }
 body {
   position: relative;
@@ -4087,7 +4088,6 @@ template {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  background-color: #f5f5f5;
   box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5804,11 +5804,11 @@ a.ai-btn,
   cursor: pointer;
   box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
   border-radius: 2px;
-  line-height: 38px;
+  line-height: 48px;
   -webkit-transition: box-shadow 300ms ease;
           transition: box-shadow 300ms ease;
   background: #fff;
-  color: #9e9e9e;
+  color: #616161;
   text-transform: uppercase;
 }
 a.ai-btn:hover,
@@ -5897,9 +5897,17 @@ a.ai-btn .primary-action,
       -ms-flex-pack: center;
           justify-content: center;
 }
+a.ai-btn > i.btn-icon.icon-left,
+.ai-btn > i.btn-icon.icon-left {
+  margin-right: 10px;
+}
+a.ai-btn > i.btn-icon.icon-right,
+.ai-btn > i.btn-icon.icon-right {
+  margin-left: 10px;
+}
 a.ai-btn.btn-default,
 .ai-btn.btn-default {
-  color: #9e9e9e !important;
+  color: #616161 !important;
   background: #fff !important;
   background-color: #fff !important;
 }
@@ -6204,7 +6212,7 @@ a.ai-btn.btn-invert,
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  line-height: 38px;
+  line-height: 48px;
   -webkit-transition: box-shadow 300ms ease;
           transition: box-shadow 300ms ease;
   background: transparent !important;

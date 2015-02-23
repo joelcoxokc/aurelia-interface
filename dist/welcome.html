@@ -1,5 +1,7 @@
 <template>
   <import from="./system/ai-card"></import>
+  <import from="./system/ai-btn"></import>
+  <import from="resources/markdown"></import>
   <section>
 
     <!-- <header class="bg-purple ai-header header-xl"> -->
@@ -9,15 +11,95 @@
     <div class="ai-content">
       <div class="row">
         <!-- <div class="col s8 offset-s2" ai-toggle.bind="showing"> -->
-        <div class="col s8 offset-s2">
-
+        <div class="flex sm10 offset-sm1">
           <ai-card>
-            <h2 class="card-heading">Checkout Aurelia</h2>
-            <div class="row">
-              <div class="flex sm3">
-                <a class="btn bg-purple btn-large btn-raised waves-effect waves-light" href="http://aurelia.io">Aurelia-framework</a>
+            <h2 class="card-heading heading-lg text-grey">What is aurelia-interface?</h2>
+            <section class="card-body">
+              <div class=row>
+                <div class="flex sm5">
+                  <div class=row>
+                    <div class="flex">
+
+                      <ai-btn size="md"
+                              bg=purple
+                              text=white
+                              waves=light
+                              link="http://github.com/joelcoxokc/aurelia-interface"
+                              >Getting Started</ai-btn>
+                    </div>
+                  </div>
+                  <div class=row>
+                    <div class="flex">
+
+                      <ai-btn size="sm"
+
+                              waves=dark
+                              link="http://github.com/joelcoxokc/aurelia-interface"
+                              ><i class=" btn-icon icon-left mdi-action-grade"></i> Star</ai-btn>
+                      <ai-btn size="sm"
+
+                              waves=dark
+                              link="http://github.com/joelcoxokc/aurelia-interface"
+                              ><i class=" btn-icon icon-left fa fa-code-fork"></i> Fork us</ai-btn>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex sm7">
+                  <markdown>
+                    [![Join the chat at https://gitter.im/joelcoxokc/aurelia-interface](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/joelcoxokc/aurelia-interface?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+                    **aurelia-interface** is a user interface library built on [aurelia.io](http://aurelia.io).
+
+                    We like to refer to aurelia-interface as **AI**.
+
+                    **AI** is a two part Library.
+
+                    - Developers can take advantage our our flexbox layout system. . .
+                    - OR Developers can use each component as a separate plugin!
+                  </markdown>
+                </div>
               </div>
-            </div>
+            </section>
+            <hr>
+            <h2 class="card-heading heading-lg text-grey">Checkout Aurelia</h2>
+            <section class="card-body">
+              <div class="row">
+                <div class="flex sm5">
+                  <ai-btn waves="light" text="white" bg="purple" link="http://github.com/aurelia">Aurelia-framework</ai-btn>
+                </div>
+                <div class="flex sm7">
+                  <markdown>
+
+                    [![Join the chat at https://gitter.im/Aurelia/Discuss](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/Aurelia/Discuss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+                    **Aurelia** is a next generation JavaScript client framework that leverages simple conventions to empower your creativity.
+                  </markdown>
+                </div>
+              </div>
+            </section>
+            <hr>
+            <h2 class="card-heading heading-lg text-grey">What if I don't like the CSS styling?</h2>
+            <section class="card-body">
+              <div class=row>
+                <div class="flex sm5">
+                  <markdown>**No Worries.**
+
+                  Coming soon we will provide a way to pre-configure **AI** with popular CSS libraries like.
+                  </markdown>
+                </div>
+                <div class="flex sm7">
+                  <markdown>
+
+                  - [Bootstrap](http://getbootstrap.com)
+                  - [Foundation](http://foundation.zurb.com/docs/)
+                  - [MaterializeCSS](http://materializecss.com/)
+                  </markdown>
+                </div>
+              </div>
+            </section>
+          </ai-card>
+          <ai-card>
+
             <footer class="card-footer"></footer>
           </ai-card>
 

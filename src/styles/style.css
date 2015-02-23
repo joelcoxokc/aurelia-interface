@@ -43,7 +43,16 @@
     font-weight: 100;
 }
 
+.ai-main {
+    /*background-image: url("images/material.png");
+    background-position: center;
+    background-size: cover;
+    min-height: 600px;    */
+}
 
+.heading-lg {
+    font-size: 2.4rem !important;
+}
 
 .markdown-body h1 .anchor,
 .markdown-body h2 .anchor,
