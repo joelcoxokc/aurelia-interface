@@ -27,14 +27,12 @@ export class AiTogglerAttachedBehavior{
     }
 
     bind(){
-        this.toggle = this.toggler.toggle(this.delegate)
+        this.toggle   = this.toggler.delegate(this.delegate)
         this.toggleOn = this.toggleOn || 'click'
-        this.element.addEventListener('click', (event)=>{
+        this.element.addEventListener(this.toggleOn, (event)=>{
             event.preventDefault()
             this.toggle()
         })
     }
-
-
 
 }

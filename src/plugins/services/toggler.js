@@ -59,7 +59,7 @@ export class Toggler{
         this.toggles[newToggle.name] = newToggle
     }
 
-    toggle(name){
+    delegate(name){
         var args = Array.prototype.slice.call(arguments)
         var instance = this.get(name);
 

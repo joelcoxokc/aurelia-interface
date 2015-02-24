@@ -31,12 +31,9 @@ export class NavBar {
 
 
     bind(){
-        this.toggle = this.toggler.toggle('aside')
+        this.toggle = this.toggler.delegate('aside-open')
         console.log(this.toggle)
         this.title = this.router.title
     }
-
-
-
 
 }

@@ -79,7 +79,8 @@ System.register(["aurelia-templating", "./ai-element", "./aside-toggle", "./togg
               this.addClass.apply(this, classList);
 
               this.asideToggle.init(this);
-              this.toggler.register("aside", this, "isOpen", null, this.onOpen);
+              this.toggler.register("aside-open", this, "isOpen", null, this.onOpen);
+              this.toggler.register("aside-fold", this, "isFolded", null, this.onOpen);
             },
             writable: true,
             configurable: true
