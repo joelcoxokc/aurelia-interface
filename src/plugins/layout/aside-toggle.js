@@ -44,7 +44,7 @@ export class AsideToggle{
         this.toggles[side][state].on.push(callback)
     }
 
-    off(state, callback){
+    off(side, state, callback){
         if(!this.toggles[side][state]) return new Error(`Aside State ${state} does not exist!! PLease use open or fold`)
         this.toggles[side][state].off.push(callback)
     }
@@ -84,6 +84,7 @@ export class AsideToggle{
     toggleFold(side){
         this.side = side
         this.fold = !this.fold;
+        this.aside &&(this.aside.isFolded = this.fold)
         this.foldChanged(this.open)
     }
 

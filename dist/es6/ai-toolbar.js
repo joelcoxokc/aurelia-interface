@@ -1,7 +1,7 @@
-System.register(["aurelia-templating", "./ai-element", "./interface-element", "./toolbar", "./notify"], function (_export) {
+System.register(["aurelia-templating", "./ai-element", "./interface-element", "./toolbar", "./notify", "./aside-toggle"], function (_export) {
   "use strict";
 
-  var Behavior, AiElement, InterfaceElement, Toolbar, Notify, _prototypeProperties, _inherits, _classCallCheck, defaults, AiToolbar, ToolbarContainer;
+  var Behavior, AiElement, InterfaceElement, Toolbar, Notify, AsideToggle, _prototypeProperties, _inherits, _classCallCheck, defaults, AiToolbar, ToolbarContainer;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
@@ -13,6 +13,8 @@ System.register(["aurelia-templating", "./ai-element", "./interface-element", ".
       Toolbar = _toolbar.Toolbar;
     }, function (_notify) {
       Notify = _notify.Notify;
+    }, function (_asideToggle) {
+      AsideToggle = _asideToggle.AsideToggle;
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
@@ -23,11 +25,11 @@ System.register(["aurelia-templating", "./ai-element", "./interface-element", ".
 
       defaults = ["size", "fixed", "bgColor", "textColor", "brand"];
       AiToolbar = _export("AiToolbar", (function (AiElement) {
-        function AiToolbar(element, notify) {
+        function AiToolbar(element, notify, asideToggle) {
           _classCallCheck(this, AiToolbar);
 
           var _this = this;
-
+          this.asideToggle = asideToggle;
           this.events = notify;
           this.element = element;
           this.current = new Toolbar();
@@ -53,7 +55,7 @@ System.register(["aurelia-templating", "./ai-element", "./interface-element", ".
           },
           inject: {
             value: function inject() {
-              return [Element, Notify];
+              return [Element, Notify, AsideToggle];
             },
             writable: true,
             configurable: true

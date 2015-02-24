@@ -6,7 +6,7 @@
     import {AsideToggle} from './aside-toggle'
 
 
-    import {AsideToggleAttachedBehavior} from './ai-aside-toggle'
+    import {AiAsideToggleAttachedBehavior} from './ai-aside-toggle'
 
     function install(aurelia){
 
@@ -16,7 +16,7 @@
             AiMain,
             AiFooter,
             AiHeader,
-            AsideToggleAttachedBehavior,
+            AiAsideToggleAttachedBehavior,
             AsideToggle
         ]);
 
@@ -29,7 +29,7 @@
         AiMain,
         AiFooter,
         AiHeader,
-        AsideToggleAttachedBehavior,
+        AiAsideToggleAttachedBehavior,
         AsideToggle,
         install
 

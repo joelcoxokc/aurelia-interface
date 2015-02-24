@@ -37,9 +37,10 @@ System.register(["aurelia-templating", "./ai-element", "./aside-toggle"], functi
         }
       };
       AiAside = _export("AiAside", (function (AiElement) {
-        function AiAside(element, toggle) {
+        function AiAside(element, asideToggle) {
           _classCallCheck(this, AiAside);
 
+          this.asideToggle = asideToggle;
           this.element = element;
           this.currentSide = null;
           this.state = this.fold || this.isOpen || defaults.aside;
@@ -74,7 +75,9 @@ System.register(["aurelia-templating", "./ai-element", "./aside-toggle"], functi
               this.isFolded && classList.push(defaults["class"].isFolded);
               this.addClass.apply(this, classList);
 
-              this.toggle = toggle.init(this);
+              this.asideToggle.init(this);
+
+              console.log("from aside", this.asideToggle);
             },
             writable: true,
             configurable: true
@@ -102,7 +105,7 @@ System.register(["aurelia-templating", "./ai-element", "./aside-toggle"], functi
           },
           toggleClass: {
             value: function toggleClass(value, className) {
-              this[value ? "addClass" : removeClass](className);
+              this[value ? "addClass" : "removeClass"](className);
             },
             writable: true,
             configurable: true
