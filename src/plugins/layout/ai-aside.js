@@ -1,7 +1,7 @@
 import {Behavior} from 'aurelia-templating';
 import {AiElement} from './ai-element';
 import {AsideToggle} from './aside-toggle';
-import {Toggler} from './toggle-registry';
+import {Toggler} from './toggler';
 
 let defaults =  { prefix : 'aside'
                 , side   : 'right'

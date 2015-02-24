@@ -1,4 +1,4 @@
-System.register(["aurelia-templating", "./ai-element", "./aside-toggle", "./toggle-registry"], function (_export) {
+System.register(["aurelia-templating", "./ai-element", "./aside-toggle", "./toggler"], function (_export) {
   "use strict";
 
   var Behavior, AiElement, AsideToggle, Toggler, _prototypeProperties, _inherits, _classCallCheck, defaults, AiAside;
@@ -9,8 +9,8 @@ System.register(["aurelia-templating", "./ai-element", "./aside-toggle", "./togg
       AiElement = _aiElement.AiElement;
     }, function (_asideToggle) {
       AsideToggle = _asideToggle.AsideToggle;
-    }, function (_toggleRegistry) {
-      Toggler = _toggleRegistry.Toggler;
+    }, function (_toggler) {
+      Toggler = _toggler.Toggler;
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
@@ -85,8 +85,8 @@ System.register(["aurelia-templating", "./ai-element", "./aside-toggle", "./togg
             configurable: true
           },
           onOpen: {
-            value: function onOpen(info) {
-              console.log(info);
+            value: function onOpen(newValue, oldValue) {
+              console.log(newValue, oldValue);
             },
             writable: true,
             configurable: true

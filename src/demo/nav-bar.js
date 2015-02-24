@@ -1,6 +1,6 @@
 import {Behavior} from 'aurelia-framework';
 import {AsideToggle} from './system/aside-toggle';
-import {Toggler} from './system/toggle-registry';
+import {Toggler} from './system/toggler';
 export class NavBar {
 
     static metadata(){

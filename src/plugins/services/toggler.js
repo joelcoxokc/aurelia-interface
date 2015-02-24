@@ -1,21 +1,7 @@
 import {Behavior} from 'aurelia-framework'
 
 
-export class ToggleRegistry{
-
-
-    constructor(){
-        this.toggles = [];
-
-    }
-
-
-
-
-
-}
-
-class Toggle{
+export class Toggle{
 
     constructor(options){
 

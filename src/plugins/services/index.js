@@ -1,10 +1,10 @@
     import {AiClassAttachedBehavior} from './ai-class'
-    import {ToggleRegistry} from './toggle-registry'
+    import {ToggleRegistry} from './toggler'
 
     function install(aurelia){
 
         aurelia.withResources([
-            ToggleRegistry,
+            Toggler,
             AiClassAttachedBehavior
 
         ]);
@@ -12,7 +12,7 @@
     }
 
     export {
-        ToggleRegistry,
+        Toggler,
         AiClassAttachedBehavior,
         install
 

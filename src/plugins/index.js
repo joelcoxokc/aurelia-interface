@@ -19,6 +19,8 @@ import { AiMain
 
 import {AiClassAttachedBehavior, AiElement} from './util/index'
 
+import {AiTogglerAttachedBehavior, AInterface} from './core/index'
+
 import {Toolbar} from './nav/index'
 
 export{ AiBtnToggleAttachedBehavior
@@ -38,4 +40,6 @@ export{ AiBtnToggleAttachedBehavior
       , AiBtn
       , AiElement
       , Toolbar
+      , AiTogglerAttachedBehavior
+      , AInterface
       };

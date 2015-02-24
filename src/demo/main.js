@@ -3,7 +3,7 @@ import {ConsoleAppender} from 'aurelia-logging-console';
 import {Aside} from './system/aside'
 import {Navigation} from './resources/navigation-container'
 import {AsideToggle} from './system/aside-toggle';
-import {Toggler, ToggleRegistry} from './system/toggle-registry';
+import {Toggler} from './system/toggler';
 
 
 
@@ -25,7 +25,7 @@ export function configure(aurelia) {
     aurelia.start()
     .then(function(framework) {
         console.log('Main', framework)
-        framework.container.registerInstance(Toggler, new Toggler(new ToggleRegistry()))
+        framework.container.registerInstance(Toggler, new Toggler())
         framework.container.registerInstance(Aside, new Aside())
         framework.container.registerInstance(Navigation, new Navigation())
         framework.container.registerInstance(AsideToggle, new AsideToggle())
