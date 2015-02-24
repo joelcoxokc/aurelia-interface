@@ -14,7 +14,6 @@ import { AiMain
        , AiHeader
        , AiAside
        , AiAside
-       , AiAsideToggleAttachedBehavior
        } from './layout/index'
 
 import {AiClassAttachedBehavior, AiElement} from './util/index'
@@ -27,7 +26,6 @@ export{ AiBtnToggleAttachedBehavior
       , AiBtnRadioAttachedBehavior
       , AiClassAttachedBehavior
       , AiTabsAttachedBehavior
-      , AiAsideToggleAttachedBehavior
       , AiDropdown
       , AiActionReveal
       , AiAction
