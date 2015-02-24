@@ -37,7 +37,6 @@ create-aside-varient(size, onOpen, onClose, onFold)
   position         : relative
   flex-direction   : column
   background-color : white
-  box-shadow       : 4px 0px 8px rgba(0,0,0,.2)
 
   min-max-height(100%)
   min-max-width(0)
@@ -50,9 +49,15 @@ create-aside-varient(size, onOpen, onClose, onFold)
   &.aside-left
     left : 0
     order: -1
+    box-shadow: $aside-box-shadow-left
+
   &.aside-right
     right : 0
     order : 2
+    box-shadow: $aside-box-shadow-right
+
+
+
 
 
 
