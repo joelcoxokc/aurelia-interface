@@ -1,5 +1,5 @@
 import {Behavior} from 'aurelia-framework';
-
+import {AsideToggle} from './system/aside-toggle';
 export class NavBar {
 
     static metadata(){
@@ -15,15 +15,16 @@ export class NavBar {
 
     static inject (){
 
-        return [Element]
+        return [Element, AsideToggle]
 
     }
 
 
-    constructor(element){
+    constructor(element, asideToggle){
 
         this.element   = element
         this.heading   = 'ai'
+        this.asideToggle = asideToggle;
     }
 
 
@@ -32,8 +33,8 @@ export class NavBar {
     }
 
     toggle(){
-
-        this.aside.open = !this.aside.open
+       this.asideToggle.toggleOpen('left')
+        // this.aside.open = !this.aside.open
 
     }
 

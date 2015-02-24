@@ -1,6 +1,6 @@
 <template>
     <import from="./system/ai-btn-toggle"></import>
-
+    <import from="./system/ai-aside-toggle"></import>
     <div class="toolbar-header header-right">
       <button type="button" class="toolbar-toggle" click="{aside.open = !aside.open}" >
       <!-- click.trigger="open()" -->
@@ -18,7 +18,7 @@
           <li repeat.for="row of navs" class="${row.isActive ? 'active' : ''}">
             <a class="waves-effect waves-${color}" href.bind="row.href">${row.title}</a>
           </li>
-          <li click.delegate="toggle()" >
+          <li ai-aside-toggle="side: left; use: toggleOpen">
             <a class="waves-effect waves-${color}">
               <i class="fa fa-bars"></i>
             </a>
