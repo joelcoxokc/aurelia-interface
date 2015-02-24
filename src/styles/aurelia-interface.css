@@ -5092,7 +5092,6 @@ template {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: #fff;
-  box-shadow: 4px 0px 8px rgba(0,0,0,0.2);
   height: 100%;
   min-height: 100%;
   max-height: 100%;
@@ -5115,6 +5114,7 @@ template {
   -webkit-order: -1;
       -ms-flex-order: -1;
           order: -1;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
 }
 .ai-aside.aside-right {
   right: 0;
@@ -5122,6 +5122,7 @@ template {
   -webkit-order: 2;
       -ms-flex-order: 2;
           order: 2;
+  box-shadow: -4px 0px 8px rgba(0,0,0,0.2);
 }
 .ai-aside.aside-is-open {
   -webkit-box-flex: 0;

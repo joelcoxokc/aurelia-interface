@@ -18,7 +18,7 @@
           <li repeat.for="row of navs" class="${row.isActive ? 'active' : ''}">
             <a class="waves-effect waves-${color}" href.bind="row.href">${row.title}</a>
           </li>
-          <li ai-aside-toggle="side: left; use: toggleOpen">
+          <li click.trigger="toggle()">
             <a class="waves-effect waves-${color}">
               <i class="fa fa-bars"></i>
             </a>

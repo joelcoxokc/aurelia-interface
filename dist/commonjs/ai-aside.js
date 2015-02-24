@@ -1,7 +1,7 @@
-System.register(["aurelia-templating", "./ai-element", "./aside-toggle"], function (_export) {
+System.register(["aurelia-templating", "./ai-element", "./aside-toggle", "./toggler"], function (_export) {
   "use strict";
 
-  var Behavior, AiElement, AsideToggle, _prototypeProperties, _inherits, _classCallCheck, defaults, AiAside;
+  var Behavior, AiElement, AsideToggle, Toggler, _prototypeProperties, _inherits, _classCallCheck, defaults, AiAside;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
@@ -9,6 +9,8 @@ System.register(["aurelia-templating", "./ai-element", "./aside-toggle"], functi
       AiElement = _aiElement.AiElement;
     }, function (_asideToggle) {
       AsideToggle = _asideToggle.AsideToggle;
+    }, function (_toggler) {
+      Toggler = _toggler.Toggler;
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
@@ -37,9 +39,10 @@ System.register(["aurelia-templating", "./ai-element", "./aside-toggle"], functi
         }
       };
       AiAside = _export("AiAside", (function (AiElement) {
-        function AiAside(element, asideToggle) {
+        function AiAside(element, asideToggle, toggler) {
           _classCallCheck(this, AiAside);
 
+          this.toggler = toggler;
           this.asideToggle = asideToggle;
           this.element = element;
           this.currentSide = null;
@@ -58,7 +61,7 @@ System.register(["aurelia-templating", "./ai-element", "./aside-toggle"], functi
           },
           inject: {
             value: function inject() {
-              return [Element, AsideToggle];
+              return [Element, AsideToggle, Toggler];
             },
             writable: true,
             configurable: true
@@ -76,8 +79,14 @@ System.register(["aurelia-templating", "./ai-element", "./aside-toggle"], functi
               this.addClass.apply(this, classList);
 
               this.asideToggle.init(this);
-
-              console.log("from aside", this.asideToggle);
+              this.toggler.register("aside", this, "isOpen", null, this.onOpen);
+            },
+            writable: true,
+            configurable: true
+          },
+          onOpen: {
+            value: function onOpen(newValue, oldValue) {
+              console.log(newValue, oldValue);
             },
             writable: true,
             configurable: true

@@ -1,6 +1,7 @@
 import {Behavior} from 'aurelia-templating';
 import {AiElement} from './ai-element';
 import {AsideToggle} from './aside-toggle';
+import {Toggler} from './toggler';
 
 let defaults =  { prefix : 'aside'
                 , side   : 'right'
@@ -37,10 +38,11 @@ export class AiAside extends AiElement{
     }
 
     static inject(){
-        return [Element, AsideToggle]
+        return [Element, AsideToggle, Toggler]
     }
 
-    constructor(element, asideToggle){
+    constructor(element, asideToggle, toggler){
+        this.toggler = toggler
         this.asideToggle = asideToggle;
         this.element = element
         this.currentSide = null
@@ -59,11 +61,17 @@ export class AiAside extends AiElement{
         this.addClass.apply(this, classList)
 
         this.asideToggle.init(this)
+        this.toggler.register('aside', this, 'isOpen', null, this.onOpen)
 
-        console.log('from aside', this.asideToggle)
+        // console.log(this.toggler)
+
+        // console.log('from aside', this.asideToggle)
 
     }
 
+    onOpen(newValue, oldValue){
+        console.log(newValue, oldValue)
+    }
 
     openChanged(value){
 

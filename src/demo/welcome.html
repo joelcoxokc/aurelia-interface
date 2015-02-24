@@ -1,7 +1,10 @@
 <template>
   <import from="./system/ai-card"></import>
   <import from="./system/ai-btn"></import>
-  <import from="resources/markdown"></import>
+  <import from="./resources/markdown"></import>
+  <import from="./system/ai-aside-toggle"></import>
+  <import from="./system/ai-toggler"></import>
+
   <section>
 
     <!-- <header class="bg-purple ai-header header-xl"> -->
@@ -24,8 +27,10 @@
                               bg=purple
                               text=white
                               waves=light
-                              link="http://github.com/joelcoxokc/aurelia-interface"
+                              ai-toggler="delegate: aside; toggle-on: click"
                               >Getting Started</ai-btn>
+
+                              <!-- link="http://github.com/joelcoxokc/aurelia-interface" -->
                     </div>
                   </div>
                   <div class=row>

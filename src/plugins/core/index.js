@@ -3,12 +3,14 @@
     function install(aurelia){
 
         aurelia.withResources([
+            AiTogglerAttachedBehavior,
             AInterface
         ]);
 
     }
 
     export {
+        AiTogglerAttachedBehavior,
         AInterface,
         install
     };
