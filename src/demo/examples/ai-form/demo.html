@@ -3,17 +3,17 @@
     <import from="../../system/ai-card"></import>
     <import from="../../system/ai-input"></import>
     <ai-card>
-
-
-        <div class="card-body"><p>I am a simple card</p></div>
-
-
+        <div class="card-heading">ai-Form Elements</div>
     </ai-card>
     <ai-card>
+    	<div class="card-heading">ai-Input</div>
         <div class="card-body">
-            <example base="../dist/examples/ai-card">
+        	<div ai-input="label: First Name; ">
+                <input>
+            </div>
+            <example base="../dist/examples/ai-form">
                 <column size="md6">
-                    <file src="simple.html" view="true"></file>
+                    <file src="input.html" view="true"></file>
                 </column>
             </example>
         </div>
@@ -24,9 +24,6 @@
         <div class="card-body">
             <p>This card has a heading component</p>
 
-            <ai-input label="First Name">
-                <input>
-            </ai-input>
 
         </div>
 
