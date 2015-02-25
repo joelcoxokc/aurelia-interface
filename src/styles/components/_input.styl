@@ -1,0 +1,81 @@
+reset-input(){
+	border          : none
+	outline         : none
+	background      : transparent
+	background-color: transparent
+}
+
+create-input-theme-varient(label, color)
+	&.input-{label}
+		.input-border
+			background-color: color !important
+			background      : color !important
+			
+		&.active
+			.input-label
+				color: color !important
+				
+
+.ai-input
+	reset-input()
+	position    : relative
+	width       : 100%
+	flex        : 1 0 auto
+	height      : $input-height
+	line-height : $input-height
+	margin-top  : ($input-height / 2)
+	
+	input, input.input-control
+		reset-input()
+		flex        : 1 0 auto
+		color       : $input-color
+		width       : inherit
+		position    : relative
+		height      : $input-height
+		padding-left: 10px
+		
+	.input-label
+		position     : absolute
+		line-heaght  : ($input-height / 2)
+		height       : ($input-height / 2)
+		width        : 100%
+		color        : $input-label-color
+		top          : 50%
+		margin-top   : -($input-height / 2)
+		padding-left : 10px
+		transition   : all 400ms $cubic-ease-out
+	.input-border
+		min-height      : 2px
+		height          : 2px
+		max-height      : 2px
+		width           : 0
+		border-radius   : 10px
+		background-color: $input-default-border
+		background      : $input-default-border
+		display         : block
+		position        : absolute
+		bottom          : 0
+		left            : 50%
+		opacity         : 0
+		transition      : all 400ms $cubic-ease-out
+		
+		
+		
+	&.active
+		.input-label
+			top    : -($input-height / 2)
+			margin : 0
+			color  : $input-default-label-color
+			padding: 0
+		.input-border
+			width   : 100%
+			left    : 0
+			opacity : 1
+			
+	
+	create-input-theme-varient(primary, $color-primary)
+	create-input-theme-varient(info, $color-info)
+	create-input-theme-varient(success, $color-success)
+	create-input-theme-varient(warning, $color-warning)
+	create-input-theme-varient(danger, $color-danger)
+	create-input-theme-varient(invert, $color-invert)
