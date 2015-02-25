@@ -6669,6 +6669,7 @@ ul.ai-list .ai-link:hover,
   background-color: transparent;
   position: relative;
   width: 100%;
+  cursor: text !important;
   -webkit-box-flex: 1;
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
@@ -6694,6 +6695,7 @@ ul.ai-list .ai-link:hover,
   padding-left: 10px;
 }
 .ai-input .input-label {
+  cursor: text !important;
   position: absolute;
   line-heaght: 19px;
   height: 19px;
@@ -6722,15 +6724,18 @@ ul.ai-list .ai-link:hover,
           transition: all 400ms cubic-bezier(0, 0.74, 0, 0.99);
 }
 .ai-input.active .input-label {
-  top: -19px;
+  top: -31.666666666666668px;
   margin: 0;
   color: #2196f3;
-  padding: 0;
 }
 .ai-input.active .input-border {
   width: 100%;
   left: 0;
   opacity: 1;
+}
+.ai-input.has-value .input-label {
+  top: -31.666666666666668px !important;
+  margin: 0 !important;
 }
 .ai-input.input-primary .input-border {
   background-color: #2196f3 !important;

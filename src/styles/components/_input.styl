@@ -20,6 +20,7 @@ create-input-theme-varient(label, color)
 	reset-input()
 	position    : relative
 	width       : 100%
+	cursor      : text !important
 	flex        : 1 0 auto
 	height      : $input-height
 	line-height : $input-height
@@ -35,6 +36,7 @@ create-input-theme-varient(label, color)
 		padding-left: 10px
 		
 	.input-label
+		cursor       : text !important
 		position     : absolute
 		line-heaght  : ($input-height / 2)
 		height       : ($input-height / 2)
@@ -63,14 +65,17 @@ create-input-theme-varient(label, color)
 		
 	&.active
 		.input-label
-			top    : -($input-height / 2)
+			top    : -($input-height / 1.2)
 			margin : 0
 			color  : $input-default-label-color
-			padding: 0
 		.input-border
 			width   : 100%
 			left    : 0
 			opacity : 1
+	&.has-value
+		.input-label
+			top    : -($input-height / 1.2) !important
+			margin : 0 !important
 			
 	
 	create-input-theme-varient(primary, $color-primary)
