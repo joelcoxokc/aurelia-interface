@@ -1,0 +1,49 @@
+<template>
+    <import from="../../system/ai-btn"></import>
+    <import from="../../system/ai-card"></import>
+    <import from="../../system/ai-bar"></import>
+    <import from="../../system/bar-group-element"></import>
+    <import from="../../system/bar-item-element"></import>
+    <import from="../../resources/example"></import>
+    <import from="../../resources/file"></import>
+    <import from="../../resources/column"></import>
+    <ai-card>
+        <h2 class="card-heading">ai-Bar Element</h2>
+        <div class="card-body">
+          <div class=row>
+            <div class='flex md6'>
+            </div>
+          </div>
+        </div>
+    </ai-card>
+    <ai-card>
+        <ai-bar bg="teal accent-4" text="white" size="xs">
+          <div bar-brand="ai-bar">Brand</div>
+          <ul bar-group="side: left">
+            <li bar-item>
+              <ai-btn icon="mdi-action-grade" waves="light"></ai-btn>
+            </li>
+            <li bar-item>
+              <ai-btn icon="mdi-action-grade" waves="light"></ai-btn>
+            </li>
+          </ul>
+          <bar-group side="right">
+            <bar-item icon="mdi-action-grade" waves="light"></bar-item>
+            <bar-item icon="mdi-action-grade" waves="light"></bar-item>
+          </bar-group>
+        </ai-bar>
+        <h2 class="card-heading">ai-List <strong>How to</strong></h2>
+        <div class="card-body">
+          <div class=row>
+            <div class='flex md6'>
+            </div>
+          </div>
+           <example base="../dist/examples/ai-bar">
+              <column size="md6">
+                <file src="demo.html" view="true"></file>
+              </column>
+            </example>
+        </div>
+    </ai-card>
+
+</template>

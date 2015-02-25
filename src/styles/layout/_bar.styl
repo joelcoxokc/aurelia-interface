@@ -1,0 +1,87 @@
+ai-bar-varient(height)
+    line-height: height
+    height     : height
+
+
+.ai-bar
+    flex-container()
+    flex-direction row
+    flex   : 1 0 auto
+
+    &.bar-xs
+        ai-bar-varient($bar-height-xs)
+
+    &.bar-sm
+        ai-bar-varient($bar-height-sm)
+
+    &.bar-md
+        ai-bar-varient($bar-height-md)
+
+    &.bar-lg
+        ai-bar-varient($bar-height-lg)
+
+    &.bar-xl
+        ai-bar-varient($bar-height-xl)
+
+
+
+    .bar-icon,.bar-text, .bar-item
+        text-align : center
+        line-height: inherit
+
+    .bar-brand
+        width      : 200px
+        max-width  : 200px
+        padding    : 0 ($bar-side-gutter * 2)
+        line-height: inherit
+        font-weight: 500
+
+    .bar-icon
+        flex       : 1 0 auto
+        max-width  : 28px
+
+    .bar-text
+
+        flex       : 1 0 auto
+        max-width  : 200px
+
+    .bar-container
+        position:relative
+        flex: 1 0 auto
+        flex-container()
+
+    .bar-item
+        line-height: inherit
+        height     : inherit
+
+        a.ai-btn,
+        .ai-btn
+            background-color: transparent
+            background   : transparent
+            color        : white
+            box-shadow   : none
+            border-radius: 0
+            line-height  : inherit
+            height       : inherit
+            margin       : 0
+            padding      : 0 $bar-btn-pads
+
+    .bar-group-left
+        justify-content : flex-start
+        li:first-child .ai-btn
+            padding-left: ($bar-side-gutter * 2)
+    .bar-group-right
+        justify-content : flex-end
+        li:last-child .ai-btn
+            padding-right: ($bar-side-gutter * 2)
+
+    .bar-group
+        flex       : 1 0 auto
+        height     : inherit
+        list-style : none
+        line-height: inherit
+        flex-direction: row
+        flex-container()
+
+        .bar-item
+            flex-container()

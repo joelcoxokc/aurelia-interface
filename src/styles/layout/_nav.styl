@@ -1,249 +1,249 @@
-.ai-bar
-  flex      : 1 0 auto
-  order     : -1
-  position  : relative
-  flex-container()
+// .ai-bar
+//   flex      : 1 0 auto
+//   order     : -1
+//   position  : relative
+//   flex-container()
 
-  &.bar-ink
-    box-shadow 0 !important
+//   &.bar-ink
+//     box-shadow 0 !important
 
-  &.bar-paper
-    box-shadow      : 0 2px 4px rgba(0,0,0,0.2)
+//   &.bar-paper
+//     box-shadow      : 0 2px 4px rgba(0,0,0,0.2)
 
-  &.ai-nav-bar
-    flex            : 0 0 $nav-bar-height
-    position        : relative
-    flex-direction  : row
-    background-color: $shades.white
-    width 100%
-    min-width 100%
-    max-width 100%
-    min-height: $nav-bar-height
-    max-height: auto
-    height: auto
+//   &.ai-nav-bar
+//     flex            : 0 0 $nav-bar-height
+//     position        : relative
+//     flex-direction  : row
+//     background-color: $shades.white
+//     width 100%
+//     min-width 100%
+//     max-width 100%
+//     min-height: $nav-bar-height
+//     max-height: auto
+//     height: auto
 
-    & > .nav-bar-container
-      flex          : 1 0 auto
-      position      : relative
-      flex-direction: column
-      width inherit
-      flex-container()
-      min-max-height(inherit)
+//     & > .nav-bar-container
+//       flex          : 1 0 auto
+//       position      : relative
+//       flex-direction: column
+//       width inherit
+//       flex-container()
+//       min-max-height(inherit)
 
-    &.bar-fixed
-      & > .nav-bar-container
-        position      : fixed
-
-
-    .nav-bar-header
-      order           : 0
-      flex            : 1 0 auto
-      position        : relative
-      padding         : 0px 8px
-      align(center)
-      justify(center)
-      flex-container()
-
-      .nav-bar-toggle
-        order : -1
-        font-size   : 2rem
-        flex        : 1 0 auto
-        outline     : none
-        padding     : 0 6px
-        max-width   : 64px
-        line-height : $nav-bar-height
-        background  : none
-        border      : none
-        cursor      : pointer
-        &.nav-right
-          order: 1
-
-      .nav-bar-brand
-        font-size   : 2rem
-        order       : 0
-        flex        : 1 0 auto
-        position    : relative
-        color       : inherit
-        line-height : $nav-bar-height
-        &.nav-right
-          text-align: right
-
-    .nav-bar-content
-      order : 1
-      flex  : 1 0 auto
-      flex-direction column
-      width(inherit)
-      flex-container()
-      // min-max-height(0)
+//     &.bar-fixed
+//       & > .nav-bar-container
+//         position      : fixed
 
 
+//     .nav-bar-header
+//       order           : 0
+//       flex            : 1 0 auto
+//       position        : relative
+//       padding         : 0px 8px
+//       align(center)
+//       justify(center)
+//       flex-container()
 
-      .nav-bar-collapse,
-      .nav-bar-actions
-        flex: 1 0 auto
-        position: relative
-        flex-container()
-        flex-direction: column
+//       .nav-bar-toggle
+//         order : -1
+//         font-size   : 2rem
+//         flex        : 1 0 auto
+//         outline     : none
+//         padding     : 0 6px
+//         max-width   : 64px
+//         line-height : $nav-bar-height
+//         background  : none
+//         border      : none
+//         cursor      : pointer
+//         &.nav-right
+//           order: 1
 
+//       .nav-bar-brand
+//         font-size   : 2rem
+//         order       : 0
+//         flex        : 1 0 auto
+//         position    : relative
+//         color       : inherit
+//         line-height : $nav-bar-height
+//         &.nav-right
+//           text-align: right
 
-    .nav-actions
-      order         : 0
-      flex          : 1 0 auto
-      position      : relative
-      flex-direction: row
-      flex-container()
-
-      &.hide-mobile
-        dislpay none
-
-      & > *
-        position       : relative
-        text-align     : center
-        line-height    : $nav-bar-height
-        justify(flex-start)
-        flex-container()
-
-        & > *
-          padding  : 0px 24px
-          flex     : 1 0 auto
-          dislpay  : block
-          position : relative
-          font-size: 1.3rem
-          cursor   : point
-          transition background-color 200ms, cubic-bezier(0,.74,0,.99), color 200ms, cubic-bezier(0,.74,0,.99)
-          color inherit
-          &:hover
-            // background-color: $purple.base
-            // color           : white !important
-
-      &.nav-actions-right
-        order         : 2
-        // flex 0 3 auto
-        width 0
-        justify(flex-end)
-        align(flex-end)
-        // align-content: flex-end
-
-
-    .nav-bar-collapse
-      top       : -2px
-      position  : relative
-      overflow  : hidden
-      height    : 0
-      width     : 100%
-      // background-color: $shades.white
-      box-shadow 0px 2px 4px rgba(0,0,0,0.3)
-      // transition max-height 1s cubic-bezier(0,.74,0,.99)
-      &.open
-
-        height:  auto
-
-        .nav-actions
-          flex-direction column
-          justify(flex-start)
-          align-content flex-start
-          flex-container()
-            dislpay:none
-          & > *
-            width 100%
-            text-align left
-
-
-    &.bar-xs
-      flex:  0 0 $nav-bar-height
-      min-max-height($nav-bar-height-xs)
-      .nav-actions > *
-        line-height $nav-bar-height-xs
-
-    &.bar-sm
-      flex:  0 0 $nav-bar-height
-      min-max-height($nav-bar-height-sm)
-
-    &.bar-md
-      flex:  0 0 $nav-bar-height
-      min-max-height($nav-bar-height-md)
-
-    &.bar-lg
-      flex:  0 0 $nav-bar-height
-      min-max-height($nav-bar-height-lg)
-
-    &.bar-xl
-      // flex: 0 0 $nav-bar-height
-      min-max-height($nav-bar-height-xl)
-      .nav-bar-container
-        padding-top 150px
-        .nav-bar-header
-          min-max-width(500px)
-          // margin-bottom 64px/
-          .nav-bar-brand
-            font-size 4em
-        .nav-bar-content
-          align-self flex-end
+//     .nav-bar-content
+//       order : 1
+//       flex  : 1 0 auto
+//       flex-direction column
+//       width(inherit)
+//       flex-container()
+//       // min-max-height(0)
 
 
 
-
-.hide-mobile
-  dislpay:none !important
-
-@keyframes nav-bar-drop
-  0%
-    height     0
-  100%
-    height     800px
-
-@media(min-width: 640px)
-  .ai-bar
-
-    &.ai-nav-bar
-
-      .nav-bar-container
-        flex-direction row
+//       .nav-bar-collapse,
+//       .nav-bar-actions
+//         flex: 1 0 auto
+//         position: relative
+//         flex-container()
+//         flex-direction: column
 
 
-        .nav-bar-header
+//     .nav-actions
+//       order         : 0
+//       flex          : 1 0 auto
+//       position      : relative
+//       flex-direction: row
+//       flex-container()
 
-          flex 0 0 $nav-aside-width
-          align(center)
-          justify(center)
+//       &.hide-mobile
+//         dislpay none
 
-          &.header-right
-            justify(flex-end)
+//       & > *
+//         position       : relative
+//         text-align     : center
+//         line-height    : $nav-bar-height
+//         justify(flex-start)
+//         flex-container()
 
-          min-max-width($nav-aside-width)
+//         & > *
+//           padding  : 0px 24px
+//           flex     : 1 0 auto
+//           dislpay  : block
+//           position : relative
+//           font-size: 1.3rem
+//           cursor   : point
+//           transition background-color 200ms, cubic-bezier(0,.74,0,.99), color 200ms, cubic-bezier(0,.74,0,.99)
+//           color inherit
+//           &:hover
+//             // background-color: $purple.base
+//             // color           : white !important
 
-          .nav-bar-toggle
-            display none
+//       &.nav-actions-right
+//         order         : 2
+//         // flex 0 3 auto
+//         width 0
+//         justify(flex-end)
+//         align(flex-end)
+//         // align-content: flex-end
 
-          .nav-bar-brand
-            &.nav-right
-              text-align  : center
 
-        .nav-bar-content
-          flex-direction row
-          min-max-height($nav-bar-height)
+//     .nav-bar-collapse
+//       top       : -2px
+//       position  : relative
+//       overflow  : hidden
+//       height    : 0
+//       width     : 100%
+//       // background-color: $shades.white
+//       box-shadow 0px 2px 4px rgba(0,0,0,0.3)
+//       // transition max-height 1s cubic-bezier(0,.74,0,.99)
+//       &.open
 
-          .nav-actions
-            flex-direction row
-            flex-container()
-            &.hide-mobile
-              flex-container()
-            & > *
-              text-align center
-              width 0
-                // align-self flex-end
+//         height:  auto
 
-          .nav-bar-collapse
-            top 0
-            position relative
-            flex-direction row
-            box-shadow none
-            min-max-height(100%)
-            &.open
-              height  : auto
-              .nav-actions
-                flex-direction row
-                justify(center)
+//         .nav-actions
+//           flex-direction column
+//           justify(flex-start)
+//           align-content flex-start
+//           flex-container()
+//             dislpay:none
+//           & > *
+//             width 100%
+//             text-align left
+
+
+//     &.bar-xs
+//       flex:  0 0 $nav-bar-height
+//       min-max-height($nav-bar-height-xs)
+//       .nav-actions > *
+//         line-height $nav-bar-height-xs
+
+//     &.bar-sm
+//       flex:  0 0 $nav-bar-height
+//       min-max-height($nav-bar-height-sm)
+
+//     &.bar-md
+//       flex:  0 0 $nav-bar-height
+//       min-max-height($nav-bar-height-md)
+
+//     &.bar-lg
+//       flex:  0 0 $nav-bar-height
+//       min-max-height($nav-bar-height-lg)
+
+//     &.bar-xl
+//       // flex: 0 0 $nav-bar-height
+//       min-max-height($nav-bar-height-xl)
+//       .nav-bar-container
+//         padding-top 150px
+//         .nav-bar-header
+//           min-max-width(500px)
+//           // margin-bottom 64px/
+//           .nav-bar-brand
+//             font-size 4em
+//         .nav-bar-content
+//           align-self flex-end
+
+
+
+
+// .hide-mobile
+//   dislpay:none !important
+
+// @keyframes nav-bar-drop
+//   0%
+//     height     0
+//   100%
+//     height     800px
+
+// @media(min-width: 640px)
+//   .ai-bar
+
+//     &.ai-nav-bar
+
+//       .nav-bar-container
+//         flex-direction row
+
+
+//         .nav-bar-header
+
+//           flex 0 0 $nav-aside-width
+//           align(center)
+//           justify(center)
+
+//           &.header-right
+//             justify(flex-end)
+
+//           min-max-width($nav-aside-width)
+
+//           .nav-bar-toggle
+//             display none
+
+//           .nav-bar-brand
+//             &.nav-right
+//               text-align  : center
+
+//         .nav-bar-content
+//           flex-direction row
+//           min-max-height($nav-bar-height)
+
+//           .nav-actions
+//             flex-direction row
+//             flex-container()
+//             &.hide-mobile
+//               flex-container()
+//             & > *
+//               text-align center
+//               width 0
+//                 // align-self flex-end
+
+//           .nav-bar-collapse
+//             top 0
+//             position relative
+//             flex-direction row
+//             box-shadow none
+//             min-max-height(100%)
+//             &.open
+//               height  : auto
+//               .nav-actions
+//                 flex-direction row
+//                 justify(center)
 
 
 template
