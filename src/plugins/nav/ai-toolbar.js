@@ -41,18 +41,12 @@ export class AiToolbar extends AiElement{
 
         this.addClass('ai-toolbar')
         this.events.subscribe('$stateChanged', (payload)=>{
-            // console.log('Recieved from ai-toolbar', payload)
         })
     }
 
     bind(){
         this.container = new ToolbarContainer(this.element.firstElementChild)
     }
-
-    toolbarChanged(tools){
-    }
-
-
     bgChanged(value){
         return this.container.toggleClassList('bgColor', '', this)
     }
@@ -62,15 +56,8 @@ export class AiToolbar extends AiElement{
         return this.container.toggleClassList('textColor', '', this)
 
     }
-
-    brandChanged(){
-
-    }
-
     sizeChanged(value){
-
         return this.toggleClassList('size', 'toolbar-')
-
     }
 
 }
@@ -84,17 +71,3 @@ class ToolbarContainer extends AiElement{
 }
 
 
-
-
-
-
-
-/*
-Object.observe(this.router, (evt, value)=>{
-    var config = this.router.currentInstruction.config.toolbar
-    config.size      ?( this.size = config.size )            : ( this.size = this.defaults.size )
-    config.fixed     ?( this.fixed = config.fixed )          : ( this.fixed = this.defaults.fixed )
-    config.bgColor   ?( this.bgColor = config.bgColor )      : ( this.bgColor = this.defaults.bgColor )
-    config.textColor ?( this.textColor = config.textColor )  : ( this.textColor = this.defaults.textColor )
-})
- */

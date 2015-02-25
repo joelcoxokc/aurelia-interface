@@ -5,6 +5,7 @@
     <import from="./system/ai-action-reveal"></import>
     <import from="./system/ai-btn"></import>
     <import from="./system/ai-tabs"></import>
+    <import from="./system/ai-toggler"></import>
 
 
         <div ai-tabs="active-tab-ref.two-way: selectedTabRef; show-tab.call: updateTabSliderPosition(tabsInstance);" class="${showMyTab.name}">
@@ -31,6 +32,14 @@
             <div class="ai-tab-slider"></div>
           </ul>
           <div class="tab-content">
+            <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'a-interface', active: selectedTabRef == 'a-interface'}" ai-tab="a-interface">
+              <div class="section">
+                <div class="flex md8 offset-md2">
+                    <ai-btn color="primary" waves=light ai-toggler="delegate: explode-main; toggle-on: click;" click.trigger="animate()">animate</ai-btn>
+                    <!-- <ai-btn color="primary" waves=light ai-toggler="delegate: explode-main; toggle-on: click">show ai-main</ai-btn> -->
+                </div>
+              </div>
+            </div>
             <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'a-interface', active: selectedTabRef == 'a-interface'}" ai-tab="a-interface">
               <div class="section">
                 <div class="flex md8 offset-md2">

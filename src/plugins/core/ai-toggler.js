@@ -10,6 +10,7 @@ export class AiTogglerAttachedBehavior{
                 x.withProperty('nextIcon', 'nextChanged', 'next-icon');
                 x.withProperty('icon');
                 x.withProperty('delegate');
+                x.withProperty('delay');
                 x.withProperty('toggleOn', 'onChanged', 'toggle-on');
             })
     }
@@ -31,7 +32,12 @@ export class AiTogglerAttachedBehavior{
         this.toggleOn = this.toggleOn || 'click'
         this.element.addEventListener(this.toggleOn, (event)=>{
             event.preventDefault()
-            this.toggle()
+            if(this.delay){
+                setTimeout(()=>{this.toggle()}, this.delay)
+            } else {
+                this.toggle()
+            }
+
         })
     }
 

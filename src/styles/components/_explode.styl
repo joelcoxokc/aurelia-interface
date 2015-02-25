@@ -1,0 +1,32 @@
+.ai-explode
+    position : absolute
+    min-width: 100vw
+    min-height: 100vw
+    width    : inherit
+    height   : inherit
+    top      : 0
+    left     : 0
+    // align-items    : center
+    // justify-content: center
+    flex-container()
+    & > span
+        position: absolute
+        flex    : 1 0 auto
+        width   : 0
+        height  : 0
+        border-radius:100%
+        top     : 50vh
+        left    : 50vw
+        transition: all 2s cubic-bezier(0,.74,0,.99)
+
+    &.explode
+        & > span
+            top     : -50vw
+            left    : -50vw
+            width : 200vw
+            height: 200vw
+            max-width : 200vw
+            min-width : 200vw
+            min-height: 200vw
+            max-height: 200vw
+

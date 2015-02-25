@@ -68,11 +68,6 @@ System.register(["aurelia-templating", "./ai-element", "./interface-element", ".
             writable: true,
             configurable: true
           },
-          toolbarChanged: {
-            value: function toolbarChanged(tools) {},
-            writable: true,
-            configurable: true
-          },
           bgChanged: {
             value: function bgChanged(value) {
               return this.container.toggleClassList("bgColor", "", this);
@@ -84,11 +79,6 @@ System.register(["aurelia-templating", "./ai-element", "./interface-element", ".
             value: function textChanged(value) {
               return this.container.toggleClassList("textColor", "", this);
             },
-            writable: true,
-            configurable: true
-          },
-          brandChanged: {
-            value: function brandChanged() {},
             writable: true,
             configurable: true
           },

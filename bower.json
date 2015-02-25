@@ -15,6 +15,7 @@
   ],
   "dependencies": {
     "materialize": "~0.95.2",
-    "lodash": "~3.2.0"
+    "lodash": "~3.2.0",
+    "gsap": "~1.15.1"
   }
 }

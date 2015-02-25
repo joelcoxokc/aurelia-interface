@@ -6,6 +6,7 @@
     <import from="./system/ai-aside-nav"></import>
     <import from="./system/ai-main"></import>
     <import from="./system/ai-body"></import>
+    <import from="./system/ai-explode"></import>
     <import from="./nav-bar"></import>
     <import from="./nav-aside"></import>
 
@@ -31,6 +32,7 @@
         </ai-toolbar>
 
         <ai-main>
+          <ai-explode bg="bg-red"></ai-explode>
           <router-view></router-view>
         </ai-main>
 
@@ -50,7 +52,7 @@
               <nav-aside size.bind="toolbar.size" aside.bind="aside" router.bind="router"></nav-aside>
               </ai-aside-nav> -->
 
-      <ai-aside side="left" is-open=true is-fixed=true></ai-aside>
+      <ai-aside side="left" is-fixed=true></ai-aside>
 
     </a-interface>
 

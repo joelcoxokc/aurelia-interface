@@ -5451,7 +5451,8 @@ template {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  max-width: 100%;
+  max-width: 100vw;
+  position: relative;
   box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -5499,6 +5500,7 @@ template {
   display: -webkit-flex;
   display: flex;
   position: relative;
+  z-index: 1000;
   width: 100%;
   height: auto;
   min-width: 100%;
@@ -6617,6 +6619,7 @@ a.ai-btn.btn-invert,
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
+  max-height: 84px;
 }
 .ai-tabs .tab-pane {
   display: none;
@@ -6926,4 +6929,42 @@ ul.ai-list .ai-link:hover,
 .ai-action-group.action-off .ai-btn-group .ai-btn {
   width: 0;
   height: 0;
+}
+.ai-explode {
+  position: absolute;
+  min-width: 100vw;
+  min-height: 100vw;
+  width: inherit;
+  height: inherit;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+.ai-explode > span {
+  position: absolute;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  width: 0;
+  height: 0;
+  border-radius: 100%;
+  top: 50vh;
+  left: 50vw;
+  -webkit-transition: all 2s cubic-bezier(0, 0.74, 0, 0.99);
+          transition: all 2s cubic-bezier(0, 0.74, 0, 0.99);
+}
+.ai-explode.explode > span {
+  top: -50vw;
+  left: -50vw;
+  width: 200vw;
+  height: 200vw;
+  max-width: 200vw;
+  min-width: 200vw;
+  min-height: 200vw;
+  max-height: 200vw;
 }
