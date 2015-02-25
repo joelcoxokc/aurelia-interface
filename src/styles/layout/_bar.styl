@@ -25,7 +25,7 @@ ai-bar-varient(height)
 
 
 
-    .bar-icon,.bar-text, .bar-action
+    .bar-icon,.bar-text, .bar-item
         text-align : center
         line-height: inherit
 
@@ -50,7 +50,7 @@ ai-bar-varient(height)
         flex: 1 0 auto
         flex-container()
 
-    .bar-action
+    .bar-item
         line-height: inherit
         height     : inherit
 
@@ -66,16 +66,16 @@ ai-bar-varient(height)
             margin       : 0
             padding      : 0 $bar-btn-pads
 
-    .bar-left
+    .bar-group-left
         justify-content : flex-start
         li:first-child .ai-btn
             padding-left: ($bar-side-gutter * 2)
-    .bar-right
+    .bar-group-right
         justify-content : flex-end
         li:last-child .ai-btn
             padding-right: ($bar-side-gutter * 2)
 
-    .bar-actions
+    .bar-group
         flex       : 1 0 auto
         height     : inherit
         list-style : none
@@ -83,5 +83,5 @@ ai-bar-varient(height)
         flex-direction: row
         flex-container()
 
-        .bar-action
+        .bar-item
             flex-container()

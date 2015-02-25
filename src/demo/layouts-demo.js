@@ -9,7 +9,7 @@ export class Layout{
     constructor(toggler){
         this.toggler = toggler
         this.heading = 'aiLayout ';
-        this.selectedTabRef = 'a-interface'
+        this.selectedTabRef = 'ai-bar'
         this.isAnimated = false
         this.time = new TimelineLite()
     }

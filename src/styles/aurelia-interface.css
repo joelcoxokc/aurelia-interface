@@ -5077,7 +5077,7 @@ template {
 }
 .ai-bar .bar-icon,
 .ai-bar .bar-text,
-.ai-bar .bar-action {
+.ai-bar .bar-item {
   text-align: center;
   line-height: inherit;
 }
@@ -5114,12 +5114,12 @@ template {
   display: -webkit-flex;
   display: flex;
 }
-.ai-bar .bar-action {
+.ai-bar .bar-item {
   line-height: inherit;
   height: inherit;
 }
-.ai-bar .bar-action a.ai-btn,
-.ai-bar .bar-action .ai-btn {
+.ai-bar .bar-item a.ai-btn,
+.ai-bar .bar-item .ai-btn {
   background-color: transparent;
   background: transparent;
   color: #fff;
@@ -5130,25 +5130,25 @@ template {
   margin: 0;
   padding: 0 8px;
 }
-.ai-bar .bar-left {
+.ai-bar .bar-group-left {
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
       -ms-flex-pack: start;
           justify-content: flex-start;
 }
-.ai-bar .bar-left li:first-child .ai-btn {
+.ai-bar .bar-group-left li:first-child .ai-btn {
   padding-left: 16px;
 }
-.ai-bar .bar-right {
+.ai-bar .bar-group-right {
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
       -ms-flex-pack: end;
           justify-content: flex-end;
 }
-.ai-bar .bar-right li:last-child .ai-btn {
+.ai-bar .bar-group-right li:last-child .ai-btn {
   padding-right: 16px;
 }
-.ai-bar .bar-actions {
+.ai-bar .bar-group {
   -webkit-box-flex: 1;
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
@@ -5167,7 +5167,7 @@ template {
   display: -webkit-flex;
   display: flex;
 }
-.ai-bar .bar-actions .bar-action {
+.ai-bar .bar-group .bar-item {
   box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
