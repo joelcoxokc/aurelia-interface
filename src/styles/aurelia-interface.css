@@ -6662,3 +6662,43 @@ ul.ai-list .ai-link:hover,
   min-height: 200vw;
   max-height: 200vw;
 }
+.ai-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  background-color: transparent;
+  position: relative;
+  width: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  line-height: 48px;
+}
+.ai-input input,
+.ai-input input.input-control {
+  border: none;
+  outline: none;
+  background: transparent;
+  background-color: transparent;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  position: relative;
+  color: #757575;
+  width: inherit;
+}
+.ai-input .input-label {
+  position: absolute;
+  line-heaght: inherit;
+  width: inherit;
+  color: #bdbdbd;
+}
+.ai-input .input-border {
+  min-height: 2px;
+  max-height: 2px;
+  width: 100%;
+  border-radius: 100%;
+  background-color: #2196f3;
+}

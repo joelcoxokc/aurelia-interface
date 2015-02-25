@@ -1,0 +1,33 @@
+reset-input(){
+	border          : none
+	outline         : none
+	background      : transparent
+	background-color: transparent
+}
+
+.ai-input
+	reset-input()
+	position    : relative
+	width       : 100%
+	flex        : 1 0 auto
+	line-height : $input-line-height
+	
+	input, input.input-control
+		reset-input()
+		flex        : 1 0 auto
+		position    : relative 
+		color       : $input-color
+		width       : inherit
+	.input-label
+		position: absolute
+		line-heaght: inherit
+		width      : inherit
+		color      : $input-label-color
+	.input-border
+		min-height      : 2px
+		max-height      : 2px
+		width           : 100%
+		border-radius   : 100%
+		background-color: $blue.base
+		
+		
