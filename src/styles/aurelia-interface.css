@@ -6673,7 +6673,9 @@ ul.ai-list .ai-link:hover,
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
-  line-height: 48px;
+  height: 38px;
+  line-height: 38px;
+  margin-top: 19px;
 }
 .ai-input input,
 .ai-input input.input-control {
@@ -6685,20 +6687,90 @@ ul.ai-list .ai-link:hover,
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
-  position: relative;
   color: #757575;
   width: inherit;
+  position: relative;
+  height: 38px;
+  padding-left: 10px;
 }
 .ai-input .input-label {
   position: absolute;
-  line-heaght: inherit;
-  width: inherit;
+  line-heaght: 19px;
+  height: 19px;
+  width: 100%;
   color: #bdbdbd;
+  top: 50%;
+  margin-top: -19px;
+  padding-left: 10px;
+  -webkit-transition: all 400ms cubic-bezier(0, 0.74, 0, 0.99);
+          transition: all 400ms cubic-bezier(0, 0.74, 0, 0.99);
 }
 .ai-input .input-border {
   min-height: 2px;
+  height: 2px;
   max-height: 2px;
-  width: 100%;
-  border-radius: 100%;
+  width: 0;
+  border-radius: 10px;
   background-color: #2196f3;
+  background: #2196f3;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  opacity: 0;
+  -webkit-transition: all 400ms cubic-bezier(0, 0.74, 0, 0.99);
+          transition: all 400ms cubic-bezier(0, 0.74, 0, 0.99);
+}
+.ai-input.active .input-label {
+  top: -19px;
+  margin: 0;
+  color: #2196f3;
+  padding: 0;
+}
+.ai-input.active .input-border {
+  width: 100%;
+  left: 0;
+  opacity: 1;
+}
+.ai-input.input-primary .input-border {
+  background-color: #2196f3 !important;
+  background: #2196f3 !important;
+}
+.ai-input.input-primary.active .input-label {
+  color: #2196f3 !important;
+}
+.ai-input.input-info .input-border {
+  background-color: #03a9f4 !important;
+  background: #03a9f4 !important;
+}
+.ai-input.input-info.active .input-label {
+  color: #03a9f4 !important;
+}
+.ai-input.input-success .input-border {
+  background-color: #4caf50 !important;
+  background: #4caf50 !important;
+}
+.ai-input.input-success.active .input-label {
+  color: #4caf50 !important;
+}
+.ai-input.input-warning .input-border {
+  background-color: #ffc107 !important;
+  background: #ffc107 !important;
+}
+.ai-input.input-warning.active .input-label {
+  color: #ffc107 !important;
+}
+.ai-input.input-danger .input-border {
+  background-color: #f44336 !important;
+  background: #f44336 !important;
+}
+.ai-input.input-danger.active .input-label {
+  color: #f44336 !important;
+}
+.ai-input.input-invert .input-border {
+  background-color: #424242 !important;
+  background: #424242 !important;
+}
+.ai-input.input-invert.active .input-label {
+  color: #424242 !important;
 }
