@@ -1,4 +1,4 @@
-export class AiActionDemo{
+export class AiFormDemo{
     contructor(){
 
     }
