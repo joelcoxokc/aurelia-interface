@@ -28,6 +28,9 @@
             <li ai-class.bind="{active: selectedTabRef == 'ai-main'}">
               <a ai-tab-link href="ai-main">aiMain</a>
             </li>
+            <li ai-class.bind="{active: selectedTabRef == 'ai-bar'}">
+              <a ai-tab-link href="ai-bar">aiBar</a>
+            </li>
 
             <div class="ai-tab-slider"></div>
           </ul>
@@ -82,6 +85,14 @@
                   </div>
                 </div>
             </div>
+            <section class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'ai-bar', active: selectedTabRef == 'ai-bar'}" ai-tab="ai-bar">
+              <div class=section>
+                <div class="flex md8 offset-md2">
+                    <compose view-model="./examples/ai-bar/demo" view="./examples/ai-bar/demo.html"></compose>
+
+                </div>
+              </div>
+            </section>
 
 
           </div>

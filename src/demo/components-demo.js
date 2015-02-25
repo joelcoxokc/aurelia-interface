@@ -8,7 +8,7 @@ export class Components{
     constructor(navigation){
         this.heading = 'aiComponents ';
         this.navigation = navigation;
-        this.selectedTabRef = 'ai-dropdown'
+        this.selectedTabRef = 'ai-btn'
         this.components = {
             'aibtn': {
                 name: 'ai-btn',
