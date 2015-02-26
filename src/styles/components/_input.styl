@@ -1,4 +1,5 @@
 reset-input(){
+	padding         : 0
 	border          : none
 	outline         : none
 	background      : transparent
@@ -17,7 +18,7 @@ create-input-theme-varient(label, color)
 				
 
 .ai-input
-	reset-input()
+	
 	position    : relative
 	width       : 100%
 	cursor      : text !important
@@ -25,15 +26,35 @@ create-input-theme-varient(label, color)
 	height      : $input-height
 	line-height : $input-height
 	margin-top  : ($input-height / 2)
+	flex-container()
+	
+	.input-container
+		order: 0
+		flex:  1 0 auto
+		flex-container()
+	
+	.input-postfix-container,
+	.input-prefix-container
+		flex: 0 0 24px
+		flex-container()
+		align-items: center
+		justify-content: center
+	
+	.input-prefix-container
+		order: -1
+		
+	.input-postfix-container
+		order: 2
 	
 	input, input.input-control
 		reset-input()
-		flex        : 1 0 auto
-		color       : $input-color
-		width       : inherit
-		position    : relative
-		height      : $input-height
-		padding-left: 10px
+		flex          : 1 0 auto
+		color         : $input-color
+		width         : inherit
+		position      : relative
+		height        : $input-height
+		
+		border-bottom : 1px solid $grey.lighten-2
 		
 	.input-label
 		cursor       : text !important
@@ -44,8 +65,8 @@ create-input-theme-varient(label, color)
 		color        : $input-label-color
 		top          : 50%
 		margin-top   : -($input-height / 2)
-		padding-left : 10px
 		transition   : all 400ms $cubic-ease-out
+		
 	.input-border
 		min-height      : 2px
 		height          : 2px
@@ -61,21 +82,31 @@ create-input-theme-varient(label, color)
 		opacity         : 0
 		transition      : all 400ms $cubic-ease-out
 		
+	.input-icon
+		position    : absolute
+		top         : 0
+		left        : -24px
+		line-heaght : $input-height
+		color       : $input-default-label-color
 		
+	&.has-icon
+		margin-left 24px !important
+	
+		
+	&.has-value
+		.input-label
+			top    : -($input-height / 1.7) !important
+			margin : 0 !important
 		
 	&.active
 		.input-label
-			top    : -($input-height / 1.2)
+			top    : -($input-height / 1.7)
 			margin : 0
 			color  : $input-default-label-color
 		.input-border
 			width   : 100%
 			left    : 0
 			opacity : 1
-	&.has-value
-		.input-label
-			top    : -($input-height / 1.2) !important
-			margin : 0 !important
 			
 	
 	create-input-theme-varient(primary, $color-primary)
