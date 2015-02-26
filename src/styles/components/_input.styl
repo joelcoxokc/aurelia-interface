@@ -11,14 +11,14 @@ create-input-theme-varient(label, color)
 		.input-border
 			background-color: color !important
 			background      : color !important
-			
+
 		&.active
 			.input-label
 				color: color !important
-				
+
 
 .ai-input
-	
+
 	position    : relative
 	width       : 100%
 	cursor      : text !important
@@ -27,25 +27,27 @@ create-input-theme-varient(label, color)
 	line-height : $input-height
 	margin-top  : ($input-height / 2)
 	flex-container()
-	
+
 	.input-container
+		position: relative
 		order: 0
 		flex:  1 0 auto
 		flex-container()
-	
+
 	.input-postfix-container,
 	.input-prefix-container
-		flex: 0 0 24px
+		position: relative
+		flex: 0 0 48px
 		flex-container()
 		align-items: center
 		justify-content: center
-	
+
 	.input-prefix-container
 		order: -1
-		
+
 	.input-postfix-container
 		order: 2
-	
+
 	input, input.input-control
 		reset-input()
 		flex          : 1 0 auto
@@ -53,9 +55,9 @@ create-input-theme-varient(label, color)
 		width         : inherit
 		position      : relative
 		height        : $input-height
-		
+
 		border-bottom : 1px solid $grey.lighten-2
-		
+
 	.input-label
 		cursor       : text !important
 		position     : absolute
@@ -66,7 +68,7 @@ create-input-theme-varient(label, color)
 		top          : 50%
 		margin-top   : -($input-height / 2)
 		transition   : all 400ms $cubic-ease-out
-		
+
 	.input-border
 		min-height      : 2px
 		height          : 2px
@@ -81,23 +83,23 @@ create-input-theme-varient(label, color)
 		left            : 50%
 		opacity         : 0
 		transition      : all 400ms $cubic-ease-out
-		
+
 	.input-icon
 		position    : absolute
 		top         : 0
 		left        : -24px
 		line-heaght : $input-height
 		color       : $input-default-label-color
-		
+
 	&.has-icon
 		margin-left 24px !important
-	
-		
+
+
 	&.has-value
 		.input-label
 			top    : -($input-height / 1.7) !important
 			margin : 0 !important
-		
+
 	&.active
 		.input-label
 			top    : -($input-height / 1.7)
@@ -107,8 +109,8 @@ create-input-theme-varient(label, color)
 			width   : 100%
 			left    : 0
 			opacity : 1
-			
-	
+
+
 	create-input-theme-varient(primary, $color-primary)
 	create-input-theme-varient(info, $color-info)
 	create-input-theme-varient(success, $color-success)

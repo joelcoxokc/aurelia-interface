@@ -6680,6 +6680,7 @@ ul.ai-list .ai-link:hover,
   display: flex;
 }
 .ai-input .input-container {
+  position: relative;
   -webkit-box-ordinal-group: 1;
   -webkit-order: 0;
       -ms-flex-order: 0;
@@ -6696,10 +6697,11 @@ ul.ai-list .ai-link:hover,
 }
 .ai-input .input-postfix-container,
 .ai-input .input-prefix-container {
+  position: relative;
   -webkit-box-flex: 0;
-  -webkit-flex: 0 0 24px;
-      -ms-flex: 0 0 24px;
-          flex: 0 0 24px;
+  -webkit-flex: 0 0 48px;
+      -ms-flex: 0 0 48px;
+          flex: 0 0 48px;
   box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;

@@ -46,8 +46,6 @@ export class AiDropdown extends AiElement{
         this.links = this.container.getElementsByClassName('ai-link')
         this.btn   = this.container.querySelector('ai-btn.dropdown-btn')
         this.element.addEventListener('click'   , this.toggle, false);
-        console.log(this.btn)
-        console.log(this.btnContainer)
         this.btnContainer.appendChild(this.btn)
     }
 
@@ -67,7 +65,6 @@ export class AiDropdown extends AiElement{
     }
 
     isOpenChanged(newValue){
-        console.log(this.container)
         this.element.classList[newValue ? 'add':'remove']('dropdown-open');
         this.container.style.height = newValue ? this.findWidth(this.links) : '0px'
     }
