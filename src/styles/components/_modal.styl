@@ -1,0 +1,51 @@
+$modal-default-width = 60%
+$modal-header-height = 48px
+$modal-actions-height = 48px
+
+
+.ai-modal
+
+    top      : 0
+    left     : 0
+    width    : 100vw
+    height   : 100vh
+    position : fixed
+    align-items: center
+    justify-content: center
+
+    flex-container()
+
+    .modal-container
+        position      : relative
+        flex          : 0 0 $default-modal-width
+        flex-direction: column
+        box-shadow    : 0px 4px 8px rgba(0,0,0,0.2)
+        flex-container()
+
+        .modal-title
+            flex           :  0 0 $modal-header-height
+            padding        : 24px 24px 12px 24px
+            background     : white
+            flex-direction : row
+            flex-container()
+
+        .modal-content
+            flex           : 1 0 auto
+            padding        : 24px 24px 12px 24px
+            background     : white
+            flex-direction : row
+            flex-container()
+
+        .modal-actions
+            flex          : 0 0 $modal-actions-height
+            padding       : 12px 10px 8px 10px
+            background    : white
+            flex-direction: row
+            justify-content : flex-end
+            align-items     : center
+            flex-container()
+
+
+
+
+

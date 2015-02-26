@@ -9,10 +9,30 @@
         <h2 class="card-heading">ai-List Element</h2>
         <div class="card-body">
           <div class=row>
-            <div class='flex md6'>
-            </div>
+              <ai-list>
+                  <li list-heading>Avatar Lists</li>
+                  <li list-item>
+                      <div class="title">Two-line item</div>
+                      <p class="text">Secondary text</p>
+                      <div class="postfix"><i class="mdi-notification-sms"></i></div>
+                      <div class="prefix"><i class="mdi-action-account-circle"></i></div>
+                  </li>
+                  <li list-item>
+                    <div class="title">Two-line item</div>
+                    <p class="text">Secondary text</p>
+                    <div class="postfix"><i class="mdi-notification-sms"></i></div>
+                    <div class="prefix"><i class="mdi-action-account-circle"></i></div>
+                  </li>
+                  <li list-heading>Two Line lists</li>
+                  <li list-item>
+                      <div class="title">Two-line item</div>
+                      <p class="text">Secondary text</p>
+                      <div class="postfix"><i class="mdi-notification-sms"></i></div>
+                  </li>
+              </ai-list>
+
           </div>
-           <example base="../dist/examples/ai-body">
+           <example base="../dist/examples/ai-list">
               <column size="md6">
                 <file src="default.html" view="true"></file>
               </column>
@@ -34,11 +54,11 @@
               </ul>
             </div>
           </div>
-           <example base="../dist/examples/ai-body">
+           <!-- <example base="../dist/examples/ai-list">
               <column size="md6">
                 <file src="body.html" view="true"></file>
               </column>
-            </example>
+            </example> -->
         </div>
     </ai-card>
 
