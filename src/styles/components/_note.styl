@@ -1,0 +1,24 @@
+$note = {
+    width: {xs:30%, sm: 40%, md: 60%, lg:70%, xl:90%},
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2),
+    background: white
+}
+
+.ai-note
+    flax-container()
+    position: absolute
+    background: $note.background
+    box-shadow: $note.box-shadow
+    width  : $note.width md
+
+    &.modal-xs
+        width: $note.width.xs
+    &.modal-sm
+        width: $note.width.sm
+    &.modal-md
+        width: $note.width.md
+    &.modal-lg
+        width: $note.width.lg
+    &.modal-xl
+        width: $note.width.xl
+
