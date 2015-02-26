@@ -71,6 +71,18 @@ export class Construction{
         })
     }
 
+    find(value){
+        if(value ==='icon' && this.iconEl) return this.iconEl;
+        if(value[0] === '.'){
+            return this.element.querySelector(value)
+        }
+        if(value[0] === '#'){
+            return this.getId(value) || this.secect(value)
+        }
+        return this.getTag(value) || 'Cannot Find Elements'
+
+    }
+
 
 
 
