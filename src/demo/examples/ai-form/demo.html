@@ -55,7 +55,33 @@
                 <input type="text" name="firstname">
             </div>
             <div ai-input="label: First Name;">
-                <div class="input-prefix-container">
+                <div class="input-prefix">
+                    <i class="mdi-action-account-circle"></i>
+                </div>
+                <input type="text" name="firstname">
+            </div>
+            <example base="../dist/examples/ai-form">
+                <column size="md6">
+                    <file src="prefix.html" view="true"></file>
+                </column>
+            </example>
+        </div>
+
+    </ai-card>
+    <ai-card>
+
+        <h2 class="card-heading">ai-Input .withProperty(<strong>postfix</strong>)</h2>
+        <div class="card-body">
+            <div ai-input="postfix: icon; icon: mdi-action-account-circle;">
+                <label>First Name</label>
+                <input type="text" name="firstname">
+            </div>
+            <div ai-input="label: First Name; postfix: icon;">
+                <i class="mdi-action-account-circle"></i>
+                <input type="text" name="firstname">
+            </div>
+            <div ai-input="label: First Name;">
+                <div class="input-postfix">
                     <i class="mdi-action-account-circle"></i>
                 </div>
                 <input type="text" name="firstname">
