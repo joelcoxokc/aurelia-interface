@@ -2,6 +2,7 @@ import {Behavior} from 'aurelia-templating'
 import {AiElement} from './ai-element'
 
 
+
 export class AiAction extends AiElement{
 
     static metadata(){
