@@ -2,7 +2,7 @@ import {Behavior} from 'aurelia-templating'
 import {AiElement} from './ai-element'
 
 
-
+export {AiActionAttachedBehavior} from './ai-action-attribute'
 export class AiActionGroup extends AiElement{
 
     static metadata(){
@@ -48,9 +48,15 @@ export class AiActionGroup extends AiElement{
         this.action        = this.element.querySelector('.ai-action');
         this.group.element = this.element.querySelector('.ai-btn-group');
         this.group.btns    = this.group.element.getElementsByClassName('ai-btn');
+        this.icon = this.action.querySelector('i')
+
 
         _.each(this.group.btns, (el, index)=>{
-            el.classList.add(`btn-position-${index+1}`)
+            if(this.side === 'top' || this.side === 'left'){
+                el.classList.add(`btn-position-${(this.group.btns.length - index)}`)
+            } else {
+                el.classList.add(`btn-position-${index}`)
+            }
 
         })
 

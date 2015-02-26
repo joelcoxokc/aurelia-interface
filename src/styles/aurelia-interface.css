@@ -6721,6 +6721,15 @@ ul.ai-list .list-item .item-postfix,
   -webkit-order: 1;
       -ms-flex-order: 1;
           order: 1;
+  height: 80px;
+  width: 80px;
+}
+.ai-action-group .ai-action > i {
+  -webkit-transition: all 200ms ease;
+          transition: all 200ms ease;
+  -webkit-transform: rotate(-180deg);
+      -ms-transform: rotate(-180deg);
+          transform: rotate(-180deg);
 }
 .ai-action-group .ai-btn-group {
   -webkit-box-flex: 1;
@@ -6741,57 +6750,70 @@ ul.ai-list .list-item .item-postfix,
   display: -webkit-flex;
   display: flex;
 }
-.ai-action-group .ai-btn-group .at-btn {
+.ai-action-group .ai-btn-group .ai-btn {
   width: 38px;
   height: 38px;
+  opacity: 1;
 }
-.ai-action-group .ai-btn-group .at-btn.btn-position-0 {
-  -webkit-transition: width 200ms ease-out 0ms, height 200ms ease-out 0ms;
-          transition: width 200ms ease-out 0ms, height 200ms ease-out 0ms;
+.ai-action-group .ai-btn-group .ai-btn.btn-position-1 {
+  -webkit-transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 33.333333333333336ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 33.333333333333336ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 33.333333333333336ms;
+          transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 33.333333333333336ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 33.333333333333336ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 33.333333333333336ms;
+  inspect: 33.333333333333336ms;
 }
-.ai-action-group .ai-btn-group .at-btn.btn-position-1 {
-  -webkit-transition: width 200ms ease-out 33.333333333333336ms, height 200ms ease-out 33.333333333333336ms;
-          transition: width 200ms ease-out 33.333333333333336ms, height 200ms ease-out 33.333333333333336ms;
+.ai-action-group .ai-btn-group .ai-btn.btn-position-2 {
+  -webkit-transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 66.66666666666667ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 66.66666666666667ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 66.66666666666667ms;
+          transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 66.66666666666667ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 66.66666666666667ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 66.66666666666667ms;
+  inspect: 66.66666666666667ms;
 }
-.ai-action-group .ai-btn-group .at-btn.btn-position-2 {
-  -webkit-transition: width 200ms ease-out 66.66666666666667ms, height 200ms ease-out 66.66666666666667ms;
-          transition: width 200ms ease-out 66.66666666666667ms, height 200ms ease-out 66.66666666666667ms;
+.ai-action-group .ai-btn-group .ai-btn.btn-position-3 {
+  -webkit-transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 100ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 100ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 100ms;
+          transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 100ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 100ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 100ms;
+  inspect: 100ms;
 }
-.ai-action-group .ai-btn-group .at-btn.btn-position-3 {
-  -webkit-transition: width 200ms ease-out 100ms, height 200ms ease-out 100ms;
-          transition: width 200ms ease-out 100ms, height 200ms ease-out 100ms;
+.ai-action-group .ai-btn-group .ai-btn.btn-position-4 {
+  -webkit-transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 133.33333333333334ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 133.33333333333334ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 133.33333333333334ms;
+          transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 133.33333333333334ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 133.33333333333334ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 133.33333333333334ms;
+  inspect: 133.33333333333334ms;
 }
-.ai-action-group .ai-btn-group .at-btn.btn-position-4 {
-  -webkit-transition: width 200ms ease-out 133.33333333333334ms, height 200ms ease-out 133.33333333333334ms;
-          transition: width 200ms ease-out 133.33333333333334ms, height 200ms ease-out 133.33333333333334ms;
+.ai-action-group .ai-btn-group .ai-btn.btn-position-5 {
+  -webkit-transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 166.66666666666666ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 166.66666666666666ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 166.66666666666666ms;
+          transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 166.66666666666666ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 166.66666666666666ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 166.66666666666666ms;
+  inspect: 166.66666666666666ms;
 }
-.ai-action-group .ai-btn-group .at-btn.btn-position-5 {
-  -webkit-transition: width 200ms ease-out 166.66666666666666ms, height 200ms ease-out 166.66666666666666ms;
-          transition: width 200ms ease-out 166.66666666666666ms, height 200ms ease-out 166.66666666666666ms;
+.ai-action-group .ai-btn-group .ai-btn.btn-position-6 {
+  -webkit-transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 200ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 200ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 200ms;
+          transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 200ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 200ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 200ms;
+  inspect: 200ms;
 }
-.ai-action-group .ai-btn-group .at-btn.btn-position-6 {
-  -webkit-transition: width 200ms ease-out 200ms, height 200ms ease-out 200ms;
-          transition: width 200ms ease-out 200ms, height 200ms ease-out 200ms;
+.ai-action-group .ai-btn-group .ai-btn.btn-position-7 {
+  -webkit-transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 233.33333333333334ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 233.33333333333334ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 233.33333333333334ms;
+          transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 233.33333333333334ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 233.33333333333334ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 233.33333333333334ms;
+  inspect: 233.33333333333334ms;
 }
-.ai-action-group .ai-btn-group .at-btn.btn-position-7 {
-  -webkit-transition: width 200ms ease-out 233.33333333333334ms, height 200ms ease-out 233.33333333333334ms;
-          transition: width 200ms ease-out 233.33333333333334ms, height 200ms ease-out 233.33333333333334ms;
+.ai-action-group .ai-btn-group .ai-btn.btn-position-8 {
+  -webkit-transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 266.6666666666667ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 266.6666666666667ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 266.6666666666667ms;
+          transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 266.6666666666667ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 266.6666666666667ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 266.6666666666667ms;
+  inspect: 266.6666666666667ms;
 }
-.ai-action-group .ai-btn-group .at-btn.btn-position-8 {
-  -webkit-transition: width 200ms ease-out 266.6666666666667ms, height 200ms ease-out 266.6666666666667ms;
-          transition: width 200ms ease-out 266.6666666666667ms, height 200ms ease-out 266.6666666666667ms;
+.ai-action-group .ai-btn-group .ai-btn.btn-position-9 {
+  -webkit-transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 300ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 300ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 300ms;
+          transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 300ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 300ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 300ms;
+  inspect: 300ms;
 }
-.ai-action-group .ai-btn-group .at-btn.btn-position-9 {
-  -webkit-transition: width 200ms ease-out 300ms, height 200ms ease-out 300ms;
-          transition: width 200ms ease-out 300ms, height 200ms ease-out 300ms;
+.ai-action-group .ai-btn-group .ai-btn.btn-position-10 {
+  -webkit-transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 333.3333333333333ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 333.3333333333333ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 333.3333333333333ms;
+          transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 333.3333333333333ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 333.3333333333333ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 333.3333333333333ms;
+  inspect: 333.3333333333333ms;
 }
-.ai-action-group .ai-btn-group .at-btn.btn-position-10 {
-  -webkit-transition: width 200ms ease-out 333.3333333333333ms, height 200ms ease-out 333.3333333333333ms;
-          transition: width 200ms ease-out 333.3333333333333ms, height 200ms ease-out 333.3333333333333ms;
+.ai-action-group .ai-btn-group .ai-btn.btn-position-11 {
+  -webkit-transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 366.6666666666667ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 366.6666666666667ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 366.6666666666667ms;
+          transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 366.6666666666667ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 366.6666666666667ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 366.6666666666667ms;
+  inspect: 366.6666666666667ms;
 }
-.ai-action-group .ai-btn-group .at-btn.btn-position-11 {
-  -webkit-transition: width 200ms ease-out 366.6666666666667ms, height 200ms ease-out 366.6666666666667ms;
-          transition: width 200ms ease-out 366.6666666666667ms, height 200ms ease-out 366.6666666666667ms;
+.ai-action-group .ai-btn-group .ai-btn.btn-position-12 {
+  -webkit-transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 400ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 400ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 400ms;
+          transition: width 300ms cubic-bezier(0, 0.74, 0, 0.99) 400ms, height 300ms cubic-bezier(0, 0.74, 0, 0.99) 400ms, opacity 300ms cubic-bezier(0, 0.74, 0, 0.99) 400ms;
+  inspect: 400ms;
 }
 .ai-action-group.action-group-left {
   -webkit-box-orient: horizontal;
@@ -6851,9 +6873,19 @@ ul.ai-list .list-item .item-postfix,
       -ms-flex-pack: start;
           justify-content: flex-start;
 }
+.ai-action-group.action-group-right .ai-btn-group .ai-btn {
+  margin-right: 0;
+  margin-left: 20px;
+}
 .ai-action-group.action-off .ai-btn-group .ai-btn {
   width: 0;
   height: 0;
+  opacity: 0;
+}
+.ai-action-group.action-on .ai-action > i {
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
 }
 .ai-explode {
   position: absolute;
