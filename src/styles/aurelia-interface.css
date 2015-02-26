@@ -6161,7 +6161,6 @@ a.ai-btn.btn-invert,
   line-height: 48px;
   -webkit-transition: box-shadow 300ms ease;
           transition: box-shadow 300ms ease;
-  background: transparent !important;
 }
 .ai-action .ai-btn {
   margin: 0;
