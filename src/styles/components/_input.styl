@@ -28,27 +28,27 @@ create-input-theme-varient(label, color)
 	margin-top  : ($input-height / 2)
 	flex-container()
 
-	.input-container
+	.input-control
 		position: relative
 		order: 0
 		flex:  1 0 auto
 		flex-container()
 
-	.input-postfix-container,
-	.input-prefix-container
+	.input-postfix,
+	.input-prefix
 		position: relative
 		flex: 0 0 48px
 		flex-container()
 		align-items: center
 		justify-content: center
 
-	.input-prefix-container
+	.input-prefix
 		order: -1
 
-	.input-postfix-container
+	.input-postfix
 		order: 2
 
-	input, input.input-control
+	.input-control > input
 		reset-input()
 		flex          : 1 0 auto
 		color         : $input-color
@@ -92,7 +92,7 @@ create-input-theme-varient(label, color)
 		color       : $input-default-label-color
 
 	&.has-icon
-		margin-left 24px !important
+		padding-left 24px !important
 
 
 	&.has-value

@@ -6679,7 +6679,7 @@ ul.ai-list .ai-link:hover,
   display: -webkit-flex;
   display: flex;
 }
-.ai-input .input-container {
+.ai-input .input-control {
   position: relative;
   -webkit-box-ordinal-group: 1;
   -webkit-order: 0;
@@ -6695,8 +6695,8 @@ ul.ai-list .ai-link:hover,
   display: -webkit-flex;
   display: flex;
 }
-.ai-input .input-postfix-container,
-.ai-input .input-prefix-container {
+.ai-input .input-postfix,
+.ai-input .input-prefix {
   position: relative;
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 48px;
@@ -6716,20 +6716,19 @@ ul.ai-list .ai-link:hover,
       -ms-flex-pack: center;
           justify-content: center;
 }
-.ai-input .input-prefix-container {
+.ai-input .input-prefix {
   -webkit-box-ordinal-group: 0;
   -webkit-order: -1;
       -ms-flex-order: -1;
           order: -1;
 }
-.ai-input .input-postfix-container {
+.ai-input .input-postfix {
   -webkit-box-ordinal-group: 3;
   -webkit-order: 2;
       -ms-flex-order: 2;
           order: 2;
 }
-.ai-input input,
-.ai-input input.input-control {
+.ai-input .input-control > input {
   padding: 0;
   border: none;
   outline: none;
@@ -6781,7 +6780,7 @@ ul.ai-list .ai-link:hover,
   color: #2196f3;
 }
 .ai-input.has-icon {
-  margin-left: 24px !important;
+  padding-left: 24px !important;
 }
 .ai-input.has-value .input-label {
   top: -24.705882352941178px !important;

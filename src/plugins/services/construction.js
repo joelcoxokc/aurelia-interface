@@ -11,7 +11,7 @@ export class Construction{
     createElement(element, classList, callback, cbElement){
         cbElement = cbElement || this.element
         var newElement = document.createElement(element);
-        this.addClass(classList, newElement);
+        classList && ( this.addClass(classList, newElement) );
         if(callback){
             (typeof callback === 'function') && callback(newElement, cbElement);
         }
@@ -40,6 +40,18 @@ export class Construction{
             if(typeof callback === 'function') callback(el)
         }
         return el ? el : 'No Element found'
+    }
+
+    getClassName(className, el){
+        className = (className[0] === '.') ? className.slice(1) : className;
+        el = el || this.element
+        return el.getElementsByClassName(className)[0]
+    }
+
+    getTagName(tagName, el){
+        el = el || this.element
+        return el.getElementsByTagName(tagName)[0]
+
     }
 
     getId(id, el){
