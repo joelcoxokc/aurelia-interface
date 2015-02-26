@@ -8,9 +8,11 @@ A material design based UI library for the [Aurelia](http://www.aurelia.io/) pla
 
 ## Contribution
 
-**Plugins** are found in [./__plugins](/__plugins).
+We are currently building all the plugins form within on repo, along with the demo. We will be movinf the demo into another repo... and will be updating the docs soon.
 
-**Demo Application** is found in [./src](/src).
+**Plugins** are found in [./src/__plugins/](./plugins/demo).
+
+**Demo Application** is found in [./src/demo](/src/demo).
 
 **HTML** We are using HTML for our views, however, you are able to use jade(Though we still recommend using HTML)
 
