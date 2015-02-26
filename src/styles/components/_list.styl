@@ -1,11 +1,46 @@
+$list-item={
+    height : 48px,
+    padding: 8px 16px 20px 16px,
+    heading:{
+             font-size   : 16px,
+             color       : $grey.darken-1,
+             font-weight : 500
+        },
+    link:{
+             hover : $grey.lighten-2
+        },
+    content:{
+             border      : 1px solid $grey.lighten-3
+        },
+    title:{  color : $grey.darken-2
+            ,font-size: 16px
+        },
+    text:{   color    : $grey.lighten-1
+            ,font-size: 14px
+        },
+    prefix:{ width    : 72px
+            ,padding  : 0 0 0 0
+            ,font-size: 2.5rem
+            ,position : relative
+        },
+    postfix:{top     : 8px
+            ,right   : 16px
+            ,width   : 72px
+            ,padding : 0px
+            ,position: absolute
+        }
+}
+
 ul.ai-list,
 .ai-list
-    list-style: none
-    width inherit
+    list-style     : none
+    width          : 100%
+    margin         : 0
+    flex-direction : column
     flex-container()
 
-    &.list-vertical
-        flex-direction: column
+    &.list-horizontal
+        flex-direction: row
 
     li.ai-item,.ai-item, .ai-link
         line-height: 48px
@@ -20,5 +55,59 @@ ul.ai-list,
         cursor: pointer
 
         &:hover
-            background-color: $grey.lighten-4
+            background-color: $list-item.link.hover
+
+    .list-item
+        padding: $list-item.padding
+        flex-container()
+        flex-direction: row
+        position   : relative
+
+        &.list-heading
+            color: $list-item.heading.color
+            font-size: $list-item.heading.font-size
+            font-weight: $list-item.heading.font-weight
+
+        .item-content
+            order           : 0
+            padding         : 0px
+            flex            : 1 0 auto
+            align-items     : flex-start
+            justify-content : flex-start
+            font-size       : $list-item.title.font-size
+            flex-direction  : column
+            border-bottom   : $list-item.content.border
+            flex-container()
+
+        .item-title
+            flex: 1 0 auto
+            font-size : $list-item.title.font-size
+            color     : $list-item.title.color
+            text-align: left
+            flex-container()
+
+        .item-text
+            flex: 1 0 auto
+            font-size : $list-item.text.font-size
+            color     : $list-item.text.color
+            flex-container()
+
+        .item-prefix
+            order           : -1
+            padding         : $list-item.prefix.padding
+            flex            : 0 0 $list-item.prefix.width
+            position        : $list-item.prefix.position
+            & > i, & > i > *
+                font-size : $list-item.prefix.font-size
+                line-height 1
+
+        .item-postfix
+            flex            : 0 0 $list-item.postfix.width
+            order           : 2
+            padding         : $list-item.postfix.padding
+            justify-content : flex-end
+            position        : $list-item.postfix.position
+            top             : $list-item.postfix.top
+            right           : $list-item.postfix.right
+            flex-container()
 

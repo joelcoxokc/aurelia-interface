@@ -66,7 +66,6 @@ export class Construction{
     }
 
     addClass(classList, el){
-        console.log(el)
         el = el || this.element;
         if(Array.isArray(classList)){
             el.classList.add.apply(classList)

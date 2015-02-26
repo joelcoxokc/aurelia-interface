@@ -1,40 +1,39 @@
 import {Behavior} from 'aurelia-templating'
 import {AiElement} from './ai-element'
+import {Construction} from './construction'
 
-
-export class AiList extends AiElement{
+export class AiList{
 
     static metadata(){
 
         return Behavior
-            .customElement('ai-list')
-            .withProperty('direction')
-            .withProperty('header')
-            .withProperty('items')
+            ,withOptions().and(x =>{
+                x.withProperty('direction');
+                x.withProperty('columns');
+                x.withProperty('header');
+                x.withProperty('items');
+                x.withProperty('rows');
+        });
 
     }
 
     static inject(){
 
-        return [Element]
+        return [Element, Construction]
 
     }
 
 
-    constructor(element) {
-
+    constructor(element, construction) {
+        this.build   = construction
         this.element = element
 
     }
 
 
     bind(){
-
         this.addClass('ai-list', `list-${this.direction}`)
-        this.children = this.element.querySelectorAll('.ai-list')
-        for(let index in this.children){
-            this.children[index].classList.add('item')
-        }
+
 
     }
 

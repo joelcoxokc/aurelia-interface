@@ -169,7 +169,7 @@ export class AiInputAttachedBehavior{
         el = el || this.element
         var found = el.querySelector(value);
         found ? (this.children[value] = found) : (this.children[value] = false);
-        console.info(`Child ${value} was ${value ? 'NOT FOUND' : 'FOUND'}`)
+        // console.info(`Child ${value} was ${value ? 'NOT FOUND' : 'FOUND'}`)
         return this.children[value];
     }
 
