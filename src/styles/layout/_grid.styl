@@ -30,9 +30,9 @@ $screens = {
  *  $screen-sm-min: 48em;
  *  $screen-md-min: 62em;
  *  $screen-lg-min: 75em;
- *  $container-sm: calc( 45rem + var( $gutter-width ) );
- *  $container-md: calc( 60rem + var( $gutter-width ) );
- *  $container-lg: calc( 70rem + var( $gutter-width ) );
+ *  $container.sm: calc( 45rem + var( $gutter-width ) );
+ *  $container.md: calc( 60rem + var( $gutter-width ) );
+ *  $container.lg: calc( 70rem + var( $gutter-width ) );
  * }
  *
 */
@@ -49,9 +49,85 @@ $screen-xs-min       = 30em;
 $screen-sm-min       = 48em;
 $screen-md-min       = 62em;
 $screen-lg-min       = 75em;
-$container-sm        = calc( 45rem + $gutter-width );
-$container-md        = calc( 60rem + $gutter-width );
-$container-lg        = calc( 70rem + $gutter-width );
+$container = {
+    xs               : calc( 60rem + $gutter-width ),
+    sm               : calc( 45rem + $gutter-width ),
+    md               : calc( 60rem + $gutter-width ),
+    lg               : calc( 70rem + $gutter-width )
+}
+
+apply-grid-properties()
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding-right: $half-gutter-width;
+    padding-left: $half-gutter-width;
+
+apply-grid-options(screen)
+
+    .start-{screen}
+      justify-content: flex-start;
+      text-align: start;
+    .center-{screen}
+      justify-content: center;
+      text-align: center;
+    .end-{screen}
+      justify-content: flex-end;
+      text-align: end;
+    .top-{screen}
+      align-items: flex-start;
+    .middle-{screen}
+      align-items: center;
+    .bottom-{screen}
+      align-items: flex-end;
+    .around-{screen}
+      justify-content: space-around;
+    .between-{screen}
+      justify-content: space-between;
+    .first-{screen}
+      order: -1;
+    .last-{screen}
+      order: 1;
+
+create-grid(screen=false)
+
+    for size in 1..12
+        value = (100% / 12) * size
+        if screen
+            .flex-{screen}-{size}
+                apply-grid-properties()
+                flex-basis: value
+                max-width : value
+            .offset-{screen}-{size}
+                margin-left: value
+        else
+            .flex-{size}
+                apply-grid-properties()
+                flex-basis: value
+                max-width : value
+            .offset-{size}
+                margin-left: value
+
+
+create-responsive-grid-from(screen)
+
+    apply-grid-options(screen)
+
+    .container
+        width: $container[screen]
+
+    .flex-{screen}
+        apply-grid-properties()
+        flex-grow: 1;
+        flex-basis: 0;
+        max-width: 100%;
+
+    create-grid(screen)
+
 
 .container-fluid {
   margin-right: auto;
@@ -79,776 +155,16 @@ $container-lg        = calc( 70rem + $gutter-width );
   flex-direction: column-reverse;
 }
 
-.flex-xs,
-.flex-xs-1,
-.flex-xs-2,
-.flex-xs-3,
-.flex-xs-4,
-.flex-xs-5,
-.flex-xs-6,
-.flex-xs-7,
-.flex-xs-8,
-.flex-xs-9,
-.flex-xs-10,
-.flex-xs-11,
-.flex-xs-12,
-.offset-xs-1,
-.offset-xs-2,
-.offset-xs-3,
-.offset-xs-4,
-.offset-xs-5,
-.offset-xs-6,
-.offset-xs-7,
-.offset-xs-8,
-.offset-xs-9,
-.offset-xs-10,
-.offset-xs-11,
-.offset-xs-12 {
-  box-sizing: border-box;
-  position: relative;
-  display: flex;
-  flex: 0 1 auto;
-  flex-direction: column;
-  flex-grow: 0;
-  flex-shrink: 0;
-  padding-right: $half-gutter-width;
-  padding-left: $half-gutter-width;
-}
 
-.flex-xs {
-  flex-grow: 1;
-  flex-basis: 0;
-  max-width: 100%;
-}
+create-grid()
+create-responsive-grid-from(xs);
 
-.flex-xs-1 {
-  flex-basis: 8.333333333%;
-  max-width: 8.333333333%;
-}
+@media only screen and (min-width: $screens.sm)
+    create-responsive-grid-from(sm);
 
-.flex-xs-2 {
-  flex-basis: 16.666666667%;
-  max-width: 16.666666667%;
-}
+@media only screen and (min-width: $screens.md)
+    create-responsive-grid-from(md);
 
-.flex-xs-3 {
-  flex-basis: 25%;
-  max-width: 25%;
-}
+@media only screen and (min-width: $screens.lg)
+    create-responsive-grid-from(lg);
 
-.flex-xs-4 {
-  flex-basis: 33.333333333%;
-  max-width: 33.333333333%;
-}
-
-.flex-xs-5 {
-  flex-basis: 41.666666667%;
-  max-width: 41.666666667%;
-}
-
-.flex-xs-6 {
-  flex-basis: 50%;
-  max-width: 50%;
-}
-
-.flex-xs-7 {
-  flex-basis: 58.333333333%;
-  max-width: 58.333333333%;
-}
-
-.flex-xs-8 {
-  flex-basis: 66.666666667%;
-  max-width: 66.666666667%;
-}
-
-.flex-xs-9 {
-  flex-basis: 75%;
-  max-width: 75%;
-}
-
-.flex-xs-10 {
-  flex-basis: 83.333333333%;
-  max-width: 83.333333333%;
-}
-
-.flex-xs-11 {
-  flex-basis: 91.666666667%;
-  max-width: 91.666666667%;
-}
-
-.flex-xs-12 {
-  flex-basis: 100%;
-  max-width: 100%;
-}
-
-.offset-xs-1 {
-  margin-left: 8.333333333%;
-}
-
-.offset-xs-2 {
-  margin-left: 16.666666667%;
-}
-
-.offset-xs-3 {
-  margin-left: 25%;
-}
-
-.offset-xs-4 {
-  margin-left: 33.333333333%;
-}
-
-.offset-xs-5 {
-  margin-left: 41.666666667%;
-}
-
-.offset-xs-6 {
-  margin-left: 50%;
-}
-
-.offset-xs-7 {
-  margin-left: 58.333333333%;
-}
-
-.offset-xs-8 {
-  margin-left: 66.666666667%;
-}
-
-.offset-xs-9 {
-  margin-left: 75%;
-}
-
-.offset-xs-10 {
-  margin-left: 83.333333333%;
-}
-
-.offset-xs-11 {
-  margin-left: 91.666666667%;
-}
-
-.start-xs {
-  justify-content: flex-start;
-  text-align: start;
-}
-
-.center-xs {
-  justify-content: center;
-  text-align: center;
-}
-
-.end-xs {
-  justify-content: flex-end;
-  text-align: end;
-}
-
-.top-xs {
-  align-items: flex-start;
-}
-
-.middle-xs {
-  align-items: center;
-}
-
-.bottom-xs {
-  align-items: flex-end;
-}
-
-.around-xs {
-  justify-content: space-around;
-}
-
-.between-xs {
-  justify-content: space-between;
-}
-
-.first-xs {
-  order: -1;
-}
-
-.last-xs {
-  order: 1;
-}
-
-@media only screen and (min-width: $sm-viewport) {
-  .container {
-    width: var( $container-sm, 46rem );
-  }
-
-  .flex-sm,
-  .flex-sm-1,
-  .flex-sm-2,
-  .flex-sm-3,
-  .flex-sm-4,
-  .flex-sm-5,
-  .flex-sm-6,
-  .flex-sm-7,
-  .flex-sm-8,
-  .flex-sm-9,
-  .flex-sm-10,
-  .flex-sm-11,
-  .flex-sm-12,
-  .offset-sm-1,
-  .offset-sm-2,
-  .offset-sm-3,
-  .offset-sm-4,
-  .offset-sm-5,
-  .offset-sm-6,
-  .offset-sm-7,
-  .offset-sm-8,
-  .offset-sm-9,
-  .offset-sm-10,
-  .offset-sm-11,
-  .offset-sm-12 {
-    box-sizing: border-box;
-    position: relative;
-    display: flex;
-    flex: 0 1 auto;
-    flex-direction: column;
-    flex-grow: 0;
-    flex-shrink: 0;
-    padding-right: $half-gutter-width;
-    padding-left: $half-gutter-width;
-  }
-
-  .flex-sm {
-    flex-grow: 1;
-    flex-basis: 0;
-    max-width: 100%;
-  }
-
-  .flex-sm-1 {
-    flex-basis: 8.333333333%;
-    max-width: 8.333333333%;
-  }
-
-  .flex-sm-2 {
-    flex-basis: 16.666666667%;
-    max-width: 16.666666667%;
-  }
-
-  .flex-sm-3 {
-    flex-basis: 25%;
-    max-width: 25%;
-  }
-
-  .flex-sm-4 {
-    flex-basis: 33.333333333%;
-    max-width: 33.333333333%;
-  }
-
-  .flex-sm-5 {
-    flex-basis: 41.666666667%;
-    max-width: 41.666666667%;
-  }
-
-  .flex-sm-6 {
-    flex-basis: 50%;
-    max-width: 50%;
-  }
-
-  .flex-sm-7 {
-    flex-basis: 58.333333333%;
-    max-width: 58.333333333%;
-  }
-
-  .flex-sm-8 {
-    flex-basis: 66.666666667%;
-    max-width: 66.666666667%;
-  }
-
-  .flex-sm-9 {
-    flex-basis: 75%;
-    max-width: 75%;
-  }
-
-  .flex-sm-10 {
-    flex-basis: 83.333333333%;
-    max-width: 83.333333333%;
-  }
-
-  .flex-sm-11 {
-    flex-basis: 91.666666667%;
-    max-width: 91.666666667%;
-  }
-
-  .flex-sm-12 {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-
-  .offset-sm-1 {
-    margin-left: 8.333333333%;
-  }
-
-  .offset-sm-2 {
-    margin-left: 16.666666667%;
-  }
-
-  .offset-sm-3 {
-    margin-left: 25%;
-  }
-
-  .offset-sm-4 {
-    margin-left: 33.333333333%;
-  }
-
-  .offset-sm-5 {
-    margin-left: 41.666666667%;
-  }
-
-  .offset-sm-6 {
-    margin-left: 50%;
-  }
-
-  .offset-sm-7 {
-    margin-left: 58.333333333%;
-  }
-
-  .offset-sm-8 {
-    margin-left: 66.666666667%;
-  }
-
-  .offset-sm-9 {
-    margin-left: 75%;
-  }
-
-  .offset-sm-10 {
-    margin-left: 83.333333333%;
-  }
-
-  .offset-sm-11 {
-    margin-left: 91.666666667%;
-  }
-
-  .start-sm {
-    justify-content: flex-start;
-    text-align: start;
-  }
-
-  .center-sm {
-    justify-content: center;
-    text-align: center;
-  }
-
-  .end-sm {
-    justify-content: flex-end;
-    text-align: end;
-  }
-
-  .top-sm {
-    align-items: flex-start;
-  }
-
-  .middle-sm {
-    align-items: center;
-  }
-
-  .bottom-sm {
-    align-items: flex-end;
-  }
-
-  .around-sm {
-    justify-content: space-around;
-  }
-
-  .between-sm {
-    justify-content: space-between;
-  }
-
-  .first-sm {
-    order: -1;
-  }
-
-  .last-sm {
-    order: 1;
-  }
-}
-
-@media only screen and (min-width: $md-viewport) {
-  .container {
-    width: var( $container-md, 61rem );
-  }
-
-  .flex-md,
-  .flex-md-1,
-  .flex-md-2,
-  .flex-md-3,
-  .flex-md-4,
-  .flex-md-5,
-  .flex-md-6,
-  .flex-md-7,
-  .flex-md-8,
-  .flex-md-9,
-  .flex-md-10,
-  .flex-md-11,
-  .flex-md-12,
-  .offset-md-1,
-  .offset-md-2,
-  .offset-md-3,
-  .offset-md-4,
-  .offset-md-5,
-  .offset-md-6,
-  .offset-md-7,
-  .offset-md-8,
-  .offset-md-9,
-  .offset-md-10,
-  .offset-md-11,
-  .offset-md-12 {
-    box-sizing: border-box;
-    position: relative;
-    display: flex;
-    flex: 0 1 auto;
-    flex-direction: column;
-    flex-grow: 0;
-    flex-shrink: 0;
-    padding-right: $half-gutter-width;
-    padding-left: $half-gutter-width;
-  }
-
-  .flex-md {
-    flex-grow: 1;
-    flex-basis: 0;
-    max-width: 100%;
-  }
-
-  .flex-md-1 {
-    flex-basis: 8.333333333%;
-    max-width: 8.333333333%;
-  }
-
-  .flex-md-2 {
-    flex-basis: 16.666666667%;
-    max-width: 16.666666667%;
-  }
-
-  .flex-md-3 {
-    flex-basis: 25%;
-    max-width: 25%;
-  }
-
-  .flex-md-4 {
-    flex-basis: 33.333333333%;
-    max-width: 33.333333333%;
-  }
-
-  .flex-md-5 {
-    flex-basis: 41.666666667%;
-    max-width: 41.666666667%;
-  }
-
-  .flex-md-6 {
-    flex-basis: 50%;
-    max-width: 50%;
-  }
-
-  .flex-md-7 {
-    flex-basis: 58.333333333%;
-    max-width: 58.333333333%;
-  }
-
-  .flex-md-8 {
-    flex-basis: 66.666666667%;
-    max-width: 66.666666667%;
-  }
-
-  .flex-md-9 {
-    flex-basis: 75%;
-    max-width: 75%;
-  }
-
-  .flex-md-10 {
-    flex-basis: 83.333333333%;
-    max-width: 83.333333333%;
-  }
-
-  .flex-md-11 {
-    flex-basis: 91.666666667%;
-    max-width: 91.666666667%;
-  }
-
-  .flex-md-12 {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-
-  .offset-md-1 {
-    margin-left: 8.333333333%;
-  }
-
-  .offset-md-2 {
-    margin-left: 16.666666667%;
-  }
-
-  .offset-md-3 {
-    margin-left: 25%;
-  }
-
-  .offset-md-4 {
-    margin-left: 33.333333333%;
-  }
-
-  .offset-md-5 {
-    margin-left: 41.666666667%;
-  }
-
-  .offset-md-6 {
-    margin-left: 50%;
-  }
-
-  .offset-md-7 {
-    margin-left: 58.333333333%;
-  }
-
-  .offset-md-8 {
-    margin-left: 66.666666667%;
-  }
-
-  .offset-md-9 {
-    margin-left: 75%;
-  }
-
-  .offset-md-10 {
-    margin-left: 83.333333333%;
-  }
-
-  .offset-md-11 {
-    margin-left: 91.666666667%;
-  }
-
-  .start-md {
-    justify-content: flex-start;
-    text-align: start;
-  }
-
-  .center-md {
-    justify-content: center;
-    text-align: center;
-  }
-
-  .end-md {
-    justify-content: flex-end;
-    text-align: end;
-  }
-
-  .top-md {
-    align-items: flex-start;
-  }
-
-  .middle-md {
-    align-items: center;
-  }
-
-  .bottom-md {
-    align-items: flex-end;
-  }
-
-  .around-md {
-    justify-content: space-around;
-  }
-
-  .between-md {
-    justify-content: space-between;
-  }
-
-  .first-md {
-    order: -1;
-  }
-
-  .last-md {
-    order: 1;
-  }
-}
-
-@media only screen and (min-width: $lg-viewport) {
-  .container {
-    width: var( $container-lg, 71rem );
-  }
-
-  .flex-lg,
-  .flex-lg-1,
-  .flex-lg-2,
-  .flex-lg-3,
-  .flex-lg-4,
-  .flex-lg-5,
-  .flex-lg-6,
-  .flex-lg-7,
-  .flex-lg-8,
-  .flex-lg-9,
-  .flex-lg-10,
-  .flex-lg-11,
-  .flex-lg-12,
-  .offset-lg-1,
-  .offset-lg-2,
-  .offset-lg-3,
-  .offset-lg-4,
-  .offset-lg-5,
-  .offset-lg-6,
-  .offset-lg-7,
-  .offset-lg-8,
-  .offset-lg-9,
-  .offset-lg-10,
-  .offset-lg-11,
-  .offset-lg-12 {
-    position: relative;
-    box-sizing: border-box;
-    display: flex;
-    flex: 0 1 auto;
-    flex-direction: column;
-    flex-grow: 0;
-    flex-shrink: 0;
-    padding-right: $half-gutter-width;
-    padding-left: $half-gutter-width;
-  }
-
-  .flex-lg {
-    flex-grow: 1;
-    flex-basis: 0;
-    max-width: 100%;
-  }
-
-  .flex-lg-1 {
-    flex-basis: 8.333333333%;
-    max-width: 8.333333333%;
-  }
-
-  .flex-lg-2 {
-    flex-basis: 16.666666667%;
-    max-width: 16.666666667%;
-  }
-
-  .flex-lg-3 {
-    flex-basis: 25%;
-    max-width: 25%;
-  }
-
-  .flex-lg-4 {
-    flex-basis: 33.333333333%;
-    max-width: 33.333333333%;
-  }
-
-  .flex-lg-5 {
-    flex-basis: 41.666666667%;
-    max-width: 41.666666667%;
-  }
-
-  .flex-lg-6 {
-    flex-basis: 50%;
-    max-width: 50%;
-  }
-
-  .flex-lg-7 {
-    flex-basis: 58.333333333%;
-    max-width: 58.333333333%;
-  }
-
-  .flex-lg-8 {
-    flex-basis: 66.666666667%;
-    max-width: 66.666666667%;
-  }
-
-  .flex-lg-9 {
-    flex-basis: 75%;
-    max-width: 75%;
-  }
-
-  .flex-lg-10 {
-    flex-basis: 83.333333333%;
-    max-width: 83.333333333%;
-  }
-
-  .flex-lg-11 {
-    flex-basis: 91.666666667%;
-    max-width: 91.666666667%;
-  }
-
-  .flex-lg-12 {
-    flex-basis: 100%;
-    max-width: 100%;
-  }
-
-  .offset-lg-1 {
-    margin-left: 8.333333333%;
-  }
-
-  .offset-lg-2 {
-    margin-left: 16.666666667%;
-  }
-
-  .offset-lg-3 {
-    margin-left: 25%;
-  }
-
-  .offset-lg-4 {
-    margin-left: 33.333333333%;
-  }
-
-  .offset-lg-5 {
-    margin-left: 41.666666667%;
-  }
-
-  .offset-lg-6 {
-    margin-left: 50%;
-  }
-
-  .offset-lg-7 {
-    margin-left: 58.333333333%;
-  }
-
-  .offset-lg-8 {
-    margin-left: 66.666666667%;
-  }
-
-  .offset-lg-9 {
-    margin-left: 75%;
-  }
-
-  .offset-lg-10 {
-    margin-left: 83.333333333%;
-  }
-
-  .offset-lg-11 {
-    margin-left: 91.666666667%;
-  }
-
-  .start-lg {
-    justify-content: flex-start;
-    text-align: start;
-  }
-
-  .center-lg {
-    justify-content: center;
-    text-align: center;
-  }
-
-  .end-lg {
-    justify-content: flex-end;
-    text-align: end;
-  }
-
-  .top-lg {
-    align-items: flex-start;
-  }
-
-  .middle-lg {
-    align-items: center;
-  }
-
-  .bottom-lg {
-    align-items: flex-end;
-  }
-
-  .around-lg {
-    justify-content: space-around;
-  }
-
-  .between-lg {
-    justify-content: space-between;
-  }
-
-  .first-lg {
-    order: -1;
-  }
-
-  .last-lg {
-    order: 1;
-  }
-}
