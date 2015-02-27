@@ -1,12 +1,14 @@
-System.register(["aurelia-templating", "./ai-element"], function (_export) {
+System.register(["aurelia-templating", "./ai-element", "./toggler"], function (_export) {
   "use strict";
 
-  var Behavior, AiElement, _prototypeProperties, _inherits, _classCallCheck, defaults, AiHeader;
+  var Behavior, AiElement, Toggler, _prototypeProperties, _inherits, _classCallCheck, defaults, AiHeader;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
     }, function (_aiElement) {
       AiElement = _aiElement.AiElement;
+    }, function (_toggler) {
+      Toggler = _toggler.Toggler;
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
@@ -21,9 +23,10 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
         text: "purple"
       };
       AiHeader = _export("AiHeader", (function (AiElement) {
-        function AiHeader(element) {
+        function AiHeader(element, toggler) {
           _classCallCheck(this, AiHeader);
 
+          this.toggler = toggler;
           this.element = element;
           this.current = defaults;
           _.assign(this, this.current);
@@ -41,7 +44,7 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
           },
           inject: {
             value: function inject() {
-              return [Element];
+              return [Element, Toggler];
             },
             writable: true,
             configurable: true
@@ -49,6 +52,7 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
         }, {
           bind: {
             value: function bind() {
+              this.toggler.register("toggle-header", this, "size", this.sizeChnaged);
               var _this = this;
               this.classList = [];
               this.addClass("ai-header", "header-" + this.size);
@@ -64,6 +68,7 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
           },
           sizeChanged: {
             value: function sizeChanged(newSize) {
+              console.log(newSize);
               newSize = newSize || defaults.size;
               this.removeClass("header-" + this.current.size);
               this.addClass("header-" + newSize);

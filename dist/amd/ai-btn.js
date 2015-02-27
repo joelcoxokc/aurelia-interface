@@ -21,6 +21,7 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
           _classCallCheck(this, AiBtn);
 
           this.element = element;
+          this.addClass("ai-btn");
         }
 
         _inherits(AiBtn, AiElement);
@@ -28,7 +29,7 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
         _prototypeProperties(AiBtn, {
           metadata: {
             value: function metadata() {
-              return Behavior.customElement("ai-btn").withProperty("color").withProperty("shape").withProperty("type").withProperty("icon").withProperty("size").withProperty("waves").withProperty("bg").withProperty("text").withProperty("nextIcon", "nextIconChanged", "next-icon");
+              return Behavior.customElement("ai-btn").withProperty("flex").withProperty("center").withProperty("color").withProperty("shape").withProperty("type").withProperty("icon").withProperty("size").withProperty("waves").withProperty("bg").withProperty("text").withProperty("nextIcon", "nextIconChanged", "next-icon");
             },
             writable: true,
             configurable: true
@@ -44,7 +45,10 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
           bind: {
             value: function bind() {
               var _this = this;
-              var classList = ["ai-btn"];
+              if (this.center) this.addClass("center");
+              if (this.flex) this.addClass("is-" + this.flex);
+              this.btn = this.element.getElementsByClassName("btn")[0];
+              var classList = [];
               _.each(properties, function (item) {
                 _this[item] && classList.push("btn-" + _this[item]);
               });
@@ -60,8 +64,9 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
                   classList.push("bg-" + color);
                 }
               }
+              console.log(this.btn);
               this.waves && classList.push("waves-effect", "waves-" + this.waves);
-              this.addClass.apply(this, classList);
+              this.btn.classList.add.apply(this.btn.classList, classList);
               this.icon && this.useIcon(this.icon);
             },
             writable: true,

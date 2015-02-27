@@ -1,12 +1,14 @@
-System.register(["aurelia-templating", "./notify"], function (_export) {
+System.register(["aurelia-templating", "./notify", "./toggler"], function (_export) {
   "use strict";
 
-  var Behavior, Notify, _prototypeProperties, _classCallCheck, defaults, Toolbar;
+  var Behavior, Notify, Toggler, _prototypeProperties, _classCallCheck, defaults, Toolbar;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
     }, function (_notify) {
       Notify = _notify.Notify;
+    }, function (_toggler) {
+      Toggler = _toggler.Toggler;
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };

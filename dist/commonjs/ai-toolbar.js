@@ -1,7 +1,7 @@
-System.register(["aurelia-templating", "./ai-element", "./interface-element", "./toolbar", "./notify", "./aside-toggle"], function (_export) {
+System.register(["aurelia-templating", "./ai-element", "./interface-element", "./toolbar", "./notify", "./aside-toggle", "./toggler"], function (_export) {
   "use strict";
 
-  var Behavior, AiElement, InterfaceElement, Toolbar, Notify, AsideToggle, _prototypeProperties, _inherits, _classCallCheck, defaults, AiToolbar, ToolbarContainer;
+  var Behavior, AiElement, InterfaceElement, Toolbar, Notify, AsideToggle, Toggler, _prototypeProperties, _inherits, _classCallCheck, defaults, AiToolbar, ToolbarContainer;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
@@ -15,6 +15,8 @@ System.register(["aurelia-templating", "./ai-element", "./interface-element", ".
       Notify = _notify.Notify;
     }, function (_asideToggle) {
       AsideToggle = _asideToggle.AsideToggle;
+    }, function (_toggler) {
+      Toggler = _toggler.Toggler;
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
@@ -25,11 +27,11 @@ System.register(["aurelia-templating", "./ai-element", "./interface-element", ".
 
       defaults = ["size", "fixed", "bgColor", "textColor", "brand"];
       AiToolbar = _export("AiToolbar", (function (AiElement) {
-        function AiToolbar(element, notify, asideToggle) {
+        function AiToolbar(element, notify, toggler) {
           _classCallCheck(this, AiToolbar);
 
           var _this = this;
-          this.asideToggle = asideToggle;
+          this.toggler = toggler;
           this.events = notify;
           this.element = element;
           this.current = new Toolbar();
@@ -55,7 +57,7 @@ System.register(["aurelia-templating", "./ai-element", "./interface-element", ".
           },
           inject: {
             value: function inject() {
-              return [Element, Notify, AsideToggle];
+              return [Element, Notify, Toggler];
             },
             writable: true,
             configurable: true
@@ -84,7 +86,10 @@ System.register(["aurelia-templating", "./ai-element", "./interface-element", ".
           },
           sizeChanged: {
             value: function sizeChanged(value) {
-              return this.toggleClassList("size", "toolbar-");
+              console.log(value);
+
+              this.removeClass("toolbar-" + (value ? "xl" : "sm"));
+              this.addClass("toolbar-" + (value ? "sm" : "xl"));
             },
             writable: true,
             configurable: true
