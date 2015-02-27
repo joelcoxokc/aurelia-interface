@@ -4147,6 +4147,8 @@ template {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
   margin-bottom: 8px;
+  margin-right: -0.5rem;
+  margin-left: -0.5rem;
 }
 .row.reverse {
   -webkit-box-orient: horizontal;

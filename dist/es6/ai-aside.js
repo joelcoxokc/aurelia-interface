@@ -54,7 +54,7 @@ System.register(["aurelia-templating", "./ai-element", "./aside-toggle", "./togg
         _prototypeProperties(AiAside, {
           metadata: {
             value: function metadata() {
-              return Behavior.customElement("ai-aside").withProperty("router").withProperty("state").withProperty("side", "sideChanged").withProperty("size", "sizeChanged").withProperty("isOpen", "openChanged", "is-open").withProperty("isFolded", "foldChanged", "is-folded").withProperty("isFixed", "fixChanged", "is-fixed");
+              return Behavior.customElement("ai-aside").withProperty("router").withProperty("router").withProperty("state").withProperty("side", "sideChanged").withProperty("size", "sizeChanged").withProperty("isOpen", "openChanged", "is-open").withProperty("isFolded", "foldChanged", "is-folded").withProperty("isFixed", "fixChanged", "is-fixed");
             },
             writable: true,
             configurable: true
@@ -79,8 +79,8 @@ System.register(["aurelia-templating", "./ai-element", "./aside-toggle", "./togg
               this.addClass.apply(this, classList);
 
               this.asideToggle.init(this);
-              this.toggler.register("aside-open", this, "isOpen", null, this.onOpen);
-              this.toggler.register("aside-fold", this, "isFolded", null, this.onOpen);
+              this.toggler.register("aside-" + this.side + "-open", this, "isOpen", null, this.onOpen);
+              this.toggler.register("aside-" + this.side + "-fold", this, "isFolded", null, this.onOpen);
             },
             writable: true,
             configurable: true

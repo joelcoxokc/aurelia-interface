@@ -60,6 +60,7 @@ apply-grid-properties()
     box-sizing: border-box;
     position: relative;
     display: flex;
+    // flex: 1 0 auto;
     flex: 0 1 auto;
     flex-direction: column;
     flex-grow: 0;
@@ -142,12 +143,13 @@ create-responsive-grid-from(screen)
   box-sizing: border-box;
   position: relative
   display: flex;
+  // flex: 1 0 auto;
   flex: 0 1 auto;
   flex-direction: row;
   flex-wrap: wrap;
   margin-bottom: 8px
-  // margin-right: $gutter-compensation;
-  // margin-left: $gutter-compensation;
+  margin-right: $gutter-compensation;
+  margin-left: $gutter-compensation;
 }
 
 .row.reverse {
