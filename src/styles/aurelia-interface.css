@@ -4146,6 +4146,7 @@ template {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
+  margin-bottom: 8px;
 }
 .row.reverse {
   -webkit-box-orient: horizontal;
@@ -6619,23 +6620,24 @@ template {
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
-  width: 100%;
-  min-width: 100%;
-  max-width: 100%;
+  position: relative;
+  min-height: 100vh;
 }
 template {
   max-width: 0;
   max-hegiht: 0;
 }
-.ui-footer {
+.ai-footer {
   -webkit-box-ordinal-group: 3;
   -webkit-order: 2;
       -ms-flex-order: 2;
           order: 2;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 120px;
+      -ms-flex: 0 0 120px;
+          flex: 0 0 120px;
+  width: 100vw;
+  height: 120px;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
@@ -6647,20 +6649,13 @@ template {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  width: 100%;
-  min-width: 100%;
-  max-width: 100%;
-  height: auto;
-  min-height: auto;
-  max-height: auto;
 }
 .ai-aside {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 0;
-      -ms-flex: 0 0 0;
-          flex: 0 0 0;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   z-index: 1010;
-  overflow: hidden;
   position: relative;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -6668,6 +6663,10 @@ template {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: #fff;
+  position: fixed;
+  top: 0;
+  -webkit-transition: all 300ms cubic-bezier(0, 0.74, 0, 0.99);
+          transition: all 300ms cubic-bezier(0, 0.74, 0, 0.99);
   height: 100%;
   min-height: 100%;
   max-height: 100%;
@@ -6702,12 +6701,12 @@ template {
 }
 .ai-aside.aside-is-open {
   -webkit-box-flex: 0;
-  -webkit-flex: 0 0 150px;
-      -ms-flex: 0 0 150px;
-          flex: 0 0 150px;
-  width: 150px;
-  min-width: 150px;
-  max-width: 150px;
+  -webkit-flex: 0 0 200px;
+      -ms-flex: 0 0 200px;
+          flex: 0 0 200px;
+  width: 200px;
+  min-width: 200px;
+  max-width: 200px;
 }
 .ai-aside.aside-is-folded {
   -webkit-box-flex: 0;
@@ -6745,24 +6744,6 @@ template {
   min-width: 64px;
   max-width: 64px;
 }
-.ai-aside.aside-is-open {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 200px;
-      -ms-flex: 0 0 200px;
-          flex: 0 0 200px;
-  width: 200px;
-  min-width: 200px;
-  max-width: 200px;
-}
-.ai-aside.aside-is-folded {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 64px;
-      -ms-flex: 0 0 64px;
-          flex: 0 0 64px;
-  width: 64px;
-  min-width: 64px;
-  max-width: 64px;
-}
 .ai-aside.aside-sm {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 0;
@@ -6782,24 +6763,6 @@ template {
   max-width: 200px;
 }
 .ai-aside.aside-sm.aside-is-folded {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 64px;
-      -ms-flex: 0 0 64px;
-          flex: 0 0 64px;
-  width: 64px;
-  min-width: 64px;
-  max-width: 64px;
-}
-.ai-aside.aside-is-open {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 250px;
-      -ms-flex: 0 0 250px;
-          flex: 0 0 250px;
-  width: 250px;
-  min-width: 250px;
-  max-width: 250px;
-}
-.ai-aside.aside-is-folded {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 64px;
       -ms-flex: 0 0 64px;
@@ -6835,24 +6798,6 @@ template {
   min-width: 64px;
   max-width: 64px;
 }
-.ai-aside.aside-is-open {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 320px;
-      -ms-flex: 0 0 320px;
-          flex: 0 0 320px;
-  width: 320px;
-  min-width: 320px;
-  max-width: 320px;
-}
-.ai-aside.aside-is-folded {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 64px;
-      -ms-flex: 0 0 64px;
-          flex: 0 0 64px;
-  width: 64px;
-  min-width: 64px;
-  max-width: 64px;
-}
 .ai-aside.aside-lg {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 0;
@@ -6872,24 +6817,6 @@ template {
   max-width: 320px;
 }
 .ai-aside.aside-lg.aside-is-folded {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 64px;
-      -ms-flex: 0 0 64px;
-          flex: 0 0 64px;
-  width: 64px;
-  min-width: 64px;
-  max-width: 64px;
-}
-.ai-aside.aside-is-open {
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 240px;
-      -ms-flex: 0 0 240px;
-          flex: 0 0 240px;
-  width: 240px;
-  min-width: 240px;
-  max-width: 240px;
-}
-.ai-aside.aside-is-folded {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 64px;
       -ms-flex: 0 0 64px;
@@ -6970,10 +6897,10 @@ template {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
-      -ms-flex: 1 0 auto;
-          flex: 1 0 auto;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 0 64px;
+      -ms-flex: 0 0 64px;
+          flex: 0 0 64px;
   height: 64px;
   -webkit-box-align: center;
   -webkit-align-items: center;
@@ -6984,6 +6911,10 @@ template {
       -ms-flex-pack: center;
           justify-content: center;
   position: relative;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+}
+.ai-header.ink {
+  box-shadow: none;
 }
 .ai-header .toggle-btn {
   top: 0;
@@ -7014,10 +6945,10 @@ template {
   left: 0;
 }
 .ai-main {
-  -webkit-box-ordinal-group: 2;
-  -webkit-order: 1;
-      -ms-flex-order: 1;
-          order: 1;
+  -webkit-box-ordinal-group: 1;
+  -webkit-order: 0;
+      -ms-flex-order: 0;
+          order: 0;
   -webkit-box-flex: 1;
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
@@ -7027,8 +6958,9 @@ template {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  max-width: 100vw;
   position: relative;
+  min-width: 100vw;
+  min-height: 100vh;
   box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7055,6 +6987,25 @@ template {
 }
 .ai-section .section.no-pad-top {
   padding-top: 0;
+}
+.ai-view {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .ai-bar {
   box-sizing: border-box;
@@ -7745,13 +7696,70 @@ template {
 }
 a.ai-btn,
 .ai-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  height: auto;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  position: relative;
+  -webkit-align-content: flex-start;
+      -ms-flex-line-pack: start;
+          align-content: flex-start;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+a.ai-btn.center,
+.ai-btn.center {
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+a.ai-btn.is-row,
+.ai-btn.is-row {
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+  -webkit-flex-direction: row !important;
+      -ms-flex-direction: row !important;
+          flex-direction: row !important;
+}
+a.ai-btn.is-column,
+.ai-btn.is-column {
+  -webkit-box-orient: vertical !important;
+  -webkit-box-direction: normal !important;
+  -webkit-flex-direction: column !important;
+      -ms-flex-direction: column !important;
+          flex-direction: column !important;
+}
+a.ai-btn button.btn,
+.ai-btn button.btn,
+a.ai-btn .btn,
+.ai-btn .btn,
+a.ai-btn a,
+.ai-btn a,
+a.ai-btn a.btn,
+.ai-btn a.btn {
   box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
   padding: 0 2rem;
-  float: left;
   margin: 20px 20px 0 0;
   outline: none;
   border: none;
@@ -7774,74 +7782,158 @@ a.ai-btn,
   color: #616161;
   text-transform: uppercase;
 }
-a.ai-btn:hover,
-.ai-btn:hover {
+a.ai-btn button.btn:hover,
+.ai-btn button.btn:hover,
+a.ai-btn .btn:hover,
+.ai-btn .btn:hover,
+a.ai-btn a:hover,
+.ai-btn a:hover,
+a.ai-btn a.btn:hover,
+.ai-btn a.btn:hover {
   box-shadow: 0px 8px 10px rgba(0,0,0,0.2);
 }
-a.ai-btn:active,
-.ai-btn:active {
+a.ai-btn button.btn:active,
+.ai-btn button.btn:active,
+a.ai-btn .btn:active,
+.ai-btn .btn:active,
+a.ai-btn a:active,
+.ai-btn a:active,
+a.ai-btn a.btn:active,
+.ai-btn a.btn:active {
   box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
 }
-a.ai-btn.btn-round,
-.ai-btn.btn-round {
+a.ai-btn button.btn.btn-round,
+.ai-btn button.btn.btn-round,
+a.ai-btn .btn.btn-round,
+.ai-btn .btn.btn-round,
+a.ai-btn a.btn-round,
+.ai-btn a.btn-round,
+a.ai-btn a.btn.btn-round,
+.ai-btn a.btn.btn-round {
   border-radius: 100%;
   height: 64px;
   width: 64px;
 }
-a.ai-btn.btn-sm,
-.ai-btn.btn-sm {
+a.ai-btn button.btn.btn-sm,
+.ai-btn button.btn.btn-sm,
+a.ai-btn .btn.btn-sm,
+.ai-btn .btn.btn-sm,
+a.ai-btn a.btn-sm,
+.ai-btn a.btn-sm,
+a.ai-btn a.btn.btn-sm,
+.ai-btn a.btn.btn-sm {
   padding: 0 1.6rem;
   line-height: 24px;
 }
-a.ai-btn.btn-sm.btn-round,
-.ai-btn.btn-sm.btn-round {
+a.ai-btn button.btn.btn-sm.btn-round,
+.ai-btn button.btn.btn-sm.btn-round,
+a.ai-btn .btn.btn-sm.btn-round,
+.ai-btn .btn.btn-sm.btn-round,
+a.ai-btn a.btn-sm.btn-round,
+.ai-btn a.btn-sm.btn-round,
+a.ai-btn a.btn.btn-sm.btn-round,
+.ai-btn a.btn.btn-sm.btn-round {
   padding: 0;
   height: 24px;
   width: 24px;
 }
-a.ai-btn.btn-md,
-.ai-btn.btn-md {
+a.ai-btn button.btn.btn-md,
+.ai-btn button.btn.btn-md,
+a.ai-btn .btn.btn-md,
+.ai-btn .btn.btn-md,
+a.ai-btn a.btn-md,
+.ai-btn a.btn-md,
+a.ai-btn a.btn.btn-md,
+.ai-btn a.btn.btn-md {
   line-height: 38px;
 }
-a.ai-btn.btn-md.btn-round,
-.ai-btn.btn-md.btn-round {
+a.ai-btn button.btn.btn-md.btn-round,
+.ai-btn button.btn.btn-md.btn-round,
+a.ai-btn .btn.btn-md.btn-round,
+.ai-btn .btn.btn-md.btn-round,
+a.ai-btn a.btn-md.btn-round,
+.ai-btn a.btn-md.btn-round,
+a.ai-btn a.btn.btn-md.btn-round,
+.ai-btn a.btn.btn-md.btn-round {
   padding: 0;
   height: 38px;
   width: 38px;
 }
-a.ai-btn.btn-lg,
-.ai-btn.btn-lg {
+a.ai-btn button.btn.btn-lg,
+.ai-btn button.btn.btn-lg,
+a.ai-btn .btn.btn-lg,
+.ai-btn .btn.btn-lg,
+a.ai-btn a.btn-lg,
+.ai-btn a.btn-lg,
+a.ai-btn a.btn.btn-lg,
+.ai-btn a.btn.btn-lg {
   padding: 0 3rem;
   line-height: 64px;
 }
-a.ai-btn.btn-lg.btn-round,
-.ai-btn.btn-lg.btn-round {
+a.ai-btn button.btn.btn-lg.btn-round,
+.ai-btn button.btn.btn-lg.btn-round,
+a.ai-btn .btn.btn-lg.btn-round,
+.ai-btn .btn.btn-lg.btn-round,
+a.ai-btn a.btn-lg.btn-round,
+.ai-btn a.btn-lg.btn-round,
+a.ai-btn a.btn.btn-lg.btn-round,
+.ai-btn a.btn.btn-lg.btn-round {
   padding: 0;
   height: 64px;
   width: 64px;
 }
-a.ai-btn.btn-xl,
-.ai-btn.btn-xl {
+a.ai-btn button.btn.btn-xl,
+.ai-btn button.btn.btn-xl,
+a.ai-btn .btn.btn-xl,
+.ai-btn .btn.btn-xl,
+a.ai-btn a.btn-xl,
+.ai-btn a.btn-xl,
+a.ai-btn a.btn.btn-xl,
+.ai-btn a.btn.btn-xl {
   padding: 0 4rem;
   line-height: 80px;
 }
-a.ai-btn.btn-xl.btn-round,
-.ai-btn.btn-xl.btn-round {
+a.ai-btn button.btn.btn-xl.btn-round,
+.ai-btn button.btn.btn-xl.btn-round,
+a.ai-btn .btn.btn-xl.btn-round,
+.ai-btn .btn.btn-xl.btn-round,
+a.ai-btn a.btn-xl.btn-round,
+.ai-btn a.btn-xl.btn-round,
+a.ai-btn a.btn.btn-xl.btn-round,
+.ai-btn a.btn.btn-xl.btn-round {
   padding: 0;
   height: 80px;
   width: 80px;
 }
-a.ai-btn.btn-flat,
-.ai-btn.btn-flat {
+a.ai-btn button.btn.btn-flat,
+.ai-btn button.btn.btn-flat,
+a.ai-btn .btn.btn-flat,
+.ai-btn .btn.btn-flat,
+a.ai-btn a.btn-flat,
+.ai-btn a.btn-flat,
+a.ai-btn a.btn.btn-flat,
+.ai-btn a.btn.btn-flat {
   box-shadow: 0;
 }
-a.ai-btn .action-buttons .ai-btn,
-.ai-btn .action-buttons .ai-btn {
+a.ai-btn button.btn .action-buttons .ai-btn,
+.ai-btn button.btn .action-buttons .ai-btn,
+a.ai-btn .btn .action-buttons .ai-btn,
+.ai-btn .btn .action-buttons .ai-btn,
+a.ai-btn a .action-buttons .ai-btn,
+.ai-btn a .action-buttons .ai-btn,
+a.ai-btn a.btn .action-buttons .ai-btn,
+.ai-btn a.btn .action-buttons .ai-btn {
   width: 0 !important;
   height: 0 !important;
 }
-a.ai-btn .primary-action,
-.ai-btn .primary-action {
+a.ai-btn button.btn .primary-action,
+.ai-btn button.btn .primary-action,
+a.ai-btn .btn .primary-action,
+.ai-btn .btn .primary-action,
+a.ai-btn a .primary-action,
+.ai-btn a .primary-action,
+a.ai-btn a.btn .primary-action,
+.ai-btn a.btn .primary-action {
   box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -7860,52 +7952,106 @@ a.ai-btn .primary-action,
       -ms-flex-pack: center;
           justify-content: center;
 }
-a.ai-btn > i.btn-icon.icon-left,
-.ai-btn > i.btn-icon.icon-left {
+a.ai-btn button.btn > i.btn-icon.icon-left,
+.ai-btn button.btn > i.btn-icon.icon-left,
+a.ai-btn .btn > i.btn-icon.icon-left,
+.ai-btn .btn > i.btn-icon.icon-left,
+a.ai-btn a > i.btn-icon.icon-left,
+.ai-btn a > i.btn-icon.icon-left,
+a.ai-btn a.btn > i.btn-icon.icon-left,
+.ai-btn a.btn > i.btn-icon.icon-left {
   margin-right: 10px;
 }
-a.ai-btn > i.btn-icon.icon-right,
-.ai-btn > i.btn-icon.icon-right {
+a.ai-btn button.btn > i.btn-icon.icon-right,
+.ai-btn button.btn > i.btn-icon.icon-right,
+a.ai-btn .btn > i.btn-icon.icon-right,
+.ai-btn .btn > i.btn-icon.icon-right,
+a.ai-btn a > i.btn-icon.icon-right,
+.ai-btn a > i.btn-icon.icon-right,
+a.ai-btn a.btn > i.btn-icon.icon-right,
+.ai-btn a.btn > i.btn-icon.icon-right {
   margin-left: 10px;
 }
-a.ai-btn.btn-default,
-.ai-btn.btn-default {
+a.ai-btn button.btn.btn-default,
+.ai-btn button.btn.btn-default,
+a.ai-btn .btn.btn-default,
+.ai-btn .btn.btn-default,
+a.ai-btn a.btn-default,
+.ai-btn a.btn-default,
+a.ai-btn a.btn.btn-default,
+.ai-btn a.btn.btn-default {
   color: #616161 !important;
   background: #fff !important;
   background-color: #fff !important;
 }
-a.ai-btn.btn-primary,
-.ai-btn.btn-primary {
+a.ai-btn button.btn.btn-primary,
+.ai-btn button.btn.btn-primary,
+a.ai-btn .btn.btn-primary,
+.ai-btn .btn.btn-primary,
+a.ai-btn a.btn-primary,
+.ai-btn a.btn-primary,
+a.ai-btn a.btn.btn-primary,
+.ai-btn a.btn.btn-primary {
   color: #fff !important;
   background: #2196f3 !important;
   background-color: #2196f3 !important;
 }
-a.ai-btn.btn-info,
-.ai-btn.btn-info {
+a.ai-btn button.btn.btn-info,
+.ai-btn button.btn.btn-info,
+a.ai-btn .btn.btn-info,
+.ai-btn .btn.btn-info,
+a.ai-btn a.btn-info,
+.ai-btn a.btn-info,
+a.ai-btn a.btn.btn-info,
+.ai-btn a.btn.btn-info {
   color: #fff !important;
   background: #03a9f4 !important;
   background-color: #03a9f4 !important;
 }
-a.ai-btn.btn-success,
-.ai-btn.btn-success {
+a.ai-btn button.btn.btn-success,
+.ai-btn button.btn.btn-success,
+a.ai-btn .btn.btn-success,
+.ai-btn .btn.btn-success,
+a.ai-btn a.btn-success,
+.ai-btn a.btn-success,
+a.ai-btn a.btn.btn-success,
+.ai-btn a.btn.btn-success {
   color: #fff !important;
   background: #4caf50 !important;
   background-color: #4caf50 !important;
 }
-a.ai-btn.btn-warning,
-.ai-btn.btn-warning {
+a.ai-btn button.btn.btn-warning,
+.ai-btn button.btn.btn-warning,
+a.ai-btn .btn.btn-warning,
+.ai-btn .btn.btn-warning,
+a.ai-btn a.btn-warning,
+.ai-btn a.btn-warning,
+a.ai-btn a.btn.btn-warning,
+.ai-btn a.btn.btn-warning {
   color: #fff !important;
   background: #ffc107 !important;
   background-color: #ffc107 !important;
 }
-a.ai-btn.btn-danger,
-.ai-btn.btn-danger {
+a.ai-btn button.btn.btn-danger,
+.ai-btn button.btn.btn-danger,
+a.ai-btn .btn.btn-danger,
+.ai-btn .btn.btn-danger,
+a.ai-btn a.btn-danger,
+.ai-btn a.btn-danger,
+a.ai-btn a.btn.btn-danger,
+.ai-btn a.btn.btn-danger {
   color: #fff !important;
   background: #f44336 !important;
   background-color: #f44336 !important;
 }
-a.ai-btn.btn-invert,
-.ai-btn.btn-invert {
+a.ai-btn button.btn.btn-invert,
+.ai-btn button.btn.btn-invert,
+a.ai-btn .btn.btn-invert,
+.ai-btn .btn.btn-invert,
+a.ai-btn a.btn-invert,
+.ai-btn a.btn-invert,
+a.ai-btn a.btn.btn-invert,
+.ai-btn a.btn.btn-invert {
   color: #f5f5f5 !important;
   background: #424242 !important;
   background-color: #424242 !important;
@@ -8707,7 +8853,7 @@ ul.ai-list .list-item .item-postfix,
   display: -webkit-flex;
   display: flex;
 }
-.ai-group-btn {
+.ai-btn-group {
   box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8718,6 +8864,26 @@ ul.ai-list .list-item .item-postfix,
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
+  width: auto;
+  position: relative;
+  margin-bottom: 8px;
+}
+.ai-btn-group.group-center {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+.ai-btn-group.no-space .btn,
+.ai-btn-group.no-space a.btn {
+  border-radius: 0;
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+  margin: 0;
 }
 .ai-action-group {
   box-sizing: border-box;
@@ -9118,4 +9284,129 @@ ul.ai-list .list-item .item-postfix,
 }
 .ai-input.input-invert.active .input-label {
   color: #424242 !important;
+}
+.ai-btn-group {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: auto;
+  position: relative;
+  margin-bottom: 8px;
+}
+.ai-btn-group.group-center {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+.ai-btn-group.no-space .btn,
+.ai-btn-group.no-space a.btn {
+  border-radius: 0;
+  box-shadow: 0px 2px 2px rgba(0,0,0,0.2);
+  margin: 0;
+}
+/*
+ * Waves v0.6.0
+ * http://fian.my.id/Waves
+ *
+ * Copyright 2014 Alfiana E. Sibuea and other contributors
+ * Released under the MIT license
+ * https://github.com/fians/Waves/blob/master/LICENSE
+ */
+.waves-effect {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  z-index: 1;
+  -webkit-transition: all 0.3s ease-out;
+          transition: all 0.3s ease-out;
+}
+.waves-effect .waves-ripple {
+  position: absolute;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: -10px;
+  opacity: 0;
+  background: rgba(0,0,0,0.2);
+  -webkit-transition: all 0.7s ease-out;
+          transition: all 0.7s ease-out;
+  -webkit-transition-property: -webkit-transform, opacity;
+  transition-property: transform, opacity;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+  pointer-events: none;
+}
+.waves-effect.waves-light .waves-ripple {
+  background-color: rgba(255,255,255,0.45);
+}
+.waves-effect.waves-red .waves-ripple {
+  background-color: rgba(244,67,54,0.7);
+}
+.waves-effect.waves-yellow .waves-ripple {
+  background-color: rgba(255,235,59,0.7);
+}
+.waves-effect.waves-orange .waves-ripple {
+  background-color: rgba(255,152,0,0.7);
+}
+.waves-effect.waves-purple .waves-ripple {
+  background-color: rgba(156,39,176,0.7);
+}
+.waves-effect.waves-green .waves-ripple {
+  background-color: rgba(76,175,80,0.7);
+}
+.waves-effect.waves-teal .waves-ripple {
+  background-color: rgba(0,150,136,0.7);
+}
+.waves-notransition {
+  -webkit-transition: none !important;
+          transition: none !important;
+}
+.waves-circle {
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  -webkit-mask-image: -webkit-radial-gradient(circle, #fff 100%, #000 100%);
+}
+.waves-input-wrapper {
+  border-radius: 0.2em;
+  vertical-align: bottom;
+}
+.waves-input-wrapper .waves-button-input {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.waves-circle {
+  text-align: center;
+  width: 2.5em;
+  height: 2.5em;
+  line-height: 2.5em;
+  border-radius: 50%;
+}
+.waves-block {
+  display: block;
+}
+a.waves-effect .waves-ripple {
+  z-index: -1;
 }

@@ -1,6 +1,6 @@
 import {Behavior} from 'aurelia-templating';
 import {AiElement} from './ai-element';
-
+import {Toggler} from './toggler'
 var defaults =  { size : 'sm'
                 , fixed: false
                 , bg  : 'white'
@@ -20,11 +20,11 @@ export class AiHeader extends AiElement{
     }
 
     static inject(){
-        return [Element]
+        return [Element, Toggler]
     }
 
-    constructor(element){
-
+    constructor(element, toggler){
+        this.toggler = toggler
         this.element     = element
         this.current     = defaults;
         _.assign(this, this.current)
@@ -32,7 +32,7 @@ export class AiHeader extends AiElement{
     }
 
     bind(){
-
+        this.toggler.register('toggle-header', this, 'size', this.sizeChnaged)
         var _this = this;
         this.classList = [];
         this.addClass('ai-header', `header-`+this.size)
@@ -45,6 +45,7 @@ export class AiHeader extends AiElement{
     }
 
     sizeChanged(newSize){
+        console.log(newSize)
         newSize = newSize || defaults.size;
         this.removeClass(`header-${this.current.size}`)
         this.addClass(`header-${newSize}`)

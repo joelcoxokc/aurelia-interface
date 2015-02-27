@@ -1,6 +1,6 @@
 import {Behavior} from 'aurelia-templating'
 import {Notify} from './notify';
-
+import {Toggler} from './toggler';
 var defaults =  { size : 'sm'
                 , fixed    : true
                 , bgColor  : 'bg-white'

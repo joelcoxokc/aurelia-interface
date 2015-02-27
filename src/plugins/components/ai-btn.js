@@ -9,6 +9,8 @@ export class AiBtn extends AiElement{
 
         return Behavior
             .customElement('ai-btn')
+            .withProperty('flex')
+            .withProperty('center')
             .withProperty('color')
             .withProperty('shape')
             .withProperty('type')
@@ -29,11 +31,14 @@ export class AiBtn extends AiElement{
 
     constructor(element){
         this.element = element
-
+        this.addClass('ai-btn')
     }
 
     bind(){
-        var classList = ['ai-btn']
+        if(this.center) this.addClass('center')
+        if(this.flex)   this.addClass(`is-${this.flex}`)
+        this.btn = this.element.getElementsByClassName('btn')[0]
+        var classList = []
         _.each(properties, (item)=>{
             this[item] && classList.push(`btn-${this[item]}`)
         })
@@ -47,8 +52,9 @@ export class AiBtn extends AiElement{
                 classList.push(`bg-${color}`)
             }
         }
+        console.log(this.btn)
         this.waves && classList.push('waves-effect', `waves-${this.waves}`)
-        this.addClass.apply(this, classList)
+        this.btn.classList.add.apply(this.btn.classList, classList)
         this.icon &&( this.useIcon(this.icon) )
     }
 

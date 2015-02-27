@@ -1,0 +1,26 @@
+<template>
+    <import from="./system/ai-card"></import>
+    <import from="./system/ai-btn"></import>
+    <import from="./system/ai-toggler"></import>
+    <div class="ai-content container-fluid">
+
+        <ai-card>
+            <header class="card-heading">aiLayout</header>
+            <div class="card-body">
+                <div class="row">
+                    <dic class="flex-6 offset-3 flex-center">
+
+                        <div class="ai-btn-group no-space group-center">
+                            <ai-btn flex="column" waves="light" color="info" ai-toggler="delegate: aside-left-open">Toggle Left</ai-btn>
+                            <ai-btn flex="column" waves="light" color="info" ai-toggler="delegate: aside-left-fold">Fold Left</ai-btn>
+                            <ai-btn flex="column" waves="light" color="info" ai-toggler="delegate: aside-right-fold">Fold right</ai-btn>
+                            <ai-btn flex="column" waves="light" color="info" ai-toggler="delegate: aside-right-open">Toggle right</ai-btn>
+                        </div>
+                    </dic>
+                </div>
+            </div>
+        </ai-card>
+
+    </div>
+
+</template>

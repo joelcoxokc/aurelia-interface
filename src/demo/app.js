@@ -36,8 +36,8 @@ export class App {
     this.router.configure(config => {
       config.title = 'Aurelia Interface';
       config.map([
-        { route   : ['', 'welcome']
-        , moduleId : 'welcome'
+        { route   : ['', 'interface']
+        , moduleId : 'interface'
         , title    : 'ai'
         , toolbar  : this.toolbar
         , settings : {level:1}

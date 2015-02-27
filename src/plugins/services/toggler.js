@@ -60,6 +60,7 @@ export class Toggler{
     }
 
     delegate(name){
+        var _this = this
         var args = Array.prototype.slice.call(arguments)
         var instance = this.get(name);
 
