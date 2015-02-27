@@ -28,6 +28,8 @@ export class AiAside extends AiElement{
     static metadata(){
         return Behavior
             .customElement('ai-aside')
+
+            .withProperty( 'router' )
             .withProperty( 'router' )
             .withProperty( 'state' )
             .withProperty( 'side'     , 'sideChanged')
@@ -61,8 +63,8 @@ export class AiAside extends AiElement{
         this.addClass.apply(this, classList)
 
         this.asideToggle.init(this)
-        this.toggler.register('aside-open', this, 'isOpen', null, this.onOpen)
-        this.toggler.register('aside-fold', this, 'isFolded', null, this.onOpen)
+        this.toggler.register(`aside-${this.side}-open`, this, 'isOpen', null, this.onOpen)
+        this.toggler.register(`aside-${this.side}-fold`, this, 'isFolded', null, this.onOpen)
 
         // console.log(this.toggler)
 

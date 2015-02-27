@@ -7,7 +7,7 @@ var directions = {
     row   :'is-row'
 }
 var defaults = {
-    direction:'row'
+    direction:'column'
 }
 
 export class AInterface{
@@ -33,14 +33,15 @@ export class AInterface{
 
         this.element   = element;
         this.direction = defaults.direction
-
-
     }
 
     bind(){
         this.classList = ['a-interface']
         this.direction && this.classList.push(`is-${this.direction}`)
         this.addClass.apply(this, this.classList)
+        this.routeView = document.body.getElementsByTagName('router-view')
+        console.log(this.routeView )
+
 
     }
 

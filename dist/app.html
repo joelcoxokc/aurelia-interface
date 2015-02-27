@@ -10,50 +10,26 @@
     <import from="./nav-bar"></import>
     <import from="./nav-aside"></import>
 
+<a-interface>
 
-    <a-interface
-                direction="interface.direction"
-                router.bind="router"
-                aside.bind="aside"
-                toolbar.bind="toolbar">
-
-
-      <ai-body direction.bind="interface.direction">
-
-        <ai-toolbar
-                  router.bind="router"
-                  toolbar.bind="toolbar"
-                  size.bind="toolbar.size"
-                  fixed.bind="toolbar.fixed"
-                  text-color.bind="toolbar.textColor"
-                  bg-color.bind="toolbar.bgColor"
-                  >
-                  <nav-bar navs.bind="navigation.navs" aside.bind="aside" router.bind="router" class="toolbar-container"></nav-bar>
-        </ai-toolbar>
-
-        <ai-main>
-          <ai-explode bg="bg-red"></ai-explode>
-          <router-view></router-view>
-        </ai-main>
-
-        <ai-footer></ai-footer>
-
-      </ai-body>
+        <header class="ai-header header-xl bg-red">
+           <ai-toolbar size="md" bg="red"></ai-toolbar>
+        </header>
 
 
-      <!-- <ai-aside-nav
-              side.bind="aside.side"
-              router.bind="router"
-              fixed="aside.false"
-              fold="aside.false"
-              size.bind="aside.size"
-              open.bind="aside.open"
-              >
-              <nav-aside size.bind="toolbar.size" aside.bind="aside" router.bind="router"></nav-aside>
-              </ai-aside-nav> -->
+        <main class="ai-body bg-lime">
 
-      <ai-aside side="left" is-fixed=true></ai-aside>
+            <div class="ai-main bg-grey lighten-4">
+              <router-view></router-view>
+            </div>
+            <ai-aside is-open="true" side="right" class="bg-amber"></ai-aside>
+            <ai-aside is-open="true" side="left" class="bg-amber"></ai-aside>
 
-    </a-interface>
+        </main>
+
+
+        <footer class="ai-footer bg-red"></footer>
+
+</a-interface>
 
 </template>

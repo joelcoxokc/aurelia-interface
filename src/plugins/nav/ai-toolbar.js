@@ -4,7 +4,7 @@ import {InterfaceElement} from './interface-element'
 import {Toolbar}   from './toolbar'
 import {Notify} from './notify';
 import {AsideToggle} from './aside-toggle';
-
+import {Toggler} from './toggler';
 
 var defaults =  [ 'size' , 'fixed' , 'bgColor' , 'textColor' , 'brand' ]
 
@@ -24,12 +24,12 @@ export class AiToolbar extends AiElement{
     }
 
     static inject(){
-        return [Element, Notify, AsideToggle]
+        return [Element, Notify, Toggler]
     }
 
-    constructor(element, notify, asideToggle){
+    constructor(element, notify, toggler){
         var _this = this;
-        this.asideToggle = asideToggle;
+        this.toggler = toggler
         this.events   = notify;
         this.element  = element
         this.current  = new Toolbar()
@@ -57,7 +57,10 @@ export class AiToolbar extends AiElement{
 
     }
     sizeChanged(value){
-        return this.toggleClassList('size', 'toolbar-')
+        console.log(value)
+
+        this.removeClass(`toolbar-${value ? 'xl' : 'sm'}`)
+        this.addClass(`toolbar-${value ? 'sm' : 'xl'}`)
     }
 
 }

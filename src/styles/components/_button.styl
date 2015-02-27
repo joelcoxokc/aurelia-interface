@@ -5,109 +5,129 @@
     background-color: $blue.base
 a.ai-btn,
 .ai-btn
-    flex-container()
-    padding        : 0 2rem
-    float          : left
-    margin         : 20px 20px 0 0
-    outline        : none
-    border         : none
-    text-align     : center
-    align-items    : center
-    justify-content: center
-    cursor         : pointer
-    // align-self     : flex-start
-    box-shadow     : $btn-box-shadow
-    border-radius  : $btn-border-radius
-    line-height    : $btn-line-height
-    transition     : $btn-transition
-    background     : $btn-themes-bg.default
-    color          : $btn-themes-color.default
-    &:hover
-        box-shadow: $btn-hover-box-shadow
-    &:active
-        box-shadow: $btn-active-box-shadow
+    display: flex
+    flex 1 0 auto
+    height: auto
+    // width: 100%
+    flex-direction: row
+    position:  relative
+    align-content: flex-start
+    justify-content: flex-start
 
-    if $btn-is-uppercase
-        text-transform : uppercase
-
-    &.btn-round
-        border-radius: 100%
-        height 64px
-        width 64px
-
-
-    &.btn-sm
-        padding    : 0 1.6rem
-        line-height: 24px
-        &.btn-round
-            padding    : 0
-            height: 24px
-            width: 24px
-    &.btn-md
-        line-height: 38px
-        &.btn-round
-            padding    : 0
-            height: 38px
-            width: 38px
-    &.btn-lg
-        padding    : 0 3rem
-        line-height: 64px
-        &.btn-round
-            padding    : 0
-            height     : 64px
-            width      : 64px
-    &.btn-xl
-        padding    : 0 4rem
-        line-height: 80px
-        &.btn-round
-            padding    : 0
-            height     : 80px
-            width      : 80px
-
-    &.btn-flat
-        box-shadow: 0
-
-
-
-    .action-buttons
-        .ai-btn
-            width:  0 !important
-            height: 0 !important
-
-    .primary-action
-        flex-container()
-        flex           : 1 0 auto
-        align-items    : center
+    &.center
+        // width: auto
+        align-items: center
         justify-content: center
 
+    &.is-row
+        flex-direction: row !important
+    &.is-column
+        flex-direction: column !important
 
-    & > i.btn-icon
-        &.icon-left
-            margin-right: 10px
-        &.icon-right
-            margin-left: 10px
 
-    ai-theme-varients(btn, $btn-themes-bg, $btn-themes-color)
-    // &.btn-default
-    //     ai-theme-varient($btn-default-bg, $btn-default-color)
+    button.btn, .btn, a, a.btn
+        flex-container()
+        padding        : 0 2rem
+        margin         : 20px 20px 0 0
+        outline        : none
+        border         : none
+        text-align     : center
+        align-items    : center
+        justify-content: center
+        cursor         : pointer
+        // align-self     : flex-start
+        box-shadow     : $btn-box-shadow
+        border-radius  : $btn-border-radius
+        line-height    : $btn-line-height
+        transition     : $btn-transition
+        background     : $btn-themes-bg.default
+        color          : $btn-themes-color.default
+        &:hover
+            box-shadow: $btn-hover-box-shadow
+        &:active
+            box-shadow: $btn-active-box-shadow
 
-    // &.btn-primary
-    //     ai-theme-varient($btn-primary-bg, $btn-primary-color)
+        if $btn-is-uppercase
+            text-transform : uppercase
 
-    // &.btn-info
-    //     ai-theme-varient($btn-info-bg, $btn-info-color)
+        &.btn-round
+            border-radius: 100%
+            height 64px
+            width 64px
 
-    // &.btn-success
-    //     ai-theme-varient($btn-success-bg, $btn-success-color)
 
-    // &.btn-warning
-    //     ai-theme-varient($btn-warning-bg, $btn-warning-color)
+        &.btn-sm
+            padding    : 0 1.6rem
+            line-height: 24px
+            &.btn-round
+                padding    : 0
+                height: 24px
+                width: 24px
+        &.btn-md
+            line-height: 38px
+            &.btn-round
+                padding    : 0
+                height: 38px
+                width: 38px
+        &.btn-lg
+            padding    : 0 3rem
+            line-height: 64px
+            &.btn-round
+                padding    : 0
+                height     : 64px
+                width      : 64px
+        &.btn-xl
+            padding    : 0 4rem
+            line-height: 80px
+            &.btn-round
+                padding    : 0
+                height     : 80px
+                width      : 80px
 
-    // &.btn-danger
-    //     ai-theme-varient($btn-danger-bg, $btn-danger-color)
+        &.btn-flat
+            box-shadow: 0
 
-    // &.btn-invert
-    //     ai-theme-varient($btn-invert-bg, $btn-invert-color)
+
+
+        .action-buttons
+            .ai-btn
+                width:  0 !important
+                height: 0 !important
+
+        .primary-action
+            flex-container()
+            flex           : 1 0 auto
+            align-items    : center
+            justify-content: center
+
+
+        & > i.btn-icon
+            &.icon-left
+                margin-right: 10px
+            &.icon-right
+                margin-left: 10px
+
+        ai-theme-varients(btn, $btn-themes-bg, $btn-themes-color)
+        // &.btn-default
+        //     ai-theme-varient($btn-default-bg, $btn-default-color)
+
+        // &.btn-primary
+        //     ai-theme-varient($btn-primary-bg, $btn-primary-color)
+
+        // &.btn-info
+        //     ai-theme-varient($btn-info-bg, $btn-info-color)
+
+        // &.btn-success
+        //     ai-theme-varient($btn-success-bg, $btn-success-color)
+
+        // &.btn-warning
+        //     ai-theme-varient($btn-warning-bg, $btn-warning-color)
+
+        // &.btn-danger
+        //     ai-theme-varient($btn-danger-bg, $btn-danger-color)
+
+        // &.btn-invert
+        //     ai-theme-varient($btn-invert-bg, $btn-invert-color)
 
 
 create-reveal(side, direction, order, alignment, sizing)
