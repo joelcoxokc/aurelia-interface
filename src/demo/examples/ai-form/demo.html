@@ -5,47 +5,47 @@
     <ai-card>
         <div class="card-heading">ai-Form Elements</div>
     </ai-card>
-    <ai-card>
+
+    <example base="../dist/examples/ai-form">
     	<div class="card-heading">ai-Input</div>
-        <div class="card-body">
-        	<div class="row">
+        <div class="body">
+            <div class="row">
         		<div class="flex-sm-6">
-        			<div ai-input="label: First Name; ">
-                		<input type=text>
-            		</div>
-            	</div>
-            	<div class="flex-sm-6">
-        			<div ai-input="label: Last Name; ">
-                		<input type=text>
-            		</div>
-            	</div>
-            	<div class="flex-sm-12">
-        			<div ai-input="label: Username; ">
-                		<input type=text>
-            		</div>
-            	</div>
-            	<div class="flex-sm-12">
-        			<div ai-input="label: Email; ">
-                		<input type=text>
-            		</div>
-            	</div>
-            	<div class="flex-sm-12">
-        			<div ai-input="label: Password; ">
-                		<input type=password>
-            		</div>
-            	</div>
+                    <div ai-input="label: First Name; ">
+                        <input type=text>
+                    </div>
+                </div>
+                <div class="flex-sm-6">
+                    <div ai-input="label: Last Name; ">
+                        <input type=text>
+                    </div>
+                </div>
+                <div class="flex-sm-12">
+                    <div ai-input="label: Username; ">
+                        <input type=text>
+                    </div>
+                </div>
+                <div class="flex-sm-12">
+                    <div ai-input="label: Email; ">
+                        <input type=text>
+                    </div>
+                </div>
+                <div class="flex-sm-12">
+                    <div ai-input="label: Password; ">
+                        <input type=password>
+                    </div>
+                </div>
             </div>
-            <example base="../dist/examples/ai-form">
-                <column size="md6">
-                    <file src="input.html" view="true"></file>
-                </column>
-            </example>
+
         </div>
-    </ai-card>
-    <ai-card>
+        <span class="code">
+            <file src="input.html" view="true"></file>
+        </span>
+    </example>
+    <example base="../dist/examples/ai-form">
 
         <h2 class="card-heading">ai-Input .withProperty(<strong>prefix</strong>)</h2>
-        <div class="card-body">
+        <div class="body">
             <div ai-input="prefix: icon; icon: mdi-action-account-circle;">
                 <label>First Name</label>
                 <input type="text" name="firstname">
@@ -60,18 +60,20 @@
                 </div>
                 <input type="text" name="firstname">
             </div>
-            <example base="../dist/examples/ai-form">
-                <column size="md6">
-                    <file src="prefix.html" view="true"></file>
-                </column>
-            </example>
         </div>
+        <span class="code">
+            <column size="md6">
+                <file src="prefix.html" view="true"></file>
+            </column>
+        </span>
+    </example>
 
-    </ai-card>
-    <ai-card>
+
+    <example base="../dist/examples/ai-form">
+
 
         <h2 class="card-heading">ai-Input .withProperty(<strong>postfix</strong>)</h2>
-        <div class="card-body">
+        <div class="body">
             <p>Issue currently in progress</p>
             <div ai-input="postfix: icon; icon: mdi-action-account-circle;">
                 <label>First Name</label>
@@ -87,13 +89,11 @@
                 </div>
                 <input type="text" name="firstname">
             </div>
-            <example base="../dist/examples/ai-form">
-                <column size="md6">
-                    <file src="prefix.html" view="true"></file>
-                </column>
-            </example>
         </div>
+        <span size="code">
+            <file src="prefix.html" view="true"></file>
+        </span>
 
-    </ai-card>
+    </example>
 
 </template>

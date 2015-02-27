@@ -7,105 +7,76 @@
     <import from="../../resources/example"></import>
     <import from="../../resources/file"></import>
     <import from="../../resources/column"></import>
-    <ai-card>
 
 
-        <h2 class="card-heading">aiBtn</h2>
-        <div class="card-body">
+    <example base="../dist/examples/ai-btn">
+      <markdown>
+        ## ai-Btn
+      </markdown>
+      <span class="body">
+          <ai-btn color="primary" waves=light>default</ai-btn>
+      </span>
+      <span class="code">
+          <file src="default.html" view="true"></file>
+      </span>
+    </example>
 
-        <div class="row">
-            <div class="flex-sm-12">
-              <ai-btn waves=dark>default</ai-btn>
-            </div>
-        </div>
-        <example base="../dist/examples/ai-btn">
-          <column size="md6">
-            <file src="default.html" view="true"></file>
-          </column>
-        </example>
-        </div>
+    <example base="../dist/examples/ai-btn">
+        <markdown>
+            #### attachedProperty( color )
 
-
-    </ai-card>
-
-    <ai-card>
-
-
-        <h2 class="card-heading">aiBtn attachedProperty( <strong>color</strong> )</h2>
-        <div class="card-body">
-
-        <div class="row">
-            <div class="flex-sm-12">
-              <ai-btn waves=light color="info">info</ai-btn>
-              <ai-btn waves=light color="primary">primary</ai-btn>
-              <ai-btn waves=light color="success">success</ai-btn>
-              <ai-btn waves=light color="warning">warning</ai-btn>
-              <ai-btn waves=light color="danger">danger</ai-btn>
-              <ai-btn waves=light color="invert">invert</ai-btn>
-
-            </div>
-        </div>
-        <example base="../dist/examples/ai-btn">
-          <column size="md6">
+        </markdown>
+        <span class="body">
+            <ai-btn waves=light color="info">info</ai-btn>
+            <ai-btn waves=light color="primary">primary</ai-btn>
+            <ai-btn waves=light color="success">success</ai-btn>
+            <ai-btn waves=light color="warning">warning</ai-btn>
+            <ai-btn waves=light color="danger">danger</ai-btn>
+            <ai-btn waves=light color="invert">invert</ai-btn>
+        </span>
+        <span class="code">
             <file src="color.html" view="true"></file>
-          </column>
-        </example>
-        </div>
+        </span>
+    </example>
 
+    <example base="../dist/examples/ai-btn">
+        <markdown>
+            #### aiBtn attachedProperty( **size** )
 
-    </ai-card>
+        </markdown>
+        <span class="body">
+            <ai-btn waves=light size="sm" color="primary">small</ai-btn>
+            <ai-btn waves=light size="md" color="primary">medium</ai-btn>
+            <ai-btn waves=light size="lg" color="primary">large</ai-btn>
+            <ai-btn waves=light size="xl" color="primary">Extra large</ai-btn>
+        </span>
+        <span class="code">
+            <file src="size.html" view="true"></file>
+        </span>
+    </example>
 
-    <ai-card>
+    <example base="../dist/examples/ai-btn">
+        <markdown>
+            #### aiBtn attachedProperty( <strong>waves</strong> )
 
-        <h2 class="card-heading">aiBtn attachedProperty( <strong>size</strong> )</h2>
-        <div class="card-body">
-            <div class="row">
-                <div class="flex-sm-12">
-                  <ai-btn waves=light size="sm" color="primary">small</ai-btn>
-                  <ai-btn waves=light size="md" color="primary">medium</ai-btn>
-                  <ai-btn waves=light size="lg" color="primary">large</ai-btn>
-                  <ai-btn waves=light size="xl" color="primary">Extra large</ai-btn>
-                </div>
+        </markdown>
+        <span class="body">
+            <div class="section">
+              <ai-btn waves="dark">dark</ai-btn>
+              <ai-btn waves="light" color='primary'>light</ai-btn>
             </div>
-            <example base="../dist/examples/ai-btn">
-              <column size="md6">
-                <file src="size.html" view="true"></file>
-              </column>
-            </example>
-        </div>
-
-
-    </ai-card>
-
-
-    <ai-card>
-
-        <h2 class="card-heading">aiBtn attachedProperty( <strong>waves</strong> )</h2>
-        <div class="card-body">
-            <div class="row">
-                <div class="flex-sm-12">
-                  <ai-btn waves="dark">dark</ai-btn>
-                  <ai-btn waves="light" color='primary'>light</ai-btn>
-                </div>
+            <div class="section">
+              <h4>with colors</h4>
+              <ai-btn waves="red">red</ai-btn>
+              <ai-btn waves="yellow">yellow</ai-btn>
+              <ai-btn waves="orange">orange</ai-btn>
+              <ai-btn waves="purple">purple</ai-btn>
+              <ai-btn waves="teal">teal</ai-btn>
             </div>
-            <div class="row">
-                <div class="flex-sm-12">
-                  <h4>with colors</h4>
-                  <ai-btn waves="red">red</ai-btn>
-                  <ai-btn waves="yellow">yellow</ai-btn>
-                  <ai-btn waves="orange">orange</ai-btn>
-                  <ai-btn waves="purple">purple</ai-btn>
-                  <ai-btn waves="teal">teal</ai-btn>
+        </span>
+        <span class="code">
+            <file src="size.html" view="true"></file>
+        </span>
+    </example>
 
-                </div>
-            </div>
-            <example base="../dist/examples/ai-btn">
-              <column size="md6">
-                <file src="waves.html" view="true"></file>
-              </column>
-            </example>
-        </div>
-
-
-    </ai-card>
 </template>

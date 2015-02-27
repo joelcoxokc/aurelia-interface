@@ -1,17 +1,24 @@
 <template>
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <div class="row">
-        <content></content>
-      </div>
-      <div class="row" if.bind="result">
-        <div class="col-md-12">
-          <strong>result:</strong>
-          <div class="well">
-            <compose view-model="../${model.moduleId}" view="../${view.moduleId}.html"></compose>
-          </div>
+    <div class="ai-card">
+        <div class="card-content">
+            <content select=".card-heading"></content>
+            <div class="card-body">
+                <div class="section">
+                    <div class="flex-xs-12 body-container">
+                        <content select="markdown"></content>
+                        <content select=".body"></content>
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="flex-xs-12 body-container">
+                    </div>
+                </div>
+                <div class="section">
+                    <div class="flex-xs-12 code-container">
+                        <content select=".code"></content>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </template>

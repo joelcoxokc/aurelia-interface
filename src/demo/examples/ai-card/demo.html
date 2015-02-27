@@ -4,59 +4,35 @@
     <import from="../../system/ai-input"></import>
 
     <ai-card>
-
-
-        <div class="card-body"><p>I am a simple card</p></div>
-
-
+        <header class="card-heading">ai-Card</header>
     </ai-card>
+
     <ai-card>
         <div class="card-body">
-            <example base="../dist/examples/ai-card">
-                <column size="md6">
-                    <file src="simple.html" view="true"></file>
-                </column>
-            </example>
-        </div>
-    </ai-card>
-    <ai-card>
-
-        <h2 class="card-heading">Card Heading</h2>
-        <div class="card-body">
-            <p>This card has a heading component</p>
-             <div ai-input>
-             	<label for="firstName">FirstName</label>
-                <input type="text" name="firstName">
-            </div>
-        </div>
-    </ai-card>
-    <ai-card>
-        <div class="card-body">
-            <example base="../dist/examples/ai-card">
-                <column size="md6">
-                    <file src="heading.html" view="true"></file>
-                </column>
-            </example>
+            simple Card
         </div>
     </ai-card>
 
-    <ai-card>
+    <example base="../dist/examples/ai-card">
+        <span class="body">
+            <file src="simple.html" view="true"></file>
+        </span>
+    </example>
 
+    <ai-card>
         <h2 class="card-heading">Card Heading</h2>
         <div class="card-body"><p>This card has a heading & footer component.</p></div>
         <div class="card-footer"><p class="card-footer-text">card-footer component</p></div>
-
-
     </ai-card>
-    <ai-card>
-        <div class="card-body">
-            <example base="../dist/examples/ai-card">
-                <column size="md6">
-                    <file src="footer.html" view="true"></file>
-                </column>
-            </example>
+    <example base="../dist/examples/ai-card">
+        <h1 class="card-heading">Card</h1>
+        <div class="body">
+            Here is a full Card
         </div>
-    </ai-card>
+        <span class="code">
+            <file src="footer.html" view="true"></file>
+        </span>
+    </example>
 
     <ai-card>
         <nav class="ai-bar ai-nav-bar bar-ink bar-xs bg-teal accent-4 text-white">
@@ -80,14 +56,12 @@
         <footer class="card-footer"><p class="card-footer-text">I am the card-footer</p></footer>
 
     </ai-card>
-    <ai-card>
-        <div class="card-body">
-            <example base="../dist/examples/ai-card">
-                <column size="md6">
-                    <file src="complex.html" view="true"></file>
-                </column>
-            </example>
+    <example base="../dist/examples/ai-card">
+        <div class="body">
+            Complex
         </div>
-    </ai-card>
-
+        <span class="code">
+            <file src="complex.html" view="true"></file>
+        </span>
+    </example>
 </template>
