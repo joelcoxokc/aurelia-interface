@@ -1,23 +1,23 @@
-System.register(["./ai-class", "./toggler"], function (_export) {
+System.register(["./ai-class", "./ai-element"], function (_export) {
   "use strict";
 
-  var AiClassAttachedBehavior, ToggleRegistry;
+  var AiClassAttachedBehavior, AiElement;
 
 
   function install(aurelia) {
-    aurelia.withResources([Toggler, AiClassAttachedBehavior]);
+    aurelia.withResources([AiClassAttachedBehavior]);
   }
 
   return {
     setters: [function (_aiClass) {
       AiClassAttachedBehavior = _aiClass.AiClassAttachedBehavior;
-    }, function (_toggler) {
-      ToggleRegistry = _toggler.ToggleRegistry;
+    }, function (_aiElement) {
+      AiElement = _aiElement.AiElement;
     }],
     execute: function () {
-      _export("Toggler", Toggler);
-
       _export("AiClassAttachedBehavior", AiClassAttachedBehavior);
+
+      _export("AiElement", AiElement);
 
       _export("install", install);
     }

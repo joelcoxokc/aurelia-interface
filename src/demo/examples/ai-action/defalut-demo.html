@@ -1,0 +1,30 @@
+<template>
+    <import from="../../system/ai-action-reveal"></import>
+    <import from="../../system/ai-btn"></import>
+    <import from="../../system/ai-card"></import>
+    <import from="../../system/ai-action-group"></import>
+    <h2 class="card-heading">Revealing Action Buttons</h2>
+    <div class="row">
+        <div class='flex-sm-6'>
+            <ai-action-group type="reveal" side="left">
+                <button ai-action="bg: bg-red; text: text-white; type: reveal; shape: round; icon: mdi-content-add; waves: light; next-icon: mdi-content-create"></button>
+                <div class="ai-btn-group">
+                    <ai-btn size="md" type="raised" shape="round" color="primary" waves="light" icon="mdi-action-grade"></ai-btn>
+                    <ai-btn size="md" type="raised" shape="round" color="primary" waves="light" icon="mdi-action-grade"></ai-btn>
+                    <ai-btn size="md" type="raised" shape="round" color="primary" waves="light" icon="mdi-action-grade"></ai-btn>
+                </div>
+            </ai-action-group>
+        </div>
+
+        <div class='flex-sm-6'>
+          <ai-action-group type="reveal" side="right">
+              <button ai-action="bg: bg-red; text: text-white; type: reveal; shape: round; icon: mdi-content-add; waves: light; next-icon: mdi-content-create"></button>
+              <div class="ai-btn-group">
+                  <ai-btn size="md" type="raised" shape="round" color="primary" waves="light" icon="mdi-action-grade"></ai-btn>
+                  <ai-btn size="md" type="raised" shape="round" color="primary" waves="light" icon="mdi-action-grade"></ai-btn>
+                  <ai-btn size="md" type="raised" shape="round" color="primary" waves="light" icon="mdi-action-grade"></ai-btn>
+              </div>
+          </ai-action-group>
+        </div>
+    </div>
+</template>

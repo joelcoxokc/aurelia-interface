@@ -69,8 +69,8 @@
 .markdown-body h4:hover .anchor,
 .markdown-body h5:hover .anchor,
 .markdown-body h6:hover .anchor {
-    padding-left: 8px;
-    margin-left: -30px;
+    /*padding-left: 8px;*/
+    /*margin-left: -30px;*/
     text-decoration: none;
     display: inline-block;
 }
