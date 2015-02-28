@@ -37,7 +37,8 @@ export class AiToolbar extends AiElement{
 
         _.assign(this, this.current);
 
-
+        this.toggler.register('toolbar-large', this, 'size')
+        // this.toggler.register('toggle-header', this, 'size', this.sizeChnaged)
 
         this.addClass('ai-toolbar')
         this.events.subscribe('$stateChanged', (payload)=>{

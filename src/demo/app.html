@@ -3,6 +3,7 @@
     <import from="./system/a-interface"></import>
     <import from="./system/ai-footer"></import>
     <import from="./system/ai-aside"></import>
+    <import from="./system/ai-toggler"></import>
     <import from="./system/ai-aside-nav"></import>
     <import from="./system/ai-main"></import>
     <import from="./system/ai-body"></import>
@@ -13,7 +14,26 @@
 <a-interface>
 
         <header class="ai-header header-xl bg-red">
-           <ai-toolbar size="md" bg="red"></ai-toolbar>
+           <ai-toolbar  router.bind="router"
+                        toolbar.bind="toolbar"
+                        size.bind="toolbar.size"
+                        fixed.bind="toolbar.fixed"
+                        text-color.bind="toolbar.textColor"
+                        bg-color.bind="toolbar.bgColor">
+               <div class="toolbar-header">
+                   <a class="toolbar-brand" href="#">${router.title}</a>
+               </div>
+               <ul class="nav-actions nav-actions-right">
+                  <li repeat.for="row of navigation.navs" class="${row.isActive ? 'active' : ''}">
+                    <a class="waves-effect waves-${color}" href.bind="row.href">${row.title}</a>
+                  </li>
+                  <li ai-toggler="delegate: aside-right-open">
+                    <a class="waves-effect waves-${color}">
+                      <i class="fa fa-bars"></i>
+                    </a>
+                  </li>
+                </ul>
+           </ai-toolbar>
         </header>
 
 
@@ -23,7 +43,12 @@
               <router-view></router-view>
             </div>
             <ai-aside side="right" class="bg-amber"></ai-aside>
-            <ai-aside side="left" class="bg-amber"></ai-aside>
+            <ai-aside side="left" class="bg-amber">
+            	<header class="header">
+            		${router.title}
+            	</header>
+            	<div class="aside-content"></div>
+            </ai-aside>
 
         </main>
 

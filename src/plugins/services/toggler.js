@@ -9,9 +9,11 @@ export class Toggle{
         this._context   = options.context
         this.toggleName = options.property
         this.toggler    = (typeof options.toggleMethod === 'function')&& options.toggleMethod
+        this.toggleProps= (Array.isArray(options.toggleMethod))&& options.toggleMethod
         this.callback   = (typeof options.callback     === 'function')&& options.callback
         this._ontoggles = []
         this.callback && this._ontoggles.push(this.callback)
+        this.toggleProps && (this.toggleProps= {true: this.toggleProps[0], false:this.toggleProps[1]})
     }
 
     onToggle(callback){
@@ -19,9 +21,16 @@ export class Toggle{
 
     }
 
-    toggle(oldValue){
+    toggleSwap(oldValue){
+        this._context[this.toggleName] = this.toggleProps[oldValue]
+    }
 
-        this._context[this.toggleName] = !this._context[this.toggleName]
+    toggle(oldValue){
+        if(this.toggleProps){
+          this.toggleSwap(oldValue)
+        } else {
+          this._context[this.toggleName] = !this._context[this.toggleName]
+        }
         this.callAllToggles(this._context[this.toggleName], oldValue)
     }
 

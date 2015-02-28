@@ -27,9 +27,6 @@ export class AiElement{
 
     addClass(){
         var args = this._parseArgs(arguments)
-
-
-
         this.element.classList.add.apply(this.element.classList, args)
 
     }
