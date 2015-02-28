@@ -1,15 +1,16 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
-
+import {Toggler}  from './system/toggler'
 export class Interface{
 
     static inject(){
 
-        return [EventAggregator];
+        return [EventAggregator,Toggler];
 
     }
 
-    constructor(eventAggregator){
+    constructor(eventAggregator, toggler){
         this.events = eventAggregator
+        this.toggler = toggler
         this.heading = 'Aurelia Interface ';
     }
 
@@ -23,9 +24,9 @@ export class Interface{
                            , bgColor   : 'bg-purple'
                            , textColor : 'text-white'
                            })
-            this.events.publish('$stateChanged', this.toolbar)
         }
-
+        this.toggle = this.toggler.delegate('toolbar-large')
+        this.toggle()
     }
 }
 

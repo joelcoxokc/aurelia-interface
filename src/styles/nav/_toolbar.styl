@@ -193,46 +193,46 @@
       flex-direction row
 
 
-      .toolbar-header
+    .toolbar-header
 
-        flex 0 0 $nav-aside-width
-        align(center)
-        justify(center)
+      flex 0 0 $nav-aside-width
+      align(center)
+      justify(center)
 
-        &.header-right
-          justify(flex-end)
+      &.header-right
+        justify(flex-end)
 
-        min-max-width($nav-aside-width)
+      min-max-width($nav-aside-width)
 
-        .toolbar-toggle
-          display none
+      .toolbar-toggle
+        display none
 
-        .toolbar-brand
-          &.nav-right
-            text-align  : center
+      .toolbar-brand
+        &.nav-right
+          text-align  : center
 
-      .toolbar-content
+    .toolbar-content
+      flex-direction row
+      min-max-height($nav-bar-height)
+
+      .nav-actions
         flex-direction row
-        min-max-height($nav-bar-height)
-
-        .nav-actions
-          flex-direction row
+        flex-container()
+        &.hide-mobile
           flex-container()
-          &.hide-mobile
-            flex-container()
-          & > *
-            text-align center
-            width 0
-              // align-self flex-end
+        & > *
+          text-align center
+          width 0
+            // align-self flex-end
 
-        .toolbar-collapse
-          top 0
-          position relative
-          flex-direction row
-          box-shadow none
-          min-max-height(100%)
-          &.open
-            height  : auto
-            .nav-actions
-              flex-direction row
-              justify(center)
+      .toolbar-collapse
+        top 0
+        position relative
+        flex-direction row
+        box-shadow none
+        min-max-height(100%)
+        &.open
+          height  : auto
+          .nav-actions
+            flex-direction row
+            justify(center)

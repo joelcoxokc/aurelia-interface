@@ -52,7 +52,6 @@ export class AiBtn extends AiElement{
                 classList.push(`bg-${color}`)
             }
         }
-        console.log(this.btn)
         this.waves && classList.push('waves-effect', `waves-${this.waves}`)
         this.btn.classList.add.apply(this.btn.classList, classList)
         this.icon &&( this.useIcon(this.icon) )

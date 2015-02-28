@@ -6667,6 +6667,8 @@ template {
   background-color: #fff;
   position: fixed;
   top: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
   -webkit-transition: all 300ms cubic-bezier(0, 0.74, 0, 0.99);
           transition: all 300ms cubic-bezier(0, 0.74, 0, 0.99);
   height: 100%;
@@ -6853,6 +6855,48 @@ template {
   width: 64px;
   min-width: 64px;
   max-width: 64px;
+}
+.aside-header {
+  min-width: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 240px;
+      -ms-flex: 1 0 240px;
+          flex: 1 0 240px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-height: 240px;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 500;
+}
+.aside-content {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background: #fff;
 }
 .ai-nav-list {
   margin: 0;
@@ -7457,7 +7501,7 @@ template {
         -ms-flex-direction: row;
             flex-direction: row;
   }
-  .ai-toolbar .toolbar-container .toolbar-header {
+  .ai-toolbar .toolbar-header {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 250px;
         -ms-flex: 0 0 250px;
@@ -7474,19 +7518,19 @@ template {
     min-width: 250px;
     max-width: 250px;
   }
-  .ai-toolbar .toolbar-container .toolbar-header.header-right {
+  .ai-toolbar .toolbar-header.header-right {
     -webkit-box-pack: end;
     -webkit-justify-content: flex-end;
         -ms-flex-pack: end;
             justify-content: flex-end;
   }
-  .ai-toolbar .toolbar-container .toolbar-header .toolbar-toggle {
+  .ai-toolbar .toolbar-header .toolbar-toggle {
     display: none;
   }
-  .ai-toolbar .toolbar-container .toolbar-header .toolbar-brand.nav-right {
+  .ai-toolbar .toolbar-header .toolbar-brand.nav-right {
     text-align: center;
   }
-  .ai-toolbar .toolbar-container .toolbar-content {
+  .ai-toolbar .toolbar-content {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
@@ -7496,7 +7540,7 @@ template {
     min-height: 64px;
     max-height: 64px;
   }
-  .ai-toolbar .toolbar-container .toolbar-content .nav-actions {
+  .ai-toolbar .toolbar-content .nav-actions {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
@@ -7508,17 +7552,17 @@ template {
     display: -webkit-flex;
     display: flex;
   }
-  .ai-toolbar .toolbar-container .toolbar-content .nav-actions.hide-mobile {
+  .ai-toolbar .toolbar-content .nav-actions.hide-mobile {
     box-sizing: border-box;
     display: -webkit-box;
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
   }
-  .ai-toolbar .toolbar-container .toolbar-content .nav-actions > * {
+  .ai-toolbar .toolbar-content .nav-actions > * {
     text-align: center;
   }
-  .ai-toolbar .toolbar-container .toolbar-content .toolbar-collapse {
+  .ai-toolbar .toolbar-content .toolbar-collapse {
     top: 0;
     position: relative;
     -webkit-box-orient: horizontal;
@@ -7531,10 +7575,10 @@ template {
     min-height: 100%;
     max-height: 100%;
   }
-  .ai-toolbar .toolbar-container .toolbar-content .toolbar-collapse.open {
+  .ai-toolbar .toolbar-content .toolbar-collapse.open {
     height: auto;
   }
-  .ai-toolbar .toolbar-container .toolbar-content .toolbar-collapse.open .nav-actions {
+  .ai-toolbar .toolbar-content .toolbar-collapse.open .nav-actions {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
