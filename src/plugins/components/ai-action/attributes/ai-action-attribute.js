@@ -82,6 +82,10 @@ export class AiActionAttachedBehavior extends AiElement{
         this.setClass()
         this.createIcons()
         this.setEvents()
+        this.btn    = this.element.getElementsByTagName('button')[0]
+        if(!this.btn) this.btn = this.element.getElementsByTagName('ai-btn')[0]
+        console.log(this.btn.getElementsByTagName('button')[0])
+
     }
 
     iconChanged(value){
@@ -98,13 +102,10 @@ export class AiActionAttachedBehavior extends AiElement{
     setClass(){
         let classList = ['ai-btn', this.classList.element]
         this.type  && classList.push(this.classList.btn(this.type))
-        this.shape && classList.push(this.classList.btn(this.shape))
-        this.size && classList.push(this.classList.btn(this.size))
-        this.waves && classList.push('waves-effect', this.classList.waves[this.waves])
-        this.bg    && classList.push((this.bg.slice(0,3) === 'bg-') ? this.bg : this.classList.bg(this.bg))
-        this.bgc   && classList.push(this.bg)
-        this.textc && classList.push((this.text.slice(0,3) === 'text-') ? this.text : this.classList.text(this.text))
-        this.text  && classList.push(this.text)
+        // this.bg    && classList.push((this.bg.slice(0,3) === 'bg-') ? this.bg : this.classList.bg(this.bg))
+        // this.bgc   && classList.push(this.bg)
+        // this.textc && classList.push((this.text.slice(0,3) === 'text-') ? this.text : this.classList.text(this.text))
+        // this.text  && classList.push(this.text)
         this.addClass(classList)
 
     }
@@ -131,7 +132,7 @@ export class AiActionAttachedBehavior extends AiElement{
             this.elements.nextIcon = document.createElement('I')
             this.elements.nextIcon.classList.add(this.nextIcon)
         }
-        this.icon &&(this.appendTo(this.elements.icon))
+        this.icon &&(this.appendTo(this.elements.icon, this.btn))
     }
 
     appendTo(elements, el){

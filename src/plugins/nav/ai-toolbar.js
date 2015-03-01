@@ -1,14 +1,11 @@
 import {Behavior} from 'aurelia-templating'
 import {AiElement} from './ai-element'
-import {InterfaceElement} from './interface-element'
 import {Toolbar}   from './toolbar'
-import {Notify} from './notify';
-import {AsideToggle} from './aside-toggle';
-import {Toggler} from './toggler';
+import {ActivatorService} from './activator-service';
 
 var defaults =  [ 'size' , 'fixed' , 'bgColor' , 'textColor' , 'brand' ]
 
-export class AiToolbar extends AiElement{
+export class AiToolbar extends Toolbar{
 
     static metadata(){
         return Behavior
@@ -24,44 +21,50 @@ export class AiToolbar extends AiElement{
     }
 
     static inject(){
-        return [Element, Notify, Toggler]
+        return [Element, ActivatorService]
     }
 
-    constructor(element, notify, toggler){
+    constructor(element, activator){
         var _this = this;
-        this.toggler = toggler
-        this.events   = notify;
+        this.current  = {}
         this.element  = element
-        this.current  = new Toolbar()
-        this.person = 'joel'
+        this.activator = activator
+        this.splitter = this.splitter  = /\s*,\s*/;
 
-        _.assign(this, this.current);
+        _.assign(this.current, this.defaults);
 
-        this.toggler.register('toolbar-large', this, 'size')
-        // this.toggler.register('toggle-header', this, 'size', this.sizeChnaged)
+        for(let prop in defaults){
+            this.activator.activateProperty(`ai-toolbar-${prop}`     , this, prop)
+        }
 
-        this.addClass('ai-toolbar')
-        this.events.subscribe('$stateChanged', (payload)=>{
-        })
+        this.element.classList.add('ai-toolbar')
     }
 
     bind(){
-        this.container = new ToolbarContainer(this.element.firstElementChild)
-    }
-    bgChanged(value){
-        return this.container.toggleClassList('bgColor', '', this)
+        this.parent = this.element.parentElement;
     }
 
+    bgChanged(value){
+        value = value.split(this.splitter)
+        console.log(value)
+        this.element.classList.remove.apply(this.element.classList, this.current.bgColor)
+        this.element.classList.add.apply(this.element.classList, value);
+        this.current.bgColor = value
+    }
 
     textChanged(value){
-        return this.container.toggleClassList('textColor', '', this)
-
+        value = value.split(this.splitter)
+        this.element.classList.remove.apply(this.element.classList, this.current.textColor)
+        this.element.classList.add.apply(this.element.classList, value);
+        this.current.textColor = value
     }
     sizeChanged(value){
-        console.log(value)
 
-        this.removeClass(`toolbar-${value ? 'xl' : 'sm'}`)
-        this.addClass(`toolbar-${value ? 'sm' : 'xl'}`)
+        this.parent.classList.remove(`header-${this.current.size}`)
+        this.parent.classList.add(`header-${value}`)
+        this.element.classList.remove(`toolbar-${this.current.size}`)
+        this.element.classList.add(`toolbar-${value}`)
+        this.current.size = value
     }
 
 }
@@ -73,5 +76,4 @@ class ToolbarContainer extends AiElement{
         this.element = args[0]
     }
 }
-
 

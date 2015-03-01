@@ -2,7 +2,11 @@
     flex-container()
     flex: 1 0 auto
     flex-direction column
-    max-height: 84px
+    position: relative
+    .tab-content
+        flex-container()
+        flex-direction: column
+        min-height: 100%
     .tab-pane
         display: none
         &.active
@@ -11,6 +15,7 @@
 
     ul.ai-nav-tabs,
     .ai-nav-tabs
+        max-height: 84px
         overflow hidden
         flex-container()
         flex            : 1 0 auto

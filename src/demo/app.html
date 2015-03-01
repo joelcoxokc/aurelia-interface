@@ -10,10 +10,10 @@
     <import from="./system/ai-explode"></import>
     <import from="./nav-bar"></import>
     <import from="./nav-aside"></import>
-
+    <import from="./system/ai-activator"></import>
 <a-interface>
 
-        <header class="ai-header header-xl bg-red">
+        <header class="ai-header bg-red">
            <ai-toolbar  router.bind="router"
                         toolbar.bind="toolbar"
                         size.bind="toolbar.size"
@@ -27,7 +27,7 @@
                   <li repeat.for="row of navigation.navs" class="${row.isActive ? 'active' : ''}">
                     <a class="waves-effect waves-${color}" href.bind="row.href">${row.title}</a>
                   </li>
-                  <li ai-toggler="delegate: aside-right-open">
+                  <li ai-activator="delegate: ai-aside-left-open; toggle:true">
                     <a class="waves-effect waves-${color}">
                       <i class="fa fa-bars"></i>
                     </a>
@@ -37,12 +37,12 @@
         </header>
 
 
-        <main class="ai-body bg-lime">
+        <main class="ai-body">
 
             <div class="ai-main bg-grey lighten-4">
               <router-view></router-view>
             </div>
-            <ai-aside side="right" class="bg-amber"></ai-aside>
+            <ai-aside side="right"></ai-aside>
             <ai-aside side="left" class="bg-amber">
             	<header class="header">
             		${router.title}

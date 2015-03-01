@@ -25,7 +25,6 @@ export class Example {
     // this.write(title, this.title)
     // this.write(body, this.body)
     // this.write(code, this.code)
-    console.log(this)
   }
 
   write(oldEl, newEl){

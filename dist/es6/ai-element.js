@@ -39,9 +39,6 @@ System.register(["aurelia-templating"], function (_export) {
           addClass: {
             value: function addClass() {
               var args = this._parseArgs(arguments);
-
-
-
               this.element.classList.add.apply(this.element.classList, args);
             },
             writable: true,

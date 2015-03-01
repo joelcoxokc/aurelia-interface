@@ -1,16 +1,16 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
-import {Toggler}  from './system/toggler'
+import {ActivatorService}  from './system/activator-service'
 export class Interface{
 
     static inject(){
 
-        return [EventAggregator,Toggler];
+        return [EventAggregator,ActivatorService];
 
     }
 
-    constructor(eventAggregator, toggler){
+    constructor(eventAggregator, activator){
         this.events = eventAggregator
-        this.toggler = toggler
+        this.activator = activator
         this.heading = 'Aurelia Interface ';
     }
 
@@ -25,8 +25,6 @@ export class Interface{
                            , textColor : 'text-white'
                            })
         }
-        this.toggle = this.toggler.delegate('toolbar-large')
-        this.toggle()
     }
 }
 

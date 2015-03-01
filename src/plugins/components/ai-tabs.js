@@ -116,14 +116,14 @@ export class AiTabsAttachedBehavior {
   }
 
   tabRefChanged () {
-    console.log('tabRefChanged', arguments)
+    // console.log('tabRefChanged', arguments)
   }
 
   showTabChanged () {
-    console.log('showTabChanged', arguments)
+    // console.log('showTabChanged', arguments)
   }
 
   hideTabChanged () {
-    console.log('hideTabChanged', arguments)
+    // console.log('hideTabChanged', arguments)
   }
 }
