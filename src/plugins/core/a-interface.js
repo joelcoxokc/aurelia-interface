@@ -40,7 +40,6 @@ export class AInterface{
         this.direction && this.classList.push(`is-${this.direction}`)
         this.addClass.apply(this, this.classList)
         this.routeView = document.body.getElementsByTagName('router-view')
-        console.log(this.routeView )
 
 
     }

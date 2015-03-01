@@ -1,14 +1,19 @@
+import {Lazy} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
 import {Toolbar} from './system/toolbar'
 import {Aside} from './system/aside'
 import {Navigation} from './resources/navigation-container'
+import {Container} from 'aurelia-dependency-injection';
+import {AiToolbar} from './system/ai-toolbar';
+import {PipelineProvider} from 'aurelia-router';
 
 export class App {
-  static inject() { return [Router, Toolbar, Aside, Navigation]; }
-  constructor(router, toolbar, aside, navigation) {
+
+  static inject() { return [Router, Toolbar, Aside, Navigation, PipelineProvider]; }
+
+  constructor(router, toolbar, aside, navigation, pipelineProvider) {
 
     this.navigation = navigation;
-
     this.aside   = aside.init({ open:false
                               , side:'left'
                               , size:'md' });
@@ -16,16 +21,6 @@ export class App {
     this.toolbar = toolbar.init({ size     : 'sm'
                                 , bgColor  : 'bg-white'
                                 , textColor: 'text-purple' });
-
-    // this.toolbar.configure({
-    //   size: 'sm',
-    //   bgColor:'bg-white',
-    //   textColor:'text-purple'
-    // })
-
-
-    console.log(this.toolbar)
-
 
     this.interface = {
       direction: 'row',
@@ -77,10 +72,5 @@ export class App {
 
   activate(){
     this.navigation.init(this.router)
-    console.log(this.router.navigation)
-
-
   }
-
-
 }

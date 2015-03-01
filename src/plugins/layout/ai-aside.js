@@ -1,14 +1,15 @@
 import {Behavior} from 'aurelia-templating';
 import {AiElement} from './ai-element';
-import {AsideToggle} from './aside-toggle';
-import {Toggler} from './toggler';
+import {ActivatorService} from './activator-service'
 
 let defaults =  { prefix : 'aside'
-                , side   : 'right'
-                , size   : 'sm'
-                , isOpen : false
-                , fold   : false
-                , fixed  : true
+                , props  : ['side', 'size', 'isOpen', 'isFolded', 'isFixed']
+                , config : { side    : 'right'
+                           , size    : 'sm'
+                           , isOpen  : false
+                           , isFolded: false
+                           , isFixed : true
+                           }
                 , state  : 'isOpen'
                 , class  : { 'isOpen'  : 'aside-is-open'
                            , 'isFolded': 'aside-is-folded'
@@ -40,53 +41,49 @@ export class AiAside extends AiElement{
     }
 
     static inject(){
-        return [Element, AsideToggle, Toggler]
+        return [Element, ActivatorService]
     }
 
-    constructor(element, asideToggle, toggler){
-        this.toggler = toggler
-        this.asideToggle = asideToggle;
+    constructor(element, activator){
+        this.activator = activator
         this.element = element
         this.currentSide = null
         this.state = this.fold || this.isOpen || defaults.aside;
         this.elements = {};
+        for(let prop of defaults.props){
+            this[prop] = this[prop] || defaults.config[prop];
+        }
     }
 
     bind(){
         var classList = ['ai-aside']
-        
+
         this.side &&(classList.push( defaults.class[this.side]   ))
         this.size &&(classList.push( defaults.class[this.size]   ))
         this.isOpen   &&(classList.push( defaults.class.isOpen   ))
         this.isFixed  &&(classList.push( defaults.class.isFixed  ))
         this.isFolded &&(classList.push( defaults.class.isFolded ))
         this.addClass.apply(this, classList)
-
-        this.asideToggle.init(this)
-        this.toggler.register(`aside-${this.side}-open`, this, 'isOpen', null, this.onOpen)
-        this.toggler.register(`aside-${this.side}-fold`, this, 'isFolded', null, this.onOpen)
-
-        // console.log(this.toggler)
-
-        // console.log('from aside', this.asideToggle)
-
+        this.activator.activateProperty(`ai-aside-${this.side}-open`, this, 'isOpen');
+        this.activator.activateProperty(`ai-aside-${this.side}-fold`, this, 'isFolded');
     }
-    
+
     attached(){
+
             this.getElements();
             this.attachElements();
         }
-        
+
     getElements(){
             var header = this.element.getElementsByClassName('header')[0];
             var content = this.element.getElementsByClassName('content')[0];
-            
+
             (!header) && (header = this.element.getElementsByClassName('aside-header')[0]);
             (!content) && (content = this.element.getElementsByClassName('aside-content')[0]);
-            
+
             this.elements.header  = header
             this.elements.content = content
-            
+
             this.elements.header  && (this.header =  new Elements(this.elements.header));
             this.elements.content && (this.content = new Elements(this.elements.content));
         }
@@ -101,36 +98,36 @@ export class AiAside extends AiElement{
         }
 
     openChanged(value){
-            this.toggleClass(value, defaults.class.isOpen) 
+            this.toggleClass(value, defaults.class.isOpen)
         }
 
     foldChanged(value){
-            this.toggleClass(value, defaults.class.isFolded) 
+            this.toggleClass(value, defaults.class.isFolded)
         }
 
 
     fixChanged(value){
-            this.toggleClass(value, defaults.class.isFixed) 
+            this.toggleClass(value, defaults.class.isFixed)
         }
 
     toggleClass(value, className){
-            this[value ? 'addClass' : 'removeClass'](className) 
+            this[value ? 'addClass' : 'removeClass'](className)
         }
 
     sideChanged(newSide){
-            newSide = newSide || defaults.side;
+            newSide = newSide || defaults.config.side;
             this.removeClass(`aside-${this.currentSide}`);
             this.addClass(`aside-${newSide}`);
-            this.currentSide = this.side; 
+            this.currentSide = this.side;
         }
 }
 
 class Elements extends AiElement{
-    
+
     constructor(element){
         this.element = element;
     }
-    
+
     use(element, classList, context){
         // this.addClass(this.classList);
         this.element = element;
@@ -139,7 +136,7 @@ class Elements extends AiElement{
         this.attached();
         return this
     }
-    
+
     attached(){
         this.addClass(this.classList);
     }

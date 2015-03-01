@@ -20,14 +20,20 @@ export class Components{
 
 
     activate(params, queryString, config){
-        console.log(config.children[0].config.moduleId)
         this.childNavs = config.children
-        console.log(this.selectedTabRef)
 
-         config.toolbar.configure(
-                { bgColor:'bg-grey darken-4', textColor:'text-white'}, true)
+        if(config){
+            this.toolbar = config.toolbar
+            this.toolbar
+                .configure({ size      : 'sm'
+                           , fixed     : true
+                           , bgColor   : 'bg-grey, darken-4'
+                           , textColor : 'text-white'
+                           })
+        }
 
     }
+
 
 
     updateTabSliderPosition (tabsInstance, next) {

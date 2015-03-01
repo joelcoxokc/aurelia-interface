@@ -60,7 +60,7 @@ export class AiBtn extends AiElement{
     attachIcon(){
         this.iconElement = document.createElement("i");
 
-        this.element.appendChild(this.iconElement)
+        this.btn.appendChild(this.iconElement)
     }
 
     useIcon(iconName){

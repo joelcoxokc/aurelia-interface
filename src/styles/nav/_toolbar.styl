@@ -35,8 +35,8 @@
     flex            : 1 0 auto
     position        : relative
     padding         : 0px 8px
-    align(center)
-    justify(center)
+    // align(center)
+    // justify(center)
     flex-container()
 
     .toolbar-toggle
@@ -114,7 +114,7 @@
     &.nav-actions-right
       order         : 2
       // flex 0 3 auto
-      width 0
+      // width 0
       justify(flex-end)
       align(flex-end)
       // align-content: flex-end
@@ -163,17 +163,18 @@
     min-max-height($nav-bar-height-lg)
 
   &.toolbar-xl
+    flex-direction: column
     // flex: 0 0 $nav-bar-height
     min-max-height($nav-bar-height-xl)
-    .toolbar-container
-      padding-top 150px
-      .toolbar-header
-        min-max-width(500px)
-        // margin-bottom 64px/
-        .toolbar-brand
-          font-size 4em
-      .toolbar-content
-        align-self flex-end
+    .toolbar-header
+      flex 1 0 auto
+      positoin relative
+      .toolbar-brand
+        font-size 2em
+        left 80px
+        top 80px
+    .toolbar-content
+      align-self flex-end
 
 
 .hide-mobile
@@ -196,8 +197,8 @@
     .toolbar-header
 
       flex 0 0 $nav-aside-width
-      align(center)
-      justify(center)
+      // align(center)
+      // justify(center)
 
       &.header-right
         justify(flex-end)
@@ -236,3 +237,8 @@
           .nav-actions
             flex-direction row
             justify(center)
+
+    &.toolbar-xl
+      .toolbar-header
+        .toolbar-brand
+          font-size 4em

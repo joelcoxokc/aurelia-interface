@@ -5,7 +5,7 @@
     background-color: $blue.base
 a.ai-btn,
 .ai-btn
-    display: flex
+    display: inline-block
     flex 1 0 auto
     height: auto
     // width: 100%
@@ -22,13 +22,14 @@ a.ai-btn,
     &.is-row
         flex-direction: row !important
     &.is-column
+        display: flex
         flex-direction: column !important
 
 
     button.btn, .btn, a, a.btn
         flex-container()
         padding        : 0 2rem
-        margin         : 20px 20px 0 0
+        margin         : 20px 0 20px 0
         outline        : none
         border         : none
         text-align     : center

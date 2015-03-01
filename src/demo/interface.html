@@ -1,7 +1,7 @@
 <template>
     <import from="./system/ai-card"></import>
     <import from="./system/ai-btn"></import>
-    <import from="./system/ai-toggler"></import>
+    <import from="./system/ai-activator"></import>
     <div class="ai-content container-fluid" welcome-animation="value: true">
 
         <ai-card>
@@ -11,10 +11,10 @@
                     <dic class="flex-6 offset-3 flex-center">
 
                         <div class="ai-btn-group no-space group-center">
-                            <ai-btn flex="column" waves="light" color="info" ai-toggler="delegate: aside-left-open">Toggle Left</ai-btn>
-                            <ai-btn flex="column" waves="light" color="info" ai-toggler="delegate: aside-left-fold">Fold Left</ai-btn>
-                            <ai-btn flex="column" waves="light" color="info" ai-toggler="delegate: aside-right-fold">Fold right</ai-btn>
-                            <ai-btn flex="column" waves="light" color="info" ai-toggler="delegate: aside-right-open">Toggle right</ai-btn>
+                            <ai-btn ai-activator="delegate: ai-aside-left-open;" flex="column" waves="light" color="info">Toggle Left</ai-btn>
+                            <ai-btn ai-activator="delegate: ai-aside-left-fold;"  flex="column" waves="light" color="info">Fold Left</ai-btn>
+                            <ai-btn ai-activator="delegate: ai-aside-right-fold;" flex="column" waves="light" color="info">Fold right</ai-btn>
+                            <ai-btn ai-activator="delegate: ai-aside-right-open;" flex="column" waves="light" color="info">Toggle right</ai-btn>
                         </div>
                     </dic>
                 </div>
@@ -26,7 +26,7 @@
 
 
             <div class="flex-xs">
-                <div class="demo-block bg-white"></div>
+                <!-- <div class="demo-block bg-white"   ai-toggler="swap-class: ; delegate: aside"></div> -->
             </div>
             <div class="flex-xs">
                 <div class="demo-block bg-white"></div>
@@ -92,3 +92,13 @@
     </div>
 
 </template>
+
+
+
+
+
+<button ai-activator="activate: aside-left; on: click;      swap-class: [open, close]" ></button>
+
+
+<aside ai-activator="register: aside-left"></aside>
+

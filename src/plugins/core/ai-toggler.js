@@ -7,9 +7,8 @@ export class AiTogglerAttachedBehavior{
     static metadata(){
         return Behavior
             .withOptions().and(x => {
-                x.withProperty('nextIcon', 'nextChanged', 'next-icon');
-                x.withProperty('icon');
                 x.withProperty('delegate');
+                x.withProperty('change');
                 x.withProperty('delay');
                 x.withProperty('toggleOn', 'onChanged', 'toggle-on');
             })
@@ -28,7 +27,9 @@ export class AiTogglerAttachedBehavior{
     }
 
     bind(){
-        this.toggle   = this.toggler.delegate(this.delegate)
+        (this.delegate && !this.change)
+                      &&( this.toggle   = this.toggler.delegate(this.delegate).toggle );
+        this.change   &&( this.toggle   = this.toggler.delegate(this.delegate).change );
         this.toggleOn = this.toggleOn || 'click'
         this.element.addEventListener(this.toggleOn, (event)=>{
             event.preventDefault()

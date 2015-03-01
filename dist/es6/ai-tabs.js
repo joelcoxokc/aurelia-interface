@@ -181,23 +181,17 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
             configurable: true
           },
           tabRefChanged: {
-            value: function tabRefChanged() {
-              console.log("tabRefChanged", arguments);
-            },
+            value: function tabRefChanged() {},
             writable: true,
             configurable: true
           },
           showTabChanged: {
-            value: function showTabChanged() {
-              console.log("showTabChanged", arguments);
-            },
+            value: function showTabChanged() {},
             writable: true,
             configurable: true
           },
           hideTabChanged: {
-            value: function hideTabChanged() {
-              console.log("hideTabChanged", arguments);
-            },
+            value: function hideTabChanged() {},
             writable: true,
             configurable: true
           }

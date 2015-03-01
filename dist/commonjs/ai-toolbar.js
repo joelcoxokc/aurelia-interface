@@ -1,22 +1,16 @@
-System.register(["aurelia-templating", "./ai-element", "./interface-element", "./toolbar", "./notify", "./aside-toggle", "./toggler"], function (_export) {
+System.register(["aurelia-templating", "./ai-element", "./toolbar", "./activator-service"], function (_export) {
   "use strict";
 
-  var Behavior, AiElement, InterfaceElement, Toolbar, Notify, AsideToggle, Toggler, _prototypeProperties, _inherits, _classCallCheck, defaults, AiToolbar, ToolbarContainer;
+  var Behavior, AiElement, Toolbar, ActivatorService, _prototypeProperties, _inherits, _classCallCheck, defaults, AiToolbar, ToolbarContainer, ToolbarState;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
     }, function (_aiElement) {
       AiElement = _aiElement.AiElement;
-    }, function (_interfaceElement) {
-      InterfaceElement = _interfaceElement.InterfaceElement;
     }, function (_toolbar) {
       Toolbar = _toolbar.Toolbar;
-    }, function (_notify) {
-      Notify = _notify.Notify;
-    }, function (_asideToggle) {
-      AsideToggle = _asideToggle.AsideToggle;
-    }, function (_toggler) {
-      Toggler = _toggler.Toggler;
+    }, function (_activatorService) {
+      ActivatorService = _activatorService.ActivatorService;
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
@@ -27,22 +21,22 @@ System.register(["aurelia-templating", "./ai-element", "./interface-element", ".
 
       defaults = ["size", "fixed", "bgColor", "textColor", "brand"];
       AiToolbar = _export("AiToolbar", (function (AiElement) {
-        function AiToolbar(element, notify, toggler) {
+        function AiToolbar(element, activator) {
           _classCallCheck(this, AiToolbar);
 
           var _this = this;
-          this.toggler = toggler;
-          this.events = notify;
+          this.activator = activator;
           this.element = element;
           this.current = new Toolbar();
           this.person = "joel";
 
           _.assign(this, this.current);
 
-
-
+          this.activator.activateProperty("ai-toolbar-size", this, "size");
+          this.activator.activateProperty("ai-toolbar-bgColor", this, "bgColor");
+          this.activator.activateProperty("ai-toolbar-textColor", this, "textColor");
+          this.activator.activateProperty("ai-toolbar-brand", this, "brand");
           this.addClass("ai-toolbar");
-          this.events.subscribe("$stateChanged", function (payload) {});
         }
 
         _inherits(AiToolbar, AiElement);
@@ -57,7 +51,7 @@ System.register(["aurelia-templating", "./ai-element", "./interface-element", ".
           },
           inject: {
             value: function inject() {
-              return [Element, Notify, Toggler];
+              return [Element, ActivatorService];
             },
             writable: true,
             configurable: true
@@ -86,8 +80,6 @@ System.register(["aurelia-templating", "./ai-element", "./interface-element", ".
           },
           sizeChanged: {
             value: function sizeChanged(value) {
-              console.log(value);
-
               this.removeClass("toolbar-" + (value ? "xl" : "sm"));
               this.addClass("toolbar-" + (value ? "sm" : "xl"));
             },
@@ -113,6 +105,44 @@ System.register(["aurelia-templating", "./ai-element", "./interface-element", ".
 
         return ToolbarContainer;
       })(AiElement);
+      ToolbarState = _export("ToolbarState", (function () {
+        function ToolbarState(activator) {
+          _classCallCheck(this, ToolbarState);
+
+          this.activator = activator;
+        }
+
+        _prototypeProperties(ToolbarState, {
+          inject: {
+            value: function inject() {
+              return [ActivatorService];
+            },
+            writable: true,
+            configurable: true
+          }
+        }, {
+          run: {
+            value: function run(routingContext, next) {
+              console.log(activator);
+              if (routingContext.nextInstructions.some(function (tb) {
+                return tb.config.toolbar;
+              })) {
+                for (var key in tb) {
+                  this.vm[key] = tb[key];
+                }
+
+                return next();
+              } else {
+                return next();
+              }
+            },
+            writable: true,
+            configurable: true
+          }
+        });
+
+        return ToolbarState;
+      })());
     }
   };
 });

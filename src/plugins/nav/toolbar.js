@@ -1,6 +1,7 @@
 import {Behavior} from 'aurelia-templating'
-import {Notify} from './notify';
-import {Toggler} from './toggler';
+import {ActivatorService} from './activator-service';
+import {Singleton} from 'aurelia-dependency-injection'
+
 var defaults =  { size : 'sm'
                 , fixed    : true
                 , bgColor  : 'bg-white'
@@ -9,15 +10,14 @@ var defaults =  { size : 'sm'
                 }
 
 
-export class Toolbar{
+export class Toolbar extends Singleton{
 
     static inject(){
-        return [Notify]
+        return []
     }
 
-    constructor(notify){
-        this.notify = notify
-        this.defaults = defaults;
+    constructor(){
+        this.defaults  = defaults;
         _.assign(this, this.defaults)
         return this
     }
@@ -29,7 +29,6 @@ export class Toolbar{
     }
 
     configure(options, reset){
-
         reset &&( this.reset() )
         _.assign(this, options)
         return this

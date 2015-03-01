@@ -2,35 +2,30 @@ import {Behavior} from 'aurelia-framework'
 
 
 export class Toggle{
-
     constructor(options){
-
         this.name       = options.name
         this._context   = options.context
-        this.toggleName = options.property
-        this.toggler    = (typeof options.toggleMethod === 'function')&& options.toggleMethod
-        this.toggleProps= (Array.isArray(options.toggleMethod))&& options.toggleMethod
-        this.callback   = (typeof options.callback     === 'function')&& options.callback
+        this.property   = options.property
+        this.onToggle   = (typeof options.onToggle === 'function')&& options.onToggle
         this._ontoggles = []
-        this.callback && this._ontoggles.push(this.callback)
-        this.toggleProps && (this.toggleProps= {true: this.toggleProps[0], false:this.toggleProps[1]})
     }
-
     onToggle(callback){
         this._ontoggles.push(callback)
 
     }
 
-    toggleSwap(oldValue){
-        this._context[this.toggleName] = this.toggleProps[oldValue]
+    setClass(on, off, initialClass){
+        this.on  = on;
+        this.off = off;
+        initialClass &&( this.current = on );
+    }
+
+    change(value){
+        this._context[this.property] = (value === this.one) ?  this.off : this.on;
     }
 
     toggle(oldValue){
-        if(this.toggleProps){
-          this.toggleSwap(oldValue)
-        } else {
-          this._context[this.toggleName] = !this._context[this.toggleName]
-        }
+        this._context[this.toggleName] = !this._context[this.toggleName]
         this.callAllToggles(this._context[this.toggleName], oldValue)
     }
 
@@ -41,10 +36,6 @@ export class Toggle{
     }
 }
 
-
-
-
-
 export class Toggler{
 
 
@@ -53,29 +44,33 @@ export class Toggler{
 
     }
 
-
     get(name){
         if(this.toggles[name]){
             return this.toggles[name]
         }
     }
 
-    register(name, context, property, toggleMethod, callback){
-        console.log(name)
-        if(!_.isString(name)) throw new Error('When registering for a toggle, the first paramater must be a string!')
-        var newToggle = new Toggle({name, context, property, toggleMethod, callback})
+    register(name, context, property, onToggle, callback){
+        if(!_.isString(name)) throw new Error('When registering for a toggle, the first paramater must be a string!');
+        var newToggle = new Toggle({name, context, property, onToggle, callback});
 
-        this.toggles[newToggle.name] = newToggle
+        this.toggles[newToggle.name] = newToggle;
     }
 
-    delegate(name){
+    delegate(name, on, off, initialClass){
         var _this = this
-        var args = Array.prototype.slice.call(arguments)
-        var instance = this.get(name);
+        var instance = _this.get(name);
+        if(!instance) return new Error('Instance does not exist');
+        instance.setClass(on, off, initialClass)
 
-        return function(){
-            var prop = instance._context[instance.toggleName];
-            instance &&(instance.toggle(prop))
+        return {
+            toggle: function(){
+                var prop = instance._context[instance.toggleName];
+                instance &&(instance.toggle(prop));
+            },
+            change: function(){
+                instance &&(instance.change(prop));
+            }
         }
     }
 

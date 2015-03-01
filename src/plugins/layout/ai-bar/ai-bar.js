@@ -45,7 +45,6 @@ export class AiBar extends AiElement{
         this.bg && classList.push(`bg-${this.bg}`)
         this.text && classList.push(`text-${this.text}`)
         this.size && classList.push(`bar-${this.size}`)
-        console.log(this)
         this.addClass(classList)
 
     }
