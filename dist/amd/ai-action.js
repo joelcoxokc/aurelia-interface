@@ -48,7 +48,7 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
         }, {
           bind: {
             value: function bind() {
-              this.addClass("btn", "btn-large", "btn-raised", "waves-effect", "waves-light", "ai-action", "action-" + this.type, "action-" + this.shape);
+              this.addClass("ai-action");
               this.addEvent("mouseenter", this.toggleReveal);
               this.addEvent("mouseout", this.toggleReveal);
             },

@@ -75,7 +75,7 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
             value: function attachIcon() {
               this.iconElement = document.createElement("i");
 
-              this.element.appendChild(this.iconElement);
+              this.btn.appendChild(this.iconElement);
             },
             writable: true,
             configurable: true

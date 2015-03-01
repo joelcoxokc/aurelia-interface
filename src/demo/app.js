@@ -30,6 +30,7 @@ export class App {
     this.router.title = "Aurelia-Interface"
     this.router.configure(config => {
       config.title = 'Aurelia Interface';
+      config.addPipelineStep('authorize', AuthorizeStep);
       config.map([
         { route   : ['', 'interface']
         , moduleId : 'interface'
@@ -72,5 +73,26 @@ export class App {
 
   activate(){
     this.navigation.init(this.router)
+  }
+}
+
+
+
+class AuthorizeStep {
+  static inject() { return []; }
+  constructor() {
+  }
+
+  run(routingContext, next) {
+    // Check if the route has an "auth" key
+    // The reason for using `nextInstructions` is because
+    // this includes child routes.
+    if (routingContext.nextInstructions.some(i => i.config.toolbar)) {
+       console.log(routingContext.nextInstructions)
+
+      return next();
+    } else {
+      return next();
+    }
   }
 }
