@@ -38,6 +38,13 @@ export class App {
         , toolbar  : this.toolbar
         , settings : {level:1}
         },
+        { route    : 'getting-started'
+        , moduleId : 'getting-started'
+        , title    : 'Getting Started'
+        , nav      : true
+        , toolbar  : this.toolbar
+        , settings : {level:1}
+        },
         { route    : 'components'
         , moduleId : 'components-demo'
         , title    : 'ai-Components'
