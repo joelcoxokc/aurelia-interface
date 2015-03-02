@@ -1,4 +1,4 @@
-System.register(["aurelia-templating", "./ai-element", "./toolbar", "./activator-service"], function (_export) {
+System.register(["aurelia-templating", "./ai-element", "./toolbar", "./activator-service", "ai-toolbar-attribute"], function (_export) {
   "use strict";
 
   var Behavior, AiElement, Toolbar, ActivatorService, _prototypeProperties, _inherits, _classCallCheck, defaults, AiToolbar, ToolbarContainer;
@@ -11,6 +11,8 @@ System.register(["aurelia-templating", "./ai-element", "./toolbar", "./activator
       Toolbar = _toolbar.Toolbar;
     }, function (_activatorService) {
       ActivatorService = _activatorService.ActivatorService;
+    }, function (_aiToolbarAttribute) {
+      _export("AiToolbarAttachedBehavior", _aiToolbarAttribute.AiToolbarAttachedBehavior);
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };

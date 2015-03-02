@@ -3,6 +3,7 @@ import {AiElement} from './ai-element'
 import {Toolbar}   from './toolbar'
 import {ActivatorService} from './activator-service';
 
+export {AiToolbarAttachedBehavior} from './ai-toolbar-attribute'
 var defaults =  [ 'size' , 'fixed' , 'bgColor' , 'textColor' , 'brand' ]
 
 export class AiToolbar extends Toolbar{

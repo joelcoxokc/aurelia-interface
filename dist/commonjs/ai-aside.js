@@ -1,4 +1,4 @@
-System.register(["aurelia-templating", "./ai-element", "./activator-service"], function (_export) {
+System.register(["aurelia-templating", "./ai-element", "./activator-service", "./ai-aside-attribute"], function (_export) {
   "use strict";
 
   var Behavior, AiElement, ActivatorService, _prototypeProperties, _inherits, _classCallCheck, defaults, AiAside, Elements;
@@ -9,6 +9,8 @@ System.register(["aurelia-templating", "./ai-element", "./activator-service"], f
       AiElement = _aiElement.AiElement;
     }, function (_activatorService) {
       ActivatorService = _activatorService.ActivatorService;
+    }, function (_aiAsideAttribute) {
+      _export("AiAsideAttachedBehavior", _aiAsideAttribute.AiAsideAttachedBehavior);
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
