@@ -1,6 +1,8 @@
-<ai-btn>default</ai-btn>
 
-<!-- OR -->
+<ai-btn ai-activator="delegate: myModal; toggle: open">Open Modal</ai-btn>
 
-<button class="ai-btn">primary</button>
-<button ai-btn>primary</button>
+<div id="myModal" ai-modal>
+    <div class="modal-title">Title</div>
+    <div class="modal-content">Content</div>
+    <div class="modal-actions">Actions</div>
+</div>

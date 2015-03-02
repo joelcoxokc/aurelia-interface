@@ -56,11 +56,13 @@ export class AiModalAttachedBehavior{
 
     openModal(){
         this.element.classList.add('modal-open');
+        this.container.classList.add('modal-open');
         this.bindEvents();
     }
 
     closeModal(){
         this.element.classList.remove('modal-open');
+        this.container.classList.remove('modal-open');
         this.unbindEvents();
     }
 

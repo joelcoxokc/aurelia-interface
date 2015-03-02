@@ -3,17 +3,16 @@
     <import from="../../system/ai-card"></import>
     <import from="../../system/ai-modal"></import>
     <import from="../../system/ai-activator"></import>
-    <ai-card>
-        <h2 class="card-heading">aiModal</h2>
-        <div class="card-body">
-            <div class="row">
-                <div class="flex-sm-12">
-                    <ai-btn ai-activator="delegate: myModal; toggle: open" color="primary" size="md" waves="light" type="raised">Open Modal</ai-btn>
-                </div>
-            </div>
+    <example base="../dist/examples/ai-modal">
+        <h2 class="card-heading">ai-Modal</h2>
+        <div class="body">
+            <ai-btn ai-activator="delegate: myModal; toggle: open" color="primary" size="md" waves="light" type="raised">Open Modal</ai-btn>
         </div>
-    </ai-card>
-    <div id="myModal" ai-modal="size: md; side: center;">
+        <div class="code">
+        <file src="default.html"></file>
+        </div>
+    </example>
+    <div id="myModal" ai-modal>
         <div class="modal-title">Title</div>
         <div class="modal-content">Content</div>
         <div class="modal-actions">Actions</div>
