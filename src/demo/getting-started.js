@@ -25,7 +25,6 @@ export class Welcome{
                            })
             this.events.publish('$stateChanged', this.toolbar)
         }
-
     }
 }
 

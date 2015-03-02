@@ -97,6 +97,16 @@ pre[class*="language-"] {
     color: #905;
 }
 
+.token.property.first,
+.token.tag.first,
+.token.boolean.first,
+.token.number.first,
+.token.constant.first,
+.token.symbol.first,
+.token.deleted.first {
+    color: green;
+}
+
 .token.selector,
 .token.attr-name,
 .token.string,

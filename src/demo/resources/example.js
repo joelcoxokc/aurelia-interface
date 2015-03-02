@@ -16,6 +16,7 @@ export class Example {
     this.model = null;
     this.view = null;
     this.result = false;
+
   }
 
 
