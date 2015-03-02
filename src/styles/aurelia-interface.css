@@ -8501,6 +8501,7 @@ a.ai-btn a.btn.btn-invert,
   width: 100%;
 }
 .ai-modal {
+  display: none;
   top: 0;
   left: 0;
   width: 100vw;
@@ -8514,6 +8515,10 @@ a.ai-btn a.btn.btn-invert,
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
+  z-index: 5001;
+  background: rgba(0,0,0,0.3);
+}
+.ai-modal.modal-open {
   box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8523,9 +8528,9 @@ a.ai-btn a.btn.btn-invert,
 .ai-modal .modal-container {
   position: relative;
   -webkit-box-flex: 0;
-  -webkit-flex: 0 0 $default-modal-width;
-      -ms-flex: 0 0 $default-modal-width;
-          flex: 0 0 $default-modal-width;
+  -webkit-flex: 0 0 60%;
+      -ms-flex: 0 0 60%;
+          flex: 0 0 60%;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
@@ -8550,6 +8555,7 @@ a.ai-btn a.btn.btn-invert,
   -webkit-flex-direction: row;
       -ms-flex-direction: row;
           flex-direction: row;
+  position: relative;
   box-sizing: border-box;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8599,6 +8605,17 @@ a.ai-btn a.btn.btn-invert,
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
+}
+.ai-modal .modal-container .modal-closer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 12px;
+  color: #9e9e9e;
+  cursor: pointer;
+}
+.ai-modal .modal-container .modal-closer:hover {
+  color: #212121;
 }
 .ai-tabs {
   box-sizing: border-box;

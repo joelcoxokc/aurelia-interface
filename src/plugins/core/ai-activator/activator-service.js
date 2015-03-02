@@ -52,7 +52,7 @@ export class ActivatorService{
     }
 
     delegate(name){
-        if(!this.activations[name]) return this._error('delegate',name, this.msgs.delegate);
+        // if(!this.activations[name]) return this._error('delegate',name, this.msgs.delegate);
         return this.activations[name];
     }
 }
