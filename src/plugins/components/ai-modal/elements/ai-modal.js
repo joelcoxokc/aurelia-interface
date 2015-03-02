@@ -1,6 +1,8 @@
 import {Behavior} from 'aurelia-templating'
 import {AiElement} from './ai-element'
 
+export {AiModalAttachedBehavior} from './ai-modal-attribute'
+
 export class AiModal extends AiElement{
 
     static metadata(){

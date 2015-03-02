@@ -4,7 +4,7 @@ $modal-actions-height = 48px
 
 
 .ai-modal
-
+    display  : none
     top      : 0
     left     : 0
     width    : 100vw
@@ -12,12 +12,15 @@ $modal-actions-height = 48px
     position : fixed
     align-items: center
     justify-content: center
+    z-index: 5001
+    background: rgba(0,0,0,0.3)
 
-    flex-container()
+    &.modal-open
+        flex-container()
 
     .modal-container
         position      : relative
-        flex          : 0 0 $default-modal-width
+        flex          : 0 0 $modal-default-width
         flex-direction: column
         box-shadow    : 0px 4px 8px rgba(0,0,0,0.2)
         flex-container()
@@ -27,6 +30,7 @@ $modal-actions-height = 48px
             padding        : 24px 24px 12px 24px
             background     : white
             flex-direction : row
+            position       : relative
             flex-container()
 
         .modal-content
@@ -44,6 +48,17 @@ $modal-actions-height = 48px
             justify-content : flex-end
             align-items     : center
             flex-container()
+
+        .modal-closer
+            position: absolute
+            top: 0
+            right: 0
+            margin: 12px
+            color: $grey.base
+            cursor: pointer
+            &:hover
+                color: $grey.darken-4
+
 
 
 
