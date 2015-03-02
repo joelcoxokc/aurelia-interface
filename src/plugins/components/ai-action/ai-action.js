@@ -2,6 +2,7 @@ import {Behavior} from 'aurelia-templating'
 import {AiElement} from './ai-element'
 
 
+export {AiActionAttachedBehavior} from './ai-action-attribute'
 
 export class AiAction extends AiElement{
 

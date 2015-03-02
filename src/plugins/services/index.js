@@ -4,7 +4,6 @@
     function install(aurelia){
 
         aurelia.withResources([
-            Toggler,
             AiClassAttachedBehavior
 
         ]);
@@ -12,7 +11,6 @@
     }
 
     export {
-        Toggler,
         AiClassAttachedBehavior,
         install
 

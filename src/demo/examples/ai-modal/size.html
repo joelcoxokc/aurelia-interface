@@ -1,4 +1,8 @@
-<button class="ai-btn btn-sm">small</button>
-<button ai-btn="size: md">medium</button>
-<ai-btn class="btn-lg">large</ai-btn>
-<ai-btn size="xl">extra large</ai-btn>
+
+<ai-btn ai-activator="delegate: myModal; toggle: open">Open Modal</ai-btn>
+
+<div id="myModal" ai-modal="size: md">
+    <div class="modal-title">Title</div>
+    <div class="modal-content">Content</div>
+    <div class="modal-actions">Actions</div>
+</div>
