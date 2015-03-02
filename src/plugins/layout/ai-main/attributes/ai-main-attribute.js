@@ -13,12 +13,13 @@ oposites  ={
 defaults  = {
     direction: 'row'
 }
-export class AiMain{
+export class AiMainAttachedBehavior{
 
     static metadata(){
         return Behavior
-            .customElement('ai-main')
-            .withProperty('container', 'containerChanged')
+            .withOptions().and((x)=>{
+                x.withProperty('container', 'containerChanged');
+            });
     }
 
     static inject(){
@@ -32,14 +33,17 @@ export class AiMain{
     }
 
     bind(){
+        this.applyClassList();
+    }
 
-        this.element.classList.add('ai-main')
-
+    applyClassList(){
+        var classList = ['ai-main'];
+        this.element.classList.add.apply(this.element.classList, classList);
     }
 
     containerChanged(hasContainer){
 
-        this.classList[hasContainer ? 'add': 'remove']('main-container')
+        this.element.classList[hasContainer ? 'add': 'remove']('main-container')
 
     }
 }

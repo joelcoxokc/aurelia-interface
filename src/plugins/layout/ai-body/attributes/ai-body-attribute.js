@@ -13,12 +13,13 @@ oposites  ={
 defaults  = {
     direction: 'row'
 }
-export class AiBody {
+export class AiBodyAttachedBehavior {
 
     static metadata(){
         return Behavior
-            .customElement('ai-body')
-            .withProperty('direction', 'directionChanged')
+            .withOptions().and((x)=>{
+                x.withProperty('direction', 'directionChanged');
+            })
     }
 
     static inject(){
@@ -27,13 +28,16 @@ export class AiBody {
 
     constructor(element){
         this.element = element;
-
     }
 
     bind(){
+        this.applyClassList();
+    }
 
-        this.element.classList.add('ai-body')
-
+    applyClassList(){
+        var classList = ['ai-body'];
+        this.direction &&( classList.push(`is-${this.direction}`) );
+        this.element.classList.add.apply(this.element.classList, classList);
     }
 
     directionChanged(newDirection){

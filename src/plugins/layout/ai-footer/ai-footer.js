@@ -1,5 +1,7 @@
 import {Behavior} from 'aurelia-templating';
 
+export {AiFooterAttachedBehavior} from './ai-footer-attribute'
+
 export class AiFooter{
 
     static metadata(){

@@ -1,10 +1,12 @@
-System.register(["aurelia-templating"], function (_export) {
+System.register(["aurelia-templating", "./ai-body-attribute"], function (_export) {
   "use strict";
 
   var Behavior, _prototypeProperties, _classCallCheck, directions, oposites, defaults, AiBody;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
+    }, function (_aiBodyAttribute) {
+      _export("AiBodyAttachedBehavior", _aiBodyAttribute.AiBodyAttachedBehavior);
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
@@ -22,6 +24,7 @@ System.register(["aurelia-templating"], function (_export) {
       defaults = {
         direction: "row"
       };
+
       AiBody = _export("AiBody", (function () {
         function AiBody(element) {
           _classCallCheck(this, AiBody);
