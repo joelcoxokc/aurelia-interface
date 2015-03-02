@@ -1,4 +1,4 @@
-System.register(["aurelia-templating", "./ai-element"], function (_export) {
+System.register(["aurelia-templating", "./ai-element", "./ai-action-attribute"], function (_export) {
   "use strict";
 
   var Behavior, AiElement, _prototypeProperties, _inherits, _classCallCheck, AiAction;
@@ -7,6 +7,8 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
       Behavior = _aureliaTemplating.Behavior;
     }, function (_aiElement) {
       AiElement = _aiElement.AiElement;
+    }, function (_aiActionAttribute) {
+      _export("AiActionAttachedBehavior", _aiActionAttribute.AiActionAttachedBehavior);
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
