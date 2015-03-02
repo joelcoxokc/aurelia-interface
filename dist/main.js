@@ -2,7 +2,6 @@ import {LogManager} from 'aurelia-framework';
 import {ConsoleAppender} from 'aurelia-logging-console';
 import {Aside} from './system/aside'
 import {Navigation} from './resources/navigation-container'
-import {Activator} from 'aurelia-interface-activator';
 
 
 
