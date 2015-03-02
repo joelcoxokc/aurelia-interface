@@ -28,7 +28,6 @@ export class File {
 
   propertyChanged() {
     var src = this.src, context = this.context, example = context.example;
-
     this.info = {
       name: src,
       moduleId: context.base + '/' + src.substr(0, src.indexOf('.')),

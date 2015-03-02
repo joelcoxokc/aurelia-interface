@@ -1,12 +1,14 @@
-System.register(["aurelia-templating", "./ai-element"], function (_export) {
+System.register(["aurelia-templating", "./ai-element", "aurelia-router"], function (_export) {
   "use strict";
 
-  var Behavior, AiElement, _prototypeProperties, _inherits, _classCallCheck, properties, AiBtn;
+  var Behavior, AiElement, Router, _prototypeProperties, _inherits, _classCallCheck, properties, AiBtn;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
     }, function (_aiElement) {
       AiElement = _aiElement.AiElement;
+    }, function (_aureliaRouter) {
+      Router = _aureliaRouter.Router;
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
@@ -17,11 +19,16 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
 
       properties = ["color", "shape", "type", "size"];
       AiBtn = _export("AiBtn", (function (AiElement) {
-        function AiBtn(element) {
+        function AiBtn(element, router) {
           _classCallCheck(this, AiBtn);
 
           this.element = element;
           this.addClass("ai-btn");
+          this.splitter = /\s*,\s*/;
+
+          this.goTo = function (url) {
+            router.navigate(url);
+          };
         }
 
         _inherits(AiBtn, AiElement);
@@ -29,14 +36,14 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
         _prototypeProperties(AiBtn, {
           metadata: {
             value: function metadata() {
-              return Behavior.customElement("ai-btn").withProperty("flex").withProperty("center").withProperty("color").withProperty("shape").withProperty("type").withProperty("icon").withProperty("size").withProperty("waves").withProperty("bg").withProperty("text").withProperty("nextIcon", "nextIconChanged", "next-icon");
+              return Behavior.customElement("ai-btn").withProperty("flex").withProperty("center").withProperty("color").withProperty("shape").withProperty("type").withProperty("icon").withProperty("size").withProperty("waves").withProperty("bg").withProperty("text").withProperty("link").withProperty("nextIcon", "nextIconChanged", "next-icon");
             },
             writable: true,
             configurable: true
           },
           inject: {
             value: function inject() {
-              return [Element];
+              return [Element, Router];
             },
             writable: true,
             configurable: true
@@ -44,29 +51,40 @@ System.register(["aurelia-templating", "./ai-element"], function (_export) {
         }, {
           bind: {
             value: function bind() {
+              this.btn = this.element.getElementsByClassName("btn")[0];
+              this.applyClassList();
+              this.link && this.createLink();
+              this.icon && this.useIcon(this.icon);
+            },
+            writable: true,
+            configurable: true
+          },
+          applyClassList: {
+            value: function applyClassList() {
               var _this = this;
+              var classList = [];
               if (this.center) this.addClass("center");
               if (this.flex) this.addClass("is-" + this.flex);
-              this.btn = this.element.getElementsByClassName("btn")[0];
-              var classList = [];
               _.each(properties, function (item) {
                 _this[item] && classList.push("btn-" + _this[item]);
               });
-              if (this.text) {
-                for (var _iterator = this.text.split(" ")[Symbol.iterator](), _step; !(_step = _iterator.next()).done;) {
-                  var color = _step.value;
-                  classList.push("text-" + color);
-                }
-              }
-              if (this.bg) {
-                for (var _iterator2 = this.bg.split(" ")[Symbol.iterator](), _step2; !(_step2 = _iterator2.next()).done;) {
-                  var color = _step2.value;
-                  classList.push("bg-" + color);
-                }
-              }
+              this.bg && classList.push(this.bg.split(this.splitter));
+
+              this.text && classList.push(this.text.split(this.splitter));
               this.waves && classList.push("waves-effect", "waves-" + this.waves);
+
               this.btn.classList.add.apply(this.btn.classList, classList);
-              this.icon && this.useIcon(this.icon);
+            },
+            writable: true,
+            configurable: true
+          },
+          createLink: {
+            value: function createLink() {
+              var _this = this;
+              this.btn.addEventListener("click", function (evt) {
+                evt.preventDefault();
+                _this.goTo(_this.link);
+              });
             },
             writable: true,
             configurable: true
