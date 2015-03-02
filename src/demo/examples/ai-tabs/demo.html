@@ -1,6 +1,28 @@
 <template>
     <import from="../../system/ai-tabs"></import>
     <import from="../../system/ai-card"></import>
+
+
+
+
+    <ai-column flex=10 offset=1>
+      <div></div>
+      <div></div>
+      <div></div>
+    </ai-column>
+
+
+
+
+
+
+
+    <example>
+      <div class="card-heading">ai-Tabs</div>
+    </example>
+
+
+
     <div class="row">
         <div class="flex-sm-12">
             <div ai-tabs="active-tab-ref.two-way: selectedTabRef; show-tab.call: updateTabSliderPosition(tabsInstance);" class="${showMyTab.name}">
@@ -50,22 +72,5 @@
 
             </div>
         </div>
-   <!--      <div class="flex-sm-12">
-            <ai-card>
-
-                <div class="card-body">
-                    <div class="row">
-                        <div class="flex-sm-12">
-                            <example base="../dist/examples/ai-tabs">
-                              <column size="md6">
-                                <file src="default.html" view="true"></file>
-                              </column>
-                            </example>
-                        </div>
-                    </div>
-                </div>
-
-            </ai-card>
-        </div> -->
     </div>
 </template>
