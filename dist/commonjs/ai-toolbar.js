@@ -1,4 +1,4 @@
-System.register(["aurelia-templating", "./ai-element", "./toolbar", "./activator-service", "ai-toolbar-attribute"], function (_export) {
+System.register(["aurelia-templating", "./ai-element", "./toolbar", "./activator-service", "./ai-toolbar-attribute"], function (_export) {
   "use strict";
 
   var Behavior, AiElement, Toolbar, ActivatorService, _prototypeProperties, _inherits, _classCallCheck, defaults, AiToolbar, ToolbarContainer;

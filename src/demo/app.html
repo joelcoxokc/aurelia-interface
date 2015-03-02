@@ -34,20 +34,22 @@
         </header>
 
 
-        <main class="ai-body">
-            <div class="ai-main bg-grey lighten-4">
+        <div ai-body>
+
+            <main ai-main class="bg-grey lighten-4">
               <router-view></router-view>
-            </div>
+            </main>
+
             <aside ai-aside="side: left; size: md;" class="bg-amber">
             	<header class="header">
             		${router.title}
             	</header>
             	<div class="aside-content"></div>
             </aside>
-        </main>
+        </div>
 
 
-        <footer class="ai-footer bg-red"></footer>
+        <footer ai-footer class="bg-red"></footer>
 
 </a-interface>
 

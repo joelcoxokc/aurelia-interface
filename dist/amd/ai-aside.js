@@ -76,6 +76,8 @@ System.register(["aurelia-templating", "./ai-element", "./activator-service", ".
           bind: {
             value: function bind() {
               var classList = ["ai-aside"];
+              this.activator.activateProperty("ai-aside-" + this.side + "-open", this, "isOpen");
+              this.activator.activateProperty("ai-aside-" + this.side + "-fold", this, "isFolded");
 
               this.side && classList.push(defaults["class"][this.side]);
               this.size && classList.push(defaults["class"][this.size]);
@@ -83,8 +85,6 @@ System.register(["aurelia-templating", "./ai-element", "./activator-service", ".
               this.isFixed && classList.push(defaults["class"].isFixed);
               this.isFolded && classList.push(defaults["class"].isFolded);
               this.addClass.apply(this, classList);
-              this.activator.activateProperty("ai-aside-" + this.side + "-open", this, "isOpen");
-              this.activator.activateProperty("ai-aside-" + this.side + "-fold", this, "isFolded");
             },
             writable: true,
             configurable: true

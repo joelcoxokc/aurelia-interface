@@ -1,10 +1,12 @@
-System.register(["aurelia-templating"], function (_export) {
+System.register(["aurelia-templating", "./ai-footer-attribute"], function (_export) {
   "use strict";
 
   var Behavior, _prototypeProperties, _classCallCheck, AiFooter;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
+    }, function (_aiFooterAttribute) {
+      _export("AiFooterAttachedBehavior", _aiFooterAttribute.AiFooterAttachedBehavior);
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
