@@ -1,19 +1,17 @@
-System.register(["aurelia-templating", "./ai-element", "./toggler"], function (_export) {
+System.register(["aurelia-templating", "./activator-service", "./ai-header-attribute"], function (_export) {
   "use strict";
 
-  var Behavior, AiElement, Toggler, _prototypeProperties, _inherits, _classCallCheck, defaults, AiHeader;
+  var Behavior, ActivatorService, _prototypeProperties, _classCallCheck, defaults, AiHeader;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
-    }, function (_aiElement) {
-      AiElement = _aiElement.AiElement;
-    }, function (_toggler) {
-      Toggler = _toggler.Toggler;
+    }, function (_activatorService) {
+      ActivatorService = _activatorService.ActivatorService;
+    }, function (_aiHeaderAttribute) {
+      _export("AiHeaderAttachedBehavior", _aiHeaderAttribute.AiHeaderAttachedBehavior);
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
-
-      _inherits = function (subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
@@ -22,17 +20,15 @@ System.register(["aurelia-templating", "./ai-element", "./toggler"], function (_
         bg: "white",
         text: "purple"
       };
-      AiHeader = _export("AiHeader", (function (AiElement) {
-        function AiHeader(element, toggler) {
+      AiHeader = _export("AiHeader", (function () {
+        function AiHeader(element, activator) {
           _classCallCheck(this, AiHeader);
 
-          this.toggler = toggler;
+          this.activator = activator;
           this.element = element;
           this.current = defaults;
           _.assign(this, this.current);
         }
-
-        _inherits(AiHeader, AiElement);
 
         _prototypeProperties(AiHeader, {
           metadata: {
@@ -44,7 +40,7 @@ System.register(["aurelia-templating", "./ai-element", "./toggler"], function (_
           },
           inject: {
             value: function inject() {
-              return [Element, Toggler];
+              return [Element, ActivatorService];
             },
             writable: true,
             configurable: true
@@ -52,26 +48,28 @@ System.register(["aurelia-templating", "./ai-element", "./toggler"], function (_
         }, {
           bind: {
             value: function bind() {
-              this.toggler.register("toggle-header", this, "size", this.sizeChnaged);
-              var _this = this;
-              this.classList = [];
-              this.addClass("ai-header", "header-" + this.size);
-
-              Object.observe(this.router, function () {
-                _this.size = _this.router.currentInstruction.config.toolbar.size || _this.current.size;
-                _this.bg = _this.router.currentInstruction.config.toolbar.bgColor || _this.current.bg;
-                _this.text = _this.router.currentInstruction.config.toolbar.textColor || _this.current.text;
-              });
+              this.activator.activateProperty("ai-header-size", this, "size");
+              this.applyClasses();
+            },
+            writable: true,
+            configurable: true
+          },
+          applyClasses: {
+            value: function applyClasses() {
+              var classList = ["ai-header"];
+              this.bg && classList.push("bg-" + this.bg);
+              this.text && classList.push("text-" + this.text);
+              this.size && classList.push("header-" + this.size);
+              this.element.classList.add.apply(this.element.classList, classList);
             },
             writable: true,
             configurable: true
           },
           sizeChanged: {
             value: function sizeChanged(newSize) {
-              console.log(newSize);
               newSize = newSize || defaults.size;
-              this.removeClass("header-" + this.current.size);
-              this.addClass("header-" + newSize);
+              this.element.classList.remove("header-" + this.current.size);
+              this.element.classList.add("header-" + newSize);
               this.current.size = this.size;
             },
             writable: true,
@@ -79,8 +77,8 @@ System.register(["aurelia-templating", "./ai-element", "./toggler"], function (_
           },
           bgChanged: {
             value: function bgChanged(newBg) {
-              this.removeClass(this.current.bg);
-              this.addClass(newBg);
+              this.element.classList.remove(this.current.bg);
+              this.element.classList.add(newBg);
               this.current.bg = newBg;
             },
             writable: true,
@@ -88,8 +86,8 @@ System.register(["aurelia-templating", "./ai-element", "./toggler"], function (_
           },
           textChanged: {
             value: function textChanged(newText) {
-              this.removeClass(this.current.text);
-              this.addClass(newText);
+              this.element.classList.remove(this.current.text);
+              this.element.classList.add(newText);
               this.current.text = newText;
             },
             writable: true,
@@ -98,7 +96,7 @@ System.register(["aurelia-templating", "./ai-element", "./toggler"], function (_
         });
 
         return AiHeader;
-      })(AiElement));
+      })());
     }
   };
 });

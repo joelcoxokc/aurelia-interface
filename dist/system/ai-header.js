@@ -1,19 +1,17 @@
-System.register(["aurelia-templating", "./ai-element", "./toggler"], function (_export) {
+System.register(["aurelia-templating", "./activator-service", "./ai-header-attribute"], function (_export) {
   "use strict";
 
-  var Behavior, AiElement, Toggler, _prototypeProperties, _inherits, _classCallCheck, defaults, AiHeader;
+  var Behavior, ActivatorService, _prototypeProperties, _classCallCheck, defaults, AiHeader;
   return {
     setters: [function (_aureliaTemplating) {
       Behavior = _aureliaTemplating.Behavior;
-    }, function (_aiElement) {
-      AiElement = _aiElement.AiElement;
-    }, function (_toggler) {
-      Toggler = _toggler.Toggler;
+    }, function (_activatorService) {
+      ActivatorService = _activatorService.ActivatorService;
+    }, function (_aiHeaderAttribute) {
+      _export("AiHeaderAttachedBehavior", _aiHeaderAttribute.AiHeaderAttachedBehavior);
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
-
-      _inherits = function (subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
 
       _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
@@ -22,17 +20,15 @@ System.register(["aurelia-templating", "./ai-element", "./toggler"], function (_
         bg: "white",
         text: "purple"
       };
-      AiHeader = _export("AiHeader", (function (AiElement) {
-        function AiHeader(element, toggler) {
+      AiHeader = _export("AiHeader", (function () {
+        function AiHeader(element, activator) {
           _classCallCheck(this, AiHeader);
 
-          this.toggler = toggler;
+          this.activator = activator;
           this.element = element;
           this.current = defaults;
           _.assign(this, this.current);
         }
-
-        _inherits(AiHeader, AiElement);
 
         _prototypeProperties(AiHeader, {
           metadata: {
@@ -44,7 +40,7 @@ System.register(["aurelia-templating", "./ai-element", "./toggler"], function (_
           },
           inject: {
             value: function inject() {
-              return [Element, Toggler];
+              return [Element, ActivatorService];
             },
             writable: true,
             configurable: true
@@ -52,26 +48,28 @@ System.register(["aurelia-templating", "./ai-element", "./toggler"], function (_
         }, {
           bind: {
             value: function bind() {
-              this.toggler.register("toggle-header", this, "size", this.sizeChnaged);
-              var _this = this;
-              this.classList = [];
-              this.addClass("ai-header", "header-" + this.size);
-
-              Object.observe(this.router, function () {
-                _this.size = _this.router.currentInstruction.config.toolbar.size || _this.current.size;
-                _this.bg = _this.router.currentInstruction.config.toolbar.bgColor || _this.current.bg;
-                _this.text = _this.router.currentInstruction.config.toolbar.textColor || _this.current.text;
-              });
+              this.activator.activateProperty("ai-header-size", this, "size");
+              this.applyClasses();
+            },
+            writable: true,
+            configurable: true
+          },
+          applyClasses: {
+            value: function applyClasses() {
+              var classList = ["ai-header"];
+              this.bg && classList.push("bg-" + this.bg);
+              this.text && classList.push("text-" + this.text);
+              this.size && classList.push("header-" + this.size);
+              this.element.classList.add.apply(this.element.classList, classList);
             },
             writable: true,
             configurable: true
           },
           sizeChanged: {
             value: function sizeChanged(newSize) {
-              console.log(newSize);
               newSize = newSize || defaults.size;
-              this.removeClass("header-" + this.current.size);
-              this.addClass("header-" + newSize);
+              this.element.classList.remove("header-" + this.current.size);
+              this.element.classList.add("header-" + newSize);
               this.current.size = this.size;
             },
             writable: true,
@@ -79,8 +77,8 @@ System.register(["aurelia-templating", "./ai-element", "./toggler"], function (_
           },
           bgChanged: {
             value: function bgChanged(newBg) {
-              this.removeClass(this.current.bg);
-              this.addClass(newBg);
+              this.element.classList.remove(this.current.bg);
+              this.element.classList.add(newBg);
               this.current.bg = newBg;
             },
             writable: true,
@@ -88,8 +86,8 @@ System.register(["aurelia-templating", "./ai-element", "./toggler"], function (_
           },
           textChanged: {
             value: function textChanged(newText) {
-              this.removeClass(this.current.text);
-              this.addClass(newText);
+              this.element.classList.remove(this.current.text);
+              this.element.classList.add(newText);
               this.current.text = newText;
             },
             writable: true,
@@ -98,8 +96,8 @@ System.register(["aurelia-templating", "./ai-element", "./toggler"], function (_
         });
 
         return AiHeader;
-      })(AiElement));
+      })());
     }
   };
 });
-//# sourceMappingURL=data:application/json;base64,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RyxDQUFBO0FBQ2xDLGtCQUFJLENBQUMsT0FBTyxDQUFDLElBQUksR0FBRyxJQUFJLENBQUMsSUFBSSxDQUFDO2FBRWpDOzs7O0FBRUQsbUJBQVM7bUJBQUEsbUJBQUMsS0FBSyxFQUFDO0FBRVosa0JBQUksQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLE9BQU8sQ0FBQyxFQUFFLENBQUMsQ0FBQTtBQUNqQyxrQkFBSSxDQUFDLFFBQVEsQ0FBQyxLQUFLLENBQUMsQ0FBQTtBQUNwQixrQkFBSSxDQUFDLE9BQU8sQ0FBQyxFQUFFLEdBQUcsS0FBSyxDQUFBO2FBRTFCOzs7O0FBRUQscUJBQVc7bUJBQUEscUJBQUMsT0FBTyxFQUFDO0FBQ2hCLGtCQUFJLENBQUMsV0FBVyxDQUFDLElBQUksQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFDLENBQUE7QUFDbkMsa0JBQUksQ0FBQyxRQUFRLENBQUMsT0FBTyxDQUFDLENBQUE7QUFDdEIsa0JBQUksQ0FBQyxPQUFPLENBQUMsSUFBSSxHQUFHLE9BQU8sQ0FBQTthQUM5Qjs7Ozs7O2VBMURRLFFBQVE7U0FBUyxTQUFTIiwiZmlsZSI6ImFpLWhlYWRlci5qcyIsInNvdXJjZVJvb3QiOiIvc3JjL3BsdWdpbnMvIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFpLWhlYWRlci5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7TUFBUSxRQUFRLEVBQ1IsZ0JBQWdCLHlDQUlwQixRQUFRLEVBTUMsUUFBUTs7O0FBWGIsY0FBUSxzQkFBUixRQUFROztBQUNSLHNCQUFnQixxQkFBaEIsZ0JBQWdCOzs2REFFaEIsd0JBQXdCOzs7Ozs7O0FBRTVCLGNBQVEsR0FBSSxFQUFFLElBQUksRUFBRyxJQUFJO0FBQ1gsYUFBSyxFQUFFLEtBQUs7QUFDWixVQUFFLEVBQUksT0FBTztBQUNiLFlBQUksRUFBRSxRQUFRO09BQ2Y7QUFFSixjQUFRO0FBZ0JOLGlCQWhCRixRQUFRLENBZ0JMLE9BQU8sRUFBRSxTQUFTO2dDQWhCckIsUUFBUTs7QUFpQmIsY0FBSSxDQUFDLFNBQVMsR0FBRyxTQUFTLENBQUE7QUFDMUIsY0FBSSxDQUFDLE9BQU8sR0FBTyxPQUFPLENBQUE7QUFDMUIsY0FBSSxDQUFDLE9BQU8sR0FBTyxRQUFRLENBQUM7QUFDNUIsV0FBQyxDQUFDLE1BQU0sQ0FBQyxJQUFJLEVBQUUsSUFBSSxDQUFDLE9BQU8sQ0FBQyxDQUFBO1NBRS9COzs2QkF0QlEsUUFBUTtBQUVWLGtCQUFRO21CQUFBLG9CQUFFO0FBQ2IscUJBQU8sUUFBUSxDQUNWLGFBQWEsQ0FBQyxXQUFXLENBQUMsQ0FDMUIsWUFBWSxDQUFDLFFBQVEsQ0FBQyxDQUN0QixZQUFZLENBQUMsTUFBTSxFQUFRLGFBQWEsQ0FBQyxDQUN6QyxZQUFZLENBQUMsT0FBTyxFQUFPLGNBQWMsQ0FBQyxDQUMxQyxZQUFZLENBQUMsSUFBSSxFQUFVLFdBQVcsQ0FBQyxDQUN2QyxZQUFZLENBQUMsTUFBTSxFQUFRLGFBQWEsQ0FBQyxDQUFBO2FBQ2pEOzs7O0FBRU0sZ0JBQU07bUJBQUEsa0JBQUU7QUFDWCxxQkFBTyxDQUFDLE9BQU8sRUFBRSxnQkFBZ0IsQ0FBQyxDQUFBO2FBQ3JDOzs7OztBQVVELGNBQUk7bUJBQUEsZ0JBQUU7QUFDRixrQkFBSSxDQUFDLFNBQVMsQ0FBQyxnQkFBZ0IsQ0FBQyxnQkFBZ0IsRUFBRSxJQUFJLEVBQUUsTUFBTSxDQUFDLENBQUM7QUFDaEUsa0JBQUksQ0FBQyxZQUFZLEVBQUUsQ0FBQzthQUN2Qjs7OztBQUVELHNCQUFZO21CQUFBLHdCQUFFO0FBQ1Ysa0JBQUksU0FBUyxHQUFHLENBQUMsV0FBVyxDQUFDLENBQUM7QUFDOUIsa0JBQUksQ0FBQyxFQUFFLElBQU8sU0FBUyxDQUFDLElBQUksU0FBTyxJQUFJLENBQUMsRUFBRSxDQUFHLENBQUM7QUFDOUMsa0JBQUksQ0FBQyxJQUFJLElBQUssU0FBUyxDQUFDLElBQUksV0FBUyxJQUFJLENBQUMsSUFBSSxDQUFHLENBQUM7QUFDbEQsa0JBQUksQ0FBQyxJQUFJLElBQUssU0FBUyxDQUFDLElBQUksYUFBVyxJQUFJLENBQUMsSUFBSSxDQUFHLENBQUM7QUFDcEQsa0JBQUksQ0FBQyxPQUFPLENBQUMsU0FBUyxDQUFDLEdBQUcsQ0FBQyxLQUFLLENBQUMsSUFBSSxDQUFDLE9BQU8sQ0FBQyxTQUFTLEVBQUUsU0FBUyxDQUFDLENBQUE7YUFDdEU7Ozs7QUFFRCxxQkFBVzttQkFBQSxxQkFBQyxPQUFPLEVBQUM7QUFDaEIscUJBQU8sR0FBRyxPQUFPLElBQUksUUFBUSxDQUFDLElBQUksQ0FBQztBQUNuQyxrQkFBSSxDQUFDLE9BQU8sQ0FBQyxTQUFTLENBQUMsTUFBTSxhQUFXLElBQUksQ0FBQyxPQUFPLENBQUMsSUFBSSxDQUFHLENBQUE7QUFDNUQsa0JBQUksQ0FBQyxPQUFPLENBQUMsU0FBUyxDQUFDLEdBQUcsYUFBVyxPQUFPLENBQUcsQ0FBQTtBQUMvQyxrQkFBSSxDQUFDLE9BQU8sQ0FBQyxJQUFJLEdBQUcsSUFBSSxDQUFDLElBQUksQ0FBQzthQUNqQzs7OztBQUVELG1CQUFTO21CQUFBLG1CQUFDLEtBQUssRUFBQztBQUVaLGtCQUFJLENBQUMsT0FBTyxDQUFDLFNBQVMsQ0FBQyxNQUFNLENBQUMsSUFBSSxDQUFDLE9BQU8sQ0FBQyxFQUFFLENBQUMsQ0FBQTtBQUM5QyxrQkFBSSxDQUFDLE9BQU8sQ0FBQyxTQUFTLENBQUMsR0FBRyxDQUFDLEtBQUssQ0FBQyxDQUFBO0FBQ2pDLGtCQUFJLENBQUMsT0FBTyxDQUFDLEVBQUUsR0FBRyxLQUFLLENBQUE7YUFDMUI7Ozs7QUFFRCxxQkFBVzttQkFBQSxxQkFBQyxPQUFPLEVBQUM7QUFDaEIsa0JBQUksQ0FBQyxPQUFPLENBQUMsU0FBUyxDQUFDLE1BQU0sQ0FBQyxJQUFJLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxDQUFBO0FBQ2hELGtCQUFJLENBQUMsT0FBTyxDQUFDLFNBQVMsQ0FBQyxHQUFHLENBQUMsT0FBTyxDQUFDLENBQUE7QUFDbkMsa0JBQUksQ0FBQyxPQUFPLENBQUMsSUFBSSxHQUFHLE9BQU8sQ0FBQTthQUM5Qjs7Ozs7O2VBdkRRLFFBQVEiLCJmaWxlIjoiYWktaGVhZGVyLmpzIiwic291cmNlUm9vdCI6Ii9zcmMvcGx1Z2lucy8ifQ==

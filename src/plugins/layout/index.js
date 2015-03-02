@@ -4,6 +4,7 @@
     import {AiFooter} from './ai-footer'
     import {AiHeader} from './ai-header'
     import {AsideToggle} from './aside-toggle'
+    import {AiHeaderAttachedBehavior} from './ai-header-attribute'
 
 
 
@@ -15,7 +16,8 @@
             AiMain,
             AiFooter,
             AiHeader,
-            AsideToggle
+            AsideToggle,
+            AiHeaderAttachedBehavior
         ]);
 
     }
@@ -28,6 +30,7 @@
         AiFooter,
         AiHeader,
         AsideToggle,
+        AiHeaderAttachedBehavior,
         install
 
     };

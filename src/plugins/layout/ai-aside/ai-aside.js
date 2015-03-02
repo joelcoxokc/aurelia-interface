@@ -2,6 +2,8 @@ import {Behavior} from 'aurelia-templating';
 import {AiElement} from './ai-element';
 import {ActivatorService} from './activator-service'
 
+export {AiAsideAttachedBehavior} from './ai-aside-attribute'
+
 let defaults =  { prefix : 'aside'
                 , props  : ['side', 'size', 'isOpen', 'isFolded', 'isFixed']
                 , config : { side    : 'right'
@@ -57,6 +59,8 @@ export class AiAside extends AiElement{
 
     bind(){
         var classList = ['ai-aside']
+        this.activator.activateProperty(`ai-aside-${this.side}-open`, this, 'isOpen');
+        this.activator.activateProperty(`ai-aside-${this.side}-fold`, this, 'isFolded');
 
         this.side &&(classList.push( defaults.class[this.side]   ))
         this.size &&(classList.push( defaults.class[this.size]   ))
@@ -64,8 +68,6 @@ export class AiAside extends AiElement{
         this.isFixed  &&(classList.push( defaults.class.isFixed  ))
         this.isFolded &&(classList.push( defaults.class.isFolded ))
         this.addClass.apply(this, classList)
-        this.activator.activateProperty(`ai-aside-${this.side}-open`, this, 'isOpen');
-        this.activator.activateProperty(`ai-aside-${this.side}-fold`, this, 'isFolded');
     }
 
     attached(){
