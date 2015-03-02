@@ -1,16 +1,3 @@
-// materialize/js/waves.js
-// Alvin WangDogfalo on Jan 17 modified easing function on waves for smoother appearance
-// 5 contributors Alvin WangAlan Changtaromeroali oygurLuan Muniz
-// 335 lines (267 sloc)  11.036 kb RawBlameHistory
-/*!
- * Waves v0.6.0
- * http://fian.my.id/Waves
- *
- * Copyright 2014 Alfiana E. Sibuea and other contributors
- * Released under the MIT license
- * https://github.com/fians/Waves/blob/master/LICENSE
- */
-
 ;(function(window) {
     'use strict';
 
