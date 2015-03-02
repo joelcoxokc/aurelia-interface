@@ -32,8 +32,8 @@ export class App {
       config.title = 'Aurelia Interface';
       config.addPipelineStep('authorize', AuthorizeStep);
       config.map([
-        { route   : ['', 'interface']
-        , moduleId : 'interface'
+        { route   : ['', 'welcome']
+        , moduleId : 'welcome'
         , title    : 'ai'
         , toolbar  : this.toolbar
         , settings : {level:1}

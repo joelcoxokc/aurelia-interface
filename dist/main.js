@@ -4,6 +4,7 @@ import {Aside} from './system/aside'
 import {Navigation} from './resources/navigation-container'
 import {AsideToggle} from './system/aside-toggle';
 import {Toggler} from './system/toggler';
+import {Activator} from 'aurelia-interface-activator';
 
 
 
@@ -21,7 +22,7 @@ export function configure(aurelia) {
     System.map["aurelia-interface"] = name;
 
     aurelia.use.plugin(name);
-
+    console.log(Activator)
     aurelia.start()
     .then(function(framework) {
         console.log('Main', framework)
