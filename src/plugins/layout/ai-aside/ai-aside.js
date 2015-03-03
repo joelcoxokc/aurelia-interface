@@ -3,6 +3,7 @@ import {AiElement} from './ai-element';
 import {ActivatorService} from './activator-service'
 
 export {AiAsideAttachedBehavior} from './ai-aside-attribute'
+export {AsideNavAttachedBehavior, NavCollapseAttachedBehavior} from './aside-nav-attribute'
 
 let defaults =  { prefix : 'aside'
                 , props  : ['side', 'size', 'isOpen', 'isFolded', 'isFixed']
@@ -10,7 +11,7 @@ let defaults =  { prefix : 'aside'
                            , size    : 'sm'
                            , isOpen  : false
                            , isFolded: false
-                           , isFixed : true
+                           , isFixed : false
                            }
                 , state  : 'isOpen'
                 , class  : { 'isOpen'  : 'aside-is-open'
@@ -53,7 +54,9 @@ export class AiAside extends AiElement{
         this.state = this.fold || this.isOpen || defaults.aside;
         this.elements = {};
         for(let prop of defaults.props){
-            this[prop] = this[prop] || defaults.config[prop];
+            if(this[prop]){
+                this[prop] = this[prop] || defaults.config[prop];
+            }
         }
     }
 

@@ -86,7 +86,17 @@
     width     : 22px;
 }
 
+blockquote{
 
+}
+
+.demo-title {
+    font-size: 45px;
+    font-weight: 400;
+    margin: 2rem;
+    color: grey;
+
+}
 .demo-block {
     display: flex;
     flex: 1 0 auto;

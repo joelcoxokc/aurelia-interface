@@ -30,7 +30,10 @@ export class AiActivatorAttachedBehavior{
 
         this._eventHandler = function(evt){
             evt.preventDefault();
-
+            _this.onToggle && _this.activator.registerCallback(_this.delegate, 'onToggle', _this.onToggle)
+            _this.onCall   && _this.activator.registerCallback(_this.delegate, 'onCall'  , _this.onCall)
+            _this.onSwap   && _this.activator.registerCallback(_this.delegate, 'onSwap'  , _this.onSwap)
+            _this.delegating = _this.activator.delegate(_this.delegate);
             _this.toggle &&(_this.delegating.toggle(_this.toggle));
             _this.swap   &&(_this.delegating.swap(_this.swap));
             _this.call   &&(_this.delegating.invoke(_this.call));
@@ -55,10 +58,7 @@ export class AiActivatorAttachedBehavior{
     // delegates element for toggling activated element
     registerDelegation(){
 
-        this.onToggle && this.activator.registerCallback(this.delegate, 'onToggle', this.onToggle)
-        this.onCall   && this.activator.registerCallback(this.delegate, 'onCall'  , this.onCall)
-        this.onSwap   && this.activator.registerCallback(this.delegate, 'onSwap'  , this.onSwap)
-        this.delegating = this.activator.delegate(this.delegate);
+
         this.element.addEventListener(this.on || 'click', this._eventHandler);
     }
 

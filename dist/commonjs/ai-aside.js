@@ -1,4 +1,4 @@
-System.register(["aurelia-templating", "./ai-element", "./activator-service", "./ai-aside-attribute"], function (_export) {
+System.register(["aurelia-templating", "./ai-element", "./activator-service", "./ai-aside-attribute", "./aside-nav-attribute"], function (_export) {
   "use strict";
 
   var Behavior, AiElement, ActivatorService, _prototypeProperties, _inherits, _classCallCheck, defaults, AiAside, Elements;
@@ -11,6 +11,10 @@ System.register(["aurelia-templating", "./ai-element", "./activator-service", ".
       ActivatorService = _activatorService.ActivatorService;
     }, function (_aiAsideAttribute) {
       _export("AiAsideAttachedBehavior", _aiAsideAttribute.AiAsideAttachedBehavior);
+    }, function (_asideNavAttribute) {
+      _export("AsideNavAttachedBehavior", _asideNavAttribute.AsideNavAttachedBehavior);
+
+      _export("NavCollapseAttachedBehavior", _asideNavAttribute.NavCollapseAttachedBehavior);
     }],
     execute: function () {
       _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
@@ -25,7 +29,7 @@ System.register(["aurelia-templating", "./ai-element", "./activator-service", ".
           size: "sm",
           isOpen: false,
           isFolded: false,
-          isFixed: true
+          isFixed: false
         },
         state: "isOpen",
         "class": { isOpen: "aside-is-open",
@@ -51,7 +55,9 @@ System.register(["aurelia-templating", "./ai-element", "./activator-service", ".
           this.elements = {};
           for (var _iterator = defaults.props[Symbol.iterator](), _step; !(_step = _iterator.next()).done;) {
             var prop = _step.value;
-            this[prop] = this[prop] || defaults.config[prop];
+            if (this[prop]) {
+              this[prop] = this[prop] || defaults.config[prop];
+            }
           }
         }
 

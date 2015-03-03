@@ -1,0 +1,50 @@
+.aside-nav
+    display: flex
+    flex 1 0 auto
+    flex-direction: column
+    & > ul
+        list-style: none
+        display: flex
+        flex-direction: column
+
+        & > li
+            & > a
+                display: block
+                padding-left: 24px
+                line-height: 36px
+                cursor: pointer
+                color: $grey.base
+                font-weight: 500
+
+
+                &:hover
+                    background-color: $grey.lighten-4
+                    color: $grey.darken-1
+            &.is-collapsed
+                & > a
+                    background-color: $grey.lighten-4
+                    color: $grey.darken-1
+
+
+.aside-collapsible-nav
+    & > ul
+        & > li.nav-collapse
+            position: relative
+            no-select()
+
+            & > ul
+                display: none
+                // opacity: 0
+                height: 0
+                overflow: hidden
+                flex 1 0 auto
+                & > li
+                    & > a
+                        padding-left: 36px
+                        line-height: 36px
+                        cursor: pointer
+                        display: block
+                        color: $grey.darken-1
+                        &:hover
+                            background-color: $grey.lighten-4
+

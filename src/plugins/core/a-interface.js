@@ -32,7 +32,7 @@ export class AInterface{
         this.inst = inst
 
         this.element   = element;
-        this.direction = defaults.direction
+        // this.direction = defaults.direction
     }
 
     bind(){
