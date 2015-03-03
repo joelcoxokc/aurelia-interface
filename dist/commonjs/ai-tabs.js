@@ -25,7 +25,7 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
           metadata: {
             value: function metadata() {
               return Behavior.withOptions().and(function (x) {
-                x.withProperty("activeTab", "tabChanged", "active-tab", false, TWO_WAY).withProperty("_showTab", "showTabChanged", "show-tab").withProperty("_hideTab", "hideTabChanged", "hide-tab");
+                x.withProperty("activeTab", "tabChanged", "active-tab").withProperty("_showTab", "showTabChanged", "show-tab").withProperty("_hideTab", "hideTabChanged", "hide-tab");
               }).syncChildren("links", "linksChanged", "[tab-ref]").noView();
             },
             writable: true,
@@ -71,8 +71,9 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
           },
           attached: {
             value: function attached() {
+              console.log("bind");
               this.activeTab = this.activeTab || this.getActiveTab;
-              this.setActiveTab(this.activeLink, true);
+              this.activeLink && this.setActiveTab(this.activeLink, true);
             },
             writable: true,
             configurable: true
@@ -80,16 +81,10 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
           bind: {
             value: function bind() {
               this.element.classList.add("ai-tabs");
+              console.log("attached");
               this.bindLinks();
               this.bindPanes();
               this.setBorder();
-            },
-            writable: true,
-            configurable: true
-          },
-          unbind: {
-            value: function unbind() {
-              this.unbindLinks();
             },
             writable: true,
             configurable: true
@@ -120,27 +115,9 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
             writable: true,
             configurable: true
           },
-          setActiveTab: {
-            value: function setActiveTab(newActiveLink) {
-              var force = arguments[1] === undefined ? false : arguments[1];
-              var activeTab = newActiveLink.getAttribute("tab-ref");
-
-              if (force !== true && activeTab == this.activeTab) {
-                return;
-              }this.hideTab();
-              this.activeTab = activeTab;
-
-
-              this.activeLink && this.activeLink.parrent.classList.add("active");
-
-              return activeTab;
-            },
-            writable: true,
-            configurable: true
-          },
-          linksChanged: {
-            value: function linksChanged() {
-              this.bindLinks();
+          unbind: {
+            value: function unbind() {
+              this.unbindLinks();
             },
             writable: true,
             configurable: true
@@ -157,6 +134,31 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
             writable: true,
             configurable: true
           },
+          setActiveTab: {
+            value: function setActiveTab(newActiveLink) {
+              var force = arguments[1] === undefined ? false : arguments[1];
+              var activeTab = newActiveLink.getAttribute("tab-ref");
+
+              if (force !== true && activeTab == this.activeTab) {
+                return;
+              }this.hideTab();
+              this.activeTab = activeTab;
+
+
+              this.activeLink && this.activeLink.parentElement.classList.add("active");
+
+              return activeTab;
+            },
+            writable: true,
+            configurable: true
+          },
+          linksChanged: {
+            value: function linksChanged() {
+              this.bindLinks();
+            },
+            writable: true,
+            configurable: true
+          },
           _linkHandler: {
             value: function _linkHandler($event) {
               $event.preventDefault();
@@ -167,8 +169,10 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
           },
           showTab: {
             value: function showTab() {
-              this.activeLink.classList.add("active");
-              this.activePane.classList.add("active", "in");
+              if (this.activeLink) {
+                this.activeLink.classList.add("active");
+                this.activePane.classList.add("active", "in");
+              }
             },
             writable: true,
             configurable: true
