@@ -7300,6 +7300,8 @@ template {
   position: relative;
   color: inherit;
   line-height: 64px;
+  -webkit-transition: font-size 400ms ease;
+          transition: font-size 400ms ease;
 }
 .ai-toolbar .toolbar-header .toolbar-brand.nav-right {
   text-align: right;
@@ -7477,11 +7479,6 @@ template {
           flex: 1 0 auto;
   positoin: relative;
 }
-.ai-toolbar.toolbar-xl .toolbar-header .toolbar-brand {
-  font-size: 2em;
-  left: 80px;
-  top: 80px;
-}
 .ai-toolbar.toolbar-xl .toolbar-content {
   -webkit-align-self: flex-end;
       -ms-flex-item-align: end;
@@ -7577,9 +7574,6 @@ template {
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
-  }
-  .ai-toolbar.toolbar-xl .toolbar-header .toolbar-brand {
-    font-size: 4em;
   }
 }
 @-webkit-keyframes nav-bar-drop {
