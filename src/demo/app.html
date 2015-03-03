@@ -12,48 +12,58 @@
     <import from="./system/ai-activator"></import>
 
 
-<a-interface>
-        <header ai-header="bg: red">
-          <nav ai-toolbar="router.bind: router; toolbar.bind: toolbar; size.bind: toolbar.size; fixed.bind: toolbar.fixed; text-color.bind: toolbar.textColor; bg-color.bind: toolbar.bgColor">
-               <div class="toolbar-header">
-                   <a class="toolbar-brand" href="#">${router.title}</a>
-               </div>
-               <ul class="nav-actions nav-actions-right">
-                  <li>
-                    <a class="waves-effect waves-${color}" href="#/getting-started">Getting Started</a>
-                  </li>
-                  <li>
-                    <a class="waves-effect waves-${color}" href="#/components-demo">ai-Components</a>
-                  </li>
-                  <li>
-                    <a class="waves-effect waves-${color}" href="#/layouts-demo">ai-Layouts</a>
-                  </li>
-                  <li ai-activator="delegate: ai-aside-left-open; toggle:true">
-                    <a class="waves-effect waves-${color}">
-                      <i class="fa fa-bars"></i>
-                    </a>
-                  </li>
-                </ul>
-           </nav>
-        </header>
-
-
+<a-interface class="is-row">
         <div ai-body>
+            <header ai-header="bg: red">
+              <nav ai-toolbar="router.bind: router; toolbar.bind: toolbar; size.bind: toolbar.size; fixed.bind: toolbar.fixed; text-color.bind: toolbar.textColor; bg-color.bind: toolbar.bgColor">
+                   <div class="toolbar-header">
+                       <a class="toolbar-brand" href="#">${router.title}</a>
+                   </div>
+                   <ul class="nav-actions nav-actions-right">
+                      <li ai-activator="delegate: open-left; toggle: aside-is-open">
+                        <a class="waves-effect waves-${color}">
+                          <i class="fa fa-bars"></i>
+                        </a>
+                      </li>
+                    </ul>
+               </nav>
+            </header>
 
             <main ai-main class="bg-grey lighten-4">
               <router-view></router-view>
             </main>
 
-            <aside ai-aside="side: left; size: md;" class="bg-amber">
-            	<header class="header">
-            		${router.title}
-            	</header>
-            	<div class="aside-content"></div>
-            </aside>
+            <footer ai-footer class="bg-grey darken-4"></footer>
+
         </div>
+        <aside ai-aside="side: left; size: sm; is-open: true; is-fixed: false;" class="bg-purple" ai-activator="activate: open-left;">
+        	<header class="header" style="font-size:50px; color:white;">
+        		ai
+        	</header>
+        	<div class="aside-content">
+            <nav aside-nav="collapsible: true">
+                <ul>
+                  <li nav-link>
+                      <a href="#/getting-started">Getting Started</a>
+                  </li>
+                  <li nav-collapse="collapse: true">
+                      <a href="#/components-demo"> ai-Components</a>
+                      <ul>
+                          <li><a href="#ai-btn-nav">ai-Btn</a></li>
+                          <li><a href="#ai-list-nav">ai-List</a></li>
+                          <li><a href="#ai-dropdown-nav">ai-Dropdown</a></li>
+                          <li><a href="#ai-card-nav">ai-Card</a></li>
+                          <li><a href="#ai-tabs-nav">ai-Tabs</a></li>
+                          <li><a href="#ai-modal-nav">ai-Modal</a></li>
+                          <li><a href="#ai-form-nav">ai-Form</a></li>
+                      </ul>
+                  </li>
+                </ul>
+            </nav>
+          </div>
+        </aside>
 
 
-        <footer ai-footer class="bg-red"></footer>
 
 </a-interface>
 

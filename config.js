@@ -22,6 +22,7 @@ System.config({
     "jquery": "github:components/jquery@2.1.3",
     "lodash": "npm:lodash@3.3.1",
     "materialize": "github:Dogfalo/materialize@0.95.3",
+    "velocity": "github:julianshapiro/velocity@1.2.2",
     "waves": "github:fians/Waves@0.6.0",
     "github:aurelia/binding@0.3.7": {
       "aurelia-dependency-injection": "github:aurelia/dependency-injection@0.4.5",

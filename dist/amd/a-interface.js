@@ -29,7 +29,6 @@ System.register(["aurelia-templating", "aurelia-framework", "../main"], function
           this.inst = inst;
 
           this.element = element;
-          this.direction = defaults.direction;
         }
 
         _prototypeProperties(AInterface, {

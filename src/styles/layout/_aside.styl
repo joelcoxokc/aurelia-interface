@@ -8,7 +8,7 @@ $aside-fold-width            = 64px
 
 
 create-aside-varient(size, onOpen, onClose, onFold)
- 
+
   &.aside-{size}
     flex: 0 0 onClose
     min-max-width(onClose)
@@ -29,7 +29,7 @@ create-aside-varient(size, onOpen, onClose, onFold)
   position         : relative
   flex-direction   : column
   background-color : white
-  position fixed
+  position relative
   top: 0
   overflow-x: hidden
   overflow-y: scroll

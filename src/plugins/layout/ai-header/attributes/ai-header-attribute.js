@@ -24,7 +24,6 @@ export class AiHeaderAttachedBehavior{
     }
 
     constructor(element, activator){
-        console.log('helllo')
         this.activator = activator
         this.element     = element
         this.current     = defaults;
@@ -33,7 +32,6 @@ export class AiHeaderAttachedBehavior{
     }
 
     bind(){
-        console.log(this.element)
         this.activator.activateProperty('ai-header-size', this, 'size');
         this.applyClasses();
     }
