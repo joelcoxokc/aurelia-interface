@@ -94,6 +94,7 @@ export class NavCollapseAttachedBehavior{
     }
     bind(){
         this.element.addClass(defaults.class.collapse);
+        this.collapse && this.toggleCollapse()
         this.link.on('click', this.toggleCollapse.bind(this));
     }
 
@@ -108,9 +109,9 @@ export class NavCollapseAttachedBehavior{
     collapseChanged(value){
         var height = (this.collapsibleLinks.length * 36) + 'px'
         if(value){
-            this.collapsible.velocity({height: height, duration: 200}, { display: "block" })
+            this.collapsible.velocity({height: height }, { display: "block", duration: '100ms' })
         } else {
-            this.collapsible.velocity({ height: '0px', duration: 200}, { display: "none"})
+            this.collapsible.velocity({ height: '0px'}, { display: "none", duration: '100ms'})
         }
 
     }

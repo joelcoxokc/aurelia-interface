@@ -1,46 +1,14 @@
-<div ai-tabs="active-tab-ref.two-way: selectedTabRef; show-tab.call: updateTabSliderPosition(tabsInstance);" class="${showMyTab.name}">
-    <nav class="ai-bar ai-nav-bar bar-xs bg-teal accent-4 text-white">
-      <div class="nav-bar-container">
-        <ul class="nav-actions">
-          <li>
-            <a class="text-white"><i class="fa fa-bars"></i></a>
-          </li>
-        </ul>
-        <ul class="nav-actions nav-actions-right">
-          <li>
-            <a class="text-white"><i class="fa fa-bell-o"></i></a>
-            <a class="text-white"><i class="fa fa-pencil"></i></a>
-            <a class="text-white"><i class="fa fa-ellipsis-v"></i></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+<div ai-tabs="active: tab-1; bg: indigo; border: pink">
     <ul class="ai-nav-tabs">
-      <li ai-class.bind="{active: selectedTabRef == 'tab-1'}">
-        <a ai-tab-link href="tab-1">Tab 1</a>
-      </li>
-      <li ai-class.bind="{active: selectedTabRef == 'tab-2'}">
-        <a ai-tab-link href="tab-2">Tab 2</a>
-      </li>
-      <li ai-class.bind="{active: selectedTabRef == 'tab-3'}">
-        <a ai-tab-link href="tab-3">Tab 3</a>
-      </li>
-      <div class="ai-tab-slider"></div>
+        <li><a tab-ref="tab-1">Tab 1</a></li>
+        <li><a tab-ref="tab-2">Tab 2</a></li>
+        <li><a tab-ref="tab-3">Tab 3</a></li>
     </ul>
-    <div class="ai-card card ai-card">
-      <div class="card-content">
-          <div class="tab-content">
-            <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-1', active: selectedTabRef == 'tab-1'}" ai-tab="tab-1">
-              Tab 1 Content
-            </div>
-            <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-2', active: selectedTabRef == 'tab-2'}" ai-tab="tab-2">
-              Tab 2 Content
-            </div>
-            <div class="tab-pane fade" ai-class.bind="{in: selectedTabRef == 'tab-3', active: selectedTabRef == 'tab-3'}" ai-tab="tab-3">
-              Tab 3 Content
-            </div>
-          </div>
-      </div>
-    </div>
+    <section class="tab-content">
 
-  </div>
+      <article ai-tab="tab-1">Tab 1 Content</article>
+      <article ai-tab="tab-2">Tab 2 Content </article>
+      <article ai-tab="tab-3">Tab 3 Content </article>
+
+    </section>
+</div>

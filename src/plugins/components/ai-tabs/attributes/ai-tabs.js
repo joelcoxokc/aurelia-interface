@@ -5,9 +5,12 @@ export class AiTabsAttachedBehavior {
   static metadata () {
     return Behavior
       .withOptions().and( x => {
-          x.withProperty('activeTab', 'tabChanged', 'active-tab')
-          .withProperty('_showTab', 'showTabChanged', 'show-tab')
-          .withProperty('_hideTab', 'hideTabChanged', 'hide-tab')
+          x.withProperty('activeTab', 'tabChanged'    , 'active-tab')
+          .withProperty('_showTab'  , 'showTabChanged', 'show-tab')
+          .withProperty('_hideTab'  , 'hideTabChanged', 'hide-tab')
+          .withProperty('waves'      , 'wavesChanged'   , 'waves')
+          .withProperty('text'      , 'textChanged'   , 'text')
+          .withProperty('bg'        , 'bgChanged'     , 'bg')
       })
       .syncChildren('links', 'linksChanged', '[tab-ref]')
       .noView()
@@ -51,6 +54,11 @@ export class AiTabsAttachedBehavior {
     this.bindLinks();
     this.bindPanes();
     this.setBorder();
+    var classList = [];
+    this.bg && classList.push(this.bg)
+    this.text && classList.push(this.text)
+    var tabsContainer = this.element.getElementsByClassName('ai-nav-tabs')[0];
+    tabsContainer.classList.add.apply(tabsContainer.classList, classList);
   }
 
   bindLinks () {
@@ -132,15 +140,17 @@ export class AiTabsAttachedBehavior {
 
 
   setBorder(){
-    this.border = this.border || this.element.getElementsByClassName('ai-tab-slider')[0] || this.createBorder()
+    this.borderElement = this.borderElement || this.element.getElementsByClassName('ai-tab-slider')[0] || this.createBorder()
     var nav = this.element.getElementsByClassName('ai-nav-tabs')[0]
-    nav.appendChild(this.border);
+    nav.appendChild(this.borderElement);
 
     this.updateTabSliderPosition();
   }
   createBorder(){
+    var classList = ['ai-tab-slider'];
     var border = document.createElement('DIV');
-    border.classList.add('ai-tab-slider');
+    this.border && classList.push(this.border)
+    border.classList.add.apply(border.classList, classList);
     return border;
   }
 
@@ -148,11 +158,11 @@ export class AiTabsAttachedBehavior {
 
       let sliderWidth = 100 / this.links.length
 
-      this.border.style.width = sliderWidth + 10 + '%';
-      this.activeLink&& ( this.border.style.left = this.activeLink.offsetLeft + 'px' )
+      this.borderElement.style.width = sliderWidth + 10 + '%';
+      this.activeLink&& ( this.borderElement.style.left = this.activeLink.offsetLeft + 'px' )
 
       setTimeout(()=>{
-          this.border.style.width = sliderWidth + '%';
+          this.borderElement.style.width = sliderWidth + '%';
       }, 200)
 
       // next()

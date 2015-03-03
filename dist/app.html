@@ -33,12 +33,12 @@
               <router-view></router-view>
             </main>
 
-            <footer ai-footer class="bg-red"></footer>
+            <footer ai-footer class="bg-grey darken-4"></footer>
 
         </div>
-        <aside ai-aside="side: left; size: md; is-open: true; is-fixed: false;" class="bg-amber" ai-activator="activate: open-left;">
-        	<header class="header">
-        		${router.title}
+        <aside ai-aside="side: left; size: sm; is-open: true; is-fixed: false;" class="bg-purple" ai-activator="activate: open-left;">
+        	<header class="header" style="font-size:50px; color:white;">
+        		ai
         	</header>
         	<div class="aside-content">
             <nav aside-nav="collapsible: true">
@@ -46,7 +46,7 @@
                   <li nav-link>
                       <a href="#/getting-started">Getting Started</a>
                   </li>
-                  <li nav-collapse>
+                  <li nav-collapse="collapse: true">
                       <a href="#/components-demo"> ai-Components</a>
                       <ul>
                           <li><a href="#ai-btn-nav">ai-Btn</a></li>
