@@ -8446,6 +8446,40 @@ a.ai-btn a.btn.btn-invert,
 .ai-card .card-footer .card-footer-text {
   padding: 10px;
 }
+.ai-card .card-actions {
+  width: 100%;
+  background-color: #fff;
+  position: relateive;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  border-top: 1px solid #e0e0e0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.ai-card .card-actions ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.ai-card .card-actions ul li {
+  display: inline-block;
+  cursor: pointer;
+}
+.ai-card .card-actions ul li a {
+  padding: 16px 20px;
+  display: block;
+}
 .ai-dropdown {
   overflow: visible;
   position: relative;
