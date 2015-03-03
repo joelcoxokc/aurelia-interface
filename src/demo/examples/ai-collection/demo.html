@@ -1,0 +1,33 @@
+<template>
+    <import from="../../system/ai-btn"></import>
+    <import from="../../system/ai-card"></import>
+    <import from="../../system/ai-collection"></import>
+
+
+
+    <div ai-collection="expandable: true; icons:true">
+
+        <li collection-heading>Avatar Lists</li>
+
+        <li collection-item>
+            <header collect-header>
+                <span collect-icon><i class="mdi-action-account-circle"></i></span>
+                <span collect-title>Joel Cox</span>
+                <span collect-summary>Story about Joel</span>
+                <span collect-actions>
+                    <i class="mdi-content-create"></i>
+                    <i class="mdi-communication-phone"></i>
+                    <i class="mdi-notification-sms"></i>
+                    <i class="mdi-navigation-more-vert"></i>
+                </span>
+            </header>
+            <!-- <section collect-body>Here is some info</section> -->
+            <!-- <footer  collect-footer></footer> -->
+        </li>
+    </div>
+    <example base="../dist/examples/ai-collection">
+        <span class="code">
+           <file src="default.html" view="true"></file>
+        </span>
+    </example>
+</template>

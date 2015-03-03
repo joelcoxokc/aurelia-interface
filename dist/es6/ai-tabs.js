@@ -25,7 +25,7 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
           metadata: {
             value: function metadata() {
               return Behavior.withOptions().and(function (x) {
-                x.withProperty("activeTab", "tabChanged", "active-tab").withProperty("_showTab", "showTabChanged", "show-tab").withProperty("_hideTab", "hideTabChanged", "hide-tab");
+                x.withProperty("activeTab", "tabChanged", "active-tab").withProperty("_showTab", "showTabChanged", "show-tab").withProperty("_hideTab", "hideTabChanged", "hide-tab").withProperty("waves", "wavesChanged", "waves").withProperty("text", "textChanged", "text").withProperty("bg", "bgChanged", "bg");
               }).syncChildren("links", "linksChanged", "[tab-ref]").noView();
             },
             writable: true,
@@ -85,6 +85,11 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
               this.bindLinks();
               this.bindPanes();
               this.setBorder();
+              var classList = [];
+              this.bg && classList.push(this.bg);
+              this.text && classList.push(this.text);
+              var tabsContainer = this.element.getElementsByClassName("ai-nav-tabs")[0];
+              tabsContainer.classList.add.apply(tabsContainer.classList, classList);
             },
             writable: true,
             configurable: true
@@ -205,9 +210,9 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
           },
           setBorder: {
             value: function setBorder() {
-              this.border = this.border || this.element.getElementsByClassName("ai-tab-slider")[0] || this.createBorder();
+              this.borderElement = this.borderElement || this.element.getElementsByClassName("ai-tab-slider")[0] || this.createBorder();
               var nav = this.element.getElementsByClassName("ai-nav-tabs")[0];
-              nav.appendChild(this.border);
+              nav.appendChild(this.borderElement);
 
               this.updateTabSliderPosition();
             },
@@ -216,8 +221,10 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
           },
           createBorder: {
             value: function createBorder() {
+              var classList = ["ai-tab-slider"];
               var border = document.createElement("DIV");
-              border.classList.add("ai-tab-slider");
+              this.border && classList.push(this.border);
+              border.classList.add.apply(border.classList, classList);
               return border;
             },
             writable: true,
@@ -230,11 +237,11 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
 
               var sliderWidth = 100 / this.links.length;
 
-              this.border.style.width = sliderWidth + 10 + "%";
-              this.activeLink && (this.border.style.left = this.activeLink.offsetLeft + "px");
+              this.borderElement.style.width = sliderWidth + 10 + "%";
+              this.activeLink && (this.borderElement.style.left = this.activeLink.offsetLeft + "px");
 
               setTimeout(function () {
-                _this.border.style.width = sliderWidth + "%";
+                _this.borderElement.style.width = sliderWidth + "%";
               }, 200);
             },
             writable: true,

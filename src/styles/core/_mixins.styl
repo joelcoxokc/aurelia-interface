@@ -28,7 +28,8 @@ flex-container()
   display: -webkit-flex           // Chrome
   display: flex                   // Opera 12.1-, Firefox 20+
 
-
+f-container()
+  flex-container()
 
 align(value)
   align-items : value
@@ -56,5 +57,28 @@ no-select()
   -ms-user-select: none
   user-select: none
 
+display(type){
+    display: type;
+}
+
+f-direction(direction){
+    flex-direction: direction;
+}
+
+f-(args){
+    flex: args;
+}
+
+f-align(args){
+    align-items: args;
+}
+
+f-justify(args){
+    justify-content: args;
+}
+
+f-content(args){
+    align-content: args;
+}
 
 

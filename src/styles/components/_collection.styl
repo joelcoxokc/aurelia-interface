@@ -1,0 +1,144 @@
+$collection = {
+    default: {
+        shadow : 0 2px 4px rgba(0,0,0,0.2),
+        padding: 0px 16px,
+        bg     : white,
+        heading: {
+            height: 48px,
+            color : $grey.base
+        }
+    }
+}
+$c-item = {
+    default: {
+        shadow : 0 2px 4px rgba(0,0,0,0.2),
+        padding: 0px 16px,
+        bg     : white,
+        header:{
+            height: 48px,
+            bg    : white
+        },
+        icon: {
+            width: 48px,
+        },
+        title: {
+            width : 200px,
+            color : $grey.base
+        }
+        actions: {
+            width    : 300px,
+            position : absolute,
+            color    : $grey.lighten-1
+            hover    : {
+                color: $grey.base
+            }
+        }
+    }
+}
+
+.ai-collection,
+.collection-heading,
+.collection-item,
+.collection-item-header,
+.collection-item-actions,
+.collection-item-icon,
+.collection-item-body,
+.collection-item-summary,
+.collection-item-footer
+    f-container()
+
+.ai-collection,
+.collection-item,
+.collection-heading,
+.collection-item-summary,
+.collection-item-body
+    f-(1 0 auto)
+
+.ai-collection,
+.collection-item,
+.collection-item-body
+    f-direction(column)
+
+.collection-heading,
+.collection-item-icon,
+.collection-item-header,
+.collection-item-actions,
+.collection-item-footer
+    f-direction(row)
+
+
+.ai-collection
+    list-style: none
+    box-shadow: $collection.default.shadow
+    .collection-heading
+        line-height : $collection.default.heading.height
+        max-height  : $collection.default.heading.height
+        padding     : $collection.default.padding
+        color       : $collection.default.heading.color
+
+    .collection-item
+        box-shadow : $c-item.default.box-shadow
+
+
+    .collection-item-header
+        f-(0 0 $c-item.default.header.height)
+        max-height        : $c-item.default.header.height
+        line-height       : $c-item.default.header.height
+        background        : $c-item.default.bg
+        background-color  : $c-item.default.bg
+        position          : relative
+        cursor            : pointer
+
+    .collection-item-icon
+        f-(0 0 $c-item.default.icon.width)
+        f-align(center)
+        f-justify(center)
+        max-width    : $c-item.default.icon.width
+
+    .collection-item-title
+        f-align(center)
+        f-(0 0 $c-item.default.title.width)
+        color     : $c-item.default.title.color
+        max-width : $c-item.default.title.width
+
+     .collection-item-summary
+         line-height : $c-item.default.header.height
+
+     .collection-item-actions
+         f-(0 0  $c-item.default.actions.width)
+         f-justify(flex-end)
+         f-align(center)
+         line-height    : $c-item.default.header.height
+         width          : $c-item.default.actions.width
+         position       : $c-item.default.actions.position
+         color          : $c-item.default.actions.color
+         top            : 0
+         right          : 0
+         display        : none
+         & > i
+             margin         : 0 10px
+
+         &:hover,
+         &:active,
+         &:focus,
+         &.active
+             f-container()
+
+    .collecion-item-body
+        background :  $c-item.default.bg
+        padding    : $c-item.default.padding
+        height     : 0
+        opacity    : 0
+        visibility : 0
+        display    : none
+
+
+    .collection-item-footer
+        height     : $c-item.default.header.height
+        background : $c-item.default.bg
+
+
+    .collection-item-header:hover
+        .collection-item-actions
+            f-container()
+
