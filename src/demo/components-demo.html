@@ -1,17 +1,10 @@
 <template>
     <import from="./system/ai-card"></import>
-    <import from="./system/ai-tabs"></import>
     <import from="./system/ai-dropdown"></import>
-    <import from="./system/ai-action-reveal"></import>
     <import from="./system/ai-btn"></import>
     <import from="./system/ai-tabs"></import>
-    <import from="./resources/example"></import>
-    <import from="./resources/file"></import>
-    <import from="./resources/column"></import>
-    <import from="./system/ai-toggler"></import>
-    <import from="./system/ai-input"></import>
 
-        <div ai-tabs="active-tab: ai-btn; bg: indigo; border: pink">
+        <div ai-tabs="active-tab: 'ai-btn'; bg: indigo; border: pink">
           <ul class="ai-nav-tabs bg-grey darken-3">
 
             <li>
@@ -49,7 +42,6 @@
               <div class="row">
                     <compose class="flex-sm-8 offset-sm-2" view-model="./examples/ai-btn/demo" view="./examples/ai-btn/demo.html"></compose>
               </div>
-              <!-- <demo name="ai-btn" sections.bind="components.aibtn.sections"></demo> -->
             </section>
 
             <section ai-tab="ai-action">
@@ -107,11 +99,7 @@
                 </div>
               </div>
             </section>
-
           </div>
-
-
-
         </div>
 
 

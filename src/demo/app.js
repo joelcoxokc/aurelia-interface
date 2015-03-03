@@ -1,19 +1,15 @@
-import {Lazy} from 'aurelia-framework';
 import {Router} from 'aurelia-router';
+import {Container} from 'aurelia-dependency-injection';
 import {Toolbar} from './system/toolbar'
 import {Aside} from './system/aside'
-import {Navigation} from './resources/navigation-container'
-import {Container} from 'aurelia-dependency-injection';
-import {AiToolbar} from './system/ai-toolbar';
-import {PipelineProvider} from 'aurelia-router';
+// import {PipelineProvider} from 'aurelia-router';
 
 export class App {
 
-  static inject() { return [Router, Toolbar, Aside, Navigation, PipelineProvider]; }
+  static inject() { return [Router, Toolbar, Aside]; }
 
-  constructor(router, toolbar, aside, navigation, pipelineProvider) {
+  constructor(router, toolbar, aside) {
 
-    this.navigation = navigation;
     this.aside   = aside.init({ open:false
                               , side:'left'
                               , size:'md' });
@@ -36,42 +32,24 @@ export class App {
         , moduleId : 'welcome'
         , title    : 'ai'
         , toolbar  : this.toolbar
-        , settings : {level:1}
         },
         { route    : 'getting-started'
         , moduleId : 'getting-started'
         , title    : 'Getting Started'
         , nav      : true
         , toolbar  : this.toolbar
-        , settings : {level:1}
         },
-        { route    : 'components'
+        { route    : 'components-demo'
         , moduleId : 'components-demo'
         , title    : 'ai-Components'
         , nav      : true
         , toolbar  : this.toolbar
-        , settings : {level:1}
         },
-        { route    : 'layouts'
+        { route    : 'layouts-demo'
         , moduleId : 'layouts-demo'
         , title    : 'ai-Layouts'
         , nav      : true
         , toolbar  : this.toolbar
-        , settings : {level:1}
-        },
-        { route    : 'buttons-demo'
-        , moduleId : 'buttons-demo'
-        , title    : 'ai-Btn'
-        , toolbar  : this.toolbar
-        , nav      : true
-        , settings : {level:2, parent:'components-demo'}
-        },
-        { route    : 'tabs-demo'
-        , moduleId : 'tabs-demo'
-        , title    : 'ai-Tabs'
-        , toolbar  : this.toolbar
-        , nav      : true
-        , settings : {level:2, parent:'components-demo'}
         },
       ]);
     });
@@ -79,7 +57,7 @@ export class App {
 
 
   activate(){
-    this.navigation.init(this.router)
+    console.log(this.router.navigation)
   }
 }
 

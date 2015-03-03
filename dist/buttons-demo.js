@@ -1,4 +1,3 @@
-import {Router} from 'aurelia-router';
 
 export class ButtonsDemo {
 

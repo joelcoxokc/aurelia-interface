@@ -1,6 +1,6 @@
 <template>
-    <import from="./system/ai-toolbar"></import>
     <import from="./system/a-interface"></import>
+    <import from="./system/ai-toolbar"></import>
     <import from="./system/ai-footer"></import>
     <import from="./system/ai-header"></import>
     <import from="./system/ai-aside"></import>
@@ -9,8 +9,6 @@
     <import from="./system/ai-main"></import>
     <import from="./system/ai-body"></import>
     <import from="./system/ai-explode"></import>
-    <import from="./nav-bar"></import>
-    <import from="./nav-aside"></import>
     <import from="./system/ai-activator"></import>
 
 
@@ -21,8 +19,14 @@
                    <a class="toolbar-brand" href="#">${router.title}</a>
                </div>
                <ul class="nav-actions nav-actions-right">
-                  <li repeat.for="row of navigation.navs" class="${row.isActive ? 'active' : ''}">
-                    <a class="waves-effect waves-${color}" href.bind="row.href">${row.title}</a>
+                  <li>
+                    <a class="waves-effect waves-${color}" href="#/getting-started">Getting Started</a>
+                  </li>
+                  <li>
+                    <a class="waves-effect waves-${color}" href="#/components-demo">ai-Components</a>
+                  </li>
+                  <li>
+                    <a class="waves-effect waves-${color}" href="#/layouts-demo">ai-Layouts</a>
                   </li>
                   <li ai-activator="delegate: ai-aside-left-open; toggle:true">
                     <a class="waves-effect waves-${color}">

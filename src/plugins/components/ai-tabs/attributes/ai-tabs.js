@@ -5,7 +5,7 @@ export class AiTabsAttachedBehavior {
   static metadata () {
     return Behavior
       .withOptions().and( x => {
-          x.withProperty('activeTab', 'tabChanged', 'active-tab', false, TWO_WAY)
+          x.withProperty('activeTab', 'tabChanged', 'active-tab')
           .withProperty('_showTab', 'showTabChanged', 'show-tab')
           .withProperty('_hideTab', 'hideTabChanged', 'hide-tab')
       })
@@ -26,11 +26,11 @@ export class AiTabsAttachedBehavior {
   get panes () {
     return Array.prototype.slice.call(this.element.querySelectorAll('[ai-tab]'));
   }
-  
+
   get getActiveTab(){
     return this.links && this.links[0].getAttribute('tab-ref');
   }
-  
+
   get activeLink () {
     return this.links.find(x => x.getAttribute('tab-ref') === this.activeTab) || this.links[0];
   }
@@ -38,23 +38,21 @@ export class AiTabsAttachedBehavior {
   get activePane () {
     return this.panes.find(x => x.getAttribute('ai-tab') === this.activeTab) || this.panes[0];
   }
-  
+
   attached () {
-    this.activeTab = this.activeTab || this.getActiveTab;
-    this.setActiveTab(this.activeLink, true)
+    console.log('bind');
+    this.activeTab = this.activeTab || this.getActiveTab
+    this.activeLink &&this.setActiveTab(this.activeLink, true);
   }
 
   bind () {
     this.element.classList.add('ai-tabs');
+    console.log('attached');
     this.bindLinks();
     this.bindPanes();
     this.setBorder();
   }
-  
-  unbind () {
-    this.unbindLinks()
-  }
-  
+
   bindLinks () {
     if(!this.links) return
     this.unbindLinks
@@ -63,30 +61,17 @@ export class AiTabsAttachedBehavior {
       link.addEventListener('click', this.linkHandler, false)
     });
   }
-  
+
   bindPanes(){
     if(!this.panes) {return}
     this.panes.forEach((pane)=>{
       pane.classList.add('tab-pane', 'fade');
     })
-    
-  }
-  
-  setActiveTab (newActiveLink, force = false) {
-    var activeTab = newActiveLink.getAttribute('tab-ref');
-    
-    if (force !== true && activeTab == this.activeTab) return;
-    this.hideTab();
-    this.activeTab = activeTab;
-    
-    
-    this.activeLink &&( this.activeLink.parrent.classList.add('active'))
-    
-    return activeTab;
+
   }
 
-  linksChanged () {
-    this.bindLinks();
+  unbind () {
+    this.unbindLinks()
   }
 
   unbindLinks () {
@@ -96,14 +81,33 @@ export class AiTabsAttachedBehavior {
     })
   }
 
+  setActiveTab (newActiveLink, force = false) {
+    var activeTab = newActiveLink.getAttribute('tab-ref');
+
+    if (force !== true && activeTab == this.activeTab) return;
+    this.hideTab();
+    this.activeTab = activeTab;
+
+
+    this.activeLink &&( this.activeLink.parentElement.classList.add('active'))
+
+    return activeTab;
+  }
+
+  linksChanged () {
+    this.bindLinks();
+  }
+
   _linkHandler ($event) {
     $event.preventDefault()
     this.setActiveTab($event.target)
   }
 
   showTab () {
-    this.activeLink.classList.add('active')
-    this.activePane.classList.add('active', 'in')
+    if(this.activeLink){
+      this.activeLink.classList.add('active')
+      this.activePane.classList.add('active', 'in')
+    }
   }
 
   hideTab () {
@@ -120,18 +124,18 @@ export class AiTabsAttachedBehavior {
   showTabChanged () {
     // console.log('showTabChanged', arguments)
   }
-  
+
 
   hideTabChanged () {
     // console.log('hideTabChanged', arguments)
   }
-  
-  
+
+
   setBorder(){
     this.border = this.border || this.element.getElementsByClassName('ai-tab-slider')[0] || this.createBorder()
     var nav = this.element.getElementsByClassName('ai-nav-tabs')[0]
     nav.appendChild(this.border);
-    
+
     this.updateTabSliderPosition();
   }
   createBorder(){
@@ -139,7 +143,7 @@ export class AiTabsAttachedBehavior {
     border.classList.add('ai-tab-slider');
     return border;
   }
-  
+
   updateTabSliderPosition () {
 
       let sliderWidth = 100 / this.links.length

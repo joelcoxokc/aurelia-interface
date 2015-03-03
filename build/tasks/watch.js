@@ -13,11 +13,23 @@ function reportChange(event){
 // serve task, it will instantiate a browserSync session
 gulp.task('watch', ['serve'], function() {
 
+  gulp.watch(paths.demo.scripts , ['demo:system', browserSync.reload]).on('change', reportChange);
+  gulp.watch(paths.demo.views   , ['demo:views', browserSync.reload]).on('change', reportChange);
+
+  gulp.watch(paths.src.scripts  , ['source:system', browserSync.reload]).on('change', reportChange);
+  gulp.watch(paths.src.views    , ['source:views', browserSync.reload]).on('change', reportChange);
+
+  gulp.watch(paths.src.stylus   , ['source:styles', browserSync.reload]).on('change', reportChange);
+  gulp.watch(paths.src.css, browserSync.reload).on('change', reportChange);
+});
+
+gulp.task('watch-no-reload', ['serve'], function() {
+
   gulp.watch(paths.demo.scripts , ['demo:system']).on('change', reportChange);
-  gulp.watch(paths.demo.views   , ['demo:views' ]).on('change', reportChange);
+  gulp.watch(paths.demo.views   , ['demo:views']).on('change', reportChange);
 
   gulp.watch(paths.src.scripts  , ['source:system']).on('change', reportChange);
-  gulp.watch(paths.src.views    , ['source:views' ]).on('change', reportChange);
+  gulp.watch(paths.src.views    , ['source:views']).on('change', reportChange);
 
   gulp.watch(paths.src.stylus   , ['source:styles']).on('change', reportChange);
   gulp.watch(paths.src.css).on('change', reportChange);

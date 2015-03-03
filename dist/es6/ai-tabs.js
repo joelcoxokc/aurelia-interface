@@ -127,8 +127,11 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
 
               if (force !== true && activeTab == this.activeTab) {
                 return;
-              }this.activeTab = activeTab;
+              }this.hideTab();
+              this.activeTab = activeTab;
 
+
+              this.activeLink && this.activeLink.parrent.classList.add("active");
 
               return activeTab;
             },
@@ -181,6 +184,7 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
           tabChanged: {
             value: function tabChanged(value) {
               this[value ? "showTab" : "hideTab"]();
+              this.updateTabSliderPosition();
             },
             writable: true,
             configurable: true
@@ -200,6 +204,8 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
               this.border = this.border || this.element.getElementsByClassName("ai-tab-slider")[0] || this.createBorder();
               var nav = this.element.getElementsByClassName("ai-nav-tabs")[0];
               nav.appendChild(this.border);
+
+              this.updateTabSliderPosition();
             },
             writable: true,
             configurable: true
@@ -209,6 +215,23 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
               var border = document.createElement("DIV");
               border.classList.add("ai-tab-slider");
               return border;
+            },
+            writable: true,
+            configurable: true
+          },
+          updateTabSliderPosition: {
+            value: function updateTabSliderPosition() {
+              var _this = this;
+
+
+              var sliderWidth = 100 / this.links.length;
+
+              this.border.style.width = sliderWidth + 10 + "%";
+              this.activeLink && (this.border.style.left = this.activeLink.offsetLeft + "px");
+
+              setTimeout(function () {
+                _this.border.style.width = sliderWidth + "%";
+              }, 200);
             },
             writable: true,
             configurable: true
