@@ -20,48 +20,59 @@
     </example>
 
     <ai-card>
-        <h2 class="card-heading">Card Heading</h2>
-        <div class="card-body"><p>This card has a heading & footer component.</p></div>
-        <div class="card-footer"><p class="card-footer-text">card-footer component</p></div>
+        <h2 class="card-heading">Card actions</h2>
+        <div class="card-body"><p>This card contains action buttons</p></div>
+        <div class="card-actions">
+            <ul>
+                <li><a class="waves-effect waves-orange text-orange">Action</a></li>
+                <li><a class="waves-effect waves-orange text-orange">Action</a></li>
+            </ul>
+        </div>
     </ai-card>
     <example base="../dist/examples/ai-card">
-        <h1 class="card-heading">Card</h1>
-        <div class="body">
-            Here is a full Card
+        <div class="code">
+            <file src="actions.html"></file>
         </div>
-        <span class="code">
-            <file src="footer.html" view="true"></file>
-        </span>
     </example>
-
-    <ai-card>
-        <nav class="ai-bar ai-nav-bar bar-ink bar-xs bg-teal accent-4 text-white">
-          <div class="nav-bar-container">
-            <ul class="nav-actions">
-              <li>
-                <a class="text-white"><i class="fa fa-bars"></i></a>
-              </li>
-            </ul>
-            <ul class="nav-actions nav-actions-right">
-              <li>
-                <a class="text-white"><i class="fa fa-bell-o"></i></a>
-                <a class="text-white"><i class="fa fa-pencil"></i></a>
-                <a class="text-white"><i class="fa fa-ellipsis-v"></i></a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <h2 class="card-heading">More Components</h2>
-        <div class="card-body"><p>The ai-card is packed with different components and features</p></div>
-        <footer class="card-footer"><p class="card-footer-text">I am the card-footer</p></footer>
-
-    </ai-card>
-    <example base="../dist/examples/ai-card">
-        <div class="body">
-            Complex
+    <div class="row">
+        <div class="flex-md-12">
+            <ai-card>
+                <div class="card-heading">
+                    card-Image
+                </div>
+            </ai-card>
         </div>
+        <div class="flex-sm-6">
+            <ai-card>
+                <div class="card-image">
+                    <img src="http://www.freeallimages.com/wp-content/uploads/2014/09/beautiful-nature-photography-tumblr-1.jpg">
+                </div>
+                <div class="card-actions">
+                    <ul>
+                        <li><a class="waves-effect waves-orange text-orange">Action</a></li>
+                        <li><a class="waves-effect waves-orange text-orange">Action</a></li>
+                    </ul>
+                </div>
+            </ai-card>
+        </div>
+        <div class="flex-sm-6">
+            <ai-card>
+                <div class="card-image">
+                    <img src="http://webneel.com/daily/sites/default/files/images/daily/10-2013/5-nature-photography-lake-agoes-antara.jpg">
+                </div>
+                <div class="card-actions">
+                    <ul>
+                        <li><a class="waves-effect waves-orange text-orange">Action</a></li>
+                        <li><a class="waves-effect waves-orange text-orange">Action</a></li>
+                    </ul>
+                </div>
+            </ai-card>
+        </div>
+    </div>
+
+    <example base="../dist/examples/ai-card">
         <span class="code">
-            <file src="complex.html" view="true"></file>
+            <file src="image.html" view="true"></file>
         </span>
     </example>
 </template>

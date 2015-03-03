@@ -7300,6 +7300,8 @@ template {
   position: relative;
   color: inherit;
   line-height: 64px;
+  -webkit-transition: font-size 400ms ease;
+          transition: font-size 400ms ease;
 }
 .ai-toolbar .toolbar-header .toolbar-brand.nav-right {
   text-align: right;
@@ -7477,11 +7479,6 @@ template {
           flex: 1 0 auto;
   positoin: relative;
 }
-.ai-toolbar.toolbar-xl .toolbar-header .toolbar-brand {
-  font-size: 2em;
-  left: 80px;
-  top: 80px;
-}
 .ai-toolbar.toolbar-xl .toolbar-content {
   -webkit-align-self: flex-end;
       -ms-flex-item-align: end;
@@ -7577,9 +7574,6 @@ template {
     -webkit-justify-content: center;
         -ms-flex-pack: center;
             justify-content: center;
-  }
-  .ai-toolbar.toolbar-xl .toolbar-header .toolbar-brand {
-    font-size: 4em;
   }
 }
 @-webkit-keyframes nav-bar-drop {
@@ -8415,6 +8409,19 @@ a.ai-btn a.btn.btn-invert,
   font-weight: 100;
   color: #9e9e9e;
 }
+.ai-card .card-image {
+  width: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  position: relateive;
+  overflow: hidden;
+  font-size: 0;
+}
+.ai-card .card-image img {
+  max-width: 100%;
+}
 .ai-card .card-body {
   padding: 16px 8px 8px 8px;
   width: 100%;
@@ -8451,6 +8458,40 @@ a.ai-btn a.btn.btn-invert,
 }
 .ai-card .card-footer .card-footer-text {
   padding: 10px;
+}
+.ai-card .card-actions {
+  width: 100%;
+  background-color: #fff;
+  position: relateive;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  border-top: 1px solid #e0e0e0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.ai-card .card-actions ul {
+  list-style: none;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.ai-card .card-actions ul li {
+  display: inline-block;
+  cursor: pointer;
+}
+.ai-card .card-actions ul li a {
+  padding: 16px 20px;
+  display: block;
 }
 .ai-dropdown {
   overflow: visible;
