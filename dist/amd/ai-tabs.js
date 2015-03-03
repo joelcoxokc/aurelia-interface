@@ -25,8 +25,8 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
           metadata: {
             value: function metadata() {
               return Behavior.withOptions().and(function (x) {
-                x.withProperty("activeTabRef", "tabRefChanged", "active-tab-ref", false, TWO_WAY).withProperty("_showTab", "showTabChanged", "show-tab").withProperty("_hideTab", "hideTabChanged", "hide-tab");
-              }).syncChildren("tabLinks", "tabLinksChanged", "[ai-tab-link]").noView();
+                x.withProperty("activeTab", "tabChanged", "active-tab", false, TWO_WAY).withProperty("_showTab", "showTabChanged", "show-tab").withProperty("_hideTab", "hideTabChanged", "hide-tab");
+              }).syncChildren("links", "linksChanged", "[tab-ref]").noView();
             },
             writable: true,
             configurable: true
@@ -39,54 +39,40 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
             configurable: true
           }
         }, {
-          tabs: {
+          panes: {
             get: function () {
               return Array.prototype.slice.call(this.element.querySelectorAll("[ai-tab]"));
             },
             configurable: true
           },
-          activeTabLink: {
+          getActiveTab: {
             get: function () {
-              var _this = this;
-              return this.tabLinks.find(function (x) {
-                return x.getAttribute("href") === _this.activeTabRef;
-              });
+              return this.links && this.links[0].getAttribute("tab-ref");
             },
             configurable: true
           },
-          activeTabContent: {
+          activeLink: {
             get: function () {
               var _this = this;
-              return this.tabs.find(function (x) {
-                return x.getAttribute("ai-tab") === _this.activeTabRef;
-              });
+              return this.links.find(function (x) {
+                return x.getAttribute("tab-ref") === _this.activeTab;
+              }) || this.links[0];
             },
             configurable: true
           },
-          setActiveTab: {
-            value: function setActiveTab(newTabRef) {
+          activePane: {
+            get: function () {
               var _this = this;
-              var force = arguments[1] === undefined ? false : arguments[1];
-              if (force !== true && newTabRef == this.activeTabRef) {
-                return;
-              }this.activeTabRef = newTabRef;
-
-              this.tabs.forEach(function (tab) {
-                return _this.hideTab(tab);
-              });
-
-              if (newTabRef) {
-                var newTab = this.element.querySelector("[ai-tab=\"" + newTabRef + "\"]");
-
-                if (newTab) {
-                  this.showTab(newTab);
-                  return newTab;
-                } else {
-                  throw new Error("ai-tab element for " + newTabRef + " not found");
-                }
-              } else {
-                this.activeTabRef = null;
-              }
+              return this.panes.find(function (x) {
+                return x.getAttribute("ai-tab") === _this.activeTab;
+              }) || this.panes[0];
+            },
+            configurable: true
+          },
+          attached: {
+            value: function attached() {
+              this.activeTab = this.activeTab || this.getActiveTab;
+              this.setActiveTab(this.activeLink, true);
             },
             writable: true,
             configurable: true
@@ -95,6 +81,8 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
             value: function bind() {
               this.element.classList.add("ai-tabs");
               this.bindLinks();
+              this.bindPanes();
+              this.setBorder();
             },
             writable: true,
             configurable: true
@@ -106,28 +94,50 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
             writable: true,
             configurable: true
           },
-          attached: {
-            value: function attached() {
-              this.setActiveTab(this.activeTabRef, true);
-            },
-            writable: true,
-            configurable: true
-          },
-          tabLinksChanged: {
-            value: function tabLinksChanged() {
-              this.bindLinks();
-            },
-            writable: true,
-            configurable: true
-          },
           bindLinks: {
             value: function bindLinks() {
               var _this = this;
-              this.unbindLinks;
+              if (!this.links) {
+                return;
+              }this.unbindLinks;
 
-              this.tabLinks.forEach(function (link) {
+              this.links.forEach(function (link) {
                 link.addEventListener("click", _this.linkHandler, false);
               });
+            },
+            writable: true,
+            configurable: true
+          },
+          bindPanes: {
+            value: function bindPanes() {
+              if (!this.panes) {
+                return;
+              }
+              this.panes.forEach(function (pane) {
+                pane.classList.add("tab-pane", "fade");
+              });
+            },
+            writable: true,
+            configurable: true
+          },
+          setActiveTab: {
+            value: function setActiveTab(newActiveLink) {
+              var force = arguments[1] === undefined ? false : arguments[1];
+              var activeTab = newActiveLink.getAttribute("tab-ref");
+
+              if (force !== true && activeTab == this.activeTab) {
+                return;
+              }this.activeTab = activeTab;
+
+
+              return activeTab;
+            },
+            writable: true,
+            configurable: true
+          },
+          linksChanged: {
+            value: function linksChanged() {
+              this.bindLinks();
             },
             writable: true,
             configurable: true
@@ -135,7 +145,9 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
           unbindLinks: {
             value: function unbindLinks() {
               var _this = this;
-              this.tabLinks.forEach(function (link) {
+              if (!this.links) {
+                return;
+              }this.links.forEach(function (link) {
                 link.removeEventListener("click", _this.linkHandler, false);
               });
             },
@@ -145,43 +157,31 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
           _linkHandler: {
             value: function _linkHandler($event) {
               $event.preventDefault();
-              this.setActiveTab($event.target.getAttribute("href"));
+              this.setActiveTab($event.target);
             },
             writable: true,
             configurable: true
           },
           showTab: {
-            value: function showTab(tab) {
-              var defaultShowTab = (function () {
-                tab.style.display = "block";
-              }).bind(this);
-
-              if (typeof this._showTab === "function") {
-                this._showTab(this, defaultShowTab);
-              } else {
-                defaultShowTab();
-              }
+            value: function showTab() {
+              this.activeLink.classList.add("active");
+              this.activePane.classList.add("active", "in");
             },
             writable: true,
             configurable: true
           },
           hideTab: {
-            value: function hideTab(tab) {
-              var defaultHideTab = (function () {
-                tab.style.display = "none";
-              }).bind(this);
-
-              if (typeof this._hideTab === "function") {
-                this._hideTab(this, defaultHideTab);
-              } else {
-                defaultHideTab();
-              }
+            value: function hideTab() {
+              this.activeLink.classList.remove("active");
+              this.activePane.classList.remove("active", "in");
             },
             writable: true,
             configurable: true
           },
-          tabRefChanged: {
-            value: function tabRefChanged() {},
+          tabChanged: {
+            value: function tabChanged(value) {
+              this[value ? "showTab" : "hideTab"]();
+            },
             writable: true,
             configurable: true
           },
@@ -192,6 +192,24 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
           },
           hideTabChanged: {
             value: function hideTabChanged() {},
+            writable: true,
+            configurable: true
+          },
+          setBorder: {
+            value: function setBorder() {
+              this.border = this.border || this.element.getElementsByClassName("ai-tab-slider")[0] || this.createBorder();
+              var nav = this.element.getElementsByClassName("ai-nav-tabs")[0];
+              nav.appendChild(this.border);
+            },
+            writable: true,
+            configurable: true
+          },
+          createBorder: {
+            value: function createBorder() {
+              var border = document.createElement("DIV");
+              border.classList.add("ai-tab-slider");
+              return border;
+            },
             writable: true,
             configurable: true
           }

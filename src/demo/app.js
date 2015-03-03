@@ -30,7 +30,7 @@ export class App {
     this.router.title = "Aurelia-Interface"
     this.router.configure(config => {
       config.title = 'Aurelia Interface';
-      config.addPipelineStep('authorize', AuthorizeStep);
+      // config.addPipelineStep('authorize', AuthorizeStep);
       config.map([
         { route   : ['', 'welcome']
         , moduleId : 'welcome'

@@ -1,5 +1,10 @@
 import {Behavior} from 'aurelia-templating'
-import {splitClass} from './util.js'
+
+
+function splitClass(str){
+    return str.split(/\s*,\s*/);
+}
+
 var directions,oposites,defaults
 
 defaults  = {
@@ -35,35 +40,43 @@ export class AiColumnAttachedBehavior {
         return this.element.children
     }
     get classList(){
-        return _.zip(this.flexes, this.offsets);
+        return _.zip(this.flexes, this.offsets)[0];
     }
 
     get offsets(){
-        return _.map(splitClass(this.offset), (item)=>{return `flex-${defaults.sizes[this.scren]}-${item}`})
+        console.log('offset', this.offset)
+        var classList = this.offset ?  splitClass(this.offset) : []
+        return _.map(classList, (item)=>{return `offset-${defaults.sizes[this.screen ? this.screen : 'sm']}${item}`});
+        
     }
 
     get flexes(){
-        return _.map(splitClass(this.flex), (item)=>{return `flex-${defaults.sizes[this.scren]}-${item}`})
+        console.log('flex', this.offset)
+        var classList = this.flex ?  splitClass(this.flex) : []
+        return _.map(classList, (item)=>{return `flex-${defaults.sizes[this.screen ? this.screen : 'sm']}${item}`});
     }
 
 
 
     bind(){
-        this.rows = parsFloat(this.rows) || 0;
+        this.rows = parseFloat(this.rows) || 0;
         this.applyClassList();
-        this.flexChildren()
-
+        this.flexChildren();
     }
 
     applyClassList(){
-        this.element.classList.add.apply(this.element.classList, splitClass(this.self));
+        this.self && ( this.element.classList.add.apply(this.element.classList, splitClass(this.self)) );
     }
 
     flexChildren(){
-        if(!this.children.length){return}
-
+        if(!this.children){return}
+        
         for(let index in this.children){
-           this.children[index].classList.add.apply(this.children[index].classList, this.this.classlist[index])
+          if(this.children[index].classList){
+            console.log(this.classList)
+            this.children[index].classList.add.apply(this.children[index].classList, this.classList);
+          }
+          
         }
     }
 
