@@ -8,7 +8,7 @@ export class Components{
     constructor(navigation){
         this.heading = 'aiComponents ';
         this.navigation = navigation;
-        this.selectedTabRef = 'ai-modal'
+        this.selectedTabRef = 'ai-tabs'
         this.components = {
             'aibtn': {
                 name: 'ai-btn',
@@ -19,9 +19,10 @@ export class Components{
     }
 
 
+
     activate(params, queryString, config){
         this.childNavs = config.children
-
+  
         if(config){
             this.toolbar = config.toolbar
             this.toolbar
@@ -31,24 +32,6 @@ export class Components{
                            , textColor : 'text-white'
                            })
         }
-
-    }
-
-
-
-    updateTabSliderPosition (tabsInstance, next) {
-
-        let slider = tabsInstance.element.querySelector('.ai-tab-slider')
-        let sliderWidth = 100 / tabsInstance.tabLinks.length
-
-        slider.style.width = sliderWidth + 10 + '%';
-        slider.style.left = tabsInstance.activeTabLink.offsetLeft + 'px';
-
-        setTimeout(function(){
-            slider.style.width = sliderWidth + '%';
-        }, 200)
-
-        next()
 
     }
 }
