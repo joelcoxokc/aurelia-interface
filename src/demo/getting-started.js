@@ -1,4 +1,5 @@
 import {EventAggregator} from 'aurelia-event-aggregator';
+import {Router} from 'aurelia-router';
 
 export class Welcome{
 
@@ -23,7 +24,7 @@ export class Welcome{
                            , bgColor   : 'bg-purple'
                            , textColor : 'text-white'
                            })
-            this.events.publish('$stateChanged', this.toolbar)
+            // this.events.publish('$stateChanged', this.toolbar)
         }
     }
 }
