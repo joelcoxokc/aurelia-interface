@@ -8409,6 +8409,19 @@ a.ai-btn a.btn.btn-invert,
   font-weight: 100;
   color: #9e9e9e;
 }
+.ai-card .card-image {
+  width: 100%;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  position: relateive;
+  overflow: hidden;
+  font-size: 0;
+}
+.ai-card .card-image img {
+  max-width: 100%;
+}
 .ai-card .card-body {
   padding: 16px 8px 8px 8px;
   width: 100%;
