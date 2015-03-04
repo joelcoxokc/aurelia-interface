@@ -1,6 +1,5 @@
-import {Behavior} from 'aurelia-templating'
+import {Behavior, ChildObserver} from 'aurelia-templating'
 import {AiElement} from './ai-element'
-import {Construction} from './construction'
 
 let defaults = {
     prefix: {
@@ -19,7 +18,7 @@ let defaults = {
         expanded : 'collection-item-expanded',
         showActions : 'item-show-actions',
     },
-    elements: ['header','body','footer','icon','title','summary','actions']
+    elements: ['body','title','icon',]
 }
 let bodyProps = {
     display: {
@@ -57,24 +56,27 @@ export class CollectionItemAttachedBehavior{
     }
 
     static inject(){
-        return [Element]
+        return [Element, ChildObserver]
     }
 
 
-    constructor(element) {
-
+    constructor(element, childObserver) {
+        this.observer = ChildObserver
         this.element     = element;
         this.elements    = {};
         this.containers  = {};
     }
 
 
+    initialize(){
+        console.log('yolo')
+    }
+
     get classList(){
         return this.element.classList;
     }
 
     get children(){
-        defaults.childElements = defaults.childElements || this.getElements()
         return {body    : this._getElement('body')
                ,title   : this._getElement('title')
                ,header  : this._getElement('header')
@@ -87,8 +89,14 @@ export class CollectionItemAttachedBehavior{
         this._applyClassList();
     }
 
+    sayHi(){
+
+    }
+
     attached(){
         this.bindClick();
+        // this.things = this.observer.createBinding('expand', this)
+
     }
 
     bindClick(){
@@ -108,29 +116,22 @@ export class CollectionItemAttachedBehavior{
     }
 
     _onClick(evt){
-        console.log(evt)
+        if(evt.target.classList.contains(defaults.class.actions) || evt.target.nodeName === 'I') return
         evt.preventDefault();
-        this.validateTarget(evt) && ( this._expand() )
+        this._expand()
+    }
+
+    _getElement(name){
+        return this.element.getElementsByClassName( (defaults.prefix.long + name) )[0] || $(`[${defaults.prefix.long}${name}]`)[0];
     }
 
 
-
-    getElements(){
-        let children = {};
-        for(let el of defaults.elements){
-            children[el] = _getEl(el);
-        }
-        return children;
-    }
-
-
-    _getEl(name){
-        return this.element.getElementsByClassName( (defaults.prefix.long + name) )[0] || $(this.element).find(`[${defaults.prefix.long}${name}]`)[0];
-    }
 
     expandedChanged(value){
         this.classList[value ? 'add' : 'remove'](defaults.class.expanded);
+         if(value)   {
 
+         }
     }
 
 
@@ -141,4 +142,3 @@ function validateTarget(event){
     if(evt.target.classList.contains(defaults.class.actions) || evt.target.nodeName === 'I') return false
     return true
 }
-
