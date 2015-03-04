@@ -2,6 +2,13 @@ import {Behavior} from 'aurelia-templating'
 import {AiElement} from './ai-element'
 import {Construction} from './construction'
 
+let defaults = {
+    class: {
+        main: 'ai-collection',
+        showActions: 'collection-show-actions'
+    }
+}
+
 export class AiCollectionAttachedBehavior{
 
     static metadata(){
@@ -11,6 +18,7 @@ export class AiCollectionAttachedBehavior{
                 x.withProperty('expandable');
                 x.withProperty('heading');
                 x.withProperty('items');
+                x.withProperty('showActions', 'showActionsChanhed', 'show-actions');
         });
     }
 
@@ -36,8 +44,9 @@ export class AiCollectionAttachedBehavior{
     }
 
     applyClasses(){
-        var classList = [];
-        this.classList.add('ai-collection');
+        var classList = ['ai-collection'];
+        this.showActions && classList.push(defaults.class.showActions)
+        this.classList.add.apply(this.classList, classList);
     }
 
 }

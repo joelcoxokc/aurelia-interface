@@ -39,6 +39,7 @@ export class CollectBodyAttachedBehavior{
 
     expandedChanged(value){
         this.classList[value ? 'add' : 'remove']('item-expanded');
+
     }
 
 }

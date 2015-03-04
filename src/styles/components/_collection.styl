@@ -10,30 +10,32 @@ $collection = {
     }
 }
 $c-item = {
-    default: {
-        shadow : 0 2px 4px rgba(0,0,0,0.2),
-        padding: 0px 16px,
-        bg     : white,
-        header:{
-            height: 48px,
-            bg    : white
-        },
-        icon: {
-            width: 48px,
-        },
-        title: {
-            width : 200px,
-            color : $grey.base
-        }
-        actions: {
-            width    : 300px,
-            position : absolute,
-            color    : $grey.lighten-1
-            hover    : {
-                color: $grey.base
+    default:{bg     : white
+            ,shadow : 0 2px 4px rgba(0,0,0,0.2)
+            ,padding: 0px 16px
+            ,transition: all 300ms cubic-bezier(0,0.79,0,0.83)
+            ,header:{bg         : white
+                    ,height     : 48px
+                    ,border     : 1px solid $grey.lighten-2
+                    ,font-size  : 12px
+                    }
+
+            ,summary:{font-size: 12px
+                     ,font-weight: 300}
+
+            ,icon:{width  : 48px}
+
+            ,title:{width : 200px
+                   ,color : $grey.base}
+
+            ,actions:{width    : 200px
+                     ,position : absolute
+                     ,color    : $grey.lighten-1
+                     ,hover    : {color: $grey.base}
+                     }
+            ,body:{padding:20px 16px 8px 16px
+                  }
             }
-        }
-    }
 }
 
 .ai-collection,
@@ -69,15 +71,12 @@ $c-item = {
 
 .ai-collection
     list-style: none
-    box-shadow: $collection.default.shadow
     .collection-heading
         line-height : $collection.default.heading.height
         max-height  : $collection.default.heading.height
         padding     : $collection.default.padding
         color       : $collection.default.heading.color
-
-    .collection-item
-        box-shadow : $c-item.default.box-shadow
+        font-weight : 500
 
 
     .collection-item-header
@@ -88,6 +87,9 @@ $c-item = {
         background-color  : $c-item.default.bg
         position          : relative
         cursor            : pointer
+        border-bottom     : $c-item.default.header.border
+        font-weight       : $c-item.default.header.font-weight
+        font-sze          : $c-item.default.header.font-size
 
     .collection-item-icon
         f-(0 0 $c-item.default.icon.width)
@@ -102,6 +104,8 @@ $c-item = {
         max-width : $c-item.default.title.width
 
      .collection-item-summary
+         font-weight : $c-item.default.summary.font-weight
+         font-size : $c-item.default.summary.font-size
          line-height : $c-item.default.header.height
 
      .collection-item-actions
@@ -115,22 +119,26 @@ $c-item = {
          top            : 0
          right          : 0
          display        : none
+         &.show-actions
+             f-container()
          & > i
-             margin         : 0 10px
-
+             margin         : 0 15px
+             &:hover
+                 color: $grey.darken-4
          &:hover,
          &:active,
          &:focus,
          &.active
              f-container()
 
-    .collecion-item-body
-        background :  $c-item.default.bg
-        padding    : $c-item.default.padding
-        height     : 0
+    .collection-item-body
+        background : $c-item.default.bg
+        position   : relative
+        overflow   : hidden
+        max-height : 0px
         opacity    : 0
         visibility : 0
-        display    : none
+        transition : height 400ms cubic-bezier(0,0.89,0,0.93), opacity 300ms cubic-bezier(0,0.89,0,0.93)
 
 
     .collection-item-footer
@@ -139,6 +147,29 @@ $c-item = {
 
 
     .collection-item-header:hover
+        .collection-item-actions
+            f-container()
+
+    .collection-item
+        box-shadow : $c-item.default.shadow
+        transition : $c-item.default.transition
+
+        &.item-show-actions
+            .collection-item-actions
+                f-container()
+
+        &.collection-item-expanded
+            margin: 20px -50px
+            .collection-item-actions
+                f-container()
+            .collection-item-body
+                padding   : $c-item.default.body.padding
+                display   : flex
+                opacity   : 1
+                visibility: visible
+                max-height: 600px
+
+    &.collection-show-actions
         .collection-item-actions
             f-container()
 

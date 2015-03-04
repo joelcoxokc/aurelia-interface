@@ -3,19 +3,39 @@ import {AiElement} from './ai-element'
 import {Construction} from './construction'
 
 let defaults = {
-    class: {
-        item    : 'collection-item'         ,
-        body    : 'collection-item-body'    ,
-        title   : 'collection-item-title'   ,
-        icon    : 'collection-item-icon'    ,
-        header  : 'collection-item-header'  ,
-        actions : 'collection-item-actions' ,
-        summary : 'collection-item-summary' ,
-        footer  : 'collection-item-footer'  ,
+    prefix: {
+        long: 'collection-item-',
+        short: 'item-'
     },
-    elements: ['body','title','icon',]
+    class: {
+        main     : 'collection-item'         ,
+        body     : 'collection-item-body'    ,
+        title    : 'collection-item-title'   ,
+        icon     : 'collection-item-icon'    ,
+        header   : 'collection-item-header'  ,
+        actions  : 'collection-item-actions' ,
+        summary  : 'collection-item-summary' ,
+        footer   : 'collection-item-footer'  ,
+        expanded : 'collection-item-expanded',
+        showActions : 'item-show-actions',
+    },
+    elements: ['header','body','footer','icon','title','summary','actions']
 }
+let bodyProps = {
+    display: {
+        true      : 'flex',
+        false     : 'none'
+    },
 
+    visibility: {
+        true: 'visible',
+        false: 'hidden'
+    },
+    opacity   : {
+        true : 1,
+        false: 0
+    }
+}
 
 
 
@@ -31,7 +51,8 @@ export class CollectionItemAttachedBehavior{
                 x.withProperty('summary');
                 x.withProperty('actions');
                 x.withProperty('expanded');
-        });
+                x.withProperty('showActions', 'showActionsChanged', 'show-actions');
+            })
 
     }
 
@@ -42,65 +63,82 @@ export class CollectionItemAttachedBehavior{
 
     constructor(element) {
 
-        this.element     = element
+        this.element     = element;
         this.elements    = {};
         this.containers  = {};
-        this.elementList = defaults.elements
     }
+
 
     get classList(){
         return this.element.classList;
     }
 
+    get children(){
+        defaults.childElements = defaults.childElements || this.getElements()
+        return {body    : this._getElement('body')
+               ,title   : this._getElement('title')
+               ,header  : this._getElement('header')
+               ,actions : this._getElement('actions')
+               ,summary : this._getElement('summary')
+               }
+    }
+
     bind(){
-        this.classList.add(defaults.class.item)
-        this.getOptions()
-        this.buildItem()
+        this._applyClassList();
     }
 
-    getOptions(){
+    attached(){
+        this.bindClick();
     }
 
-    buildItem(){
+    bindClick(){
+        this.children.header.addEventListener('click', this._onClick.bind(this), false);
+
     }
 
-    appendTo(elements, prop){
-        prop = this.elements[prop] || this.element;
+    _expand(){
+        this.expanded = !this.expanded;
+    }
 
-        if(!Array.isArray(elements)){ elements = [elements] }
+    _applyClassList(){
+        var classList = [defaults.class.main];
+        this.expanded    && classList.push(defaults.class.expanded);
+        this.showActions && classList.push(defaults.class.showActions);
+        this.classList.add.apply(this.classList, classList);
+    }
 
-        for(let el of elements){
-            // console.log(el)
-            this.elements[el] &&( this.build.append(this.elements[el], prop) )
+    _onClick(evt){
+        console.log(evt)
+        evt.preventDefault();
+        this.validateTarget(evt) && ( this._expand() )
+    }
+
+
+
+    getElements(){
+        let children = {};
+        for(let el of defaults.elements){
+            children[el] = _getEl(el);
         }
-
+        return children;
     }
 
-    findOrCreate(prop, pass){
 
-        let selection = this.build.getClassName(prop) || this.build.getClassName(this.classList[prop]);
-        if(selection) {
-            return this.swapClass(prop, this.classList[prop], selection)  }
-
-        selection = this.build.getClassName(this[prop])
-                    || this.build.getTagName(this[prop])
-                    || this.build.select(this[prop]);
-        if(selection) {
-            return this.swapClass(prop, this.classList[prop], selection)  }
-
-        if(!!this[prop] || pass){
-            return this.build.createElement('DIV', this.classList[prop]);
-        }
+    _getEl(name){
+        return this.element.getElementsByClassName( (defaults.prefix.long + name) )[0] || $(this.element).find(`[${defaults.prefix.long}${name}]`)[0];
     }
 
-    swapClass(last, next, el){
-        el = el || this.element
-        el.classList.remove(last)
-        el.classList.add(next)
-        return el
+    expandedChanged(value){
+        this.classList[value ? 'add' : 'remove'](defaults.class.expanded);
+
     }
 
 
 
+}
+
+function validateTarget(event){
+    if(evt.target.classList.contains(defaults.class.actions) || evt.target.nodeName === 'I') return false
+    return true
 }
 

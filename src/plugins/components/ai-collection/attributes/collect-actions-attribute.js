@@ -2,6 +2,15 @@ import {Behavior} from 'aurelia-templating'
 import {AiElement} from './ai-element'
 import {Construction} from './construction'
 
+let defaults = {
+    class: {
+        viz: {
+            true: 'show-actions'
+        }
+    }
+}
+
+
 export class CollectActionsAttachedBehavior{
 
     static metadata(){
@@ -9,6 +18,7 @@ export class CollectActionsAttachedBehavior{
         return Behavior
             .withOptions().and(x =>{
                 x.withProperty('actions');
+                x.withProperty('viz');
         });
     }
 
@@ -34,6 +44,7 @@ export class CollectActionsAttachedBehavior{
 
     applyClasses(){
         var classList = ['collection-item-actions'];
+        this.viz && classList.push(defaults.class.viz[this.viz])
         this.classList.add.apply(this.classList, classList);
     }
 

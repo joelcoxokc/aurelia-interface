@@ -30,7 +30,6 @@ export class CollectHeaderAttachedBehavior{
 
         this._handleEvent = (evt)=>{
             evt.preventDefault();
-            this.service.activate();
         }
     }
 
