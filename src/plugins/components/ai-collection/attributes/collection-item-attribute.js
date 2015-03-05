@@ -1,4 +1,4 @@
-import {Behavior, ChildObserver} from 'aurelia-templating'
+import {Behavior} from 'aurelia-templating'
 import {AiElement} from './ai-element'
 
 let defaults = {
@@ -51,27 +51,23 @@ export class CollectionItemAttachedBehavior{
                 x.withProperty('actions');
                 x.withProperty('expanded');
                 x.withProperty('showActions', 'showActionsChanged', 'show-actions');
+                x.withProperty('header', 'headerChanged', '[collect-header]');
             })
 
     }
 
     static inject(){
-        return [Element, ChildObserver]
+        return [Element]
     }
 
-
-    constructor(element, childObserver) {
-        this.observer = ChildObserver
+    constructor(element) {
         this.element     = element;
         this.elements    = {};
         this.containers  = {};
     }
-
-
-    initialize(){
-        console.log('yolo')
+    get parent(){
+        return this.element.parentElement.aiCollection
     }
-
     get classList(){
         return this.element.classList;
     }
@@ -89,10 +85,6 @@ export class CollectionItemAttachedBehavior{
         this._applyClassList();
     }
 
-    sayHi(){
-
-    }
-
     attached(){
         this.bindClick();
         // this.things = this.observer.createBinding('expand', this)
@@ -104,8 +96,9 @@ export class CollectionItemAttachedBehavior{
 
     }
 
-    _expand(){
+    _expand(parent){
         this.expanded = !this.expanded;
+        this.parent.itemExpanded(this.element)
     }
 
     _applyClassList(){
@@ -129,9 +122,7 @@ export class CollectionItemAttachedBehavior{
 
     expandedChanged(value){
         this.classList[value ? 'add' : 'remove'](defaults.class.expanded);
-         if(value)   {
 
-         }
     }
 
 
@@ -142,3 +133,4 @@ function validateTarget(event){
     if(evt.target.classList.contains(defaults.class.actions) || evt.target.nodeName === 'I') return false
     return true
 }
+

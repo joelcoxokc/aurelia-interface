@@ -8722,8 +8722,8 @@ a.ai-btn a.btn.btn-invert,
   max-height: 0px;
   opacity: 0;
   visibility: 0;
-  -webkit-transition: height 2s cubic-bezier(0, 0.89, 0, 0.93), opacity 100 m cubic-bezier(0, 0.89, 0, 0.93) 3s, font-size 3s cubic-bezier(0, 0.89, 0, 0.93) 3s;
-          transition: height 2s cubic-bezier(0, 0.89, 0, 0.93), opacity 100 m cubic-bezier(0, 0.89, 0, 0.93) 3s, font-size 3s cubic-bezier(0, 0.89, 0, 0.93) 3s;
+  -webkit-transition: font-size 0 cubic-bezier(0, 0.89, 0, 0.93), height 2s cubic-bezier(0, 0.89, 0, 0.93), opacity 1s cubic-bezier(0, 0.89, 0, 0.93);
+          transition: font-size 0 cubic-bezier(0, 0.89, 0, 0.93), height 2s cubic-bezier(0, 0.89, 0, 0.93), opacity 1s cubic-bezier(0, 0.89, 0, 0.93);
 }
 .ai-collection .collection-item-footer {
   height: 48px;

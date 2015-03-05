@@ -6,8 +6,16 @@ let defaults = {
     class: {
         main: 'ai-collection',
         showActions: 'collection-show-actions'
+    },
+    item: {
+        name: 'collectionItem',
+        main: 'collection-item',
     }
 }
+defaults.item.expanded = `${defaults.item.main}-expanded`;
+
+let count = 0;
+
 
 export class AiCollectionAttachedBehavior{
 
@@ -17,30 +25,29 @@ export class AiCollectionAttachedBehavior{
             .withOptions().and(x =>{
                 x.withProperty('expandable');
                 x.withProperty('heading');
-                x.withProperty('items', 'itemsChanged', '[collection-item]');
-                x.withProperty('items', 'itemsChanged', '[collection-item]');
                 x.withProperty('keepOpen', 'keepOpenChanged', 'keep-open');
-                x.withProperty('showActions', 'showActionsChanhed', 'show-actions');
+                // x.withProperty('showActions', 'showActionsChanhed', 'show-actions');
+                x.withProperty('items', 'itemsChanged', '[collection-item]');
         })
         .syncChildren('items', 'itemsChanged', '[collection-item]');
     }
 
     static inject(){
-        return [Element, ChildObserver]
+        return [Element]
     }
 
     get classList(){
         return this.element.classList;
     }
 
-    get children(){
-        this.element.children;
+    set items(value){
+        console.log('setter', value)
     }
 
-
-    constructor(element, childObserver) {
-        this.element = element
-        this.childObserver = childObserver;
+    constructor(element) {
+        this.element = element;
+        this.accordion = true;
+        this.children = {};
     }
 
     bind(){
@@ -48,11 +55,25 @@ export class AiCollectionAttachedBehavior{
         console.log(this)
 
     }
-    attached(){
 
+    attached(){
+        for(let child of this.items){
+            child.interfaceId = defaults.item.name + count
+            count++
+        }
     }
 
-    itemsChanged(items){
+    itemExpanded(el){
+        for(let child of this.items){
+           (child.interfaceId !== el.interfaceId) && this._toggleChild(child);
+        }
+    }
+
+    _toggleChild(child){
+        child.collectionItem.expanded = false;
+    }
+
+    itemsChanged(){
 
     }
 
@@ -64,4 +85,25 @@ export class AiCollectionAttachedBehavior{
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
