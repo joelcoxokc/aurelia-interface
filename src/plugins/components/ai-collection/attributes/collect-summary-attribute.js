@@ -2,6 +2,10 @@ import {Behavior} from 'aurelia-templating'
 import {AiElement} from './ai-element'
 import {Construction} from './construction'
 
+let defaults = {
+    viz:true
+}
+
 export class CollectSummaryAttachedBehavior{
 
     static metadata(){
@@ -9,6 +13,7 @@ export class CollectSummaryAttachedBehavior{
         return Behavior
             .withOptions().and(x =>{
                 x.withProperty('expandable');
+                x.withProperty('viz');
         });
     }
 
@@ -26,6 +31,8 @@ export class CollectSummaryAttachedBehavior{
 
     constructor(element) {
         this.element = element
+
+        this.viz = defaults.viz;
     }
 
     bind(){

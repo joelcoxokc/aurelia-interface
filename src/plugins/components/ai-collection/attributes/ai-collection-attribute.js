@@ -2,6 +2,7 @@ import {Behavior, ChildObserver} from 'aurelia-templating'
 import {AiElement} from './ai-element'
 import {Construction} from './construction'
 
+
 let defaults = {
     class: {
         main: 'ai-collection',
@@ -17,8 +18,17 @@ defaults.item.expanded = `${defaults.item.main}-expanded`;
 let count = 0;
 
 
-export class AiCollectionAttachedBehavior{
+class Collection{
 
+    get children(){
+        return this.element.children
+    }
+    get heading(){
+        return this.element.querySelector('[collect-heading]')
+    }
+    get classList(){
+        return this.element.classList;
+    }
     static metadata(){
 
         return Behavior
@@ -26,7 +36,7 @@ export class AiCollectionAttachedBehavior{
                 x.withProperty('expandable');
                 x.withProperty('heading');
                 x.withProperty('keepOpen', 'keepOpenChanged', 'keep-open');
-                // x.withProperty('showActions', 'showActionsChanhed', 'show-actions');
+                x.withProperty('showActions', 'showActionsChanhed', 'show-actions');
                 x.withProperty('items', 'itemsChanged', '[collection-item]');
         })
         .syncChildren('items', 'itemsChanged', '[collection-item]');
@@ -35,37 +45,45 @@ export class AiCollectionAttachedBehavior{
     static inject(){
         return [Element]
     }
+}
 
-    get classList(){
-        return this.element.classList;
+class CollectionItems extends Collection{
+    bindItems(){
+        for(let child of this.items){
+            child.interfaceId = defaults.item.name + count
+            count++
+            this.bindItem(child)
+        }
     }
+    bindItem(item){
+        this.container[item.interfaceId] = item;
+        this.container[item.interfaceId].parent = this;
+    }
+}
 
-    set items(value){
-        console.log('setter', value)
-    }
+export class AiCollectionAttachedBehavior extends CollectionItems{
+
 
     constructor(element) {
         this.element = element;
         this.accordion = true;
-        this.children = {};
+        this.expanded = this.expanded || false;
+        this.container = {};
     }
 
     bind(){
-        this.applyClasses()
-        console.log(this)
-
+        this.applyClasses();
+        this.bindItems();
     }
 
     attached(){
-        for(let child of this.items){
-            child.interfaceId = defaults.item.name + count
-            count++
-        }
+
     }
 
-    itemExpanded(el){
-        for(let child of this.items){
-           (child.interfaceId !== el.interfaceId) && this._toggleChild(child);
+
+    itemExpanded(interfaceId){
+        for(let item of this.children){
+            (item.interfaceId !== interfaceId) && this._hideChild(item)
         }
     }
 
@@ -79,31 +97,9 @@ export class AiCollectionAttachedBehavior{
 
     applyClasses(){
         var classList = ['ai-collection'];
-        this.showActions && classList.push(defaults.class.showActions)
-        defaults.class.keepopen && classList.push(defaults.class.keepopen)
+        this.keepOpen     && classList.push(defaults.class.keepopen)
+        this.showActions  && classList.push(defaults.class.showActions)
         this.classList.add.apply(this.classList, classList);
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

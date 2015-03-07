@@ -2,11 +2,13 @@ import {LogManager} from 'aurelia-framework';
 import {ConsoleAppender} from 'aurelia-logging-console';
 import {Aside} from './system/aside'
 import {Navigation} from './resources/navigation-container'
+// import {CollectionContainer} from './system/CollectionContainer'
+// import {ObserverActivator} from './system/ObserverActivator'
 
 
 
-LogManager.addAppender(new ConsoleAppender());
-LogManager.setLevel(LogManager.levels.debug);
+// LogManager.addAppender(new ConsoleAppender());
+// LogManager.setLevel(LogManager.levels.debug);
 export function configure(aurelia) {
 
   aurelia.use
@@ -23,6 +25,8 @@ export function configure(aurelia) {
     .then(function(framework) {
         console.log('Main', framework)
         framework.container.registerInstance(Aside, new Aside())
+        // framework.container.registerInstance(CollectionContainer, new CollectionContainer())
+        // framework.container.registerInstance(ObserverActivator, new ObserverActivator())
         framework.container.registerInstance(Navigation, new Navigation())
         // return
         return framework.setRoot('app', document.body)
