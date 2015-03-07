@@ -1,8 +1,20 @@
 import {Behavior} from 'aurelia-templating'
 import {AiElement} from './ai-element'
 import {Construction} from './construction'
+import {Util, ComponentTools} from './utils'
 
-export class CollectTitleAttachedBehavior{
+let defaults = {
+    class: {
+
+    },
+    parent: {
+        name: 'collectionItem'
+    }
+}
+
+
+
+export class CollectTitleAttachedBehavior extends Util{
 
     static metadata(){
 
@@ -10,6 +22,10 @@ export class CollectTitleAttachedBehavior{
             .withOptions().and(x =>{
                 x.withProperty('expandable');
         });
+    }
+
+    static inject(){
+        return [Element, ComponentTools]
     }
 
     get classList(){
@@ -20,16 +36,20 @@ export class CollectTitleAttachedBehavior{
         this.element.children;
     }
 
-    static inject(){
-        return [Element]
+    get parent(){
+        return this.findParent(defaults.parent.name);
     }
 
-    constructor(element) {
+    constructor(element, tools) {
+        this.interfaceId = tools.generateId('CollectTitle');
         this.element = element
     }
 
     bind(){
         this.applyClasses()
+    }
+    attached(){
+        this.parent.title = this;
     }
 
     applyClasses(){

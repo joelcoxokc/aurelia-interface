@@ -1,7 +1,8 @@
 import {Behavior, ChildObserver} from 'aurelia-templating'
 import {AiElement} from './ai-element'
 import {Construction} from './construction'
-
+import {ComponentTools} from './utils'
+import {ai, iElement} from './ai'
 
 let defaults = {
     class: {
@@ -29,77 +30,113 @@ class Collection{
     get classList(){
         return this.element.classList;
     }
-    static metadata(){
-
-        return Behavior
-            .withOptions().and(x =>{
-                x.withProperty('expandable');
-                x.withProperty('heading');
-                x.withProperty('keepOpen', 'keepOpenChanged', 'keep-open');
-                x.withProperty('showActions', 'showActionsChanhed', 'show-actions');
-                x.withProperty('items', 'itemsChanged', '[collection-item]');
-        })
-        .syncChildren('items', 'itemsChanged', '[collection-item]');
-    }
 
     static inject(){
-        return [Element]
+        return [Element, ComponentTools]
     }
+
+    static metadata(){
+
+        return iElement
+            .options(x =>{
+                x.option('expandable');
+                x.option('heading', 'headingAttached');
+                x.option('isAccordion');
+                x.option('keepOpen', 'keepOpenChanged', 'keep-open');
+                x.option('showActions', 'showActionsChanhed', 'show-actions');
+                x.option('items', 'itemAttached', '[collection-item]');
+            })
+            .syncChildren('items', 'itemAttached', '[collection-item]');
+    }
+
 }
 
-class CollectionItems extends Collection{
-    bindItems(){
+class AiCollection extends Collection{
+
+    set parent(value){
+        this.parentAttached(value);
+    }
+
+    get parent(){
+        return this.findParent(defaults.parent.name);
+    }
+
+    configure(){
+        this.style();
+        this.bindChildren();
+        this.parent && this.parent.collection = this;
+    }
+
+    bindChildren(){
         for(let child of this.items){
-            child.interfaceId = defaults.item.name + count
-            count++
-            this.bindItem(child)
-        }
-    }
-    bindItem(item){
-        this.container[item.interfaceId] = item;
-        this.container[item.interfaceId].parent = this;
-    }
-}
-
-export class AiCollectionAttachedBehavior extends CollectionItems{
-
-
-    constructor(element) {
-        this.element = element;
-        this.accordion = true;
-        this.expanded = this.expanded || false;
-        this.container = {};
-    }
-
-    bind(){
-        this.applyClasses();
-        this.bindItems();
-    }
-
-    attached(){
-
-    }
-
-
-    itemExpanded(interfaceId){
-        for(let item of this.children){
-            (item.interfaceId !== interfaceId) && this._hideChild(item)
+            this.container[child.interfaceId] = child;
+            this.container[child.interfaceId].expanded &&( this._activeChild = child.interfaceId );
+            this.childBind(this.container[child.interfaceId]);
         }
     }
 
-    _toggleChild(child){
-        child.collectionItem.expanded = false;
-    }
-
-    itemsChanged(){
-
-    }
-
-    applyClasses(){
+    style(){
         var classList = ['ai-collection'];
         this.keepOpen     && classList.push(defaults.class.keepopen)
         this.showActions  && classList.push(defaults.class.showActions)
         this.classList.add.apply(this.classList, classList);
     }
+
+    parentAttached(parent){
+        this.element.classList.add('ai-collection-item');
+    }
+
+    itemAttached(){}
+}
+
+
+export class AiCollectionAttachedBehavior extends AiCollection{
+
+    set activeChild(id){
+        if(id === this._activeChild) { return }
+
+        this.childExpanded(this._activeChild, id)
+    }
+
+
+    constructor(element, tools) {
+
+        this.interfaceId  = tools.generateId('AiCollection');
+        this.element      = element;
+        this._activeChild = null
+        this.accordion    = true;
+        this.container    = {};
+        this.expanded     = this.expanded || false;
+        this.isAccordion  = this.isAccordion || true
+
+    }
+
+    bind(){}
+
+    childBind(child){
+        child.parent = this;
+    }
+
+    attached(){
+        this.configure();
+    }
+
+    headingAttached(heading){
+        heading.parent = this;
+    }
+
+    childAttched(child){}
+
+    childExpanded(oldId, newId){
+        this._activeChild = newId;
+        this.unExpand(oldId);
+    }
+
+    unExpand(interfaceId){
+        console.log(this.container)
+        this.container[interfaceId].expanded = false;
+    }
+
+
 
 }

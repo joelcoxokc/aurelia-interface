@@ -1,20 +1,42 @@
 import {Behavior} from 'aurelia-templating'
 import {AiElement} from './ai-element'
 import {Construction} from './construction'
+import {Util, ComponentTools} from './utils'
+import {ai, iElement} from './ai'
 
-export class CollectHeaderAttachedBehavior{
+let defaults = {
+    parent: {
+        name: 'collectionItem',
+        class: 'collection-item'
+    }
+}
+
+
+class CollectionHeader extends Util{
+
+    set parent(value){
+        this.parentAttached(value);
+    }
+
+    get parent(){
+        return this.findParent(defaults.parent.name);
+    }
+
+}
+
+export class CollectHeaderAttachedBehavior extends CollectionHeader{
 
     static metadata(){
 
-        return Behavior
-            .withOptions().and(x =>{
-                x.withProperty('expandable');
+        return iElement.options(i =>{
+           i.option('expandable');
         });
     }
 
 
+
     static inject(){
-        return [Element]
+        return [Element, ComponentTools]
     }
 
     get classList(){
@@ -25,8 +47,10 @@ export class CollectHeaderAttachedBehavior{
         this.element.children;
     }
 
-    constructor(element) {
-        this.element = $(element)
+    constructor(element, tools) {
+        this.tools = tools;
+        this.interfaceId = this.tools.generateId('CollectHeader');
+        this.element = element;
 
         this._handleEvent = (evt)=>{
             evt.preventDefault();
@@ -34,13 +58,26 @@ export class CollectHeaderAttachedBehavior{
     }
 
     bind(){
-        this.element.on('click', this._handleEvent)
+        // this.element.on('click', this._handleEvent)
         this.applyClasses()
+    }
+    attached(){
+        this.parent.header = this;
+        this.expandOnClick();
+
+    }
+
+    expandOnClick(){
+        this.element.addEventListener('click', this.click.bind(this));
+    }
+
+    click(event){
+        this.parent._handleEvent('click', event);
     }
 
     applyClasses(){
         var classList = ['collection-item-header'];
-        this.element.addClass('collection-item-header');
+        this.element.classList.add.apply(this.element.classList, classList);
     }
 
 }

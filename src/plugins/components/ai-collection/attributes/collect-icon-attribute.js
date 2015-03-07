@@ -1,8 +1,19 @@
 import {Behavior} from 'aurelia-templating'
 import {AiElement} from './ai-element'
 import {Construction} from './construction'
+import {Util, ComponentTools} from './utils'
 
-export class CollectIconAttachedBehavior{
+let defaults = {
+    class: {
+
+    },
+    parent: {
+        name: 'collectionItem'
+    }
+}
+
+
+export class CollectIconAttachedBehavior extends Util{
 
     static metadata(){
 
@@ -10,6 +21,10 @@ export class CollectIconAttachedBehavior{
             .withOptions().and(x =>{
                 x.withProperty('icon');
         });
+    }
+
+    static inject(){
+        return [Element, ComponentTools]
     }
 
     get classList(){
@@ -24,17 +39,23 @@ export class CollectIconAttachedBehavior{
         this.element.children;
     }
 
-    static inject(){
-        return [Element]
+    get parent(){
+        return this.findParent(defaults.parent.name);
     }
 
-    constructor(element) {
+    constructor(element, tools) {
+        this.interfaceId = tools.generateId('CollectIcon')
         this.element = element
     }
 
     bind(){
         this.applyClasses()
     }
+
+    attached(){
+        this.parent.icon = this;
+    }
+
 
     applyClasses(){
         var classList = ['collection-item-icon'];

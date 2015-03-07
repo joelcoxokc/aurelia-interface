@@ -2,6 +2,7 @@ import {LogManager} from 'aurelia-framework';
 import {ConsoleAppender} from 'aurelia-logging-console';
 import {Aside} from './system/aside'
 import {Navigation} from './resources/navigation-container'
+import {ComponentTools} from './system/utils'
 // import {CollectionContainer} from './system/CollectionContainer'
 // import {ObserverActivator} from './system/ObserverActivator'
 
@@ -25,7 +26,7 @@ export function configure(aurelia) {
     .then(function(framework) {
         console.log('Main', framework)
         framework.container.registerInstance(Aside, new Aside())
-        // framework.container.registerInstance(CollectionContainer, new CollectionContainer())
+        framework.container.registerInstance(ComponentTools, new ComponentTools())
         // framework.container.registerInstance(ObserverActivator, new ObserverActivator())
         framework.container.registerInstance(Navigation, new Navigation())
         // return

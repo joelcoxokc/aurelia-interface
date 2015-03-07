@@ -81,6 +81,8 @@ $c-item = {
         padding     : $collection.default.padding
         color       : $collection.default.heading.color
         font-weight : 500
+        cursor      : pointer
+
 
 
     .collection-item-header
@@ -184,3 +186,20 @@ $c-item = {
     &.collection-show-actions
         .collection-item-actions
                 f-container()
+
+
+.ai-collection
+    .collection-item.ai-collection
+        .collection-heading
+            background : white
+            box-shadow : $c-item.default.shadow
+
+        .collection-item
+            opacity    : 0
+            visibility : 0
+            max-height : 0px
+            font-size  : 0px
+
+
+
+

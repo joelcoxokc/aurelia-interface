@@ -1,8 +1,23 @@
 import {Behavior} from 'aurelia-templating'
 import {AiElement} from './ai-element'
 import {Construction} from './construction'
+import {Util, ComponentTools} from './utils'
+import {ai, iElement} from './ai'
 
-export class CollectBodyAttachedBehavior{
+let defaults = {
+    name: 'collectBody',
+    parent: {
+        name: 'collectionItem',
+        class: 'collection-item'
+    },
+    class:{
+        main: 'collection-item-body',
+        expanded: 'item-expanded'
+    }
+}
+
+
+export class CollectBodyAttachedBehavior extends Util{
 
     static metadata(){
 
@@ -10,6 +25,9 @@ export class CollectBodyAttachedBehavior{
             .withOptions().and(x =>{
                 x.withProperty('expanded');
         });
+    }
+    static inject(){
+        return [Element, ComponentTools]
     }
 
     get classList(){
@@ -19,12 +37,13 @@ export class CollectBodyAttachedBehavior{
     get children(){
         this.element.children;
     }
-
-    static inject(){
-        return [Element]
+    get parent(){
+        return this.findParent(defaults.parent.name)
     }
 
-    constructor(element) {
+
+    constructor(element, tools) {
+        this.interfaceId = tools.generateId('CollectBody');
         this.element = element
     }
 
@@ -32,13 +51,18 @@ export class CollectBodyAttachedBehavior{
         this.applyClasses()
     }
 
+    attached(){
+
+        this.parent.body = this;
+    }
+
     applyClasses(){
-        var classList = ['collection-item-body'];
+        var classList = [defaults.class.main];
         this.classList.add.apply(this.classList, classList);
     }
 
     expandedChanged(value){
-        this.classList[value ? 'add' : 'remove']('item-expanded');
+        this.classList[ai.toggle(value)](defaults.class.expanded);
 
     }
 

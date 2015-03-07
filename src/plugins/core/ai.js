@@ -1,12 +1,12 @@
-export function splitClass(str){
-    return str.split(/\s*,\s*/);
-}
-
-
-export class ComponentTools{
+import {Behavior} from 'aurelia-templating'
+class tools{
 
     constructor(){
         this.count = 1;
+    }
+
+    split(str){
+        return str.split(/\s*str\s*/);
     }
 
     generateId(name){
@@ -15,20 +15,39 @@ export class ComponentTools{
         this.count++;
         return name;
     }
-}
-
-
-
-export class Util{
     isFalse(property){
         return ((property === false) && property !== undefined)
     }
-    join(){
+    join(mid){
+        mid = mid || '';
         for(let index in arguments){
-            index && (arguments[0]+= arguments[index]);
+            index && (arguments[0]+= mid + arguments[index]);
         }
         return arguments[0];
     }
+    toggle(value){
+        return value ? 'add' : 'remove';
+    }
+}
+class elementTools{
+
+    options(callback){
+        let props = {}
+        var obj = {option:function(){props[arguments[0] = arguments]}};
+        obj = callback(obj);
+        return Behavior.withOptions().and(x =>{
+                x.option = x.withProperty
+                callback(x);
+            });
+    }
+}
+export let iElement = new elementTools
+export let ai = new tools
+
+export class AiEl{
+
+
+
     previousSibling(name){
         return this.previousExists() ? this.element.previousElementSibling[name] : this.element.previousElementSibling
     }
@@ -71,65 +90,5 @@ export class Util{
         el = el || this.element;
         return el.hasOwnProperty(name) ? true : (el[name] ? true : false);
     }
-
-    all(selector, el){
-        el = el || this.element;
-        return el.querySelectorAll(selector);
-    }
-    allClass(){
-        el = el || this.element;
-        return el.getElementsByClassName(selector);
-    }
-    allTag(selector, el){
-        el = el || this.element;
-        return el.getElementsByTagName(selector);
-    }
-    find(selector, el){
-        el = el || this.element;
-        return el.querySelectorAll(selector)[0];
-    }
-    findClass(){
-        el = el || this.element;
-        return el.getElementsByClassName(selector)[0];
-    }
-    findTag(selector, el){
-        el = el || this.element;
-        return el.getElementsByTagName(selector)[0];
-    }
-
-    get classList(){
-        return this.element.classList;
-    }
-
-    _handleEvent(name, event, prevent){
-        prevent && event.preventDefault();
-        this[`${name}`](event)
-    }
-
-
-
 }
 
-export function zip(){
-    var zipped = [];
-    var maxLength = 0;
-    var index     = 0;
-    var itemIndex = 0;
-    for (var i = 0; i < arguments.length; i++) {
-        if(arguments[i].length > maxLength){maxLength = arguments[i].length}
-    };
-
-    while(zipped.length < arguments.length){
-        zipped[index] = zipped[index] || [];
-        for (var i = 0; i < arguments.length; i++) {
-            if(arguments[i][0]){
-                var item = arguments[i].shift();
-                zipped[index].push(item)
-            } else {
-                delete zipped[index]
-            }
-        };
-        index++
-    }
-    return zipped
-}

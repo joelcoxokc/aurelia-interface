@@ -1,6 +1,7 @@
 import {Behavior} from 'aurelia-templating'
 import {AiElement} from './ai-element'
 import {Construction} from './construction'
+import {ComponentTools} from './utils'
 
 let defaults = {
     viz:true
@@ -26,10 +27,11 @@ export class CollectSummaryAttachedBehavior{
     }
 
     static inject(){
-        return [Element]
+        return [Element, ComponentTools]
     }
 
-    constructor(element) {
+    constructor(element, tools) {
+        this.interfaceId = tools.generateId('CollectSummary');
         this.element = element
 
         this.viz = defaults.viz;
