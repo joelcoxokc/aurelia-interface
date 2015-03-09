@@ -14,10 +14,15 @@ class CollectionHeader{
         return [Element]
     }
 
+    get collection(){
+        return this.element.parentElement.aiCollection ? this.element.parentElement.aiCollection : false;
+    }
+
     configure(element){
 
+        this.style();
+        this.attachToCollection();
         this.createEvents();
-        this.style()
     }
 
     style(){
@@ -25,6 +30,10 @@ class CollectionHeader{
         var classList = [this.classList.heading]
         this.color &&(classList.push(this.color));
         this.element.classList.add.apply(this.element.classList, classList);
+    }
+
+    attachToCollection(){
+        this.collection.heading = this;
     }
 
     createEvents(){
@@ -37,7 +46,10 @@ class CollectionHeader{
 
 export class CollectionHeadingAttachedBehavior extends CollectionHeader{
 
+    static inject(){
 
+        return [Element, ComponentTools]
+    }
     static metadata(){
         return iElement.options(x =>{
             x.option('title');
@@ -46,10 +58,6 @@ export class CollectionHeadingAttachedBehavior extends CollectionHeader{
         });
     }
 
-    static inject(){
-
-        return [Element, ComponentTools]
-    }
 
     constructor(element, tools) {
         this.interfaceId = tools.generateId('CollectTitle')
@@ -59,15 +67,14 @@ export class CollectionHeadingAttachedBehavior extends CollectionHeader{
 
 
     bind(){
-        this.configure();
     }
 
     click(evt){
-        console.log('Hello Event')
+        this.collection.expand();
     }
 
-    attach(){
-        this.bindParent();
+    attached(){
+        this.configure();
     }
 
 }

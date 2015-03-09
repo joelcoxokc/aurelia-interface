@@ -8779,15 +8779,28 @@ a.ai-btn a.btn.btn-invert,
   display: -webkit-flex;
   display: flex;
 }
-.ai-collection-group .ai-collection .collection-item .collection-heading {
+.ai-collection-group .ai-collection .collection-heading {
+  margin-top: 5px;
   background: #fff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  border-bottom: 1px solid #e0e0e0;
 }
-.ai-collection-group .ai-collection .collection-item .collection-item {
+.ai-collection-group .ai-collection .collection-item {
   opacity: 0;
-  visibility: 0;
-  max-height: 0px;
+  visibility: hidden;
+  height: 0px;
   font-size: 0px;
+}
+.ai-collection-group .ai-collection.collection-expanded .collection-heading {
+  background: transparent !important;
+  box-shadow: none;
+  border-bottom: 0;
+}
+.ai-collection-group .ai-collection.collection-expanded .collection-item {
+  opacity: 1;
+  visibility: visible;
+  height: auto;
+  font-size: inherit;
 }
 .ai-dropdown {
   overflow: visible;

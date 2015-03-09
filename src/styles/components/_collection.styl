@@ -190,17 +190,28 @@ $c-item = {
 
 .ai-collection-group
     .ai-collection
+        .collection-heading
+            margin-top: 5px
+            background: white
+            box-shadow: $c-item.default.shadow
+            border-bottom: 1px solid $grey.lighten-2
+
         .collection-item
+            opacity    : 0
+            visibility : hidden
+            height     : 0px
+            font-size  : 0px
+
+        &.collection-expanded
             .collection-heading
-                background : white
-                box-shadow : $c-item.default.shadow
+                background: transparent !important
+                box-shadow: none
+                border-bottom: 0
 
             .collection-item
-                opacity    : 0
-                visibility : 0
-                max-height : 0px
-                font-size  : 0px
-
-
+                opacity   : 1
+                visibility: visible
+                height    : auto
+                font-size : inherit
 
 

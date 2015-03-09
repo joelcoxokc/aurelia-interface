@@ -28,8 +28,18 @@ class Collection{
         return this.element.classList;
     }
 
-    static inject(){
-        return [Element, ComponentTools]
+    /////////////////
+    /// Group Binding
+
+    get group(){
+        if(this.element.parentElement.aiCollectionGroup){
+            return this.element.parentElement.aiCollectionGroup;
+        }
+        return false;
+    }
+
+    set group(group){
+        this.groupAttached(group);
     }
 
     /////////////////
@@ -50,6 +60,7 @@ class AiCollection extends Collection{
 
     configure(){
         this.style();
+        this.bindToGroup();
     }
 
     style(){
@@ -59,12 +70,21 @@ class AiCollection extends Collection{
         this.classList.add.apply(this.classList, classList);
     }
 
+    bindToGroup(){
+        this.group &&( this.group.collection = this );
+    }
+
+    groupAttached(group){
+        console.log('Group Attached', this.group.interfaceId, this.interfaceId)
+    }
     bindItem(item){
         item.expanded &&( this.activeItem = item.interfaceId );
         item.collection = this;
     }
 
+
     headingAttached(heading){
+        console.log('heading Attached', heading)
         heading.parent = this;
     }
 
@@ -81,6 +101,9 @@ class AiCollection extends Collection{
 
 
 export class AiCollectionAttachedBehavior extends AiCollection{
+    static inject(){
+        return [Element, ComponentTools]
+    }
     static metadata(){
 
         return Behavior
@@ -90,11 +113,12 @@ export class AiCollectionAttachedBehavior extends AiCollection{
                 x.withProperty('isAccordion');
                 x.withProperty('keepOpen', 'keepOpenChanged', 'keep-open');
                 x.withProperty('showActions', 'showActionsChanhed', 'show-actions');
+                x.withProperty('expanded', 'onExpand');
             })
     }
     constructor(element, tools) {
 
-        this.interfaceId  = tools.generateId('AiCollection');
+        this.interfaceId  = tools.generateId('aiCollection');
         this.element      = element;
         this._activeItem  = null
         this.isAccordion  = this.isAccordion || true;
@@ -108,6 +132,15 @@ export class AiCollectionAttachedBehavior extends AiCollection{
 
     attached(){
         this.configure();
+    }
+
+    expand(overwrite, value){
+        overwrite ? ( this.expanded = value ) : ( this.expanded = !this.expanded );
+        this.collection.activeCollection = this.interfaceId;
+    }
+
+    onExpand(value){
+        this.element.classList[ai.toggle(value)]('collection-expanded');
     }
 }
 

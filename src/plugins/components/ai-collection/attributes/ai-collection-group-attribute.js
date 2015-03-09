@@ -5,14 +5,18 @@ class AiCollectionGroup{
         return this.element.children
     }
 
-    set collection(context){
-        this.container[context.interfaceId] = context;
-        this.collectionAttached(context)
+    set collection(collection){
+        this.collections[collection.interfaceId] = collection;
+        this.collectionAttached(collection)
+    }
+    set activeCollection(interfaceId){
+        if (!interfaceId) {return};
+        if(interfaceId === this._activeCollection){ return }
+        var oldCollection = this._activeCollection
+        this._activeCollection = interfaceId;
+        this.collectionExpanded(this._activeCollection, oldCollection)
     }
 
-    constructor(){
-        this.container = {};
-    }
 
     configure(){
         this.style();
@@ -26,6 +30,9 @@ class AiCollectionGroup{
 
 export class AiCollectionGroupAttachedBehavior extends AiCollectionGroup{
 
+    static inject(){
+        return [Element];
+    }
     static metadata(){
         return iElement.options((ie)=>{
             ie.option('collapsable')
@@ -33,22 +40,12 @@ export class AiCollectionGroupAttachedBehavior extends AiCollectionGroup{
         })
     }
 
-    static inject(){
-        return [Element];
-    }
-
-
-    set activeCollection(interfaceId){
-
-        if(interfaceId === this._activeCollection){ return }
-        var oldCollection = this._activeCollection
-        this._activeCollection = interfaceId;
-        this.collectionExpanded(this._activeCollection, oldCollection)
-    }
-
     constructor(element){
+        this.interfaceId = ai.generateId('aiGroupCollection');
         this.element = element;
         this._activeCollection = null;
+        this.collections = {};
+        this.activeCollection = this.activeCollection || false;
     }
 
     attached(){
@@ -57,7 +54,7 @@ export class AiCollectionGroupAttachedBehavior extends AiCollectionGroup{
 
     collectionAttached(collection){
         console.log(collection)
-        collection.parent = this;
+        collection.group = this;
     }
     collectionExpanded(newId, oldId){
         this.container[oldId].expanded = false;

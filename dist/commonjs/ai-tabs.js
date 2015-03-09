@@ -71,7 +71,6 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
           },
           attached: {
             value: function attached() {
-              console.log("bind");
               this.activeTab = this.activeTab || this.getActiveTab;
               this.activeLink && this.setActiveTab(this.activeLink, true);
             },
@@ -81,7 +80,6 @@ System.register(["aurelia-templating", "aurelia-framework"], function (_export) 
           bind: {
             value: function bind() {
               this.element.classList.add("ai-tabs");
-              console.log("attached");
               this.bindLinks();
               this.bindPanes();
               this.setBorder();
