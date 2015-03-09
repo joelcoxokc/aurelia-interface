@@ -43,14 +43,12 @@ export class AiTabsAttachedBehavior {
   }
 
   attached () {
-    console.log('bind');
     this.activeTab = this.activeTab || this.getActiveTab
     this.activeLink &&this.setActiveTab(this.activeLink, true);
   }
 
   bind () {
     this.element.classList.add('ai-tabs');
-    console.log('attached');
     this.bindLinks();
     this.bindPanes();
     this.setBorder();

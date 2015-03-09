@@ -8779,11 +8779,11 @@ a.ai-btn a.btn.btn-invert,
   display: -webkit-flex;
   display: flex;
 }
-.ai-collection .collection-item.ai-collection .collection-heading {
+.ai-collection-group .ai-collection .collection-item .collection-heading {
   background: #fff;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
-.ai-collection .collection-item.ai-collection .collection-item {
+.ai-collection-group .ai-collection .collection-item .collection-item {
   opacity: 0;
   visibility: 0;
   max-height: 0px;

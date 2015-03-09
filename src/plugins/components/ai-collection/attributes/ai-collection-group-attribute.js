@@ -51,8 +51,6 @@ export class AiCollectionGroupAttachedBehavior extends AiCollectionGroup{
         this._activeCollection = null;
     }
 
-
-
     attached(){
         this.configure();
     }

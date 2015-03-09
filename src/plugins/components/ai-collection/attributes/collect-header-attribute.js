@@ -54,6 +54,7 @@ export class CollectHeaderAttachedBehavior extends CollectionHeader{
 
         this._handleEvent = (evt)=>{
             evt.preventDefault();
+            this.click()
         }
     }
 
@@ -68,11 +69,11 @@ export class CollectHeaderAttachedBehavior extends CollectionHeader{
     }
 
     expandOnClick(){
-        this.element.addEventListener('click', this.click.bind(this));
+        this.element.addEventListener('click', this._handleEvent.bind(this));
     }
 
     click(event){
-        this.parent._handleEvent('click', event);
+        this.parent.expand();
     }
 
     applyClasses(){

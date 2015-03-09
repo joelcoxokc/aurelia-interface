@@ -58,23 +58,6 @@ class Item extends Util{
     findElement(name, el){
         return this[`_${name}`] || this.find(`[${this.defaults.attrs[name]}]`) || this.findClass(this.defaults.class[name]);
     }
-
-    get previous(){
-        return this.previousSibling(this.defaults.name);
-    }
-
-    get next(){
-        return this.nextSibling(this.defaults.name);
-    }
-
-    get parent(){
-        return this.findParent(this.defaults.parent.name);
-    }
-
-    set parent(parent){
-        parent.childAttached(this);
-    }
-
 }
 
 
@@ -82,11 +65,6 @@ class CollectionEvents{
     onHeaderClicked(){
         this.expand();
     }
-
-    attachParent(){
-        this.parent.container[this.interfaceId] = this;
-    }
-
 }
 
 class CollectionStyles extends CollectionEvents{

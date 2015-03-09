@@ -15,8 +15,8 @@ let defaults = {
     name       : 'aiCollection',
     selector   : 'ai-collection',
     hasMany    : 'collectionItem' ,
-    belongsTo  : 'collectionItem'
-    attachTo   : 'collectionItem'
+    belongsTo  : 'collectionItem',
+    attachTo   : 'collectionItem',
     hasHeader  : true,
     hasBody    : false,
 }
@@ -37,11 +37,11 @@ let defaults2 = {
     name       : 'collectionItem',
     selector   : 'collection-item',
     hasMany    : 'items' ,
-    belongsTo  : 'item'
+    belongsTo  : 'item',
     hasHeader  : true,
     hasBody    : true,
     trigger    : 'collection',
-    attachFrom : 'collection'
+    attachFrom : 'collection',
 }
 
 
@@ -94,7 +94,7 @@ class Shared{
 
 }
 
-class Item extends shared{
+export class Item extends Shared{
 
     set body(body){
         this.validateBody(body, function(response){
@@ -106,6 +106,7 @@ class Item extends shared{
 
     constructor(){
         this.defaults  = defaults2;
+        this.mainName = 'CollectionItem';
         this.nameValue = 'collectionItem';
         this.belongsTo = 'aiCollection';
         this.hasMany   = 'aiCollection';
@@ -122,31 +123,39 @@ class Item extends shared{
 
     }
 
+    style(){
+        this.expanded    && classList.push(this.defaults.class.expanded);
+        this.showActions && classList.push(this.defaults.class.showActions);
+        this.classList.add.apply(this.classList, classList);
+    }
+
 
 }
-class Collection{
+export class Collection extends Shared{
 
 
     constructor(){
         this.defaults  = defaults;
-        this.nameValue = this.defaults;
-        this.belongsTo = this.defaults.belongsTo;
-        this.hasMany   = this.defaults.hasMany;
-        this.selector  = this.defaults.selector;
-        this.hasHeader = this.defaults.hasHeader;
-        this.hasBody   = this.defaults.hasBody;
+        this.main      = 'AiCollection';
+        this.nameValue = 'aiCollection';
+        this.belongsTo = 'collectionItem';
+        this.hasMany   = 'collectionItem';
+        this.selector  = 'ai-collection';
+        this.hasHeader = true;
+        this.hasBody   = false;
         this.keepOpen  = 'keep-open';
     }
 
     attached(){
-        this.attachTo();
+        this.interfaceId = tools.generateId('CollectionItem');
         this.style();
     }
 
+
     style(){
-        var classList = [];
-        this.selector &&( classList.push(this.selector) );
+        var classList = ['ai-collection'];
         this.keepOpen &&( classList.push(this.class.keepOpen) );
+        this.showActions  && classList.push(defaults.class.showActions)
         this.element.classList.add.apply(this.element.classList, classList);
     }
 

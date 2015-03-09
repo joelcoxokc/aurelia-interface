@@ -3,7 +3,6 @@ import {AiElement} from './ai-element'
 import {Construction} from './construction'
 import {ComponentTools} from './utils'
 import {ai, iElement} from './ai'
-
 let defaults = {
     class: {
         main: 'ai-collection',
@@ -19,13 +18,11 @@ defaults.item.expanded = `${defaults.item.main}-expanded`;
 let count = 0;
 
 
+
 class Collection{
 
     get children(){
         return this.element.children
-    }
-    get heading(){
-        return this.element.querySelector('[collect-heading]')
     }
     get classList(){
         return this.element.classList;
@@ -35,44 +32,24 @@ class Collection{
         return [Element, ComponentTools]
     }
 
-    static metadata(){
-
-        return iElement
-            .options(x =>{
-                x.option('expandable');
-                x.option('heading', 'headingAttached');
-                x.option('isAccordion');
-                x.option('keepOpen', 'keepOpenChanged', 'keep-open');
-                x.option('showActions', 'showActionsChanhed', 'show-actions');
-                x.option('items', 'itemAttached', '[collection-item]');
-            })
-            .syncChildren('items', 'itemAttached', '[collection-item]');
+    /////////////////
+    /// Item Binding
+    set item(item){
+        this.items[item.interfaceId] = item;
+        this.bindItem(item);
+        return item
     }
 
+    set activeItem(id){
+        if(id === this._activeItem) { return }
+        this.itemExpanded(this._activeItem, id)
+    }
 }
 
 class AiCollection extends Collection{
 
-    set parent(value){
-        this.parentAttached(value);
-    }
-
-    get parent(){
-        return this.findParent(defaults.parent.name);
-    }
-
     configure(){
         this.style();
-        this.bindChildren();
-        this.parent && this.parent.collection = this;
-    }
-
-    bindChildren(){
-        for(let child of this.items){
-            this.container[child.interfaceId] = child;
-            this.container[child.interfaceId].expanded &&( this._activeChild = child.interfaceId );
-            this.childBind(this.container[child.interfaceId]);
-        }
     }
 
     style(){
@@ -82,61 +59,59 @@ class AiCollection extends Collection{
         this.classList.add.apply(this.classList, classList);
     }
 
-    parentAttached(parent){
-        this.element.classList.add('ai-collection-item');
-    }
-
-    itemAttached(){}
-}
-
-
-export class AiCollectionAttachedBehavior extends AiCollection{
-
-    set activeChild(id){
-        if(id === this._activeChild) { return }
-
-        this.childExpanded(this._activeChild, id)
-    }
-
-
-    constructor(element, tools) {
-
-        this.interfaceId  = tools.generateId('AiCollection');
-        this.element      = element;
-        this._activeChild = null
-        this.accordion    = true;
-        this.container    = {};
-        this.expanded     = this.expanded || false;
-        this.isAccordion  = this.isAccordion || true
-
-    }
-
-    bind(){}
-
-    childBind(child){
-        child.parent = this;
-    }
-
-    attached(){
-        this.configure();
+    bindItem(item){
+        item.expanded &&( this.activeItem = item.interfaceId );
+        item.collection = this;
     }
 
     headingAttached(heading){
         heading.parent = this;
     }
 
-    childAttched(child){}
-
-    childExpanded(oldId, newId){
-        this._activeChild = newId;
-        this.unExpand(oldId);
+    itemExpanded(oldId, newId){
+        this._activeItem = newId;
+        this.unExpandItem(oldId);
     }
 
-    unExpand(interfaceId){
-        console.log(this.container)
-        this.container[interfaceId].expanded = false;
+    unExpandItem(interfaceId){
+        this.items[interfaceId].expanded = false;
     }
-
-
 
 }
+
+
+export class AiCollectionAttachedBehavior extends AiCollection{
+    static metadata(){
+
+        return Behavior
+            .withOptions().and(x =>{
+                x.withProperty('expandable');
+                x.withProperty('heading', 'headingAttached');
+                x.withProperty('isAccordion');
+                x.withProperty('keepOpen', 'keepOpenChanged', 'keep-open');
+                x.withProperty('showActions', 'showActionsChanhed', 'show-actions');
+            })
+    }
+    constructor(element, tools) {
+
+        this.interfaceId  = tools.generateId('AiCollection');
+        this.element      = element;
+        this._activeItem  = null
+        this.isAccordion  = this.isAccordion || true;
+        this.accordion    = true;
+        this.container    = {};
+        this.expanded     = this.expanded || false;
+        this.items        = {};
+    }
+
+    bind(){}
+
+    attached(){
+        this.configure();
+    }
+}
+
+
+
+
+

@@ -188,17 +188,18 @@ $c-item = {
                 f-container()
 
 
-.ai-collection
-    .collection-item.ai-collection
-        .collection-heading
-            background : white
-            box-shadow : $c-item.default.shadow
-
+.ai-collection-group
+    .ai-collection
         .collection-item
-            opacity    : 0
-            visibility : 0
-            max-height : 0px
-            font-size  : 0px
+            .collection-heading
+                background : white
+                box-shadow : $c-item.default.shadow
+
+            .collection-item
+                opacity    : 0
+                visibility : 0
+                max-height : 0px
+                font-size  : 0px
 
 
 
