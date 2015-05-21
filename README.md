@@ -84,7 +84,7 @@ Please Note that any changes made to the Dev environment may be overwritten at a
 ## Running The App
 
 1. Ensure that [NodeJS](http://nodejs.org/), [Gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md), [Bower](http://bower.io/) and [Jspm](https://github.com/jspm/jspm-cli/wiki/Getting-Started) are installed. These provides the development environment on which the build tooling runs.
-  > **Note:** GitHub has a rate limit on anonymous API requests. It is advised that you configure jspm with your GitHub credentials in order to avoid problems. You can do this by executing `jspm endpoint config github` and following the prompts.
+  > **Note:** GitHub has a rate limit on anonymous API requests. It is advised that you configure jspm with your GitHub credentials in order to avoid problems. You can do this by executing either `jspm registry config github` (**jspm v0.15.6+**) or `jspm endpoint config github` (**jspm pre v0.15.6**)
 
 2. Install bower components
 
