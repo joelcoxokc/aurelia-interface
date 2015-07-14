@@ -1,28 +1,9 @@
-![enter image description here](http://i.imgur.com/YfdTCGf.png)
-
 #Aurelia Interface
 
-###This project is under construction.
+This project was previously a Google Material Design Library for the [Aurelia](http://www.aurelia.io/) platform. However, we've broadened the vision and scope of the project considerably since this repo was first set up.
 
-This project was previously a Google Material Design Library for the [Aurelia](http://www.aurelia.io/) platform.
+What Is Aurelia Interface now?
 
-**Is it still going to be a UI Library?** YES!
+Aurelia interface is an optional, commercial, highly affordable addon to Aurelia. It features a collection of custom HTML elements and attributes, built with Aurelia, which a developer can use to build cross-platform applications. These include simple widgets like buttons and select boxes as well as more complex widgets like data grids. The widgets automatically render with correct platform-specific styles, themes and behaviors. Thus, if your app is running on Android it will look and feel like a native Material Design UX. If it's running on iOS, it will look and feel like a native iOS app. Of course, you'll also be able to use them to build Web and Desktop apps. Aurelia Interface lets you write your app once and deploy it to multiple platforms with correct, platform-specific behavior effortlessly.
 
-**What does it entail?** Come back soon, and you will find out. 
-
-We are working on something big here at Aurelia. 
-
-**Designers...** Get ready for a new way to program.
-
-**Developers...** Start learning Aurelia **now**. You will want to be familiar when this hits the floor. 
-
-**Businesses...** Let's just say be ready. 
-
-
-> To keep up to date on [Aurelia](http://www.aurelia.io/), please visit and subscribe to [the official blog](http://blog.durandal.io/). If you have questions, we invite you to join us on [![Join the chat at https://gitter.im/joelcoxokc/aurelia-interface](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/aurelia/discuss?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-----
-
-> Chat with @joelcoxokc and the Aurelia-interface development team  [![Join the chat at https://gitter.im/joelcoxokc/aurelia-interface](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/joelcoxokc/aurelia-interface?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-
+More details will follow in the coming months. If you are interested in keeping up to date on Aurelia Interface news, please sign up for [our mailing list](http://durandal.us10.list-manage1.com/subscribe?u=dae7661a3872ee02b519f6f29&id=3de6801ccc). There just might be some perks for joining...
